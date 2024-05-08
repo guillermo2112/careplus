@@ -1,3 +1,2 @@
 # careplus
-
-hola equippoooo
+muy wuenas criaturitas del señor
