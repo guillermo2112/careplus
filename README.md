@@ -7,8 +7,4 @@ holiiiii -->
 
 <!-- equipooo -->
 
-htgghtlth
-
-jsdgjsdf
-
-jydutrudtur
+hola equippoooo
