@@ -1,5 +1,5 @@
 {
-  "name": "careplus-front",
+  "name": "care-plus",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:careplus-front": "node dist/careplus-front/server/server.mjs"
+    "serve:ssr:care-plus": "node dist/care-plus/server/server.mjs"
   },
   "private": true,
   "dependencies": {
