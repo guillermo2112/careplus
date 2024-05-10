@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { CarouselComponent } from "../carousel/carousel.component";
-import { CardespecialidadesComponent } from "../cardespecialidades/cardespecialidades.component";
+import { CarouselComponent } from "./carousel/carousel.component";
+import { CardespecialidadesComponent } from "./cardespecialidades/cardespecialidades.component";
 
 @Component({
     selector: 'app-home',
