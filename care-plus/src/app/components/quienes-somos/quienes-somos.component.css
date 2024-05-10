@@ -27,29 +27,6 @@
     z-index: -1;
 }
 
-/* ESTILO PARA EL TITULO DE CONTACTO */
-.contacto{
-    display: flex;
-    justify-content: center;
-    padding: 100px 0  ;
-}
-.contacto h1{
-    position: relative;
-    text-align: center;
-    z-index: 1;
-    width: 350px;
-}
-.contacto  h1::before{
-    content: '';
-    position: absolute;
-    width: 325px;
-    margin-left:-50px;
-    height: 15px;
-    top:30px;
-    text-align: center;
-    background-color: #b3f3b4;
-    z-index: -1;
-}
 
 /* ESTILO PARA LOS DEMAS TITULOS */
 .subtitle{
@@ -170,63 +147,6 @@
     background-color: #b3f3b4;
     text-align: center;
     box-shadow: 3px 5px 3px rgba(0, 0, 0, 0.2);
-}
-
-/* ESTILO FORMULARIO */
-form{
-    display: flex;
-    flex-direction: column;
-}
-form label{
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-}
-form .nombre{
-    display: flex;
-    justify-content: space-between;
-}
-form .nombre input{
-   width: 350px;
-}
-form input[type="text"], input[type="email"]{
-    outline: none;
-    border: 1px solid #000;
-    border-radius: 50px;
-    padding:5px 10px;
-}
-form label:nth-child(3){
-    padding: 50px 0;
-}
-form label:nth-child(3) input{
-    padding: 50px;
-    border-radius: 25px;
-}
-form label:nth-child(4){
-    width: 150px;
-}
-form textarea{
-    outline: none;
-    border: 1px solid #000;
-    border-radius: 25px;
-    padding:5px 20px;
-    resize:none;
-}
-form input[type="submit"]{
-    background-color: #fff;
-    border: 1px solid #3c3c3c;
-    border-radius: 5px;
-    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 5px 50px;
-    transition: 0.5s;
-    font-weight: 400;
-    padding:5px 5px;
-}
-form input[type="submit"]:hover{
-    background-color: #28CEC5;
-    border: 1px solid #28CEC5;
-    color: #fff;
-    transition: 0.5s;
 }
 
 /* MODIFICACION DEL BOOTSTRAP */
