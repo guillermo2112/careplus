@@ -236,3 +236,6 @@ form input[type="submit"]:hover{
 .accordion-button:focus {
     box-shadow: none;
 }
+.accordion-button{
+    font-weight: 600;
+}

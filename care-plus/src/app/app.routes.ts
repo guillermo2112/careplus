@@ -3,6 +3,7 @@ import { NavbarComponent } from './components/navbar/navbar/navbar.component';
 import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -10,4 +11,5 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'quienes_somos', component: QuienesSomosComponent},
     {path: 'inicio_sesion', component: LoginComponent},
+    {path: 'especialidades', component: EspecialidadesComponent},
 ];
