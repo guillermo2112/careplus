@@ -1,0 +1,238 @@
+/* MARGENES PARA LA PAGINA PRINCIPAL */
+.principal{
+    padding: 100px 150px;
+}
+
+/* ESTILO PARA EL TITULO PRINCIPAL */
+.title{
+    display: flex;
+    justify-content: center;
+    padding: 100px 0  ;
+}
+.title h1{
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    width: 350px;
+}
+.title  h1::before{
+    content: '';
+    position: absolute;
+    width: 400px;
+    margin-left:-50px;
+    height: 15px;
+    top:30px;
+    text-align: center;
+    background-color: #b3f3b4;
+    z-index: -1;
+}
+
+/* ESTILO PARA EL TITULO DE CONTACTO */
+.contacto{
+    display: flex;
+    justify-content: center;
+    padding: 100px 0  ;
+}
+.contacto h1{
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    width: 350px;
+}
+.contacto  h1::before{
+    content: '';
+    position: absolute;
+    width: 325px;
+    margin-left:-50px;
+    height: 15px;
+    top:30px;
+    text-align: center;
+    background-color: #b3f3b4;
+    z-index: -1;
+}
+
+/* ESTILO PARA LOS DEMAS TITULOS */
+.subtitle{
+    display: flex;
+    justify-content: center;
+    padding: 100px 0  ;
+}
+.subtitle h1{
+    font-size: 50px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    width: 350px;
+}
+.subtitle  h1::before{
+    content: '';
+    position: absolute;
+    width: 250px;
+    margin-left:-50px;
+    height: 15px;
+    top:40px;
+    text-align: center;
+    background-color: #28CEC5;
+    z-index: -1;
+}
+
+/* ESTILO PARA EL TITULO MAS LARGO */
+.subtitle2{
+    display: flex;
+    justify-content: center;
+    padding: 100px 0  ;
+}
+.subtitle2 h1{
+    font-size: 50px;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    width: 350px;
+}
+.subtitle2  h1::before{
+    content: '';
+    position: absolute;
+    width: 260px;
+    margin-left:-50px;
+    height: 15px;
+    top:40px;
+    text-align: center;
+    background-color: #28CEC5;
+    z-index: -1;
+}
+
+/* ESTILOS PARA EL PRIMER TEXTO */
+.quienes_somos{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 20px;
+}
+.quienes_somos p{
+    width: 400px;
+    text-align: center;
+}
+
+/* BLOQUES DE CONTENIDO */
+.contenido{
+    border: 1px solid #3c3c3c;
+    border-radius: 25px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ; /* sombra en la parte inferior */
+    display: flex;
+    flex-direction:column ;
+    align-items: center;
+    justify-content: center;
+    padding:150px ;
+    margin-bottom: 100px;
+}
+.contenido p{
+    text-align: center;
+    width: 500px;
+    padding: 50px 0;
+    font-size: 20px;
+}
+.contenido ul{
+    width: 750px;
+    padding: 50px 0;
+    font-size: 20px;
+}
+.contenido ul li{
+    padding: 10px  0;
+}
+.contenido a{
+    text-decoration: none;
+    color:#000;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
+    padding: 5px 50px;
+    transition: 0.5s;
+    font-weight: 400;
+}
+.contenido a:hover{
+    background-color: #28CEC5;
+    border: 1px solid #28CEC5;
+    color: #fff;
+    transition: 0.5s;
+}
+
+/* APARTADO DE PREGUNTAS */
+.preguntas div{
+    display: flex;
+}
+.preguntas div  h1 {
+    padding: 10px 50px;
+    font-size: 30px;
+}
+.preguntas .title{
+    padding: 10px;
+    font-size: 30px;
+    background-color: #b3f3b4;
+    text-align: center;
+    box-shadow: 3px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* ESTILO FORMULARIO */
+form{
+    display: flex;
+    flex-direction: column;
+}
+form label{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+}
+form .nombre{
+    display: flex;
+    justify-content: space-between;
+}
+form .nombre input{
+   width: 350px;
+}
+form input[type="text"], input[type="email"]{
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 50px;
+    padding:5px 10px;
+}
+form label:nth-child(3){
+    padding: 50px 0;
+}
+form label:nth-child(3) input{
+    padding: 50px;
+    border-radius: 25px;
+}
+form label:nth-child(4){
+    width: 150px;
+}
+form textarea{
+    outline: none;
+    border: 1px solid #000;
+    border-radius: 25px;
+    padding:5px 20px;
+    resize:none;
+}
+form input[type="submit"]{
+    background-color: #fff;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
+    padding: 5px 50px;
+    transition: 0.5s;
+    font-weight: 400;
+    padding:5px 5px;
+}
+form input[type="submit"]:hover{
+    background-color: #28CEC5;
+    border: 1px solid #28CEC5;
+    color: #fff;
+    transition: 0.5s;
+}
+
+/* MODIFICACION DEL BOOTSTRAP */
+.accordion-button:not(.collapsed) {
+    background-color: #28CEC5;
+}
+.accordion-button:focus {
+    box-shadow: none;
+}
