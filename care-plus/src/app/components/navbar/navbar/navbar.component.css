@@ -9,6 +9,7 @@ header {
   
 .nav{
     margin-top: 1rem;
+    margin: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,6 +32,7 @@ a{
   line-height: 2.5;
   outline: transparent;
   padding: 0 1rem;
+  margin-left: 17rem;
   text-align: center;
   text-decoration: none;
   transition: box-shadow .2s ease-in-out;
