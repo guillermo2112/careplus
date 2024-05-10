@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LogoComponent } from "../../logo/logo.component";
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -9,8 +10,15 @@ import { RouterModule } from '@angular/router';
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',
     imports: [LogoComponent,
-        RouterModule]
+        RouterModule,
+        CommonModule
+    ]
 })
 export class NavbarComponent {
 
+    constructor(private router:Router){}
+
+    ir_iniciar_sesion(){
+        this.router.navigate(['/iniciar_sesion'])
+    }
 }
