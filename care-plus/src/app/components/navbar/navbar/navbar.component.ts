@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LogoComponent } from "../../logo/logo.component";
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -7,7 +8,8 @@ import { LogoComponent } from "../../logo/logo.component";
     standalone: true,
     templateUrl: './navbar.component.html',
     styleUrl: './navbar.component.css',
-    imports: [LogoComponent]
+    imports: [LogoComponent,
+        RouterModule]
 })
 export class NavbarComponent {
 
