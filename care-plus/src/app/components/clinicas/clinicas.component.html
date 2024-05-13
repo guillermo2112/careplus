@@ -7,7 +7,7 @@
         <p>+34 666 66 66 66</p>
     </div>
 
-    <div class="clinica" >
+    <div class="clinica" *ngFor="let hospital of hospitales">
         <img src="../../../assets/hospital.jpeg">
         <h3>{{ nombre }}</h3>
         <a class="provincia">Madrid</a>
