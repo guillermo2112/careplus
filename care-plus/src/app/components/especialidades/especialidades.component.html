@@ -1,10 +1,16 @@
 
-<div *ngFor="let especialidad of especialidades">
+<!-- <div *ngFor="let especialidad of especialidades">
   <img [src]="'assets/especialidades/' + especialidad.img + '.jpg'" alt="{{especialidad.img}}">
 </div>
-<div>holaaaaaaaa</div>
+<div>holaaaaaaaa</div> -->
 
 
+@for (specialty of specialty; track specialty.id) {
+  <div >
+    <img [src]="'assets/especialidades/' + specialty.id + '.jpg'" alt="{{specialty.id}}">
+  </div>
+  }
+   
 
 
 <!-- 

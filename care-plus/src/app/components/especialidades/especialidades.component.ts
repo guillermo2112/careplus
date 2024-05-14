@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { SpecialtyService } from '../../specialty.service';
+import { Specialty } from '../../specialty';
 
 @Component({
   selector: 'app-especialidades',
@@ -13,29 +15,19 @@ import { RouterModule } from '@angular/router';
 export class EspecialidadesComponent implements OnInit{
 
 
-   Especialidades = [
-    { img: "Medicina general" },
-    { img: "Pediatría" },
-    { img: "Ginecología y obstetricia" },
-    { img: "Dermatología" },
-    { img: "Cardiología" },
-    { img: "Neurología" },
-    { img: "Oftalmología" },
-    { img: "Otorrinolaringología" },
-    { img: "Ortopedia" },
-    { img: "Psiquiatría" },
-    { img: "Alergólogo" },
-    { img: "Anestesiólogo" },
-    { img: "Endocrinólogo" },
-    { img: "Nutricionista" },
-    { img: "Cirujano" },
-    { img: "Dentista" },
-    { img: "Psicólogo" }
-];
-
+  specialty:Specialty[];
+  constructor(
+    private specialtyService: SpecialtyService,
+    private router: Router,
+  ) {}
   
   ngOnInit(): void {
     throw new Error('Method not implemented.');
   }
+  private listSpecialty(){
+    this.specialtyService.listSpecialty().subscribe(dato =>{
+      this.specialty = dato;
+    });
+   }
 
 }
