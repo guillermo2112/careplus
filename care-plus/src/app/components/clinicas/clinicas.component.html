@@ -7,13 +7,26 @@
         <p>+34 666 66 66 66</p>
     </div>-->
 
-    <div class="clinica" *ngFor="let hospital of hospitales">
+    <!--<div class="clinica" *ngFor="let hospital of hospitales">
         <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
         <h3>{{ hospital.name }}</h3>
         <a class="provincia">PROVINCIA</a>
         <p>{{ hospital.address }} - {{hospital.pc}}</p>
         <p>{{ hospital.phone }}</p>
         <a class="provincia">Visitar</a>
-    </div>
+    </div>-->
+
+    @for(hospital of hospitales; track hospital.id){
+        <div class="clinica">
+            <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
+            <h3>{{ hospital.name }}</h3>
+            <a class="provincia">{{ hospital.province.name }}</a>
+            <p>{{ hospital.address }} - {{hospital.pc}}</p>
+            <p>{{ hospital.phone }}</p>
+            <a class="provincia">Visitar</a>
+        </div>
+    }
+        
+    
 
 </section>

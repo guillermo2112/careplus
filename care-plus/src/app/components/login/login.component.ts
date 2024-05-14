@@ -1,11 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import anime from 'animejs';
+import { LogoComponent } from '../logo/logo.component';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrl: './login.component.css',
+  imports: [LogoComponent,
+      RouterModule
+  ]
 })
 export class LoginComponent implements OnInit {
 
@@ -76,6 +81,6 @@ export class LoginComponent implements OnInit {
   }
 
   llamarnavbar() {
-    this.router.navigate(['/navbar']);
+    this.router.navigate(['/home']);
   }
 }

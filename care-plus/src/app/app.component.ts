@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
 import { CarouselComponent } from "./components/home/carousel/carousel.component";
 import { CardespecialidadesComponent } from './components/home/cardespecialidades/cardespecialidades.component';
 import { HomeComponent } from "./components/home/home.component";
+import { HospitalService } from './hospital.service';
 
 @Component({
     selector: 'app-root',
@@ -13,6 +14,13 @@ import { HomeComponent } from "./components/home/home.component";
     styleUrl: './app.component.css',
     imports: [RouterOutlet, NavbarComponent, FooterComponent, CarouselComponent, CardespecialidadesComponent, HomeComponent]
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  constructor (private hospital: HospitalService){}
+
+  ngOnInit(): void {
+    this.hospital.obtener_hospitales().subscribe((data) =>{
+      console.log(data);
+    })
+  }
   title = 'care-plus';
 }
