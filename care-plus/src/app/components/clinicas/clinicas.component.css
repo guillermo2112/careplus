@@ -78,21 +78,21 @@
     font-weight: 600;
 }
 .active{
-    background-color:#a1e492;
+    background-color:#b3e0a9;
     color:#33d40e;
     border-radius: 5px;
     border:1px solid #33d40e;
     padding:0 10px;
 }
 .suspended{
-    background-color:#3c3c3c;
-    color:#fdfdfd;
+    background-color:#aaa;
+    color:#666;
     border-radius: 5px;
-    border:1px solid #3c3c3c;
+    border:1px solid #aaa;
     padding:0 10px;
 }
 .inactive{
-    background-color:#e49292;
+    background-color:#ea9b9b;
     color:#d40e0e;
     border-radius: 5px;
     border:1px solid #d40e0e;

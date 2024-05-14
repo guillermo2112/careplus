@@ -1,24 +1,13 @@
-<section class="clinicas">
-    <!--<div class="clinica">
-        <img src="../../../assets/1.jpeg">
-        <h3>Hospital BASE</h3>
-        <a class="provincia">Madrid</a>
-        <p>Calle Sol 28000</p>
-        <p>+34 666 66 66 66</p>
-    </div>-->
-
-    <!--<div class="clinica" *ngFor="let hospital of hospitales">
-        <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
-        <h3>{{ hospital.name }}</h3>
-        <a class="provincia">PROVINCIA</a>
-        <p>{{ hospital.address }} - {{hospital.pc}}</p>
-        <p>{{ hospital.phone }}</p>
-        <a class="provincia">Visitar</a>
-    </div>-->
+<section>
     <button (click)="ordenar_provincia()">Ordernar Provincia</button>
-    <button (click)="ordenar_id()">Limpiar Filtros</button>
+    <button (click)="ordenar_id()">Ordenar id</button>
     <button (click)="ordenar_nombre()">Ordenar Por Nombre</button>
-    <button (click)="ordenar_disponibles()">Buscar Disponibles</button>
+    <button (click)="ordenar_disponibles()">Ordenar Disponibles</button>
+    <button (click)="buscar_disponibles()">Buscar Disponibles</button>
+    <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+</section>
+
+<section class="clinicas">
 
     @for(hospital of hospitales; track hospital.id){
             <div class="clinica">

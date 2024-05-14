@@ -18,6 +18,7 @@ export class ClinicasComponent implements OnInit{
   constructor(private hospital_service:HospitalService){}
 
   hospitales:any[] = [];
+  hospitales_clear:any[] = [];
 
   ngOnInit(): void {
     this.obtener_hospitales();
@@ -33,16 +34,25 @@ export class ClinicasComponent implements OnInit{
   }
 
   ordenar_disponibles(){
-    this.hospitales.sort((a, b) => a.onDutty - b.onDutty);
+    this.hospitales.sort((a, b) => a.onDutty.localeCompare(b.onDutty));
   }
 
   ordenar_nombre(){
-    this.hospitales.sort((a, b) => a.nombre - b.nombre);
+    this.hospitales.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  buscar_disponibles(){
+    this.hospitales = this.hospitales.filter(hospital => hospital.onDutty === 'ACTIVE');
+  }
+
+  limpiar_filtros(){
+    this.hospitales = this.hospitales_clear.slice();
   }
 
   private obtener_hospitales(){
     this.hospital_service.obtener_hospitales().subscribe(dato => {
-      this.hospitales = dato
+      this.hospitales = dato;
+      this.hospitales_clear = dato
     });
   }
 }
