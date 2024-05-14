@@ -52,7 +52,8 @@ export class ClinicasComponent implements OnInit{
   private obtener_hospitales(){
     this.hospital_service.obtener_hospitales().subscribe(dato => {
       this.hospitales = dato;
-      this.hospitales_clear = dato
+      this.hospitales_clear = dato;
+      
     });
   }
 }
