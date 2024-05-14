@@ -1,10 +1,7 @@
-#cardiologia{
-    background-image: url("../../../assets/cardiologia.jpg");
-    background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; 
+section{
+  margin: 0 15%;
+  flex-wrap: wrap;
 }
-.trans-cardiologia{
-    background-color: rgba(0, 255, 255, 0.4);
-    z-index: -20;
+section > div{
+  height: 50%;
 }
