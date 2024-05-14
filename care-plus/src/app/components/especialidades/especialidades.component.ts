@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { SpecialtyService } from '../../specialty.service';
-import { Specialty } from '../../specialty';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -27,11 +26,7 @@ export class EspecialidadesComponent implements OnInit{
   
   ngOnInit(): void {
     this.listSpecialty();
-      // new Specialty(1, 'Calle Principal'),
-      // new Specialty(2,'Avenida del Sol'),
-      // new Specialty(3,  'Boulevard de la Salud'),
-      // new Specialty(4, 'Calle de la Esperanza'),
-      // new Specialty(5,  'Alfonso Comín, 7'),
+     
   
   }
   private listSpecialty(){
