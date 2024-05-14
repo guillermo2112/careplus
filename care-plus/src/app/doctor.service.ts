@@ -14,7 +14,7 @@ export class DoctorService {
 
   
   listDoctor():Observable<Doctor[]>{
-    return this.httpClient.get<Doctor[]>(`${this.baseURL}/all`);
+    return this.httpClient.get<Doctor[]>(`${this.baseURL}`);
   }
 }
 
