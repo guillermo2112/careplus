@@ -1,0 +1,54 @@
+.clinicas{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: center;
+    flex-flow: row wrap;
+} 
+.clinica{
+    border:1px solid rgba(0, 0, 0, 0.5);
+    width:400px;
+    height:550px;
+    background-color:none;
+    border-radius:15px;
+    box-shadow:0 0 10px rgb(255,255,255,0.3);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:30px;
+    transition:0.5s;
+    overflow: hidden;
+}
+.clinica img{
+    width: 400px;
+    height: 225px;
+    margin-bottom: 50px;
+}
+.clinica h3{
+    text-align: center;
+    margin-bottom:-10px;
+}
+.clinica .provincia{
+    text-decoration: none;
+    color:#000;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
+    padding: 5px 30px;
+    transition: 0.5s;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.clinica .provincia:hover{
+    background-color: #28CEC5;
+    border: 1px solid #28CEC5;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.clinica p{
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
+}

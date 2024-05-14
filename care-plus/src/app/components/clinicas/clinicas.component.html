@@ -1,0 +1,19 @@
+<section class="clinicas">
+    <!--<div class="clinica">
+        <img src="../../../assets/1.jpeg">
+        <h3>Hospital BASE</h3>
+        <a class="provincia">Madrid</a>
+        <p>Calle Sol 28000</p>
+        <p>+34 666 66 66 66</p>
+    </div>-->
+
+    <div class="clinica" *ngFor="let hospital of hospitales">
+        <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
+        <h3>{{ hospital.name }}</h3>
+        <a class="provincia">PROVINCIA</a>
+        <p>{{ hospital.address }} - {{hospital.pc}}</p>
+        <p>{{ hospital.phone }}</p>
+        <a class="provincia">Visitar</a>
+    </div>
+
+</section>
