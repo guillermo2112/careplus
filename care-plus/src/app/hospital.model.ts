@@ -1,4 +1,4 @@
-export class Hospital{
+/*export class Hospital{
 
     id:number;
     pc:number;
@@ -14,8 +14,8 @@ export class Hospital{
         this.phone = phone;
       }
 
-}
-/*
+}*/
+
 export class Hospital {
   id: number;
   name: string;
@@ -54,4 +54,4 @@ export class Province {
     this.name = name;
     this.onDutty = onDutty;
   }
-}*/
+}
