@@ -14,13 +14,8 @@ import { HospitalService } from './hospital.service';
     styleUrl: './app.component.css',
     imports: [RouterOutlet, NavbarComponent, FooterComponent, CarouselComponent, CardespecialidadesComponent, HomeComponent]
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   constructor (private hospital: HospitalService){}
 
-  ngOnInit(): void {
-    this.hospital.obtener_hospitales().subscribe((data) =>{
-      console.log(data);
-    })
-  }
   title = 'care-plus';
 }
