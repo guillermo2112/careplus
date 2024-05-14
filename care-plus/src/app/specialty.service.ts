@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class SpecialtyService {
 
 
-  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/calendars";
+  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/specialty";
 
   constructor(private httpClient : HttpClient) { }
 

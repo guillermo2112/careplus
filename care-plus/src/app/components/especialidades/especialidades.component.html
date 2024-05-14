@@ -1,16 +1,25 @@
 
-<!-- <div *ngFor="let especialidad of especialidades">
-  <img [src]="'assets/especialidades/' + especialidad.img + '.jpg'" alt="{{especialidad.img}}">
+<div *ngFor="let specialty of specialty">
+  <div>{{ specialty.id }}</div>
 </div>
-<div>holaaaaaaaa</div> -->
+<div>holaaaaaaaa</div>
 
-
+<!-- 
 @for (specialty of specialty; track specialty.id) {
   <div >
     <img [src]="'assets/especialidades/' + specialty.id + '.jpg'" alt="{{specialty.id}}">
+    <div specialty.id> </div>
   </div>
   }
-   
+ -->
+ <!-- <div class="clinica" *ngFor="let hospital of hospitales">
+  <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
+  <h3>{{ hospital.name }}</h3>
+  <a class="provincia">PROVINCIA</a>
+  <p>{{ hospital.address }} - {{hospital.pc}}</p>
+  <p>{{ hospital.phone }}</p>
+  <a class="provincia">Visitar</a>
+</div> -->
 
 
 <!-- 

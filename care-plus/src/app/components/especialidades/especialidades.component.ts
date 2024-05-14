@@ -22,12 +22,18 @@ export class EspecialidadesComponent implements OnInit{
   ) {}
   
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.specialty.push(
+      new Specialty(1, 'Calle Principal'),
+      new Specialty(2,'Avenida del Sol'),
+      new Specialty(3,  'Boulevard de la Salud'),
+      new Specialty(4, 'Calle de la Esperanza'),
+      new Specialty(5,  'Alfonso Comín, 7'),
+    );
   }
   private listSpecialty(){
-    this.specialtyService.listSpecialty().subscribe(dato =>{
-      this.specialty = dato;
-    });
+    // this.specialtyService.listSpecialty().subscribe(dato =>{
+    //   this.specialty = dato;
+    // });
    }
 
 }
