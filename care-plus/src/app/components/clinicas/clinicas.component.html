@@ -15,6 +15,10 @@
         <p>{{ hospital.phone }}</p>
         <a class="provincia">Visitar</a>
     </div>-->
+    <button (click)="ordenar_provincia()">Ordernar Provincia</button>
+    <button (click)="ordenar_id()">Limpiar Filtros</button>
+    <button (click)="ordenar_nombre()">Ordenar Por Nombre</button>
+    <button (click)="ordenar_disponibles()">Buscar Disponibles</button>
 
     @for(hospital of hospitales; track hospital.id){
             <div class="clinica">

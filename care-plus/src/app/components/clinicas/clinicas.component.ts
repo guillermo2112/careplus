@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Hospital } from '../../hospital.model';
 import { HospitalService } from '../../hospital.service';
 import { FormsModule } from '@angular/forms';
 
@@ -21,15 +20,29 @@ export class ClinicasComponent implements OnInit{
   hospitales:any[] = [];
 
   ngOnInit(): void {
-    this.obtener_hospitales();   
-    
+    this.obtener_hospitales();
+        
+  }
+
+  ordenar_provincia(){ 
+    this.hospitales.sort((a, b) => a.province.id - b.province.id);
+  }
+
+  ordenar_id(){
+    this.hospitales.sort((a, b) => a.id - b.id);
+  }
+
+  ordenar_disponibles(){
+    this.hospitales.sort((a, b) => a.onDutty - b.onDutty);
+  }
+
+  ordenar_nombre(){
+    this.hospitales.sort((a, b) => a.nombre - b.nombre);
   }
 
   private obtener_hospitales(){
     this.hospital_service.obtener_hospitales().subscribe(dato => {
-      console.log(dato);
-      this.hospitales = dato;
+      this.hospitales = dato
     });
   }
-
 }
