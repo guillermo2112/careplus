@@ -7,7 +7,7 @@ body {
   padding: 20px;
 }
 .page {
-  background-image: url('../../images/background.jpg');
+  background-image: url('../../../assets/background.jpg');
   background-size: cover;
   background-position: center;  display: flex;
   flex-direction: column;
