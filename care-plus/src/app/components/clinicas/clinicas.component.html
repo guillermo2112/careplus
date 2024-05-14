@@ -8,7 +8,7 @@
     </div>-->
 
     <div class="clinica" *ngFor="let hospital of hospitales">
-        <img [src]="'../../../assets/'+hospital.id+'.jpeg'">
+        <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
         <h3>{{ hospital.name }}</h3>
         <a class="provincia">PROVINCIA</a>
         <p>{{ hospital.address }} - {{hospital.pc}}</p>
