@@ -8,7 +8,7 @@
 .clinica{
     border:1px solid rgba(0, 0, 0, 0.5);
     width:400px;
-    height:550px;
+    height:600px;
     background-color:none;
     border-radius:15px;
     box-shadow:0 0 10px rgb(255,255,255,0.3);
@@ -30,6 +30,27 @@
 }
 .clinica .provincia{
     text-decoration: none;
+    border:2px solid #fff;
+    color:#000;
+    padding: 5px 15px;
+    transition: 0.5s;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.clinica .provincia:hover{
+    border-bottom:2px solid #28CEC5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.clinica div{
+    width: 100%;
+    text-align: left;
+    padding:20px 0 0 20px;
+} 
+
+.clinica .visitar{
+    text-decoration: none;
     color:#000;
     border: 1px solid #3c3c3c;
     border-radius: 5px;
@@ -38,17 +59,42 @@
     transition: 0.5s;
     font-weight: 400;
     font-size: 14px;
-    margin: 20px 0;
+    margin: 10px 0;
 }
-.clinica .provincia:hover{
+.clinica .visitar:hover{
     background-color: #28CEC5;
     border: 1px solid #28CEC5;
     color: #fff;
     transition: 0.5s;
     cursor: pointer;
 }
-.clinica p{
+
+/* ESTILO DE LOS ESTADOS */
+.estado{
     width: 100%;
-    text-align: left;
-    padding-left: 20px;
+    display: flex;
+    align-items: start;
+    margin:20px 0 0 40px;
+    font-weight: 600;
+}
+.active{
+    background-color:#a1e492;
+    color:#33d40e;
+    border-radius: 5px;
+    border:1px solid #33d40e;
+    padding:0 10px;
+}
+.suspended{
+    background-color:#3c3c3c;
+    color:#fdfdfd;
+    border-radius: 5px;
+    border:1px solid #3c3c3c;
+    padding:0 10px;
+}
+.inactive{
+    background-color:#e49292;
+    color:#d40e0e;
+    border-radius: 5px;
+    border:1px solid #d40e0e;
+    padding:0 10px;
 }
