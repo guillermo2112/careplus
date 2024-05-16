@@ -1,0 +1,15 @@
+<div class="clinica">
+    <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
+    <h3>{{ hospital.name }}</h3>
+    <a class="provincia">{{ hospital.province.name }}</a>
+    <div>{{ hospital.address }} - {{hospital.pc}}</div>
+    <div>{{ hospital.phone }}</div>
+    @if(hospital.onDutty == "ACTIVE"){
+        <section class="estado"><p class="active">Disponible</p></section>
+    }@else if (hospital.onDutty == "INACTIVE") {
+        <section class="estado"><p class="inactive">No disponible</p></section>
+    }@else if (hospital.onDutty == "SUSPENDED") {
+        <section class="estado"><p class="suspended">Suspendido</p></section>
+    }
+    <a class="visitar">Visitar</a>
+</div>

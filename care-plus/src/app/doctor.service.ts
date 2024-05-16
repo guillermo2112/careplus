@@ -10,7 +10,8 @@ export class DoctorService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/doctor";
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private http : HttpClient) { }
+
 
   
   listDoctor():Observable<Doctor[]>{

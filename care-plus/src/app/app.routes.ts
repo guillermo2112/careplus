@@ -7,6 +7,7 @@ import { EspecialidadesComponent } from './components/especialidades/especialida
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { ClinicasComponent } from './components/clinicas/clinicas.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
+import { ClinicaVistaComponent } from './components/clinica-vista/clinica-vista.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -18,4 +19,5 @@ export const routes: Routes = [
     {path: 'especialidades', component: EspecialidadesComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
+    {path: 'clinica/:id', component: ClinicaVistaComponent},
 ];

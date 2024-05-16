@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HospitalService } from '../../hospital.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clinicas',
@@ -15,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ClinicasComponent implements OnInit{
 
-  constructor(private hospital_service:HospitalService){}
+  constructor(private hospital_service:HospitalService, private router:Router){}
 
   hospitales:any[] = [];
   hospitales_clear:any[] = [];
@@ -49,10 +50,15 @@ export class ClinicasComponent implements OnInit{
     this.hospitales = this.hospitales_clear.slice();
   }
 
+  detalles_hospital(id:number){
+    this.router.navigate(['clinica',id]);
+  }
+
   private obtener_hospitales(){
     this.hospital_service.obtener_hospitales().subscribe(dato => {
       this.hospitales = dato;
-      this.hospitales_clear = dato
+      this.hospitales_clear = dato;
+      
     });
   }
 }

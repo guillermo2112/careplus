@@ -14,7 +14,11 @@ export class HospitalService {
   constructor(private http:HttpClient) { }
 
   obtener_hospitales(): Observable<Hospital[]> {
-    return this.http.get<Hospital[]>(`${this.baseURL}`);
+    return this.http.get<Hospital[]>(`${this.baseURL}/all`);
+  }
+
+  obtener_hospital_id(id:number): Observable<Hospital[]> {
+    return this.http.get<Hospital[]>(`${this.baseURL}/${id}`);
   }
 
 }
