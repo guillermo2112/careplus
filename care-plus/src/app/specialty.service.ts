@@ -17,4 +17,18 @@ export class SpecialtyService {
     return this.httpClient.get<Specialty[]>(`${this.baseURL}/all`);
   }
 
+  
+  getSpecialtyById(id: number):Observable<Specialty>{
+    return this.httpClient.get<Specialty>(`${this.baseURL}/${id}`);
+  }
+
+  createSpecialty(specialty:Specialty) : Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,specialty);
+
+}
+
+  updateSpecialty(id:number, specialty:Specialty) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, specialty);
+  }
+
 }
