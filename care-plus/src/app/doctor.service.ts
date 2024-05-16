@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class DoctorService {
 
-  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/doctor";
+  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/doctor/all";
 
   constructor(private httpClient : HttpClient) { }
 

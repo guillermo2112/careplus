@@ -5,6 +5,7 @@ import { LogoComponent } from '../logo/logo.component';
 import { UserService } from '../../user.service';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../entities/user';
+import { get } from 'http';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +22,10 @@ export class LoginComponent implements OnInit {
     username: null,
     password: null
   };
+
+
   constructor(private userService: UserService,  private router: Router) { }
 
-  
 
   ngOnInit(): void {
     console.log('hdabbabroi');
@@ -36,14 +38,19 @@ export class LoginComponent implements OnInit {
     console.log(user);
     this.userService.login(user).subscribe(
       data => {
-        console.log(data);
-        sessionStorage.setItem('token', data.token);
-        this.router.navigate(['/home']);
+        sessionStorage.setItem('token', data.token);//el token
+        if (this.userService.getAuthorities() == 'ROLE_ADMIN') {//el role del usuario
+          this.router.navigate(['/doctor']);
+        } else {
+        this.router.navigate(['/doctor']);
+        }
+        
         
       });
       
     }
-  
+
+    
   
 
  
