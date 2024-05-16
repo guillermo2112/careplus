@@ -10,7 +10,7 @@ export class DoctorService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/doctor";
 
-  constructor(private http : HttpClient) { }
+  constructor(private httpClient : HttpClient) { }
 
 
   
