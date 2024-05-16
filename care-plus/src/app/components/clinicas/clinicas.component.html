@@ -23,7 +23,7 @@
                 }@else if (hospital.onDutty == "SUSPENDED") {
                     <section class="estado"><p class="suspended">Suspendido</p></section>
                 }
-                <a class="visitar">Visitar</a>
+                <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
             </div>
     }
         
