@@ -20,10 +20,15 @@ export class ClinicasComponent implements OnInit{
 
   hospitales:any[] = [];
   hospitales_clear:any[] = [];
+  nombre:string;
 
   ngOnInit(): void {
     this.obtener_hospitales();
         
+  }
+
+  onSubmit(){
+    this.buscar_nombre(this.nombre);
   }
 
   ordenar_provincia(){ 
@@ -46,8 +51,13 @@ export class ClinicasComponent implements OnInit{
     this.hospitales = this.hospitales.filter(hospital => hospital.onDutty === 'ACTIVE');
   }
 
+  buscar_nombre(nombre:string){
+    this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+  }
+
   limpiar_filtros(){
     this.hospitales = this.hospitales_clear.slice();
+    this.nombre='';
   }
 
   detalles_hospital(id:number){
