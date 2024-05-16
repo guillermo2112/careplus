@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { DoctorService } from '../../doctor.service';
 import { Router, RouterModule } from '@angular/router';
 
+
 @Component({
   selector: 'app-doctor',
   standalone: true,
@@ -19,19 +20,34 @@ export class DoctorComponent implements OnInit{
 
 
   doctor:any[] = [];
+  
   constructor(
     private doctorService: DoctorService,
     private router: Router,
   ) {}
+
+  
   
   ngOnInit(): void {
     this.listDoctor();
+
      
   
   }
+
+  getDoctorById(doctorId: number) {
+    this.doctorService.getDoctorById(doctorId).subscribe(dato => {
+      this.doctor = [dato]; 
+    });
+  }
+  
+
   private listDoctor(){
     this.doctorService.listDoctor().subscribe(dato =>{
       this.doctor = dato;
+      
     });
-   }
+  }
+
+   
 }

@@ -10,11 +10,16 @@ export class DoctorService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/doctor";
 
-  constructor(private httpClient : HttpClient) { }
+  constructor(private http : HttpClient) { }
+
 
   
   listDoctor():Observable<Doctor[]>{
-    return this.httpClient.get<Doctor[]>(`${this.baseURL}`);
+    return this.http.get<Doctor[]>(`${this.baseURL}`);
+  }
+
+  getDoctorById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseURL}/${id}`);
   }
 }
 
