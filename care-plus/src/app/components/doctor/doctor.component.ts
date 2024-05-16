@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { DoctorService } from '../../doctor.service';
 import { Router, RouterModule } from '@angular/router';
-
+import { Doctor } from '../../doctor';
 
 @Component({
   selector: 'app-doctor',
@@ -14,51 +14,39 @@ import { Router, RouterModule } from '@angular/router';
     FormsModule
   ],
   templateUrl: './doctor.component.html',
-  styleUrl: './doctor.component.css'
+  styleUrls: ['./doctor.component.css']
 })
-export class DoctorComponent implements OnInit{
+export class DoctorComponent implements OnInit {
 
+  doctor: Doctor[] = [];
+  selectedDoctor: Doctor | null = null;
 
-  doctor:any[] = [];
-  
   constructor(
     private doctorService: DoctorService,
-    private router: Router,
+    private router: Router
   ) {}
 
-  
-  
   ngOnInit(): void {
     this.listDoctor();
-
-     
-  
   }
 
   getDoctorById(doctorId: number) {
     this.doctorService.getDoctorId(doctorId).subscribe(dato => {
-      this.doctor = [dato]; 
+      this.selectedDoctor = dato;
     });
   }
-  
 
-  private listDoctor(){
-    this.doctorService.listDoctor().subscribe(dato =>{
+  trackById(index: number, doctor: Doctor): number {
+    return doctor.id;
+  }
+
+  private listDoctor() {
+    this.doctorService.listDoctor().subscribe(dato => {
       this.doctor = dato;
-      
     });
   }
 
-   
   updateDoctor(id: number) {
     this.router.navigate(['updateDoctor', id]);
   }
-
-//  
-// FALTA EL CREATE
-// 
-
-  // verDetallesDelEmpleado(username: string) {
-  //   this.router.navigate(['/usuarioDetalles', username]); 
-  // }
 }

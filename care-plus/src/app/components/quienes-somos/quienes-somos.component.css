@@ -161,3 +161,13 @@
 .accordion-button{
     font-weight: 600;
 }
+
+.fondo{
+    background-image: url("https://images.pexels.com/photos/6387845/pexels-photo-6387845.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    margin-left: calc((100% - 100vw) / 2);
+
+}
