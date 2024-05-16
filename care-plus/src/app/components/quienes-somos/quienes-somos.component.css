@@ -99,13 +99,15 @@
     flex-direction:column ;
     align-items: center;
     justify-content: center;
-    padding:150px ;
-    margin-bottom: 100px;
+    padding:50px ;
+    margin-bottom: 80px;
+   background-image: url(../../../assets/fondoQuienes.png);
+   background-size: cover; 
 }
 .contenido p{
     text-align: center;
-    width: 500px;
-    padding: 50px 0;
+    width: 900px;
+    padding: 10px 0;
     font-size: 20px;
 }
 .contenido ul{
