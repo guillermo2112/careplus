@@ -20,7 +20,7 @@ export class ClinicasComponent implements OnInit{
 
   hospitales:any[] = [];
   hospitales_clear:any[] = [];
-  nombre:string;
+  nombre:string = '';
 
   ngOnInit(): void {
     this.obtener_hospitales();
@@ -28,6 +28,9 @@ export class ClinicasComponent implements OnInit{
   }
 
   onSubmit(){
+    if(this.nombre.trim() === ''){
+      this.ordenar_id();
+    }
     this.buscar_nombre(this.nombre);
   }
 
@@ -53,6 +56,9 @@ export class ClinicasComponent implements OnInit{
 
   buscar_nombre(nombre:string){
     this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+    if (this.hospitales.length === 0) {
+      console.log('Sin resultados');
+    }
   }
 
   limpiar_filtros(){

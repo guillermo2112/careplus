@@ -6,7 +6,7 @@
     <button (click)="buscar_disponibles()">Buscar Disponibles</button>
     <button (click)="limpiar_filtros()">Limpiar Filtros</button>
     <form (ngSubmit)="onSubmit()">
-        <label for="texto">Ingrese un texto:</label>
+        <label for="texto">Buscar por nombre</label>
         <input type="text" id="texto" name="texto" [(ngModel)]="nombre">
         <button type="submit">Enviar</button>
       </form>
