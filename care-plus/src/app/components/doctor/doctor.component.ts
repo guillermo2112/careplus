@@ -35,8 +35,8 @@ export class DoctorComponent implements OnInit{
   
   }
 
-  getDoctorId(id: number) {
-    this.doctorService.getDoctorId(id).subscribe(dato => {
+  getDoctorById(doctorId: number) {
+    this.doctorService.getDoctorId(doctorId).subscribe(dato => {
       this.doctor = [dato]; 
     });
   }
