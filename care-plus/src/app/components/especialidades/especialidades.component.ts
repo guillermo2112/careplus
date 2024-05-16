@@ -35,4 +35,23 @@ export class EspecialidadesComponent implements OnInit{
     });
    }
 
+
+     
+  updateSpecialty(id: number) {
+    this.router.navigate(['updateSpecialty', id]);
+  }
+
+  getSpecialtyById(id: number) {
+    this.specialtyService.getSpecialtyById(id).subscribe(dato => {
+      this.specialty = [dato]; 
+    });
+  }
+  
+
+  
+
+
+//  
+// FALTA EL CREATE
+// 
 }

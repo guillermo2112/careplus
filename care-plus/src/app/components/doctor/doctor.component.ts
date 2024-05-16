@@ -35,8 +35,8 @@ export class DoctorComponent implements OnInit{
   
   }
 
-  getDoctorById(doctorId: number) {
-    this.doctorService.getDoctorById(doctorId).subscribe(dato => {
+  getDoctorId(id: number) {
+    this.doctorService.getDoctorId(id).subscribe(dato => {
       this.doctor = [dato]; 
     });
   }
@@ -50,4 +50,15 @@ export class DoctorComponent implements OnInit{
   }
 
    
+  updateDoctor(id: number) {
+    this.router.navigate(['updateDoctor', id]);
+  }
+
+//  
+// FALTA EL CREATE
+// 
+
+  // verDetallesDelEmpleado(username: string) {
+  //   this.router.navigate(['/usuarioDetalles', username]); 
+  // }
 }
