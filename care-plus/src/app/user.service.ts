@@ -12,7 +12,7 @@ export class UserService {
   private http = inject(HttpClient);
 
   login(user: User){
-    return this.http.post<any>(`http://localhost:8080/login`,user)
+    return this.http.post<any>(`http://care.francecentral.cloudapp.azure.com:8080/login`,user)
   
     
   }
