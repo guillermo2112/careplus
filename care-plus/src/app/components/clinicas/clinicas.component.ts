@@ -29,7 +29,7 @@ export class ClinicasComponent implements OnInit{
 
   onSubmit(){
     if(this.nombre.trim() === ''){
-      this.ordenar_id();
+      this.limpiar_filtros();
     }
     this.buscar_nombre(this.nombre);
   }
@@ -55,9 +55,13 @@ export class ClinicasComponent implements OnInit{
   }
 
   buscar_nombre(nombre:string){
-    this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+    //this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+    const nombres = this.nombre.toLowerCase().split(' ');
+    this.hospitales = this.hospitales.filter(hospital => {
+      return nombres.every(nombre => hospital.name.toLowerCase().includes(nombre))});
     if (this.hospitales.length === 0) {
-      console.log('Sin resultados');
+      alert('Sin resultados');
+      this.limpiar_filtros();
     }
   }
 
