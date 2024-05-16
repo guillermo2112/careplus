@@ -81,4 +81,32 @@ export class ClinicasComponent implements OnInit{
       
     });
   }
+
+  seleccionarAccion(accion: string) {
+    switch (accion) {
+      case 'ordenar_provincia()':
+        this.ordenar_provincia();
+        break;
+      case 'ordenar_id()':
+        this.ordenar_id();
+        break;
+      case 'ordenar_nombre()':
+        this.ordenar_nombre();
+        break;
+      case 'ordenar_disponibles()':
+        this.ordenar_disponibles();
+        break;
+      case 'buscar_disponibles()':
+        this.buscar_disponibles();
+        break;
+      case 'limpiar_filtros()':
+        this.limpiar_filtros();
+        break;
+      default:
+        // Acción por defecto
+        break;
+    }
+  }
+  value:any;
+  
 }
