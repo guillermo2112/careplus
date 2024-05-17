@@ -22,22 +22,22 @@ export class AddSpecialtyComponent {
   ) {}
 
   saveSpecialty() {
-    // if (!this.specialty.username) {
-    //   console.error("El username es obligatorio.");
-    //   return;
-    // }
+    if (!this.specialty.id) {
+      console.error("El username es obligatorio.");
+      return;
+    }
 
-    // this.specialtyServicio.createSpecialty(this.specialty).subscribe(
-    //   dato => {
-    //     // console.log(dato);
-    //     // this.goToListaSpecialtys();
-    //     window.location.href = '/specialtys';
-    //   }
-      // ,
-      // error => {
-      //   console.log(error);
-      // }
-    // );
+    this.specialtyServicio.createSpecialty(this.specialty).subscribe(
+      dato => {
+        // console.log(dato);
+        // this.goToListaSpecialtys();
+        window.location.href = '/specialtys';
+      }
+      ,
+      error => {
+        console.log(error);
+      }
+    );
   }
 
   goToListaSpecialties() {
