@@ -21,17 +21,26 @@ export class ClinicasComponent implements OnInit{
   hospitales:any[] = [];
   hospitales_clear:any[] = [];
   nombre:string = '';
+  provincia:string='';
+  seleccionados:string[]=[];
 
   ngOnInit(): void {
     this.obtener_hospitales();
         
   }
 
-  onSubmit(){
+  burcador_nombre(){
     if(this.nombre.trim() === ''){
       this.limpiar_filtros();
     }
     this.buscar_nombre(this.nombre);
+  }
+
+  buscador_provincia(){
+    if(this.nombre.trim() === ''){
+      this.limpiar_filtros();
+    }
+    this.buscar_provincia(this.nombre);
   }
 
   ordenar_provincia(){ 
@@ -59,6 +68,17 @@ export class ClinicasComponent implements OnInit{
     const nombres = this.nombre.toLowerCase().split(' ');
     this.hospitales = this.hospitales.filter(hospital => {
       return nombres.every(nombre => hospital.name.toLowerCase().includes(nombre))});
+    if (this.hospitales.length === 0) {
+      alert('Sin resultados');
+      this.limpiar_filtros();
+    }
+  }
+
+  buscar_provincia(provincia:string){
+    //this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+    const provincias = this.provincia.toLowerCase().split(' ');
+    this.hospitales = this.hospitales.filter(hospital => {
+      return provincias.every(provincia => hospital.province.name.toLowerCase().includes(provincia))});
     if (this.hospitales.length === 0) {
       alert('Sin resultados');
       this.limpiar_filtros();
@@ -103,7 +123,7 @@ export class ClinicasComponent implements OnInit{
         this.limpiar_filtros();
         break;
       default:
-        // Acción por defecto
+        console.log("hol.a");
         break;
     }
   }

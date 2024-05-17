@@ -5,10 +5,26 @@
     <button (click)="ordenar_disponibles()">Ordenar Disponibles</button>
     <button (click)="buscar_disponibles()">Buscar Disponibles</button>
     <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+    <!--<select [(ngModel)]="seleccionados">
+        <option [value]="">Selecciona una acción</option>
+        <option [value]="ordenar_provincia()">Ordenar Provincia</option>
+        <option [value]="ordenar_id">Ordenar id</option>
+        <option [value]="ordenar_nombre">Ordenar Por Nombre</option>
+        <option [value]="ordenar_disponibles">Ordenar Disponibles</option>
+        <option [value]="buscar_disponibles()">Buscar Disponibles</option>
+        <option [value]="limpiar_filtros">Limpiar Filtros</option>
+      </select>
+      {{seleccionados}}-->
       
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="burcador_nombre()">
         <label for="texto">Buscar por nombre</label>
         <input type="text" id="texto" name="texto" [(ngModel)]="nombre">
+        <button type="submit">Enviar</button>
+      </form>
+
+      <form (ngSubmit)="buscador_provincia()">
+        <label for="provincia">Buscar por provincia</label>
+        <input type="text" id="texto" name="provincia" [(ngModel)]="provincia">
         <button type="submit">Enviar</button>
       </form>
       

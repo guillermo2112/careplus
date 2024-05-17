@@ -1,4 +1,4 @@
-section{
+.hospital{
     display:flex;
     padding: 20px 100px;
     justify-content: center;
@@ -40,6 +40,9 @@ img{
     text-align: left;
     padding:20px 0 0 20px;
 }
+.volver{
+    padding: 30px;
+}
 a{
     text-decoration: none;
     color:#000;
@@ -50,7 +53,6 @@ a{
     transition: 0.5s;
     font-weight: 400;
     font-size: 14px;
-    margin:0 50px;
 }
 a:hover{
     background-color: #28CEC5;
