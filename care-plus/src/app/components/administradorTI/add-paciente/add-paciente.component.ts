@@ -4,22 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-add-usuarios',
+  selector: 'app-add-paciente',
   standalone: true,
   imports: [
     FormsModule,
     CommonModule
   ],
-  templateUrl: './add-usuarios.component.html',
-  styleUrl: './add-usuarios.component.css'
+  templateUrl: './add-paciente.component.html',
+  styleUrl: './add-paciente.component.css'
 })
-export class AddUsuariosComponent {
+export class AddPacienteComponent {
 
   paciente : Paciente =  new Paciente();
 
   onSubmit(){
     console.log(this.paciente);
   }
-  
 
 }
