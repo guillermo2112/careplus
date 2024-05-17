@@ -1,7 +1,7 @@
-<section>
-    
+<section class="filtros">
+    <p>Ordenar por</p>
     <select name="filtros" (change)="seleccionarAccion($event)">
-        <option value="">Selecciona una acción</option>
+        <option value="">Selecionar una opción</option>
         <option value="ordenar_provincia">Ordenar Provincia</option>
         <option value="ordenar_nombre">Ordenar Por Nombre</option>
         <!--<option value="ordenar_disponibles">Ordenar Disponibles</option>
@@ -9,7 +9,9 @@
         <option value="buscar_disponibles">Buscar Disponibles</option>
       </select>
 
+      <p>Buscar por provincia</p>
       <select name="provincias" id="provincias" (change)="provincias($event)">
+        <option value=""></option>
         <option value="alava">Álava</option>
         <option value="albacete">Albacete</option>
         <option value="alicante">Alicante</option>
