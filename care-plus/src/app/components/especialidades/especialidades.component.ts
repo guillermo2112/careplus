@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { SpecialtyService } from '../../specialty.service';
+import { SpecialtyService } from '../../services/specialty.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
