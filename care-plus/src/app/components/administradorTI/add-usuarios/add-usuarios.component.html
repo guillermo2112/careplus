@@ -1,1 +1,21 @@
-<p>add-usuarios works!</p>
+<form (ngSubmit)="onSubmit()">
+
+    <input type="hidden" name="id" id="id" [(ngModel)]="paciente.id" value="0">
+
+    <label for="username">Nombre de Usuario:</label>
+    <input type="text" name="username" id="username" [(ngModel)]="paciente.usuario.username">
+
+    <label for="password">Contraseña:</label>
+    <input type="password" name="password" id="password"  [(ngModel)]="paciente.usuario.password">
+
+    <input type="hidden" name="role" id="role" [(ngModel)]="paciente.usuario.role" value="PATIENT">
+
+    <label for="name">Nombre:</label>
+    <input type="text" name="name" id="name" [(ngModel)]="paciente.name">
+
+    <label for="dni">DNI:</label>
+    <input type="text" name="dni" id="dni" [(ngModel)]="paciente.dni">
+
+    <!-- Botón para enviar el formulario -->
+    <button type="submit">Enviar</button>
+</form>

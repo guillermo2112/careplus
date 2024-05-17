@@ -9,6 +9,7 @@ import { ClinicasComponent } from './components/clinicas/clinicas.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { ClinicaVistaComponent } from './components/clinica-vista/clinica-vista.component';
 import { DoctorVistaComponent } from './components/doctor-vista/doctor-vista.component';
+import { AddUsuariosComponent } from './components/administradorTI/add-usuarios/add-usuarios.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -22,4 +23,5 @@ export const routes: Routes = [
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
     {path: 'clinica/:id', component: ClinicaVistaComponent},
+    {path: 'add_user', component: AddUsuariosComponent},
 ];
