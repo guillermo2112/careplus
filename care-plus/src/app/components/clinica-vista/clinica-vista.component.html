@@ -1,8 +1,8 @@
-<section class="volver">
-    <a (click)="volver_clinicas()">Volver</a>
-</section>
+<div class="volver">
+    <button class="volver-btn" (click)="volver_clinicas()">Volver</button>
+</div>
 
-<section class="hospital">
+<section>
     <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
     <div class="datos">
         <h3>{{ hospital.name }}</h3>
