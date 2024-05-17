@@ -38,7 +38,7 @@ export class EspecialidadesComponent implements OnInit{
 
      
   updateSpecialty(id: number) {
-    this.router.navigate(['updateSpecialty', id]);
+    this.router.navigate(['update-specialty', id]);
   }
 
   getSpecialtyById(id: number) {
