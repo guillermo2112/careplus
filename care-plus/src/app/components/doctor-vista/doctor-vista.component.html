@@ -1,3 +1,6 @@
+<div class="volver">
+  <button class="volver-btn" (click)="volver_doctores()">Volver</button>
+</div>
 
 <section>
   <div class="col">
@@ -11,9 +14,6 @@
         <p class="card-text">Fecha de nacimiento: {{ doctor?.birthdate }}</p>
         <p class="card-text">Número de licencia: {{ doctor?.licenseNum }}</p>
         <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-          </div>
           <small class="text-muted">9 mins</small>
         </div>
       </div>
