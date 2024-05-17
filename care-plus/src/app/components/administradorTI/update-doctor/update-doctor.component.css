@@ -1,0 +1,12 @@
+button{
+    background-color: #28CEC5;
+}
+button:hover {
+    background-color: #144386;
+    color: white; 
+}
+body{
+    background-image: url("../../../../assets/fondoformu.png");
+    background-position: cover;
+    background-repeat: no-repeat; 
+}
