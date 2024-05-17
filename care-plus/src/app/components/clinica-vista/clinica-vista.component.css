@@ -39,8 +39,8 @@ img{
     width: 100%;
     text-align: left;
     padding:20px 0 0 20px;
-} 
-
+}
+ 
 /* ESTILO DE LOS ESTADOS */
 .estado{
     margin-top: 50px ;
@@ -68,4 +68,26 @@ img{
     border-radius: 5px;
     border:1px solid #d40e0e;
     padding:0 10px;
+}
+
+.volver{
+    padding: 30px;
+}
+.volver-btn{
+    text-decoration: none;
+    color:#000;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
+    padding: 5px 30px;
+    transition: 0.5s;
+    font-weight: 400;
+    font-size: 14px;
+}
+.volver-btn:hover{
+    background-color: #28CEC5;
+    border: 1px solid #28CEC5;
+    color: #fff !important;
+    transition: 0.5s;
+    cursor: pointer;
 }

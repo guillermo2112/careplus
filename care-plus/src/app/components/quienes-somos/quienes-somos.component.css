@@ -23,7 +23,7 @@
     height: 15px;
     top:30px;
     text-align: center;
-    background-color: #b3f3b4;
+    background-color: #28CEC5;
     z-index: -1;
 }
 
@@ -163,11 +163,11 @@
 }
 
 .fondo{
-    background-image: url("https://images.pexels.com/photos/6387845/pexels-photo-6387845.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-image: url("../../../assets/Fondopildoras.jpg");
     background-size: cover;
     background-position: center;
     width: 100vw;
     height: 100vh;
     margin-left: calc((100% - 100vw) / 2);
-
+    background-color: rgba(255, 255, 255, 0.5);
 }

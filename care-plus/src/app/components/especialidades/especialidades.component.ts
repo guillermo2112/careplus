@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { SpecialtyService } from '../../specialty.service';
+import { SpecialtyService } from '../../services/specialty.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -47,6 +47,11 @@ export class EspecialidadesComponent implements OnInit{
     });
   }
   
+  // createSpecialty(id: number) {
+  //   this.specialtyService.createSpecialty(id).subscribe(dato => {
+  //     this.specialty = [dato]; 
+  //   });
+  // }
 
   
 

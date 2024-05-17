@@ -1,16 +1,21 @@
-<section>
-  <div *ngFor="let doctor of doctor; trackBy: trackById" class="col">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <p class="card-text">{{ doctor.name }}</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="detalles_doctor(doctor.id)">View</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+
+@if (!selectedDoctor) {
+<section class="doctores">
+
+  @for(doctor of doctor; track doctor.id){
+          <div class="doctor">
+              <img [src]="'../../../assets/doctores/doctor-prueba.jpg'">
+              <h3>{{ doctor.name }}</h3>
+              <p class="especialistas">{{ doctor.name }}</p>
+              <p>{{ doctor.licenseNum }}</p>
+  
+              
+              <a class="visitar" (click)="getDoctorById(doctor.id)">Ver Doctor</a>
           </div>
-          <small class="text-muted">9 mins</small>
-        </div>
-      </div>
-    </div>
-  </div>
+  }
+      
+  
+
 </section>
+}
+

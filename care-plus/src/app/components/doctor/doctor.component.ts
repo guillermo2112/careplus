@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DoctorService } from '../../doctor.service';
+import { DoctorService } from '../../services/doctor.service';
 import { Router, RouterModule } from '@angular/router';
-import { Doctor } from '../../doctor';
+import { Doctor } from '../../entities/doctor';
 
 @Component({
   selector: 'app-doctor',
@@ -46,4 +46,11 @@ export class DoctorComponent implements OnInit {
   updateDoctor(id: number) {
     this.router.navigate(['updateDoctor', id]);
   }
+
+  // createDoctor(id: number) {
+  //   this.doctorService.createDoctor(id).subscribe(dato => {
+  //     this.doctor = [dato]; 
+  //   });
+  // }
+
 }

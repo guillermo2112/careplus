@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Specialty } from './specialty';
+import { Specialty } from '../specialty';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 

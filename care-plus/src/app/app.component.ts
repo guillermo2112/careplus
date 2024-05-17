@@ -5,7 +5,7 @@ import { FooterComponent } from "./components/footer/footer.component";
 import { CarouselComponent } from "./components/home/carousel/carousel.component";
 import { CardespecialidadesComponent } from './components/home/cardespecialidades/cardespecialidades.component';
 import { HomeComponent } from "./components/home/home.component";
-import { HospitalService } from './hospital.service';
+import { HospitalService } from './services/hospital.service';
 
 @Component({
     selector: 'app-root',
