@@ -1,6 +1,23 @@
 
 <div class="container-bots">
-  <!-- <button type="button" class="btn btn-primary" (click)= "createSpecialty(specialty.id)" >Crear Especialidad</button> -->
+  <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Especialidad</button>
+  <select name="filtros" (change)="seleccionarAccion($event)">
+    <option value="">Selecionar una opción</option>
+    <option value="ordenar_nombre">Ordenar Por Nombre</option>
+    <!-- <option value="ordenar_disponibles">Ordenar Disponibles</option> -->
+    <option value="ordenar_id">Ordenar id</option>
+    <option value="buscar_disponibles">Buscar Disponibles</option>
+  </select>
+
+  <form (ngSubmit)="burcador_nombre()">
+    <label for="texto">Buscar por nombre</label>
+    <input type="text" id="texto" name="texto" [(ngModel)]="name">
+    <button type="submit">Enviar</button>
+</form>
+
+<button (click)="limpiar_filtros()">Limpiar Filtros</button>
+
+
 </div>
 <div class="album py-5 bg-light">
   <div class="container">
