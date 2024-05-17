@@ -8,6 +8,7 @@ import { ContactoComponent } from './components/contacto/contacto.component';
 import { ClinicasComponent } from './components/clinicas/clinicas.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { ClinicaVistaComponent } from './components/clinica-vista/clinica-vista.component';
+import { DoctorVistaComponent } from './components/doctor-vista/doctor-vista.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -15,6 +16,7 @@ export const routes: Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'quienes_somos', component: QuienesSomosComponent},
     {path: 'doctor', component: DoctorComponent},
+    {path: 'doctor-vista/:id', component: DoctorVistaComponent},
     {path: 'inicio_sesion', component: LoginComponent},
     {path: 'especialidades', component: EspecialidadesComponent},
     {path: 'contacto', component: ContactoComponent},

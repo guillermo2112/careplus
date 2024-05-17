@@ -1,34 +1,11 @@
-<section *ngIf="!selectedDoctor">
+<section>
   <div *ngFor="let doctor of doctor; trackBy: trackById" class="col">
     <div class="card shadow-sm">
       <div class="card-body">
         <p class="card-text">{{ doctor.name }}</p>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="getDoctorById(doctor.id)">View</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-          </div>
-          <small class="text-muted">9 mins</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section *ngIf="selectedDoctor">
-  <div class="col">
-    <div class="card shadow-sm">
-      <div class="card-body">
-        <h5 class="card-title">Detalles del Doctor</h5>
-        <p class="card-text">Nombre: {{ selectedDoctor.name }}</p>
-        <p class="card-text">DNI: {{ selectedDoctor.dni }}</p>
-        <p class="card-text">Teléfono: {{ selectedDoctor.phone }}</p>
-        <p class="card-text">Dirección: {{ selectedDoctor.address }}</p>
-        <p class="card-text">Fecha de nacimiento: {{ selectedDoctor.birthdate }}</p>
-        <p class="card-text">Número de licencia: {{ selectedDoctor.licenseNum }}</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <div class="btn-group">
-            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="selectedDoctor = null">Back</button>
+            <button type="button" class="btn btn-sm btn-outline-secondary" (click)="detalles_doctor(doctor.id)">View</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
           </div>
           <small class="text-muted">9 mins</small>
