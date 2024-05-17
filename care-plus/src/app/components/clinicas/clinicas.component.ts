@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { HospitalService } from '../../hospital.service';
+import { HospitalService } from '../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
