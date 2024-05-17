@@ -5,6 +5,7 @@
     <button (click)="ordenar_disponibles()">Ordenar Disponibles</button>
     <button (click)="buscar_disponibles()">Buscar Disponibles</button>
     <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+      
     <form (ngSubmit)="onSubmit()">
         <label for="texto">Buscar por nombre</label>
         <input type="text" id="texto" name="texto" [(ngModel)]="nombre">

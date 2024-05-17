@@ -29,7 +29,7 @@ export class ClinicasComponent implements OnInit{
 
   onSubmit(){
     if(this.nombre.trim() === ''){
-      this.ordenar_id();
+      this.limpiar_filtros();
     }
     this.buscar_nombre(this.nombre);
   }
@@ -55,9 +55,13 @@ export class ClinicasComponent implements OnInit{
   }
 
   buscar_nombre(nombre:string){
-    this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+    //this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+    const nombres = this.nombre.toLowerCase().split(' ');
+    this.hospitales = this.hospitales.filter(hospital => {
+      return nombres.every(nombre => hospital.name.toLowerCase().includes(nombre))});
     if (this.hospitales.length === 0) {
-      console.log('Sin resultados');
+      alert('Sin resultados');
+      this.limpiar_filtros();
     }
   }
 
@@ -77,4 +81,32 @@ export class ClinicasComponent implements OnInit{
       
     });
   }
+
+  seleccionarAccion(accion: string) {
+    switch (accion) {
+      case 'ordenar_provincia()':
+        this.ordenar_provincia();
+        break;
+      case 'ordenar_id()':
+        this.ordenar_id();
+        break;
+      case 'ordenar_nombre()':
+        this.ordenar_nombre();
+        break;
+      case 'ordenar_disponibles()':
+        this.ordenar_disponibles();
+        break;
+      case 'buscar_disponibles()':
+        this.buscar_disponibles();
+        break;
+      case 'limpiar_filtros()':
+        this.limpiar_filtros();
+        break;
+      default:
+        // Acción por defecto
+        break;
+    }
+  }
+  value:any;
+  
 }
