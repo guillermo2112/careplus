@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Usuario } from '../entities/paciente';
+import { Paciente } from '../entities/paciente';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,7 @@ export class AddPacienteService {
 
   constructor(private httpClient : HttpClient) { }
 
-  crear_usuario(user:Usuario): Observable<Object>{
+  crear_paciente(user:Paciente): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}`,user);
   }
 
