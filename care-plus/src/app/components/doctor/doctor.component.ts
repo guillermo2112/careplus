@@ -44,7 +44,7 @@ export class DoctorComponent implements OnInit {
   }
 
   updateDoctor(id: number) {
-    this.router.navigate(['updateDoctor', id]);
+    this.router.navigate(['update-doctor', id]);
   }
 
   // createDoctor(id: number) {
