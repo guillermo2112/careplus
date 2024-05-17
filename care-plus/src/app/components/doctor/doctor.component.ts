@@ -19,7 +19,6 @@ import { Doctor } from '../../entities/doctor';
 export class DoctorComponent implements OnInit {
 
   doctor: Doctor[] = [];
-  selectedDoctor: Doctor | null = null;
 
   constructor(
     private doctorService: DoctorService,
@@ -30,14 +29,12 @@ export class DoctorComponent implements OnInit {
     this.listDoctor();
   }
 
-  getDoctorById(doctorId: number) {
-    this.doctorService.getDoctorId(doctorId).subscribe(dato => {
-      this.selectedDoctor = dato;
-    });
-  }
-
   trackById(index: number, doctor: Doctor): number {
     return doctor.id;
+  }
+
+  detalles_doctor(id:number){
+    this.router.navigate(['doctor-vista',id]);
   }
 
   private listDoctor() {
