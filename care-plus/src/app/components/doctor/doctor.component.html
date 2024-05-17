@@ -1,5 +1,5 @@
 
-@if (!selectedDoctor) {
+<!-- @if (!selectedDoctor) { -->
 <section class="doctores">
 
   @for(doctor of doctor; track doctor.id){
@@ -10,12 +10,12 @@
               <p>{{ doctor.licenseNum }}</p>
   
               
-              <a class="visitar" (click)="getDoctorById(doctor.id)">Ver Doctor</a>
+              <a class="visitar" (click)="detalles_doctor(doctor.id)">Ver Doctor</a>
           </div>
   }
       
   
 
 </section>
-}
+<!-- } -->
 

@@ -7,6 +7,7 @@ export class Doctor {
     dni: String;
     licenseNum: number;
     name: String;
+    phone: String;
     ;
 
     constructor(id: number,specialtyId: number,userId: number, address: String,birthdate: String,dni: String,licenseNum: number,name: String,phone: String){
@@ -18,6 +19,7 @@ export class Doctor {
         this.dni=dni;
         this.licenseNum=licenseNum;
         this.name=name;
+        this.phone=phone;
         
     }
     
