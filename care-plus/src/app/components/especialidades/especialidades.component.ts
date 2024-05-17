@@ -1,62 +1,120 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { SpecialtyService } from '../../services/specialty.service';
+import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Specialty } from '../../entities/specialty';
 
 @Component({
   selector: 'app-especialidades',
+  templateUrl: './especialidades.component.html',
+  styleUrls: ['./especialidades.component.css'],
   standalone: true,
   imports: [
-    RouterModule,
     CommonModule,
     FormsModule
-  ],
-  templateUrl: './especialidades.component.html',
-  styleUrl: './especialidades.component.css'
+  ]
 })
-export class EspecialidadesComponent implements OnInit{
+export class EspecialidadesComponent implements OnInit {
 
+  specialty: Specialty[] = [];
+  specialty_clear: any[] = [];
+  name: string = '';
+  seleccionados: string[] = [];
 
-  specialty:any[] = [];
   constructor(
     private specialtyService: SpecialtyService,
     private router: Router,
   ) {}
-  
+
   ngOnInit(): void {
     this.listSpecialty();
-     
-  
   }
-  private listSpecialty(){
-    this.specialtyService.listSpecialty().subscribe(dato =>{
-      this.specialty = dato;
+
+  private listSpecialty(): void {
+    this.specialtyService.listSpecialty().subscribe(data => {
+      this.specialty = data;
+      this.specialty_clear = [...this.specialty]; // Make a copy for filtering
     });
-   }
+  }
 
-
-     
-  updateSpecialty(id: number) {
+  updateSpecialty(id: number): void {
     this.router.navigate(['update-specialty', id]);
   }
 
-  getSpecialtyById(id: number) {
-    this.specialtyService.getSpecialtyById(id).subscribe(dato => {
-      this.specialty = [dato]; 
+ 
+
+  getSpecialtyById(id: number): void {
+    this.specialtyService.getSpecialtyById(id).subscribe(data => {
+      this.specialty = [data];
     });
   }
-  
-  // createSpecialty(id: number) {
-  //   this.specialtyService.createSpecialty(id).subscribe(dato => {
-  //     this.specialty = [dato]; 
-  //   });
-  // }
+
+
+  goToCreate() {
+    //this.router.navigate(['/specialtys']);
+    window.location.href = '/add-especialty';
+  }
+
+
+
 
   
 
 
-//  
-// FALTA EL CREATE
-// 
+
+
+
+
+  seleccionarAccion(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const accion = selectElement.options[selectElement.selectedIndex].value;
+    this.limpiar_filtros();
+    switch (accion) {
+      case 'ordenar_id':
+        this.ordenar_id();
+        break;
+      case 'ordenar_nombre':
+        this.ordenar_nombre();
+        break;
+      default:
+        break;
+    }
+  }
+
+  burcador_nombre(): void {
+    if (this.name.trim() === '') {
+      this.limpiar_filtros();
+    }
+    this.buscar_nombre(this.name);
+  }
+
+  ordenar_id(): void {
+    this.specialty.sort((a, b) => a.id - b.id);
+  }
+
+  ordenar_nombre(): void {
+    // this.specialty.sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  buscar_nombre(name: string): void {
+    const nombres = this.name.toLowerCase().split(' ');
+    this.specialty = this.specialty_clear.filter(s => {
+      return nombres.every(name => s.name.toLowerCase().includes(name));
+    });
+    if (this.specialty.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado clinicas con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  limpiar_filtros(): void {
+    this.specialty = [...this.specialty_clear];
+    this.name = '';
+  }
 }

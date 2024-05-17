@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SpecialtyService } from '../../../services/specialty.service';
 import { FormsModule } from '@angular/forms';
-import { Specialty } from '../../../specialty';
+import { Specialty } from '../../../entities/specialty';
 
 @Component({
   selector: 'app-update-specialty',
