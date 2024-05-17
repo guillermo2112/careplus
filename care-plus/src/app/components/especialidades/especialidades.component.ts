@@ -54,7 +54,7 @@ export class EspecialidadesComponent implements OnInit {
 
   goToCreate() {
     //this.router.navigate(['/specialtys']);
-    window.location.href = '/add-especialty';
+    window.location.href = '/add-specialty';
   }
 
 

@@ -3,13 +3,16 @@ import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { SpecialtyService } from '../../../services/specialty.service';
 import { Specialty } from '../../../entities/specialty';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-specialty',
   templateUrl: './add-specialty.component.html',
-  styleUrls: ['./add-specialty.component.css']
+  styleUrls: ['./add-specialty.component.css'],
+  standalone : true,
+  imports: [FormsModule]
 })
-export class RegistrarSpecialtyComponent {
+export class AddSpecialtyComponent {
 
   specialty: Specialty = new Specialty();
 
@@ -24,17 +27,17 @@ export class RegistrarSpecialtyComponent {
     //   return;
     // }
 
-    this.specialtyServicio.createSpecialty(this.specialty).subscribe(
-      dato => {
-        // console.log(dato);
-        // this.goToListaSpecialtys();
-        window.location.href = '/specialtys';
-      }
+    // this.specialtyServicio.createSpecialty(this.specialty).subscribe(
+    //   dato => {
+    //     // console.log(dato);
+    //     // this.goToListaSpecialtys();
+    //     window.location.href = '/specialtys';
+    //   }
       // ,
       // error => {
       //   console.log(error);
       // }
-    );
+    // );
   }
 
   goToListaSpecialties() {

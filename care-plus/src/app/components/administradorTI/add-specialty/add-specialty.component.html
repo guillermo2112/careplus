@@ -1,17 +1,18 @@
-<h3>Detalles del Usuario</h3>
-<div>
-    <div>
-        <label for="id"><b>ID: </b>{{specialty.id}}</label>
-    </div>
-    <div>
-        <!-- <label for="id"><b>Nombre: </b>{{specialty.nombre}}</label>
-    </div>
-    <div>
-        <label for="id"><b>Apellido: </b>{{specialty.apellido}}</label>
-    </div>
-    <div>
-        <label for="id"><b>Email:</b>{{specialty.email}}</label> -->
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">
+            Crear Especialidad
+        </h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="text" class="form-control" id="id" [(ngModel)]="specialty.id" name="id">
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" id="nombre" [(ngModel)]="specialty.name" name="nombre">
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
     </div>
 </div>
-<br>
-<!-- <button class="btn btn-success" (click)="goToHome()">BACK</button> -->

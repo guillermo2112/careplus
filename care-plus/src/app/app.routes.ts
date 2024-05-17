@@ -12,6 +12,7 @@ import { DoctorVistaComponent } from './components/doctor-vista/doctor-vista.com
 import { UpdateSpecialtyComponent } from './components/administradorTI/update-specialty/update-specialty.component';
 import { UpdateDoctorComponent } from './components/administradorTI/update-doctor/update-doctor.component';
 import { AddPacienteComponent } from './components/administradorTI/add-paciente/add-paciente.component';
+import { AddSpecialtyComponent } from './components/administradorTI/add-specialty/add-specialty.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -24,6 +25,7 @@ export const routes: Routes = [
     {path: 'inicio_sesion', component: LoginComponent},
     {path: 'especialidades', component: EspecialidadesComponent},
     {path: 'update-specialty/:id', component: UpdateSpecialtyComponent},
+    {path: 'add-specialty', component: AddSpecialtyComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
     {path: 'clinica/:id', component: ClinicaVistaComponent},
