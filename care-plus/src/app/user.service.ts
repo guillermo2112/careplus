@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { User } from './entities/user';
 import { tap } from 'rxjs';
-import { jwtDecode } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';//npm install jwt-decode
 
 @Injectable({
   providedIn: 'root'
