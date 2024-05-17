@@ -31,4 +31,9 @@ export class DoctorVistaComponent implements OnInit {
       this.doctor = dato;
     });
   }
+
+  volver_doctores(){
+    this.router.navigate(['doctor']);
+  }
 }
+
