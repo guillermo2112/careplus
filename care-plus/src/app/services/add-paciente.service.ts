@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AddUserService {
+export class AddPacienteService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/patient";
 
