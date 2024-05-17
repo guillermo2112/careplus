@@ -1,104 +1,195 @@
-
-/* MARGENES PARA LA PAGINA PRINCIPAL */
-.principal{
-    padding: 100px 150px;
-}
-
-/* ESTILO FORMULARIO */
-form{
-    display: flex;
-    flex-direction: column;
-    
-}
-form label{
-    display: flex;
-    flex-direction: column;
-    padding: 10px 0;
-}
-form .nombre{
-    display: flex;
-    justify-content: space-between;
-}
-form .nombre input{
-   width: 350px;
-}
-form input[type="text"], input[type="email"]{
-    outline: none;
-    border: 1px solid #000;
-    border-radius: 50px;
-    padding:5px 10px;
-}
-form label:nth-child(3){
-    padding: 50px 0;
-}
-form label:nth-child(3) input{
-    padding: 50px;
-    border-radius: 25px;
-}
-form label:nth-child(4){
-    width: 150px;
-}
-form textarea{
-    outline: none;
-    border: 1px solid #000;
-    border-radius: 25px;
-    padding:5px 20px;
-    resize:none;
-}
-form input[type="submit"]{
-    background-color: #fff;
-    border: 1px solid #3c3c3c;
-    border-radius: 5px;
-    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
-    padding: 5px 50px;
-    transition: 0.5s;
-    font-weight: 400;
-    padding:5px 5px;
-}
-form input[type="submit"]:hover{
-    background-color: #28CEC5;
-    border: 1px solid #28CEC5;
-    color: #fff;
-    transition: 0.5s;
-}
-
-/* ESTILO PARA EL TITULO DE CONTACTO */
-.contacto{
+:root {
+    --primary-color: #010712;
+    --secondary-color: #818386;
+    --bg-color: #FCFDFD;
+    --button-color: #3B3636;
+    --h1-color: #3F444C;
+  }
+  
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  body {
+    font-family: 'Jost', sans-serif;
     display: flex;
     justify-content: center;
-    padding: 100px 0  ;
-}
-.contacto h1{
-    position: relative;
-    text-align: center;
-    z-index: 1;
-    width: 350px;
-}
-.contacto  h1::before{
-    content: '';
-    position: absolute;
-    width: 325px;
-    margin-left:-50px;
-    height: 15px;
-    top:30px;
-    text-align: center;
-    background-color: #b3f3b4;
-    z-index: -1;
-}
-
-.row {
+    align-items: center;
+    height: 100vh;
+    background: var(--bg-color);
+    padding: 20px;
+  }
+  
+  .contact-container {
     display: flex;
-    justify-content: center; 
-    width: 100%; 
-}
-
-
-
-/* nuevo formulario  */
-#Highlighted-form{
-    background-image: url("../../../assets/fondoForm.png");
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+    background: var(--bg-color);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .left-col {
+    width: 100%;
+    background-image: url("../../../assets/fondoForm.jpg"); /* Asegúrate de que la URL sea correcta */
     background-size: cover;
-    border-radius: 20px;
-    padding: 50px;
-
-}
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .logo {
+    width: 10rem;
+    display: none; /* Oculta la imagen con el logo de Indonesia */
+  }
+  
+  .right-col {
+    width: 100%;
+    padding: 2rem;
+  }
+  
+  h1, label, button, .description {
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+  }
+  
+  h1 {
+    color: var(--h1-color);
+    text-transform: uppercase;
+    font-size: 2rem;
+    letter-spacing: 0.3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+    letter-spacing: 0.01rem;
+    margin-bottom: 1rem;
+  }
+  
+  label, .description {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.625rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    background: var(--bg-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 4px;
+    outline: none;
+  }
+  
+  input::placeholder, textarea::placeholder {
+    color: var(--primary-color);
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  button {
+    align-self: flex-start;
+    text-transform: uppercase;
+    font-weight: 300;
+    background: var(--button-color);
+    color: var(--bg-color);
+    width: 100%;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  input:hover, textarea:hover, button:hover {
+    opacity: 0.8;
+  }
+  
+  button:active {
+    opacity: 0.6;
+  }
+  
+  #error, #success-msg {
+    width: 100%;
+    margin: 0.5rem 0;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--secondary-color);
+  }
+  
+  #success-msg {
+    transition-delay: 3s;
+  }
+  
+  @media (min-width: 769px) {
+    .contact-container {
+      flex-direction: row;
+    }
+  
+    .left-col {
+      width: 45%;
+    }
+  
+    .right-col {
+      width: 55%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 1.5rem;
+      letter-spacing: 0.2rem;
+    }
+  
+    p {
+      font-size: 0.8rem;
+    }
+  
+    input, textarea {
+      font-size: 0.9rem;
+    }
+  
+    button {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    h1 {
+      font-size: 1.25rem;
+      letter-spacing: 0.1rem;
+    }
+  
+    p {
+      font-size: 0.75rem;
+    }
+  
+    label, .description {
+      font-size: 0.5rem;
+    }
+  
+    input, textarea {
+      font-size: 0.75rem;
+    }
+  
+    button {
+      font-size: 0.75rem;
+    }
+  }
+  

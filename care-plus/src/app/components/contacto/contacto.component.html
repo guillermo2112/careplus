@@ -1,56 +1,38 @@
-<section class="principal">
-    <div class="contacto">
-        <h1>Contáctanos</h1>
-    </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Form</title>
+</head>
+<body>
 
-    <form>
-        <div class="nombre">
-            <label for="nombre">Nombre<input name="nombre" type="text" required></label>
-            <label>Apellidos<input type="text"></label>
-        </div>
-        <label>Correo Electrónico<input type="email" required></label>
-        <!--<label>Especifícanos tu situación:<input type="text" required></label>-->
-        <label>Especifícanos tu situación:<textarea rows="10"></textarea></label>
-        <label><input type="submit" value="Enviar Formulario"></label>
+<div class="contact-container">
+  <div class="left-col">
+    <img class="logo" src="../../../assets/fondoForm.jpg"/>
+  </div>
+  <div class="right-col">
+    <h1>contáctanos</h1>
+    <p>Pregúntanos lo que quieras y estaremos encantados de ayudarte</p>
+    
+    <form id="contact-form" method="post">
+      <label for="name">nombre completo</label>
+      <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+      
+      <label for="email">correo electrónico</label>
+      <input type="email" id="email" name="email" placeholder="Tu dirección" required>
+      
+      <label for="message">mensaje</label>
+      <textarea rows="6" placeholder="Tu mensaje" id="message" name="message" required></textarea>
+      
+      <button type="submit" id="submit" name="submit">Enviar</button>
     </form>
-</section>
+    
+    <div id="error"></div>
+    <div id="success-msg"></div>
+  </div>
+</div>
 
+</body>
+</html>
 
-<!-- otro formulario -->
-
-<link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-<div class="container bootstrap snippets bootdey"  >
-    <section id="contact" class="gray-bg padding-top-bottom">
-    	<div class="container bootstrap snippets bootdey" >
-            <div class="row" >
-				<form id="Highlighted-form" class="col-sm-6 col-sm-offset-3" action="contact.php" method="post" novalidate="" >
-					
-					<div class="form-group">
-					  <label class="control-label" for="contact-name">Nombre</label>
-					  <div class="controls">
-						<input id="contact-name" name="contactName" placeholder="Tu nombre" class="form-control requiredField Highlighted-label" data-new-placeholder="Your name" type="text" data-error-empty="Please enter your name">
-						<i class="fa fa-user"></i>
-					  </div>
-					</div><!-- End name input -->
-					
-					<div class="form-group">
-					  <label class="control-label" for="contact-mail">Email</label>
-					  <div class=" controls">
-						<input id="contact-mail" name="email" placeholder="Tu email" class="form-control requiredField Highlighted-label" data-new-placeholder="Your email" type="email" data-error-empty="Please enter your email" data-error-invalid="Invalid email address">
-						<i class="fa fa-envelope"></i>
-					  </div>
-					</div><!-- End email input -->
-					<div class="form-group">
-					  <label class="control-label" for="contact-message">Mensaje</label>
-						<div class="controls">
-							<textarea id="contact-message" name="comments" placeholder="Cuéntanos tu situación" class="form-control requiredField Highlighted-label" data-new-placeholder="Your message" rows="6" data-error-empty="Please enter your message"></textarea>
-							<i class="fa fa-comment"></i>
-						</div>
-					</div><!-- End textarea -->
-					<p><button name="submit" type="submit" class="btn btn-info btn-block" data-error-message="Error!" data-sending-message="Sending..." data-ok-message="Message Sent"><i class="fa fa-location-arrow"></i>Enviar mensaje</button></p>
-					<input type="hidden" name="submitted" id="submitted" value="true">	
-				</form><!-- End Highlighted-form -->
-			</div>	
-		</div>	
-	</section>
-    </div>    
