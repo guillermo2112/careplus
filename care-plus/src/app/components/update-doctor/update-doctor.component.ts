@@ -1,7 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { DoctorService } from '../../doctor.service';
+// import { DoctorService } from '../../doctor.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Doctor } from '../../doctor';
+// import { Doctor } from '../../doctor';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
 
