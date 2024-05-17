@@ -8,6 +8,7 @@
 form{
     display: flex;
     flex-direction: column;
+    
 }
 form label{
     display: flex;
@@ -83,4 +84,21 @@ form input[type="submit"]:hover{
     text-align: center;
     background-color: #b3f3b4;
     z-index: -1;
+}
+
+.row {
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+
+
+/* nuevo formulario  */
+#Highlighted-form{
+    background-image: url("../../../assets/fondoForm.png");
+    background-size: cover;
+    border-radius: 20px;
+    padding: 50px;
+
 }
