@@ -47,6 +47,11 @@ export class EspecialidadesComponent implements OnInit{
     });
   }
   
+  // createSpecialty(id: number) {
+  //   this.specialtyService.createSpecialty(id).subscribe(dato => {
+  //     this.specialty = [dato]; 
+  //   });
+  // }
 
   
 
