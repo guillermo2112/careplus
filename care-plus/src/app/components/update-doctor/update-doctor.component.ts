@@ -26,11 +26,11 @@ export class UpdateDoctorComponent implements OnInit{
  private route = inject(ActivatedRoute);
  
  // Inyectar el servicio de clientes
- private clienteService = inject(DoctorService);
+//  private clienteService = inject(DoctorService);
  
  // Definir variables para el formulario, el cliente y los errores
  form?: FormGroup;
- doctor?: Doctor;
+//  doctor?: Doctor;
  error: string[] = [];
  
  
