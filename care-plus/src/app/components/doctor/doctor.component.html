@@ -1,15 +1,13 @@
 
 <!-- @if (!selectedDoctor) { -->
 <section class="doctores">
-
+  <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Especialidad</button>
   @for(doctor of doctor; track doctor.id){
           <div class="doctor">
               <img [src]="'../../../assets/doctores/doctor-prueba.jpg'">
               <h3>{{ doctor.name }}</h3>
               <p class="especialistas">{{ doctor.name }}</p>
               <p>{{ doctor.licenseNum }}</p>
-  
-              
               <a class="visitar" (click)="detalles_doctor(doctor.id)">Ver Doctor</a>
               <a class="visitar" (click)="updateDoctor(doctor.id)">Editar</a>
 
