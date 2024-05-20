@@ -23,12 +23,12 @@ export class AddPacienteComponent {
   usuario : Usuario = new Usuario();
   usuarios : any [] = [];
   paci:Paciente = new Paciente(0,
-    "Juan Perez",
-    "12345678X",
-    "1980-01-01",
-    "Calle Falsa 123",
-    "555-1234",
-    "555-5678");
+    "Maria Gomez",
+    "87654321Y",
+    "1990-02-02",
+    "Avenida Siempre Viva 742",
+    "555-6789",
+    "555-9876");
 
   constructor(private servicio:AddPacienteService){}
 
@@ -60,7 +60,7 @@ export class AddPacienteComponent {
     */
       this.paci.usuario=usu;
       console.log(this.paci);
-      this.servicio.crear_paciente(this.paci).subscribe(dato =>{
+      this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
         console.log(dato);
       });
   

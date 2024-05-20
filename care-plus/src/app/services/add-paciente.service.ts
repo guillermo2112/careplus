@@ -12,7 +12,7 @@ export class AddPacienteService {
     throw new Error('Method not implemented.');
   }
 
-  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
+  private baseURL = "https://care.francecentral.cloudapp.azure.com:8080";
 
   constructor(private httpClient : HttpClient) { }
 
