@@ -22,13 +22,6 @@ export class AddPacienteComponent {
   paciente : Paciente =  new Paciente();
   usuario : Usuario = new Usuario();
   usuarios : any [] = [];
-  paci:Paciente = new Paciente(0,
-    "Maria Gomez",
-    "87654321Y",
-    "1990-02-02",
-    "Avenida Siempre Viva 742",
-    "555-6789",
-    "555-9876");
 
   constructor(private servicio:AddPacienteService){}
 
@@ -38,7 +31,6 @@ export class AddPacienteComponent {
     console.log(this.usuario);
     console.log(this.paciente);
     this.guardarUsuario();
-    this.guardarPaciente(this.usuario);
   }
 
   
@@ -47,7 +39,7 @@ export class AddPacienteComponent {
     this.servicio.crear_usuario(this.usuario).subscribe((dato: any) => {
       console.log(dato.id); 
       console.log("añade paciente");
-      console.log(this.paciente);
+      
         this.guardarPaciente(dato);
     });
     
@@ -58,8 +50,9 @@ export class AddPacienteComponent {
     /*this.paciente.usuario=usu;
     console.log(this.paciente);
     */
-      this.paci.usuario=usu;
-      console.log(this.paci);
+    
+      this.paciente.id_user=usu;
+      console.log(this.paciente);
       this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
         console.log(dato);
       });

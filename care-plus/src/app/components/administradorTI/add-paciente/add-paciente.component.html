@@ -1,10 +1,10 @@
 <form (ngSubmit)="onSubmit()">
 
-    <label for="username">Nombre de Usuario:</label>
-    <input type="text" name="username" id="username" [(ngModel)]="paciente.usuario.username" [(ngModel)]="usuario.username">
+    <label for="username">Correo:</label>
+    <input type="text" name="username" id="username" [(ngModel)]="paciente.id_user.username" [(ngModel)]="usuario.username">
 
     <label for="password">Contraseña:</label>
-    <input type="password" name="password" id="password" [(ngModel)]="paciente.usuario.password" [(ngModel)]="usuario.password">
+    <input type="password" name="password" id="password" [(ngModel)]="paciente.id_user.password" [(ngModel)]="usuario.password">
 
     <label for="name">Nombre:</label>
     <input type="text" name="name" id="name" [(ngModel)]="paciente.name">
