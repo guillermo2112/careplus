@@ -1,4 +1,4 @@
-import { Specialty } from './specialty';
+import { Specialty } from '../entities/specialty';
 
 describe('Specialty', () => {
   it('should create an instance', () => {
