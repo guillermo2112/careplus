@@ -25,11 +25,7 @@ export class AddPacienteComponent {
 
   constructor(private servicio:AddPacienteService){}
 
-
-
   onSubmit(){
-    console.log(this.usuario);
-    console.log(this.paciente);
     this.guardarUsuario();
   }
 
@@ -37,26 +33,15 @@ export class AddPacienteComponent {
 
   guardarUsuario(){
     this.servicio.crear_usuario(this.usuario).subscribe((dato: any) => {
-      console.log(dato.id); 
-      console.log("añade paciente");
-      
-        this.guardarPaciente(dato);
+      this.guardarPaciente(dato);
     });
     
     
   }
 
   guardarPaciente(usu:Usuario){
-    /*this.paciente.usuario=usu;
-    console.log(this.paciente);
-    */
-    
-      this.paciente.id_user=usu;
-      console.log(this.paciente);
-      this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
-        console.log(dato);
-      });
-  
-      }
+    this.paciente.id_user=usu;
+    this.servicio.crear_paciente(this.paciente)  
+  }
 
 }
