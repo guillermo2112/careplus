@@ -3,6 +3,8 @@ import { Paciente } from '../../../entities/paciente';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AddPacienteService } from '../../../services/add-paciente.service';
+import { Usuario } from '../../../entities/usuario';
+import { Dato } from './Dato';
 
 @Component({
   selector: 'app-add-paciente',
@@ -14,20 +16,41 @@ import { AddPacienteService } from '../../../services/add-paciente.service';
   templateUrl: './add-paciente.component.html',
   styleUrl: './add-paciente.component.css'
 })
+
 export class AddPacienteComponent {
 
   paciente : Paciente =  new Paciente();
+  usuario : Usuario = new Usuario();
+  usuarios : any [] = [];
 
   constructor(private servicio:AddPacienteService){}
 
+
+
   onSubmit(){
+    console.log(this.usuario);
     console.log(this.paciente);
-    this.guardarPaciente();
+    this.guardarUsuario();
   }
 
-  guardarPaciente(){
-    this.servicio.crear_paciente(this.paciente);
-    alert("usuario añadido");
+  
+
+  guardarUsuario(){
+    
+    this.servicio.crear_usuario(this.usuario).subscribe((dato: any) => {
+      console.log(dato.id); // Ahora TypeScript sabe que 'dato' tiene una propiedad 'id'
+      
+      this.guardarPaciente(dato.id);
+    });
+    
+    
+  }
+
+  guardarPaciente(id:number){
+    this.paciente.usuario.id=id;
+    console.log(this.paciente.usuario.id);
+        this.servicio.crear_paciente(this.paciente);
+        console.log(this.paciente);
   }
 
 }
