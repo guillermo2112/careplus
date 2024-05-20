@@ -13,6 +13,7 @@ import { UpdateSpecialtyComponent } from './components/administradorTI/update-sp
 import { UpdateDoctorComponent } from './components/administradorTI/update-doctor/update-doctor.component';
 import { AddPacienteComponent } from './components/administradorTI/add-paciente/add-paciente.component';
 import { AddSpecialtyComponent } from './components/administradorTI/add-specialty/add-specialty.component';
+import { AddDoctorComponent } from './components/administradorTI/add-doctor/add-doctor.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -30,4 +31,5 @@ export const routes: Routes = [
     {path: 'clinicas', component: ClinicasComponent},
     {path: 'clinica/:id', component: ClinicaVistaComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
+    {path: 'add-doctor', component: AddDoctorComponent},
 ];
