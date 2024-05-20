@@ -22,8 +22,8 @@ export class AddSpecialtyComponent {
   ) {}
 
   saveSpecialty() {
-    if (!this.specialty.id) {
-      console.error("El username es obligatorio.");
+    if (!this.specialty.name) {
+      console.error("El nombre es obligatorio.");
       return;
     }
 
