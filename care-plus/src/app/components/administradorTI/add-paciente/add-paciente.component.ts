@@ -22,6 +22,13 @@ export class AddPacienteComponent {
   paciente : Paciente =  new Paciente();
   usuario : Usuario = new Usuario();
   usuarios : any [] = [];
+  paci:Paciente = new Paciente(0,
+    "Maria Gomez",
+    "87654321Y",
+    "1990-02-02",
+    "Avenida Siempre Viva 742",
+    "555-6789",
+    "555-9876");
 
   constructor(private servicio:AddPacienteService){}
 
@@ -31,26 +38,32 @@ export class AddPacienteComponent {
     console.log(this.usuario);
     console.log(this.paciente);
     this.guardarUsuario();
+    this.guardarPaciente(this.usuario);
   }
 
   
 
   guardarUsuario(){
-    
     this.servicio.crear_usuario(this.usuario).subscribe((dato: any) => {
-      console.log(dato.id); // Ahora TypeScript sabe que 'dato' tiene una propiedad 'id'
-      
-      this.guardarPaciente(dato.id);
+      console.log(dato.id); 
+      console.log("añade paciente");
+      console.log(this.paciente);
+        this.guardarPaciente(dato);
     });
     
     
   }
 
-  guardarPaciente(id:number){
-    this.paciente.usuario.id=id;
-    console.log(this.paciente.usuario.id);
-        this.servicio.crear_paciente(this.paciente);
-        console.log(this.paciente);
-  }
+  guardarPaciente(usu:Usuario){
+    /*this.paciente.usuario=usu;
+    console.log(this.paciente);
+    */
+      this.paci.usuario=usu;
+      console.log(this.paci);
+      this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
+        console.log(dato);
+      });
+  
+      }
 
 }
