@@ -157,3 +157,211 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.col-md-6 {
+    margin-top: 20px;
+}
+
+
+h3.text-center {
+    color: #28CEC5;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+label {
+    font-weight: bold;
+    color: #495057;
+}
+
+
+input[type="text"] {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+button.btn.btn-success {
+    background-color: #144386;
+    border-color: #144386;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn.btn-success:hover {
+    background-color: #28CEC5;
+}
+
+
+input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+
+.container-bots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container-bots button,
+.container-bots select,
+.container-bots form {
+    margin: 10px;
+}
+
+.container-bots button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.container-bots form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-bots form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.container-bots form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.container-bots form button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots form button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.container-bots .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+
+.album {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.card {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container-bots[_ngcontent-ng-c888671101] form[_ngcontent-ng-c888671101] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-bots[_ngcontent-ng-c3088476783] button[_ngcontent-ng-c3088476783], .container-bots[_ngcontent-ng-c3088476783] select[_ngcontent-ng-c3088476783], .container-bots[_ngcontent-ng-c3088476783] form[_ngcontent-ng-c3088476783] {
+    margin: 0px;
+}
+
+
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #144386;
+}
+
+.btn-group .btn-outline-secondary {
+    border-color: #144386;
+    color: #144386;
+}
+
+.btn-group .btn-outline-secondary:hover {
+    background-color: #144386;
+    color: white;
+}
