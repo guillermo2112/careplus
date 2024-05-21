@@ -1,12 +1,9 @@
 <section>
     <h3>Modificar Paciente</h3>
-    <form>
+    <form (ngSubmit)="onSubmit()">
 
         <label for="username">Correo:</label>
         <input type="text" name="username" id="username" [(ngModel)]="paciente.id_user.username" >
-
-        <label for="password">Contraseña:</label>
-        <input type="password" name="password" id="password" [(ngModel)]="paciente.id_user.password">
 
         <label for="name">Nombre:</label>
         <input type="text" name="name" id="name" [(ngModel)]="paciente.name">
@@ -26,6 +23,6 @@
         <label for="emergency_phone">Teléfono de Emergencia:</label>
         <input type="text" name="emergency_phone" id="emergency_phone" [(ngModel)]="paciente.emergency_phone">
         
-        <button type="submit">Enviar</button>
+        <button type="submit">Actualizar</button>
     </form>
 </section>

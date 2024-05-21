@@ -20,4 +20,8 @@ export class PacienteService {
     return this.http.get<Paciente[]>(`${this.baseURL}/${id}`);
   }
 
+  actualizar_paciente(paciente:Paciente,id:number): Observable<Object>{
+    return this.http.put(`${this.baseURL}/${id}`,paciente);
+  }
+
 }
