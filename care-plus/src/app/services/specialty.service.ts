@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Specialty } from './specialty';
+import { Specialty } from '../entities/specialty';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -15,6 +15,20 @@ export class SpecialtyService {
 
   listSpecialty():Observable<Specialty[]>{
     return this.httpClient.get<Specialty[]>(`${this.baseURL}/all`);
+  }
+
+  
+  getSpecialtyById(id: number):Observable<Specialty>{
+    return this.httpClient.get<Specialty>(`${this.baseURL}/${id}`);
+  }
+
+  createSpecialty(specialty:Specialty) : Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}`,specialty);
+
+}
+
+  updateSpecialty(id:number, specialty:Specialty) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`, specialty);
   }
 
 }

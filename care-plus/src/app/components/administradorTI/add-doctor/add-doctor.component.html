@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Doctor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Crear Doctor </h3>
+        <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]="doctor.name" name="name">
+            </div>
+            <!--
+            <div class="form-group">
+                <label for="userId">ID de Usuario</label>
+                <input type="text" class="form-control" id="userId" [(ngModel)]="doctor.userId" name="userId">
+            </div>
+            <div class="form-group">
+                <label for="specialtyId">ID de Especialidad</label>
+                <input type="text" class="form-control" id="specialtyId" [(ngModel)]="doctor.specialtyId" name="specialtyId">
+            </div>
+        -->
+            <div class="form-group">
+                <label for="address">Dirección</label>
+                <input type="text" class="form-control" id="address" [(ngModel)]="doctor.address" name="address">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="birthdate" [(ngModel)]="doctor.birthdate" name="birthdate">
+            </div>
+            <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="text" class="form-control" id="dni" [(ngModel)]="doctor.dni" name="dni">
+            </div>
+            <div class="form-group">
+                <label for="licenseNum">Número de Licencia</label>
+                <input type="text" class="form-control" id="licenseNum" [(ngModel)]="doctor.licenseNum" name="licenseNum">
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="text" class="form-control" id="phone" [(ngModel)]="doctor.phone" name="phone">
+            </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</body>
+</html>

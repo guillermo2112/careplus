@@ -1,26 +1,22 @@
 
-<section>
-    @for (doctor of doctor; track doctor.id) {
-    <div class="col">
-      <div class="card shadow-sm">
+<!-- @if (!selectedDoctor) { -->
+  <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Doctor</button>
+<section class="doctores">
   
-        
-        <!-- <img [src]="'../../../assets/especialidades/'+doctor.name+'.jpg'" class="bd-placeholder-img card-img-top" width="100%" height="225"  role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title> -->
-        <!-- <rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></ -->
-  
-        <div class="card-body">
-          <p class="card-text">{{ doctor.name }}</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-            </div>
-            <small class="text-muted">9 mins</small>
+  @for(doctor of doctor; track doctor.id){
+          <div class="doctor">
+              <img [src]="'../../../assets/doctores/doctor-prueba.jpg'">
+              <h3>{{ doctor.name }}</h3>
+              <p class="especialistas">{{ doctor.name }}</p>
+              <p>{{ doctor.licenseNum }}</p>
+              <a class="visitar" (click)="detalles_doctor(doctor.id)">Ver Doctor</a>
+              <a class="visitar" (click)="updateDoctor(doctor.id)">Editar</a>
+
           </div>
-        </div>
-      </div>
-    </div>
+  }
+      
   
-    }
-  
-  </section>
+
+</section>
+<!-- } -->
+
