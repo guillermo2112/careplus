@@ -37,8 +37,8 @@
             <div class="form-group">
                 <label>Estado</label><br>
                 @if(doctor.user.onDutty == "ACTIVE"){
-                <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" checked>
-                <label for="option1">ACTIVE</label><br>
+                    <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" checked>
+                    <label for="option1">ACTIVE</label><br>
                 }@else{
                     <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" >
                     <label for="option1">ACTIVE</label><br>
