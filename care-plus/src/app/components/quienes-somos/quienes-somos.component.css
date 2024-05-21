@@ -1,149 +1,222 @@
 /* MARGENES PARA LA PAGINA PRINCIPAL */
-.principal{
+.principal {
     padding: 100px 150px;
 }
 
+@media (max-width: 768px) {
+    .principal {
+        padding: 50px 20px;
+    }
+}
+
 /* ESTILO PARA EL TITULO PRINCIPAL */
-.title{
+.title {
     display: flex;
     justify-content: center;
-    padding: 100px 0  ;
+    padding: 100px 0;
 }
-.title h1{
+
+.title h1 {
     position: relative;
     text-align: center;
     z-index: 1;
     width: 350px;
 }
-.title  h1::before{
+
+.title h1::before {
     content: '';
     position: absolute;
     width: 400px;
-    margin-left:-50px;
+    margin-left: -50px;
     height: 15px;
-    top:30px;
+    top: 30px;
     text-align: center;
     background-color: #28CEC5;
     z-index: -1;
 }
 
+@media (max-width: 768px) {
+    .title h1::before {
+        width: 300px;
+        top: 20px;
+    }
+}
 
 /* ESTILO PARA LOS DEMAS TITULOS */
-.subtitle{
+.subtitle {
     display: flex;
     justify-content: center;
-    padding: 100px 0  ;
+    padding: 100px 0;
 }
-.subtitle h1{
+
+.subtitle h1 {
     font-size: 50px;
     position: relative;
     text-align: center;
     z-index: 1;
     width: 350px;
 }
-.subtitle  h1::before{
+
+.subtitle h1::before {
     content: '';
     position: absolute;
     width: 250px;
-    margin-left:-50px;
+    margin-left: -50px;
     height: 15px;
-    top:40px;
+    top: 40px;
     text-align: center;
     background-color: #28CEC5;
     z-index: -1;
 }
 
+@media (max-width: 768px) {
+    .subtitle h1 {
+        font-size: 30px;
+    }
+    .subtitle h1::before {
+        width: 200px;
+        top: 30px;
+    }
+}
+
 /* ESTILO PARA EL TITULO MAS LARGO */
-.subtitle2{
+.subtitle2 {
     display: flex;
     justify-content: center;
-    padding: 100px 0  ;
+    padding: 100px 0;
 }
-.subtitle2 h1{
+
+.subtitle2 h1 {
     font-size: 50px;
     position: relative;
     text-align: center;
     z-index: 1;
     width: 350px;
 }
-.subtitle2  h1::before{
+
+.subtitle2 h1::before {
     content: '';
     position: absolute;
     width: 260px;
-    margin-left:-50px;
+    margin-left: -50px;
     height: 15px;
-    top:40px;
+    top: 40px;
     text-align: center;
     background-color: #28CEC5;
     z-index: -1;
 }
 
+@media (max-width: 768px) {
+    .subtitle2 h1 {
+        font-size: 30px;
+    }
+    .subtitle2 h1::before {
+        width: 200px;
+        top: 30px;
+    }
+}
+
 /* ESTILOS PARA EL PRIMER TEXTO */
-.quienes_somos{
+.quienes_somos {
     display: flex;
     align-items: center;
     justify-content: space-around;
     font-size: 20px;
-}
-.quienes_somos p{
-    width: 400px;
+    flex-wrap: wrap;
     text-align: center;
 }
 
+.quienes_somos p {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .quienes_somos {
+        flex-direction: column;
+    }
+
+    .quienes_somos p {
+        font-size: 16px;
+    }
+}
+
 /* BLOQUES DE CONTENIDO */
-.contenido{
+.contenido {
     border: 1px solid #3c3c3c;
     border-radius: 25px;
-    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ; /* sombra en la parte inferior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction:column ;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding:50px ;
+    padding: 50px;
     margin-bottom: 80px;
-   background-image: url(../../../assets/fondoQuienes.png);
-   background-size: cover; 
+    background-image: url(../../../assets/fondoQuienes.png);
+    background-size: cover;
 }
-.contenido p{
+
+.contenido p {
     text-align: center;
-    width: 900px;
+    width: 100%;
+    max-width: 900px;
     padding: 10px 0;
     font-size: 20px;
 }
-.contenido ul{
-    width: 750px;
+
+.contenido ul {
+    width: 100%;
+    max-width: 750px;
     padding: 50px 0;
     font-size: 20px;
 }
-.contenido ul li{
-    padding: 10px  0;
+
+.contenido ul li {
+    padding: 10px 0;
 }
-.contenido a{
+
+.contenido a {
     text-decoration: none;
-    color:#000;
+    color: #000;
     border: 1px solid #3c3c3c;
     border-radius: 5px;
-    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 5px 50px;
     transition: 0.5s;
     font-weight: 400;
 }
-.contenido a:hover{
+
+.contenido a:hover {
     background-color: #28CEC5;
     border: 1px solid #28CEC5;
     color: #fff;
     transition: 0.5s;
 }
 
-/* APARTADO DE PREGUNTAS */
-.preguntas div{
-    display: flex;
+@media (max-width: 768px) {
+    .contenido p, .contenido ul {
+        font-size: 16px;
+    }
+
+    .contenido ul {
+        padding: 20px 0;
+    }
 }
-.preguntas div  h1 {
+
+/* APARTADO DE PREGUNTAS */
+.preguntas div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.preguntas div h1 {
     padding: 10px 50px;
     font-size: 30px;
 }
-.preguntas .title{
+
+.preguntas .title {
     padding: 10px;
     font-size: 30px;
     background-color: #b3f3b4;
@@ -155,15 +228,17 @@
 .accordion-button:not(.collapsed) {
     background-color: #28CEC5;
 }
+
 .accordion-button:focus {
     box-shadow: none;
 }
-.accordion-button{
+
+.accordion-button {
     font-weight: 600;
 }
 
 /* imagen de fondo del inicio */
-.fondo{
+.fondo {
     background-image: url("../../../assets/Fondopildoras.jpg");
     background-size: cover;
     background-position: center;
@@ -171,7 +246,57 @@
     height: 100vh;
     margin-left: calc((100% - 100vw) / 2);
     overflow: hidden;
-    
 }
+
+@media (max-width: 768px) {
+    .principal {
+        padding: 50px 10px;
+    }
+
+    .title, .subtitle, .subtitle2 {
+        padding: 50px 0;
+    }
+
+    .title h1, .subtitle h1, .subtitle2 h1 {
+        font-size: 24px;
+    }
+
+    .title h1::before, .subtitle h1::before, .subtitle2 h1::before {
+        width: 150px;
+        height: 10px;
+        top: 20px;
+    }
+
+    .contenido {
+        padding: 20px;
+    }
+
+    .contenido p, .contenido ul {
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .contenido ul {
+        padding: 20px 0;
+    }
+
+    .preguntas div h1, .preguntas .title {
+        font-size: 24px;
+    }
+
+    .quienes_somos {
+        flex-direction: column;
+    }
+
+    .quienes_somos p {
+        font-size: 16px;
+    }
+
+    .quienes_somos iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
 
 
