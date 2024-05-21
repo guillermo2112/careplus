@@ -13,10 +13,8 @@
         <div class="nav-item">
           <select name="filtros" (change)="seleccionarAccion($event)">
             <option value="">Selecionar una opción</option>
-            <option value="ordenar_nombre">Ordenar Por Nombre</option>
-            <!-- <option value="ordenar_disponibles">Ordenar Disponibles</option> -->
-            <option value="ordenar_id">Ordenar id</option>
-            <option value="buscar_disponibles">Buscar Disponibles</option>
+            <option value="ordenar_nombre">Ordenar A-Z</option>
+            <option value="ordenar_nombre_des">Ordenar Z-A</option>
           </select>
         </div>
         <div class="nav-item">
@@ -58,7 +56,7 @@
       <div class="card shadow-sm specialty" >
         
           <img 
-          [src]="'../../../assets/especialidades/' + specialty.name + '.jpg'"
+          [src]="'../../assets/especialidades/' + specialty.id + '.jpg'"
           class="bd-placeholder-img card-img-top"
           width="100%"
           height="225"
