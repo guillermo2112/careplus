@@ -18,7 +18,7 @@ import { Specialty } from '../../entities/specialty';
 })
 export class EspecialidadesComponent implements OnInit {
 
-  specialty: Specialty[] = [];
+  specialty: any[] = [];
   specialty_clear: any[] = [];
   name: string = '';
   seleccionados: string[] = [];
@@ -59,24 +59,16 @@ export class EspecialidadesComponent implements OnInit {
 
 
 
-
-  
-
-
-
-
-
-
   seleccionarAccion(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const accion = selectElement.options[selectElement.selectedIndex].value;
     this.limpiar_filtros();
     switch (accion) {
-      case 'ordenar_id':
-        this.ordenar_id();
-        break;
       case 'ordenar_nombre':
         this.ordenar_nombre();
+        break;
+      case 'ordenar_nombre_des':
+        this.ordenar_nombre_des();
         break;
       default:
         break;
@@ -94,8 +86,11 @@ export class EspecialidadesComponent implements OnInit {
     this.specialty.sort((a, b) => a.id - b.id);
   }
 
-  ordenar_nombre(): void {
-    // this.specialty.sort((a, b) => a.name.localeCompare(b.name));
+  ordenar_nombre(){
+    this.specialty.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  ordenar_nombre_des(){
+    this.specialty.sort((b, a) => a.name.localeCompare(b.name));
   }
 
   buscar_nombre(name: string): void {
