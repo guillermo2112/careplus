@@ -5,6 +5,7 @@ import { Doctor } from '../../../entities/doctor';
 import { FormsModule } from '@angular/forms';
 import { Usuario } from '../../../entities/usuario';
 import { Console } from 'console';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-doctor',
@@ -22,15 +23,6 @@ export class AddDoctorComponent {
     private route: ActivatedRoute,
     private router: Router
   ) {}
-
-  /*saveDoctor() {
-    this.doctorService.createDoctor(this.doctor).subscribe(
-      dato => {
-        console.log(dato);
-        this.goToListDoctor();
-      }
-    );
-  }*/
 
 
   onSubmit() {
@@ -50,8 +42,12 @@ export class AddDoctorComponent {
     this.doctor.user=usu;
     console.log(this.doctor);
     this.doctorService.createDoctor(this.doctor).subscribe(dato =>{
-      
-      //this.router.navigate(['/doctor']);
+      Swal.fire({
+        title: "Enhorabuena!",
+        text: "Doctor creado con exito.",
+        icon: "success"
+      });
+      this.router.navigate(['/doctor']);
     })  
   }
 }

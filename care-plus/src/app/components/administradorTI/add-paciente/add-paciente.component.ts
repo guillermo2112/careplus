@@ -51,7 +51,7 @@ export class AddPacienteComponent {
             this.guardarUsuario();
             Swal.fire({
               title: "Enhorabuena!",
-              text: "Usuario creado con exito.",
+              text: "Paciente creado con exito.",
               icon: "success"
             });
           }
