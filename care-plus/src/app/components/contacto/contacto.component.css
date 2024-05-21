@@ -1,10 +1,4 @@
-:root {
-    --primary-color: #010712;
-    --secondary-color: #818386;
-    --bg-color: #FCFDFD;
-    --button-color: #3B3636;
-    --h1-color: #3F444C;
-  }
+
   
   * {
     margin: 0;
@@ -12,7 +6,8 @@
     transition: all 0.3s ease-in-out;
   }
   
-  body {
+
+  .body {
     font-family: 'Jost', sans-serif;
     display: flex;
     justify-content: center;
@@ -21,7 +16,6 @@
     background: var(--bg-color);
     padding: 20px;
   }
-  
   .contact-container {
     display: flex;
     flex-direction: column;
@@ -88,15 +82,13 @@
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
-    background: var(--bg-color);
-    border: 1px solid var(--secondary-color);
+    border: 1px solid;
     border-radius: 4px;
     outline: none;
   }
   
   input::placeholder, textarea::placeholder {
-    color: var(--primary-color);
+    color: #BABBBB;
   }
   
   textarea {
@@ -107,8 +99,8 @@
     align-self: flex-start;
     text-transform: uppercase;
     font-weight: 300;
-    background: var(--button-color);
-    color: var(--bg-color);
+    background: #28CEC5;
+    color: black;
     width: 100%;
     padding: 0.75rem;
     border: none;
@@ -118,7 +110,7 @@
   }
   
   input:hover, textarea:hover, button:hover {
-    opacity: 0.8;
+    opacity: 0.7;
   }
   
   button:active {

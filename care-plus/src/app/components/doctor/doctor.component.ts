@@ -47,6 +47,10 @@ export class DoctorComponent implements OnInit {
     this.router.navigate(['update-doctor', id]);
   }
 
+  goToCreate(){
+    this.router.navigate(['add-doctor'])
+  }
+
   // createDoctor(id: number) {
   //   this.doctorService.createDoctor(id).subscribe(dato => {
   //     this.doctor = [dato]; 

@@ -1,3 +1,6 @@
+import { Usuario } from "./usuario";
+
+
 export class Paciente {
   name: string;
   dni: string;
@@ -5,7 +8,7 @@ export class Paciente {
   address: string;
   phone: string;
   emergency_phone: string;
-  usuario: Usuario;
+  id_user: Usuario;
 
   constructor(
     name: string = '',
@@ -14,7 +17,7 @@ export class Paciente {
     address: string = '',
     phone: string = '',
     emergency_phone: string = '',
-    usuario: Usuario = new Usuario()
+    id_user: Usuario = new Usuario()
   ) {
     this.name = name;
     this.dni = dni;
@@ -22,28 +25,6 @@ export class Paciente {
     this.address = address;
     this.phone = phone;
     this.emergency_phone = emergency_phone;
-    this.usuario = usuario;
-  }
-}
-
-export class Usuario {
-  username: string;
-  password: string;
-  role: string;
-  onDutty: string;
-  enabled: boolean;
-
-  constructor(
-    username: string = '',
-    password: string = '',
-    role: string = 'PATIENT',
-    onDutty: string = 'ACTIVE',
-    enabled: boolean = true
-  ) {
-    this.username = username;
-    this.password = password;
-    this.role = role;
-    this.onDutty = onDutty;
-    this.enabled = enabled;
+    this.id_user = id_user;
   }
 }
