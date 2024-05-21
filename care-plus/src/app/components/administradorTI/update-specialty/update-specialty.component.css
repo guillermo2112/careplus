@@ -1,0 +1,39 @@
+
+
+.container {
+    margin-top: 50px;
+}
+
+h3 {
+    color: #144386; 
+    margin-bottom: 30px;
+}
+
+.form-group label {
+    color: #144386; 
+}
+
+.form-control {
+    border: 1px solid #144386; 
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.form-control:focus {
+    border-color: #28CEC5; 
+    box-shadow: 0 0 5px rgba(40, 206, 197, 0.5);
+}
+
+.btn-success {
+    background-color: #28CEC5; 
+    border-color: #28CEC5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-success:hover {
+    background-color: #144386; 
+    color: white; 
+}
