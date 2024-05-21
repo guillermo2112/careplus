@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SpecialtyService } from '../../../services/specialty.service';
 import { FormsModule } from '@angular/forms';
 import { Specialty } from '../../../entities/specialty';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-update-specialty',
@@ -34,7 +35,15 @@ export class UpdateSpecialtyComponent implements OnInit{
     this.specialtyService.updateSpecialty(this.id, this.specialty).subscribe(
       dato => {
         console.log(dato);
-        this.goToListspecialty();
+        Swal.fire({
+          title: "Success",
+          text: "Especilidad actualizada con éxito",
+          icon: "success"
+        }).then(() => {
+            this.goToListspecialty();
+          
+        });
+        
       }
     );
   }

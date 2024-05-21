@@ -16,4 +16,12 @@ export class PacienteService {
     return this.http.get<Paciente[]>(`${this.baseURL}/all`);
   }
 
+  obtener_pacientes_id(id:number):Observable<Paciente[]>{
+    return this.http.get<Paciente[]>(`${this.baseURL}/${id}`);
+  }
+
+  actualizar_paciente(paciente:Paciente,id:number): Observable<Object>{
+    return this.http.put(`${this.baseURL}/${id}`,paciente);
+  }
+
 }

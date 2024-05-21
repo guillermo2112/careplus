@@ -8,9 +8,6 @@ import { Usuario } from '../entities/usuario';
   providedIn: 'root'
 })
 export class AddPacienteService {
-  obstener_usuarios() {
-    throw new Error('Method not implemented.');
-  }
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
 

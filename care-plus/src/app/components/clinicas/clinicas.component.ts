@@ -143,4 +143,23 @@ export class ClinicasComponent implements OnInit{
   }
   value:any;
   
+
+
+updateHospital(id: number): void {
+  this.router.navigate(['update-hospital', id]);
+}
+
+
+
+getHospitalById(id: number): void {
+  this.hospital_service.obtener_hospital_id(id).subscribe(data => {
+    this.hospitales = [data];
+  });
+}
+
+
+goToCreate() {
+  //this.router.navigate(['/hospitals']);
+  window.location.href = '/add-hospital';
+}
 }

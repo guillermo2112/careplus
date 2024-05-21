@@ -26,3 +26,18 @@
     font-weight: bold;
     color: #000;
 }
+
+.paciente a {
+    display: inline-block; /* Para que se comporte como un botón */
+    padding: 10px 15px; /* Espaciado interno */
+    margin-top: 10px; /* Espacio superior */
+    color: #fff; /* Color del texto blanco */
+    background-color: #007bff; /* Color de fondo azul */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+.paciente a:hover {
+    background-color: #0056b3; 
+    cursor:pointer;
+}

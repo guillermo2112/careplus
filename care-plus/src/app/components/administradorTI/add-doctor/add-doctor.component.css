@@ -1,0 +1,31 @@
+button{
+    background-color: #28CEC5;
+}
+button:hover {
+    background-color: #144386;
+    color: white; 
+}
+body{
+    
+    background-position: cover;
+    background-repeat: no-repeat; 
+}
+
+.contenedorGrande{
+    background-image: url("../../../../assets/fondoformu.png");
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+button {
+    background-color: #28CEC5;
+    margin-top: 20px; 
+}
+
+button:hover {
+    background-color: #144386;
+    color: white; 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
