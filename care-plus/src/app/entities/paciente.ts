@@ -1,33 +1,30 @@
 import { Usuario } from "./usuario";
 
+
 export class Paciente {
-  id:number;
   name: string;
   dni: string;
   birthdate: string;
   address: string;
   phone: string;
   emergency_phone: string;
-  usuario: Usuario;
+  id_user: Usuario;
 
   constructor(
-    id:number=0,
     name: string = '',
     dni: string = '',
     birthdate: string = '',
     address: string = '',
     phone: string = '',
     emergency_phone: string = '',
-    usuario: Usuario = new Usuario()
+    id_user: Usuario = new Usuario()
   ) {
-    this.id=id;
     this.name = name;
     this.dni = dni;
     this.birthdate = birthdate;
     this.address = address;
     this.phone = phone;
     this.emergency_phone = emergency_phone;
-    this.usuario = usuario;
+    this.id_user = id_user;
   }
 }
-
