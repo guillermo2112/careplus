@@ -84,12 +84,11 @@
     padding: 15px 30px;
     font-size: 16px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 15px;
     transition: background-color 0.3s ease;
-    text-align: center;
     display: inline-block;
     text-decoration: none;
-    align-items: center;
+    margin: 6em;
   }
   
   .btn-primary:hover {
