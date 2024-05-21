@@ -1,7 +1,8 @@
 
 <!-- @if (!selectedDoctor) { -->
+  <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Doctor</button>
 <section class="doctores">
-  <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Especialidad</button>
+  
   @for(doctor of doctor; track doctor.id){
           <div class="doctor">
               <img [src]="'../../../assets/doctores/doctor-prueba.jpg'">
