@@ -33,7 +33,7 @@ export const routes: Routes = [
     {path: 'clinicas', component: ClinicasComponent},
     {path: 'clinica/:id', component: ClinicaVistaComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
-    {path: 'datos_paciente', component: DatosPacienteComponent},
+    {path: 'paciente/:id', component: DatosPacienteComponent},
     {path: 'lista_pacientes', component: ListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
 ];

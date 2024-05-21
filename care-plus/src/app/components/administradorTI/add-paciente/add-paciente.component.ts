@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { AddPacienteService } from '../../../services/add-paciente.service';
 import { Usuario } from '../../../entities/usuario';
 import { Dato } from './Dato';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-paciente',
@@ -21,12 +23,16 @@ export class AddPacienteComponent {
 
   paciente : Paciente =  new Paciente();
   usuario : Usuario = new Usuario();
-  usuarios : any [] = [];
 
-  constructor(private servicio:AddPacienteService){}
+  constructor(private servicio:AddPacienteService,private router:Router){}
 
   onSubmit(){
     this.guardarUsuario();
+    Swal.fire({
+      title: "Enhorabuena!",
+      text: "Usuario creado con exito",
+      icon: "success"
+    });
   }
 
   
@@ -41,7 +47,10 @@ export class AddPacienteComponent {
 
   guardarPaciente(usu:Usuario){
     this.paciente.id_user=usu;
-    this.servicio.crear_paciente(this.paciente)  
+    this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
+      
+      this.router.navigate(['/lista_pacientes']);
+    })  
   }
 
 }
