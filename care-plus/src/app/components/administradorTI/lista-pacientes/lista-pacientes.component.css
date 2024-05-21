@@ -1,0 +1,28 @@
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.paciente {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+.paciente:last-child {
+    border-bottom: none;
+}
+.paciente h2 {
+    margin: 0 0 10px 0;
+    font-size: 1.2em;
+    color: #333;
+}
+.paciente p {
+    margin: 5px 0;
+    color: #555;
+}
+.paciente p span {
+    font-weight: bold;
+    color: #000;
+}
