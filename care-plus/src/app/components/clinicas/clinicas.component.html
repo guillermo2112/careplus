@@ -1,17 +1,32 @@
-<section class="filtros">
-    <p>Ordenar por</p>
-    <select name="filtros" (change)="seleccionarAccion($event)">
-        <option value="">Selecionar una opción</option>
-        <option value="ordenar_provincia">Ordenar Provincia</option>
-        <option value="ordenar_nombre">Ordenar Por Nombre</option>
-        <!--<option value="ordenar_disponibles">Ordenar Disponibles</option>
-        <option value="ordenar_id">Ordenar id</option>-->
-        <option value="buscar_disponibles">Buscar Disponibles</option>
-      </select>
 
-      <p>Buscar por provincia</p>
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light " aria-label="Eighth navbar example">
+  <div class="container container-bots" >
+    
+
+    <div class=" navbar" id="navbarsExample07">
+      <div class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 3rem; gap: 2rem;">
+        
+        <div class="nav-item">
+          <select name="filtros" (change)="seleccionarAccion($event)" placeholder="Seleccionar opcion">
+              <option value="">Ordenar por</option>
+              <option value="ordenar_provincia">Ordenar Provincia</option>
+              <option value="ordenar_nombre">Ordenar Por Nombre</option>
+              <!--<option value="ordenar_disponibles">Ordenar Disponibles</option>
+              <option value="ordenar_id">Ordenar id</option>-->
+              <option value="buscar_disponibles">Buscar Disponibles</option>
+            </select>
+      
+              
+              </div>
+              
+
+
+        <div class="nav-item">
       <select name="provincias" id="provincias" (change)="provincias($event)">
-        <option value=""></option>
+        <option value="">Buscar por provincia</option>
         <option value="alava">Álava</option>
         <option value="albacete">Albacete</option>
         <option value="alicante">Alicante</option>
@@ -64,22 +79,39 @@
         <option value="zaragoza">Zaragoza</option>
       </select>
       
-      
-    <form (ngSubmit)="burcador_nombre()">
-        <label for="texto">Buscar por nombre</label>
-        <input type="text" id="texto" name="texto" [(ngModel)]="nombre">
-        <button type="submit">Enviar</button>
-    </form>
+        </div>
+        <div class="nav-item">
+          <form (ngSubmit)="burcador_nombre()">
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <input type="text" id="texto" name="texto" [(ngModel)]="nombre" placeholder="Buscar por nombre">
+            <button style="margin-top: 0;" type="submit">Enviar</button>
+            </div>
+            <!-- <label for="texto">Buscar</label> -->
+            
+          </form>
+        
+        </div>
+        <div class="nav-item">
+          <button (click)="limpiar_filtros()">Limpiar Filtros</button>
 
-    <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+        </div>
+       
 
-      <!--<form (ngSubmit)="buscador_provincia()">
-        <label for="provincia">Buscar por provincia</label>
-        <input type="text" id="texto" name="provincia" [(ngModel)]="provincia">
-        <button type="submit">Enviar</button>
-      </form>-->
+       
+        
+      </div>
       
-</section>
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
 
 <section class="clinicas">
 
