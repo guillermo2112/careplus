@@ -10,7 +10,7 @@ export class Usuario {
     id:number=0,
     username: string = '',
     password: string = '',
-    role: string = 'ROLE_PATIENT',
+    role: string = '',
     onDutty: string = 'ACTIVE',
     enabled: boolean = true
   ) {

@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AddPacienteService } from '../../../services/add-paciente.service';
 import { Usuario } from '../../../entities/usuario';
-import { Dato } from './Dato';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 
@@ -52,7 +51,7 @@ export class AddPacienteComponent {
             this.guardarUsuario();
             Swal.fire({
               title: "Enhorabuena!",
-              text: "Usuario creado con exito.",
+              text: "Paciente creado con exito.",
               icon: "success"
             });
           }
@@ -63,6 +62,7 @@ export class AddPacienteComponent {
   
 
   guardarUsuario(){
+    this.usuario.role='ROLE_PATIENT'
     this.servicio.crear_usuario(this.usuario).subscribe((dato: any) => {
       this.guardarPaciente(dato);
     });
@@ -71,6 +71,7 @@ export class AddPacienteComponent {
 
   guardarPaciente(usu:Usuario){
     this.paciente.id_user=usu;
+    
     this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
       
       this.router.navigate(['/lista_pacientes']);
