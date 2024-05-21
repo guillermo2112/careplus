@@ -21,4 +21,15 @@ export class HospitalService {
     return this.http.get<Hospital[]>(`${this.baseURL}/id/${id}`);
   }
 
+  
+  createHospital(hospital:Hospital) : Observable<Object>{
+    return this.http.post(`${this.baseURL}`,hospital);
+
+}
+
+  updateHospital(id:number, hospital:Hospital) : Observable<Object>{
+    return this.http.put(`${this.baseURL}/${id}`, hospital);
+  }
+
+
 }
