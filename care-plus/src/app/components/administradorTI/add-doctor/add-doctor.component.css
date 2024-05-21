@@ -1,8 +1,10 @@
 button{
     background-color: #28CEC5;
+    border: 1px solid #28CEC5;
 }
 button:hover {
     background-color: #144386;
+    border: 1px solid #144386;
     color: white; 
 }
 body{
