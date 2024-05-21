@@ -17,8 +17,8 @@ export class HospitalService {
     return this.http.get<Hospital[]>(`${this.baseURL}/all`);
   }
 
-  obtener_hospital_id(id:number): Observable<Hospital[]> {
-    return this.http.get<Hospital[]>(`${this.baseURL}/id/${id}`);
+  obtener_hospital_id(id:number): Observable<Hospital> {
+    return this.http.get<Hospital>(`${this.baseURL}/id/${id}`);
   }
 
   
