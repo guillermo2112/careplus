@@ -11,6 +11,7 @@ export class Doctor {
     name: String;
     phone: String;
     user:Usuario;
+    gender : string;
 
     constructor(
         id: number = 0,
@@ -22,6 +23,7 @@ export class Doctor {
         licenseNum: string = '',
         name: string = '',
         phone: string = '',
+        gender: string = '',
         user: Usuario = new Usuario()
     ) {
         this.id = id;
@@ -33,6 +35,7 @@ export class Doctor {
         this.licenseNum = licenseNum;
         this.name = name;
         this.phone = phone;
+        this.gender=gender;
         this.user = user;
     }
     

@@ -53,12 +53,7 @@ export class UpdateDoctorComponent implements OnInit{
   }
 
   onSubmit() {
-    if(this.doctor.user.onDutty)
-      this.doctor.user.onDutty = "ACTIVE"
 
-    if(!this.doctor.user.onDutty)
-      this.doctor.user.onDutty = "INACTIVE"
-    
     this.saveDoctor();
   }
 
