@@ -83,7 +83,7 @@
         <div class="nav-item">
           <form (ngSubmit)="burcador_nombre()">
             <div style="display: flex; justify-content: center; align-items: center;">
-              <input type="text" id="texto" name="texto" [(ngModel)]="nombre" placeholder="Buscar por nombre">
+              <input type="text" id="name" name="name" [(ngModel)]="nombre" placeholder="Buscar por nombre">
             <button style="margin-top: 0;" type="submit">Enviar</button>
             </div>
             <!-- <label for="texto">Buscar</label> -->
@@ -94,6 +94,10 @@
         <div class="nav-item">
           <button (click)="limpiar_filtros()">Limpiar Filtros</button>
 
+        </div>
+
+        <div class="nav-item">
+          <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Clinica</button>
         </div>
        
 
@@ -115,9 +119,9 @@
 
 <section class="clinicas">
 
-    @for(hospital of hospitales; track hospital.id){
+    @for(hospital of hospital; track hospital.id){
             <div class="clinica">
-                <img [src]="'../../../assets/hospitales/'+hospital.id+'.jpeg'">
+                <img [src]="'../../../assets/hospital/'+hospital.id+'.jpeg'">
                 <h3>{{ hospital.name }}</h3>
                 <a class="provincia">{{ hospital.province.name }}</a>
                 <div>{{ hospital.address }} - {{hospital.pc}}</div>
@@ -129,6 +133,10 @@
                     <section class="estado"><p class="suspended">Suspendido</p></section>
                 }
                 <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
+                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateHospital(hospital.id)">
+                
+                  Editar especialidad
+                  </button>
             </div>
     }
         

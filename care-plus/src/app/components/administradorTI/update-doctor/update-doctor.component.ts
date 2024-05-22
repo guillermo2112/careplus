@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../../../services/doctor.service';
 import { Doctor } from '../../../entities/doctor';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-update-doctor',
@@ -34,7 +36,14 @@ export class UpdateDoctorComponent implements OnInit{
     this.doctorService.updateDoctor(this.id, this.doctor).subscribe(
       dato => {
         console.log(dato);
-        this.goToListDoctor();
+        Swal.fire({
+          title: "Success",
+          text: "Especilidad actualizada con éxito",
+          icon: "success"
+        }).then(() => {
+            this.goToListDoctor();
+          
+        });
       }
     );
   }

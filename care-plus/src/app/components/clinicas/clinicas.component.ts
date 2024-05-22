@@ -20,14 +20,14 @@ export class ClinicasComponent implements OnInit{
 
   constructor(private hospital_service:HospitalService, private router:Router){}
 
-  hospitales:any[] = [];
-  hospitales_clear:any[] = [];
+  hospital:any[] = [];
+  hospital_clear:any[] = [];
   nombre:string = '';
   provincia:string='';
   seleccionados:string[]=[];
 
   ngOnInit(): void {
-    this.obtener_hospitales();
+    this.obtener_hospital();
         
   }
 
@@ -52,31 +52,31 @@ export class ClinicasComponent implements OnInit{
   }
 
   ordenar_provincia(){ 
-    this.hospitales.sort((a, b) => a.province.id - b.province.id);
+    this.hospital.sort((a, b) => a.province.id - b.province.id);
   }
 
   ordenar_id(){
-    this.hospitales.sort((a, b) => a.id - b.id);
+    this.hospital.sort((a, b) => a.id - b.id);
   }
 
   ordenar_disponibles(){
-    this.hospitales.sort((a, b) => a.onDutty.localeCompare(b.onDutty));
+    this.hospital.sort((a, b) => a.onDutty.localeCompare(b.onDutty));
   }
 
   ordenar_nombre(){
-    this.hospitales.sort((a, b) => a.name.localeCompare(b.name));
+    this.hospital.sort((a, b) => a.name.localeCompare(b.name));
   }
 
   buscar_disponibles(){
-    this.hospitales = this.hospitales.filter(hospital => hospital.onDutty === 'ACTIVE');
+    this.hospital = this.hospital.filter(hospital => hospital.onDutty === 'ACTIVE');
   }
 
   buscar_nombre(nombre:string){
-    //this.hospitales = this.hospitales.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+    //this.hospital = this.hospital.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
     const nombres = this.nombre.toLowerCase().split(' ');
-    this.hospitales = this.hospitales.filter(hospital => {
+    this.hospital = this.hospital.filter(hospital => {
       return nombres.every(nombre => hospital.name.toLowerCase().includes(nombre))});
-    if (this.hospitales.length === 0) {
+    if (this.hospital.length === 0) {
       Swal.fire({
         title: "Opps...",
         text:"No se han encontrado clinicas con el nombre buscado",
@@ -88,8 +88,8 @@ export class ClinicasComponent implements OnInit{
 
   buscar_provincia(provincia:string){
     this.limpiar_filtros();
-    this.hospitales = this.hospitales.filter(hospital => hospital.province.name.toLowerCase().startsWith(provincia.toLowerCase()));
-    if (this.hospitales.length === 0) {
+    this.hospital = this.hospital.filter(hospital => hospital.province.name.toLowerCase().startsWith(provincia.toLowerCase()));
+    if (this.hospital.length === 0) {
       Swal.fire({
         title: "Opps...",
         text:"No se han encontrado clinicas con la provincia buscada",
@@ -100,7 +100,7 @@ export class ClinicasComponent implements OnInit{
   }
 
   limpiar_filtros(){
-    this.hospitales = this.hospitales_clear.slice();
+    this.hospital = this.hospital_clear.slice();
     this.nombre='';
   }
 
@@ -108,10 +108,10 @@ export class ClinicasComponent implements OnInit{
     this.router.navigate(['clinica',id]);
   }
 
-  private obtener_hospitales(){
+  private obtener_hospital(){
     this.hospital_service.obtener_hospitales().subscribe(dato => {
-      this.hospitales = dato;
-      this.hospitales_clear = dato;
+      this.hospital = dato;
+      this.hospital_clear = dato;
       
     });
   }
@@ -153,13 +153,12 @@ updateHospital(id: number): void {
 
 getHospitalById(id: number): void {
   this.hospital_service.obtener_hospital_id(id).subscribe(data => {
-    this.hospitales = [data];
+    this.hospital = [data];
   });
 }
 
 
 goToCreate() {
-  //this.router.navigate(['/hospitals']);
   window.location.href = '/add-hospital';
 }
 }
