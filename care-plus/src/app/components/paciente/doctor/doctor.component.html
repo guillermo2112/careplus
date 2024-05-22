@@ -2,11 +2,11 @@
 
 <section class="doctores">
   
-  @for(doctor of doctor; track doctor.id){
+  @for(doctor of doctores; track doctor.id){
           <div class="doctor">
               <img [src]="'../../../assets/doctores/'+doctor.id+'.jpg'">
               <h3>{{ doctor.name }}</h3>
-              <p class="especialistas">{{ doctor.name }}</p>
+              <p class="especialistas">{{ doctor.specialtyId }}</p>
               <p>{{ doctor.licenseNum }}</p>
               <a class="visitar" (click)="detalles_doctor(doctor.id)">Ver info</a>
 

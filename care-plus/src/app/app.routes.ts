@@ -31,7 +31,7 @@ export const routes: Routes = [
     {path: 'update-doctor/:id', component: UpdateDoctorComponent},
     {path: 'inicio_sesion', component: LoginComponent},
     {path: 'especialidades', component: EspecialidadesComponent},
-    {path: 'especialidadesPaciente', component: es},
+    {path: 'especialidadesPaciente', component: EspecialidadesComponent},
 
     {path: 'update-specialty/:id', component: UpdateSpecialtyComponent},
     {path: 'add-specialty', component: AddSpecialtyComponent},
