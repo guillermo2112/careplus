@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "./components/navbar/navbar.component";
+import { NavbarComponent } from "./components/paciente/navbar/navbar.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { CarouselComponent } from "./components/home/carousel/carousel.component";
-import { CardespecialidadesComponent } from './components/home/cardespecialidades/cardespecialidades.component';
-import { HomeComponent } from "./components/home/home.component";
+
 import { HospitalService } from './services/hospital.service';
+import { CarouselComponent } from './components/paciente/home/carousel/carousel.component';
+import { CardespecialidadesComponent } from './components/paciente/home/cardespecialidades/cardespecialidades.component';
+import { HomeComponent } from './components/paciente/home/home.component';
 
 @Component({
     selector: 'app-root',

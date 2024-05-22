@@ -10,7 +10,7 @@ import { InfoComponent } from "./info/info.component";
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.css',
-    imports: [CarouselComponent, CardespecialidadesComponent, NewsComponent, DoctoreshomeComponent, InfoComponent]
+    imports: [CarouselComponent, CardespecialidadesComponent, NewsComponent, DoctoreshomeComponent, InfoComponent, HomeComponent]
 })
 export class HomeComponent {
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LogoComponent } from "../../logo/logo.component";
 import { Router, RouterModule } from '@angular/router';
+import { LogoComponent } from '../../../logo/logo.component';
 
 @Component({
   selector: 'app-info',
