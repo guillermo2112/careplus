@@ -17,6 +17,7 @@ import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 export class ContactoComponent {
   userEmail: string = '';
   message: string = '';
+  userName: string = '';
 
   constructor() { }
 
@@ -24,6 +25,7 @@ export class ContactoComponent {
     const templateParams = {
       toEmail: this.userEmail,
       message: this.message,
+      name: this.userName
     };
 
     emailjs.send('service_e7aad5d', 'template_e0z73lq', templateParams, 'CnLoD7mBrVO1uaoMr')
