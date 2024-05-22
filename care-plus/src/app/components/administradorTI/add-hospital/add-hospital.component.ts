@@ -1,9 +1,10 @@
 // import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { HospitalService } from '../../../services/hospital.service';
-import { Hospital } from '../../../entities/hospital.model';
+import { Hospital, Province } from '../../../entities/Hospital';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-hospital',
@@ -12,31 +13,39 @@ import { FormsModule } from '@angular/forms';
   standalone : true,
   imports: [FormsModule]
 })
-export class AddHospitalComponent {
+export class AddHospitalComponent  implements OnInit{
 
   hospital: Hospital = new Hospital();
+  province: Province = new Province();
+  id: number;
 
   constructor(
     private hospitalServicio: HospitalService,
-    private router: Router
-  ) {}
+    private router: Router,
+    private route: ActivatedRoute,
+  ) {
+    this.hospital.province = this.province;
+  }
+  ngOnInit(): void {
+    this.id = this.route.snapshot.params['id'];
+    this.hospitalServicio.obtener_hospital_id(this.id).subscribe(dato => {
+      this.hospital = dato;
+    });
+  }
 
   saveHospital() {
-    // if (!this.hospital.name) {
-    //   console.error("El nombre es obligatorio.");
-    //   return;
-    // }
-console.log("pre")
     this.hospitalServicio.createHospital(this.hospital).subscribe(
-      
       dato => {
-        console.log("probando",dato);
-        // this.obtener_hospitales();
-        // window.location.href = '/clinica';
-      }
-      ,
-      error => {
-        console.log(error);
+        console.log(dato);
+        Swal.fire({
+          title: "Success",
+          text: "Especilidad actualizada con éxito",
+          icon: "success"
+        }).then(() => {
+            this.obtener_hospitales();
+          
+        });
+        
       }
     );
   }
@@ -46,9 +55,8 @@ console.log("pre")
     // window.location.href = '/clinicas';
   }
 
-  onSubmit() {console.log("hola");
+  onSubmit() {
     this.saveHospital();
-console.log("chao");
     
   }
 

@@ -5,7 +5,6 @@ import { LoginComponent } from './components/shared/login/login.component';
 import { EspecialidadesComponent } from './components/administradorTI/especialidades/especialidades.component';
 import { ContactoComponent } from './components/paciente/contacto/contacto.component';
 import { ClinicasComponent } from './components/paciente/clinicas/clinicas.component';
-import { DoctorComponent } from './components/administradorTI/doctor/doctor.component';
 import { ClinicaVistaComponent } from './components/paciente/clinica-vista/clinica-vista.component';
 import { DoctorVistaComponent } from './components/paciente/doctor-vista/doctor-vista.component';
 import { UpdateSpecialtyComponent } from './components/administradorTI/update-specialty/update-specialty.component';
@@ -19,6 +18,10 @@ import { ListaPacientesComponent } from './components/administradorTI/lista-paci
 import { AddHospitalComponent } from './components/administradorTI/add-hospital/add-hospital.component';
 import { HomeComponent } from './components/paciente/home/home.component';
 
+import { DoctorComponent } from './components/doctor/doctor.component';
+import { HomeAdminComponent } from './components/administradorTI/home-admin/home-admin.component';
+import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
+
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
     {path: 'navbar', component: NavbarComponent},
@@ -29,12 +32,16 @@ export const routes: Routes = [
     {path: 'update-doctor/:id', component: UpdateDoctorComponent},
     {path: 'inicio_sesion', component: LoginComponent},
     {path: 'especialidades', component: EspecialidadesComponent},
+    {path: 'especialidadesPaciente', component: EspecialidadesPacienteComponents},
+
     {path: 'update-specialty/:id', component: UpdateSpecialtyComponent},
     {path: 'add-specialty', component: AddSpecialtyComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
     {path: 'clinica/:id', component: ClinicaVistaComponent},
     {path: 'add-hospital', component: AddHospitalComponent},
+
+    {path: 'home-admin', component: HomeAdminComponent},
    
     {path: 'update-hospital/:id', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
