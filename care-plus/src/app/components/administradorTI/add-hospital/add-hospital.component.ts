@@ -5,6 +5,7 @@ import { HospitalService } from '../../../services/hospital.service';
 import { Hospital, Province } from '../../../entities/Hospital';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { OnDutty } from '../../../entities/OnDutty';
 
 @Component({
   selector: 'app-add-hospital',
@@ -25,6 +26,8 @@ export class AddHospitalComponent  implements OnInit{
     private route: ActivatedRoute,
   ) {
     this.hospital.province = this.province;
+    this.hospital.onDutty = OnDutty.ACTIVE;
+    
   }
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
