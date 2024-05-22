@@ -6,16 +6,16 @@ import { FormsModule } from '@angular/forms';import { SpecialtyService } from '.
 ;
 
 @Component({
-  selector: 'app-especialidades',
-  templateUrl: './especialidades.component.html',
-  styleUrls: ['./especialidades.component.css'],
+  selector: 'app-especialidadesPaciente',
+  templateUrl: './especialidadesPaciente.component.html',
+  styleUrls: ['./especialidadesPaciente.component.css'],
   standalone: true,
   imports: [
     CommonModule,
     FormsModule
   ]
 })
-export class EspecialidadesComponent implements OnInit {
+export class EspecialidadesPacienteComponents implements OnInit {
 
   specialty: any[] = [];
   specialty_clear: any[] = [];

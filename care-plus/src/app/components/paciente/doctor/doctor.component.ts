@@ -19,6 +19,7 @@ import { DoctorService } from '../../../services/doctor.service';
 export class DoctorComponent implements OnInit {
 
   doctores: Doctor[] = [];
+doctor: any;
 
   constructor(
     private doctorService: DoctorService,
