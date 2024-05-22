@@ -1,10 +1,12 @@
+import { OnDutty } from "./OnDutty";
+
 export class Hospital {
   id: number;
   name: string;
   address: string;
   pc: number;
   phone: string;
-  onDutty: string;
+  onDutty: OnDutty;
   province: Province;
 
   // constructor(
@@ -29,11 +31,6 @@ export class Hospital {
 export class Province {
   id: number;
   name: string;
-  onDutty: string;
+  onDutty: OnDutty;
 
-  constructor(id: number, name: string, onDutty: string) {
-    this.id = id;
-    this.name = name;
-    this.onDutty = onDutty;
-  }
 }

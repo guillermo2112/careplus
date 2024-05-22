@@ -6,19 +6,20 @@ import { Doctor } from '../../../entities/doctor';
 import { DoctorService } from '../../../services/doctor.service';
 
 @Component({
-  selector: 'app-doctor',
+  selector: 'app-doctorPaciente',
   standalone: true,
   imports: [
     RouterModule,
     CommonModule,
     FormsModule
   ],
-  templateUrl: './doctor.component.html',
-  styleUrls: ['./doctor.component.css']
+  templateUrl: './doctorPaciente.component.html',
+  styleUrls: ['./doctorPaciente.component.css']
 })
-export class DoctorComponent implements OnInit {
+export class DoctorPacienteComponent implements OnInit {
 
   doctores: Doctor[] = [];
+doctor: any;
 
   constructor(
     private doctorService: DoctorService,
@@ -40,7 +41,6 @@ export class DoctorComponent implements OnInit {
   private listDoctor() {
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
-      console.log(this.doctores);
  
     });
   }
