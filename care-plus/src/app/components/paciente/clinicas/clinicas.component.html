@@ -1,0 +1,151 @@
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light " aria-label="Eighth navbar example">
+  <div class="container container-bots" >
+    
+
+    <div class=" navbar" id="navbarsExample07">
+      <div class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 3rem; gap: 2rem;">
+        
+        <div class="nav-item">
+          <select name="filtros" (change)="seleccionarAccion($event)" placeholder="Seleccionar opcion">
+              <option value="">Ordenar por</option>
+              <option value="ordenar_provincia">Ordenar Provincia</option>
+              <option value="ordenar_nombre">Ordenar Por Nombre</option>
+              <!--<option value="ordenar_disponibles">Ordenar Disponibles</option>
+              <option value="ordenar_id">Ordenar id</option>-->
+              <option value="buscar_disponibles">Buscar Disponibles</option>
+            </select>
+      
+              
+              </div>
+              
+
+
+        <div class="nav-item">
+      <select name="provincias" id="provincias" (change)="provincias($event)">
+        <option value="">Buscar por provincia</option>
+        <option value="alava">Álava</option>
+        <option value="albacete">Albacete</option>
+        <option value="alicante">Alicante</option>
+        <option value="almeria">Almería</option>
+        <option value="asturias">Asturias</option>
+        <option value="avila">Ávila</option>
+        <option value="A coruna">A Coruña</option>
+        <option value="badajoz">Badajoz</option>
+        <option value="barcelona">Barcelona</option>
+        <option value="burgos">Burgos</option>
+        <option value="caceres">Cáceres</option>
+        <option value="cadiz">Cádiz</option>
+        <option value="cantabria">Cantabria</option>
+        <option value="castellon">Castellón</option>
+        <option value="ciudad_real">Ciudad Real</option>
+        <option value="cordoba">Córdoba</option>
+        <option value="cuenca">Cuenca</option>
+        <option value="girona">Girona</option>
+        <option value="granada">Granada</option>
+        <option value="guadalajara">Guadalajara</option>
+        <option value="guipuzcoa">Guipúzcoa</option>
+        <option value="huelva">Huelva</option>
+        <option value="huesca">Huesca</option>
+        <option value="illes_balears">Illes Balears</option>
+        <option value="jaen">Jaén</option>
+        <option value="la_rioja">La Rioja</option>
+        <option value="las_palmas">Las Palmas</option>
+        <option value="leon">León</option>
+        <option value="lleida">Lleida</option>
+        <option value="lugo">Lugo</option>
+        <option value="madrid">Madrid</option>
+        <option value="malaga">Málaga</option>
+        <option value="murcia">Murcia</option>
+        <option value="navarra">Navarra</option>
+        <option value="ourense">Ourense</option>
+        <option value="palencia">Palencia</option>
+        <option value="pontevedra">Pontevedra</option>
+        <option value="salamanca">Salamanca</option>
+        <option value="segovia">Segovia</option>
+        <option value="sevilla">Sevilla</option>
+        <option value="soria">Soria</option>
+        <option value="tarragona">Tarragona</option>
+        <option value="tenerife">Tenerife</option>
+        <option value="teruel">Teruel</option>
+        <option value="toledo">Toledo</option>
+        <option value="valencia">Valencia</option>
+        <option value="valladolid">Valladolid</option>
+        <option value="vizcaya">Vizcaya</option>
+        <option value="zamora">Zamora</option>
+        <option value="zaragoza">Zaragoza</option>
+      </select>
+      
+        </div>
+        <div class="nav-item">
+          <form (ngSubmit)="burcador_nombre()">
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <input type="text" id="name" name="name" [(ngModel)]="nombre" placeholder="Buscar por nombre">
+            <button style="margin-top: 0;" type="submit">Enviar</button>
+            </div>
+            <!-- <label for="texto">Buscar</label> -->
+            
+          </form>
+        
+        </div>
+        <div class="nav-item">
+          <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+
+        </div>
+
+        <div class="nav-item">
+          <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Clinica</button>
+        </div>
+       
+
+       
+        
+      </div>
+      
+    </div>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+<section class="clinicas">
+  <!-- Contenedor de las clínicas -->
+  <div *ngFor="let hospital of paginatedHospitals; trackBy: trackById" class="clinica">
+    <img [src]="'../../../assets/hospitals/' + hospital.id + '.jpeg'">
+    <h3>{{ hospital.name }}</h3>
+    <a class="provincia">{{ hospital.province.name }}</a>
+    <div>{{ hospital.address }} - {{ hospital.pc }}</div>
+    <section class="estado" [ngClass]="{'active': hospital.onDutty === 'ACTIVE', 'inactive': hospital.onDutty === 'INACTIVE', 'suspended': hospital.onDutty === 'SUSPENDED'}">
+      <p>{{ getDuttyStatus(hospital.onDutty) }}</p>
+    </section>
+    <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateHospital(hospital.id)">
+      Editar especialidad
+    </button>
+  </div>
+
+  <!-- Paginación -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" (click)="previousPage()">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of totalPagesArray; let i = index" [class.active]="currentPage === i + 1">
+        <a class="page-link" href="#" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" href="#" (click)="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
