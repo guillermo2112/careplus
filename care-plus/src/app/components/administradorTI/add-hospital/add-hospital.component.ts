@@ -16,7 +16,6 @@ export class AddHospitalComponent {
 
   hospital: Hospital = new Hospital();
   province: Province = new Province();
-  //this.hospital.phone="sdaad";
 
   constructor(
     private hospitalServicio: HospitalService,
@@ -36,7 +35,7 @@ console.log("pre")
       dato => {
         console.log("probando",dato);
         console.log("Hosp: ", this.hospital);
-        // this.obtener_hospitales();
+        this.obtener_hospitales();
         // window.location.href = '/clinica';
       }
       ,
@@ -52,9 +51,7 @@ console.log("pre")
   }
 
   onSubmit() {
-    console.log("hola");
     this.saveHospital();
-    console.log("chao");
     
   }
 
