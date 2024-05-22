@@ -31,3 +31,11 @@ button:hover {
 .form-group {
     margin-bottom: 15px; 
 }
+.form-group label {
+    margin-right: 20px;
+    font-weight: bold;
+    color: #144386; 
+}
+h3{
+    color: #144386;
+}
