@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { HospitalService } from '../../services/hospital.service';
+import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-clinicas',
+  selector: 'app-clinicaspaciente',
   standalone: true,
   imports: [
     CommonModule,

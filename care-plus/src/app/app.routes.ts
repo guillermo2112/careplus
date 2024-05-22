@@ -5,7 +5,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { EspecialidadesComponent } from './components/especialidades/especialidades.component';
 import { ContactoComponent } from './components/paciente/contacto/contacto.component';
-import { ClinicasComponent } from './components/clinicas/clinicas.component';
+import { ClinicasComponent } from './components/paciente/clinicas/clinicas.component';
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { ClinicaVistaComponent } from './components/clinica-vista/clinica-vista.component';
 import { DoctorVistaComponent } from './components/doctor-vista/doctor-vista.component';
