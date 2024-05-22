@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HospitalService } from '../../../services/hospital.service';
-import { Hospital } from '../../../entities/hospital.model';
+import { Hospital } from '../../../entities/hospital';
 
 @Component({
   selector: 'app-clinica-vista',
