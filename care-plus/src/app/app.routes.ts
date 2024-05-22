@@ -20,6 +20,7 @@ import { HomeComponent } from './components/paciente/home/home.component';
 
 import { DoctorComponent } from './components/doctor/doctor.component';
 import { HomeAdminComponent } from './components/administradorTI/home-admin/home-admin.component';
+import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -31,7 +32,7 @@ export const routes: Routes = [
     {path: 'update-doctor/:id', component: UpdateDoctorComponent},
     {path: 'inicio_sesion', component: LoginComponent},
     {path: 'especialidades', component: EspecialidadesComponent},
-    {path: 'especialidadesPaciente', component: es},
+    {path: 'especialidadesPaciente', component: EspecialidadesPacienteComponents},
 
     {path: 'update-specialty/:id', component: UpdateSpecialtyComponent},
     {path: 'add-specialty', component: AddSpecialtyComponent},
