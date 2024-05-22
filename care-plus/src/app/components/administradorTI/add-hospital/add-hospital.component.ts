@@ -2,7 +2,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { HospitalService } from '../../../services/hospital.service';
-import { Hospital, Province } from '../../../entities/hospital';
+import { Hospital, Province } from '../../../entities/Hospital';
 import { FormsModule } from '@angular/forms';
 
 @Component({

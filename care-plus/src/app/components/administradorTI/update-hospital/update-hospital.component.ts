@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
-import { Hospital } from '../../../entities/hospital';
+import { Hospital } from '../../../entities/Hospital';
 import Swal from 'sweetalert2';
 
 @Component({
