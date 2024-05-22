@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DoctorService } from '../../services/doctor.service';
 import { Router, RouterModule } from '@angular/router';
-import { Doctor } from '../../entities/doctor';
+import { Doctor } from '../../../entities/doctor';
+import { DoctorService } from '../../../services/doctor.service';
 
 @Component({
   selector: 'app-doctor',

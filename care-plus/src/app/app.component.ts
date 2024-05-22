@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from "./components/paciente/navbar/navbar.component";
-import { FooterComponent } from "./components/footer/footer.component";
+import { FooterComponent } from "./components/shared/footer/footer.component";
 
 import { HospitalService } from './services/hospital.service';
 import { CarouselComponent } from './components/paciente/home/carousel/carousel.component';

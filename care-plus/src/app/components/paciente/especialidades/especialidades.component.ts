@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { SpecialtyService } from '../../services/specialty.service';
+import { Router } from '@angular/router';;
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { Specialty } from '../../entities/specialty';
+import { FormsModule } from '@angular/forms';import { SpecialtyService } from '../../../services/specialty.service';
+;
 
 @Component({
   selector: 'app-especialidades',
