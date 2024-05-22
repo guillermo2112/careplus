@@ -7,8 +7,8 @@
     <div class="doctor">
       <img [src]="'../../assets/doctores/' + doctor.id + '.jpg'" />
       <h3>{{ doctor.name }}</h3>
-      <p class="especialistas">{{ doctor.name }}</p>
-      <p>{{ doctor.licenseNum }}</p>
+      <p class="especialistas">{{ doctor.specialty.name }}</p>
+      <p>{{ doctor.license_num }}</p>
       <a class="visitar" (click)="detalles_doctor(doctor.id)">Ver info</a>
       <a class="visitar" (click)="updateDoctor(doctor.id)">Editar perfil</a>
     </div>

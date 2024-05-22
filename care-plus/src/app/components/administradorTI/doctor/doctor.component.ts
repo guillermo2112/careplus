@@ -41,6 +41,7 @@ doctor: any;
   private listDoctor() {
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
+      console.log(this.doctores);
  
     });
   }
