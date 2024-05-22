@@ -8,15 +8,15 @@
     <h1>contáctanos</h1>
     <p>Pregúntanos lo que quieras y estaremos encantados de ayudarte</p>
     
-    <form id="contact-form" method="post">
+    <form id="contact-form" method="post" (ngSubmit)="sendEmail()">
       <label for="name">nombre completo</label>
       <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
       
       <label for="email">correo electrónico</label>
-      <input type="email" id="email" name="email" placeholder="Tu dirección" required>
+      <input type="email" id="email" [(ngModel)]="userEmail" name="email" placeholder="Tu dirección" required>
       
       <label for="message">mensaje</label>
-      <textarea rows="6" placeholder="Tu mensaje" id="message" name="message" required></textarea>
+      <textarea rows="6" placeholder="Tu mensaje" id="message" [(ngModel)]="message" name="message" required></textarea>
       
       <button type="submit" id="submit" name="submit">Enviar</button>
     </form>
