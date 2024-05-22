@@ -28,38 +28,45 @@ body {
 
 .doctor-details-container {
   display: flex;
-  justify-content: flex-start; /* Cambia a flex-start para alinear los elementos al inicio */
-  align-items: center;
+  justify-content: center;
+  align-items: center; 
   padding: 20px;
+  margin: auto; 
+  width: fit-content; 
 }
 
-/* Estilo del contenedor de la imagen */
+
 .image-container {
   flex: 1;
-  max-width: 400px; /* Ajusta el ancho máximo de la imagen */
+  max-width: 400px; 
   margin-right: 20px;
+  display: flex;
+  align-items: center; 
 }
 
 .image-container img {
   width: 100%;
-  height: auto;
-  border-radius: 10px;
+  height: 100%; 
+  border-radius: 250px;
+  object-fit: cover; 
 }
 
-/* Estilo del contenedor de los detalles */
+
 .details-container {
-  flex: 2;
-  margin-left: 20px; /* Añade un margen a la izquierda para mover la tarjeta hacia la derecha */
+  flex: 1;
+  max-width: 400px; 
+  display: flex;
+  align-items: center; 
 }
 
-/* Estilo de la tarjeta de detalles del doctor */
+
 .card {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   padding: 20px;
-  width: 80%; /* Ajusta el ancho de la tarjeta */
-  height: 100%; /* Asegura que la tarjeta de información tenga el mismo tamaño que la imagen */
+  width: 100%; 
+  height: 100%;
 }
 
 .card-title {
@@ -74,7 +81,7 @@ body {
   margin-bottom: 10px;
 }
 
-/* Estilo adicional para alineación y espacio */
+
 .d-flex {
   display: flex;
 }
