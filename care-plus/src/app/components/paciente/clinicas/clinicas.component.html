@@ -118,28 +118,34 @@
 
 
 <section class="clinicas">
+  <!-- Contenedor de las clínicas -->
+  <div *ngFor="let hospital of paginatedHospitals; trackBy: trackById" class="clinica">
+    <img [src]="'../../../assets/hospitals/' + hospital.id + '.jpeg'">
+    <h3>{{ hospital.name }}</h3>
+    <a class="provincia">{{ hospital.province.name }}</a>
+    <div>{{ hospital.address }} - {{ hospital.pc }}</div>
+    <section class="estado" [ngClass]="{'active': hospital.onDutty === 'ACTIVE', 'inactive': hospital.onDutty === 'INACTIVE', 'suspended': hospital.onDutty === 'SUSPENDED'}">
+      <p>{{ getDuttyStatus(hospital.onDutty) }}</p>
+    </section>
+    <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
+    <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateHospital(hospital.id)">
+      Editar especialidad
+    </button>
+  </div>
 
-    @for(hospital of hospital; track hospital.id){
-            <div class="clinica">
-                <img [src]="'../../../assets/hospitals/'+hospital.id+'.jpeg'">
-                <h3>{{ hospital.name }}</h3>
-                <a class="provincia">{{ hospital.province.name }}</a>
-                <div>{{ hospital.address }} - {{hospital.pc}}</div>
-                @if(hospital.onDutty == "ACTIVE"){
-                    <section class="estado"><p class="active">Disponible</p></section>
-                }@else if (hospital.onDutty == "INACTIVE") {
-                    <section class="estado"><p class="inactive">No disponible</p></section>
-                }@else if (hospital.onDutty == "SUSPENDED") {
-                    <section class="estado"><p class="suspended">Suspendido</p></section>
-                }
-                <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
-                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateHospital(hospital.id)">
-                
-                  Editar especialidad
-                  </button>
-            </div>
-    }
-        
-    
-
+  <!-- Paginación -->
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <a class="page-link" href="#" (click)="previousPage()">Previous</a>
+      </li>
+      <li class="page-item" *ngFor="let page of totalPagesArray; let i = index" [class.active]="currentPage === i + 1">
+        <a class="page-link" href="#" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+      </li>
+      <li class="page-item" [class.disabled]="currentPage === totalPages">
+        <a class="page-link" href="#" (click)="nextPage()">Next</a>
+      </li>
+    </ul>
+  </nav>
 </section>
+
