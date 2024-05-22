@@ -27,7 +27,7 @@
   
   .left-col {
     width: 100%;
-    background-image: url("../../../assets/fondoForm.jpg"); /* Asegúrate de que la URL sea correcta */
+    background-image: url("../../../../assets/fondoForm.jpg"); 
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -37,7 +37,7 @@
   
   .logo {
     width: 10rem;
-    display: none; /* Oculta la imagen con el logo de Indonesia */
+    display: none; 
   }
   
   .right-col {
