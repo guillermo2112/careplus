@@ -6,7 +6,7 @@ import { Doctor } from '../../../entities/doctor';
 import { DoctorService } from '../../../services/doctor.service';
 
 @Component({
-  selector: 'app-doctor',
+  selector: 'app-admin-doctor',
   standalone: true,
   imports: [
     RouterModule,
@@ -16,10 +16,10 @@ import { DoctorService } from '../../../services/doctor.service';
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.css']
 })
-export class DoctorComponent implements OnInit {
+export class AdminDoctorComponent implements OnInit {
 
   doctores: Doctor[] = [];
-doctor: any;
+  doctor: any;
 
   constructor(
     private doctorService: DoctorService,
@@ -30,34 +30,13 @@ doctor: any;
     this.listDoctor();
   }
 
-  trackById(index: number, doctor: Doctor): number {
-    return doctor.id;
-  }
-
-  detalles_doctor(id:number){
-    this.router.navigate(['doctor-vista',id]);
-  }
-
   private listDoctor() {
+    console.log("Tester");
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
-      console.log(this.doctores);
+      console.log("Doctores: ",this.doctores);
  
     });
   }
-
-  updateDoctor(id: number) {
-    this.router.navigate(['update-doctor', id]);
-  }
-
-  goToCreate(){
-    this.router.navigate(['add-doctor'])
-  }
-
-  // createDoctor(id: number) {
-  //   this.doctorService.createDoctor(id).subscribe(dato => {
-  //     this.doctor = [dato]; 
-  //   });
-  // }
 
 }
