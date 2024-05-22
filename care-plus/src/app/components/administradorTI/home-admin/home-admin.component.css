@@ -1,0 +1,12 @@
+.container-bots{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 2rem;
+}
+.container-bots div{
+    display: flex;
+    width: 30%;
+    border: 2px solid #28CEC5;
+    height: 200px;
+}
