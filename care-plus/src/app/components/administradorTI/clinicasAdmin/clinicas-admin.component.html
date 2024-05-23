@@ -106,7 +106,7 @@
       </div>
       
     </div>
-  </div>
+  </div>      
 </nav>
 
 
@@ -114,32 +114,50 @@
 
 
 
+<section class="container">
 
-
-<section class="clinicas">
-
-  @for(hospital of hospital; track hospital.id){
-          <div class="clinica">
-              <img [src]="'../../../assets/hospitals/'+hospital.id+'.jpeg'">
-              <h3>{{ hospital.name }}</h3>
-              <a class="provincia">{{ hospital.province.name }}</a>
-              <div>{{ hospital.address }} - {{hospital.pc}}</div>
-              @if(hospital.onDutty == "ACTIVE"){
-                  <section class="estado"><p class="active">Disponible</p></section>
-              }@else if (hospital.onDutty == "INACTIVE") {
-                  <section class="estado"><p class="inactive">No disponible</p></section>
-              }@else if (hospital.onDutty == "SUSPENDED") {
-                  <section class="estado"><p class="suspended">Suspendido</p></section>
-              }
-              <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
-              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateHospital(hospital.id)">
-              
-                Editar especialidad
-                </button>
-          </div>
-  }
+  
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Lista de Doctores</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Codigo Postal</th>
+            <th>Provincia</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(hospital of hospital; track hospital.id){ 
+            <tr>
+              <th>{{ hospital.id }}</th>
+              <th>{{ hospital.name }}</th>
+              <th>{{ hospital.pc }}</th>
+              <th>{{ hospital.province.name }}</th>
+              <th>{{ hospital.onDutty }}</th>
+              <th>
+                <button class="btn btn-success" (click)="updateHospital(hospital.id)">Editar</button>
+                <!-- <button class="btn btn-danger">Eliminar</button  > -->
+              </th>
+            </tr>
+            }
+        </tbody>
+      </table>
+    </div>
+  </div>
       
+  
+
 </section>
+
+
 
 <nav aria-label="Page navigation example" class="flex-column text-end">
   <ul class="pagination">

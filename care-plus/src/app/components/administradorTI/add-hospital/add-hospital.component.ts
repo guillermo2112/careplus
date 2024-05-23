@@ -42,7 +42,7 @@ export class AddHospitalComponent  implements OnInit{
         console.log(dato);
         Swal.fire({
           title: "Success",
-          text: "Especilidad actualizada con éxito",
+          text: "Clinica actualizada con éxito",
           icon: "success"
         }).then(() => {
             this.obtener_hospitales();
