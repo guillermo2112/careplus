@@ -1,0 +1,44 @@
+
+
+<section class="container">
+
+  
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Lista de Doctores</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>DNI</th>
+            <th>Cumpleaños</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(doctor of doctores; track doctor.id){ 
+            <tr>
+              <th>{{ doctor.id }}</th>
+              <th>{{ doctor.name }}</th>
+              <th>{{ doctor.dni }}</th>
+              <th>{{ doctor.birthdate }}</th>
+              <th>{{ doctor.phone }}</th>
+              <th>
+                <button class="btn btn-success">Editar</button>
+                <button class="btn btn-danger">Eliminar</button>
+              </th>
+            </tr>
+            }
+        </tbody>
+      </table>
+    </div>
+  </div>
+      
+  
+
+</section>

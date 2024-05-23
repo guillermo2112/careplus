@@ -96,6 +96,11 @@
 
         </div>
 
+        <div class="nav-item">
+          <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Clinica</button>
+        </div>
+       
+
        
         
       </div>
@@ -127,7 +132,10 @@
                   <section class="estado"><p class="suspended">Suspendido</p></section>
               }
               <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
-             
+              <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateHospital(hospital.id)">
+              
+                Editar especialidad
+                </button>
           </div>
   }
       
