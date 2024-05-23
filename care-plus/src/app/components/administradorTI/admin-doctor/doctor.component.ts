@@ -4,17 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/doctor';
 import { DoctorService } from '../../../services/doctor.service';
+import { HomeAdminComponent } from "../home-admin/home-admin.component";
 
 @Component({
-  selector: 'app-admin-doctor',
-  standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    FormsModule
-  ],
-  templateUrl: './doctor.component.html',
-  styleUrls: ['./doctor.component.css']
+    selector: 'app-admin-doctor',
+    standalone: true,
+    templateUrl: './doctor.component.html',
+    styleUrls: ['./doctor.component.css'],
+    imports: [
+        RouterModule,
+        CommonModule,
+        FormsModule,
+        HomeAdminComponent
+    ]
 })
 export class AdminDoctorComponent implements OnInit {
 

@@ -4,16 +4,18 @@ import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HomeAdminComponent } from "../home-admin/home-admin.component";
 
 @Component({
-  selector: 'app-clinicas-admin',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
-  templateUrl: './clinicas-admin.component.html',
-  styleUrl: './clinicas-admin.component.css'
+    selector: 'app-clinicas-admin',
+    standalone: true,
+    templateUrl: './clinicas-admin.component.html',
+    styleUrl: './clinicas-admin.component.css',
+    imports: [
+        CommonModule,
+        FormsModule,
+        HomeAdminComponent
+    ]
 })
 export class ClinicasAdminComponent implements OnInit{
   

@@ -1,4 +1,4 @@
-<app-sidebar-admin></app-sidebar-admin>
+
 <section>
     <div class="container-bots">
         <div>
@@ -17,3 +17,24 @@
 
     </div>
 </section>
+
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed' : ''">
+    <div class="logo-container" [ngClass]="collapsed ? 'logo-container-collapsed' : ''">
+      <button class="logo" (click)="toggleCollapse()">
+        <i class="fas fa-bars"></i>
+      </button>
+      @if (collapsed) {<div class="logo-text">Admin</div>
+      <button class="btn-close" (click)="closeSidenav()">
+        <i class="fas fa-times"></i>
+      </button>
+    }
+    </div>
+   @if (collapsed) {<ul class="sidenav-nav">
+      <li *ngFor="let data of navData" class="sidenav-nav-item">
+        <a class="sidenav-nav-link" [routerLink]="[data.link]" (click)="closeSidenav()">
+        <span class="sidenav-link-text">{{ data.label }}</span>
+        </a>
+      </li>
+    </ul>
+    }
+  </div>
