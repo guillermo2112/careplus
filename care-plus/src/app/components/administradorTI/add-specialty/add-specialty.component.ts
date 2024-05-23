@@ -31,7 +31,7 @@ export class AddSpecialtyComponent {
       dato => {
         // console.log(dato);
         // this.goToListaSpecialtys();
-        window.location.href = '/specialtys';
+        window.location.href = '../admin-especialidades';
       }
       ,
       error => {
@@ -42,7 +42,7 @@ export class AddSpecialtyComponent {
 
   goToListaSpecialties() {
     //this.router.navigate(['/specialtys']);
-    window.location.href = '/especialidades';
+    window.location.href = '../admin-especialidades';
   }
 
   onSubmit() {
