@@ -146,6 +146,8 @@
               <th>{{ hospital.onDutty }}</th>
               <th>
                 <button class="btn btn-success" (click)="updateHospital(hospital.id)">Editar</button>
+                <button class="btn btn-danger" (click)="suspenderHospital()">Suspender</button>
+
                 <!-- <button class="btn btn-danger">Eliminar</button  > -->
               </th>
             </tr>

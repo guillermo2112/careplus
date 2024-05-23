@@ -49,7 +49,7 @@ export class UpdateHospitalComponent implements OnInit{
   }
 
   goToListhospital() {
-    this.router.navigate(['/clinicas']);
+    this.router.navigate(['/clinicas-admin']);
   }
 
   onSubmit() {
