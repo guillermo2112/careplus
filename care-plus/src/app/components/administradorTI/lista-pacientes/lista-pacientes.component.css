@@ -56,3 +56,8 @@
     background-color: #144386;
     border-color: #144386;
 }
+@media (max-width: 768px) {
+    .paciente {
+        width: 100%; 
+    }
+}
