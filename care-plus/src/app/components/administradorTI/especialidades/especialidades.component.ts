@@ -5,16 +5,18 @@ import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Specialty } from '../../../entities/specialty';
+import { SidebarAdminComponent } from "../sidebar-admin/sidebar-admin.component";
 
 @Component({
-  selector: 'app-especialidades',
-  templateUrl: './especialidades.component.html',
-  styleUrls: ['./especialidades.component.css'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule
-  ]
+    selector: 'app-especialidades',
+    templateUrl: './especialidades.component.html',
+    styleUrls: ['./especialidades.component.css'],
+    standalone: true,
+    imports: [
+        CommonModule,
+        FormsModule,
+        SidebarAdminComponent
+    ]
 })
 export class EspecialidadesComponent implements OnInit {
 
