@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { SpecialtyService } from '../../../services/specialty.service';
 import { Specialty } from '../../../entities/specialty';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-add-specialty',
@@ -29,13 +30,15 @@ export class AddSpecialtyComponent {
 
     this.specialtyServicio.createSpecialty(this.specialty).subscribe(
       dato => {
-        // console.log(dato);
-        // this.goToListaSpecialtys();
-        window.location.href = '../admin-especialidades';
-      }
-      ,
-      error => {
-        console.log(error);
+        console.log(dato);
+        Swal.fire({
+          title: "Success",
+          text: "Especilidad actualizada con éxito",
+          icon: "success"
+        }).then(() => {
+            this.goToListaSpecialties();
+          
+        });
       }
     );
   }
