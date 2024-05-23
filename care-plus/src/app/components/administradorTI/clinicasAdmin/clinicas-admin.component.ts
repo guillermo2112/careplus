@@ -23,6 +23,7 @@ export class ClinicasAdminComponent implements OnInit{
   constructor(private hospital_service:HospitalService, private router:Router){}
 
   hospital:any[] = [];
+  province:any[] = [];
   hospital_clear:any[] = [];
   nombre:string = '';
   provincia:string='';
@@ -117,6 +118,7 @@ export class ClinicasAdminComponent implements OnInit{
       
     });
   }
+  
 
   seleccionarAccion(event: Event):void {
     const selectElement = event.target as HTMLSelectElement;
@@ -162,5 +164,18 @@ getHospitalById(id: number): void {
 
 goToCreate() {
   window.location.href = '/add-hospital';
+}
+
+suspenderHospital() {
+  // const onDutty = '';  // Nombre del campo a actualizar
+  // const newValue = 'nuevoValor';  // Nuevo valor del campo
+
+  // this.dataService.updateField(id, fieldName, newValue).subscribe(
+  //   response => {
+  //     console.log('Campo actualizado con éxito', response);
+  //   },
+  //   error => {
+  //     console.error('Error al actualizar el campo', error);
+  //   }
 }
 }

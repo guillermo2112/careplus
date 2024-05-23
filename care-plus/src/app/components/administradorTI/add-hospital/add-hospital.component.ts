@@ -42,7 +42,7 @@ export class AddHospitalComponent  implements OnInit{
         console.log(dato);
         Swal.fire({
           title: "Success",
-          text: "Clinica actualizada con éxito",
+          text: "Clinica creada con éxito",
           icon: "success"
         }).then(() => {
             this.obtener_hospitales();
@@ -54,8 +54,7 @@ export class AddHospitalComponent  implements OnInit{
   }
 
   obtener_hospitales() {
-    this.router.navigate(['/clinicas']);
-    // window.location.href = '/clinicas';
+    this.router.navigate(['/clinicas-admin']);
   }
 
   onSubmit() {
