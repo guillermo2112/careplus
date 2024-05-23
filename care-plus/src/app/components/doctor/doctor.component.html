@@ -1,7 +1,5 @@
 <!-- @if (!selectedDoctor) { -->
-<button type="button" class="btn btn-primary" (click)="goToCreate()">
-  Añadir profesional
-</button>
+
 <section class="doctores">
   @for(doctor of doctores; track doctor.id){ 
     <div class="doctor">
@@ -10,7 +8,6 @@
       <p class="especialistas">{{ doctor.specialty.name }}</p>
       <p>{{ doctor.license_num }}</p>
       <a class="visitar" (click)="detalles_doctor(doctor.id)">Ver info</a>
-      <a class="visitar" (click)="updateDoctor(doctor.id)">Editar perfil</a>
     </div>
     }
 </section>

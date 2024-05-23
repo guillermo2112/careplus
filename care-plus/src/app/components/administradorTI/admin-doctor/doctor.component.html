@@ -2,7 +2,9 @@
 
 <section class="container">
 
-  
+  <button type="button" class="btn btn-primary" (click)="goToCreate()">
+    Añadir un nuevo doctor
+  </button>
   <div class="card">
     <div class="card-header">
       <h3 class="card-title">Lista de Doctores</h3>
@@ -17,7 +19,8 @@
             <th>DNI</th>
             <th>Cumpleaños</th>
             <th>Teléfono</th>
-            <th>Acciones</th>
+            <th>Especialidad</th>
+            <th>Estado</th>
           </tr>
         </thead>
         <tbody>
@@ -28,9 +31,10 @@
               <th>{{ doctor.dni }}</th>
               <th>{{ doctor.birthdate }}</th>
               <th>{{ doctor.phone }}</th>
+              <th>{{ doctor.specialty.name }}</th>
+              <th>{{ doctor.user.onDutty }}</th>
               <th>
-                <button class="btn btn-success">Editar</button>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-primary" (click)="updateDoctor(doctor.id)">Editar</button>
               </th>
             </tr>
             }
