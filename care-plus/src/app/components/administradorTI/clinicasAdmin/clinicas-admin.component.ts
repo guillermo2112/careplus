@@ -6,16 +6,16 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-clinicaspaciente',
+  selector: 'app-clinicas-admin',
   standalone: true,
   imports: [
     CommonModule,
     FormsModule
   ],
-  templateUrl: './clinicaspaciente.component.html',
-  styleUrl: './clinicaspaciente.component.css'
+  templateUrl: './clinicas-admin.component.html',
+  styleUrl: './clinicas-admin.component.css'
 })
-export class ClinicasPacienteComponent implements OnInit{
+export class ClinicasAdminComponent implements OnInit{
   
 
   constructor(private hospital_service:HospitalService, private router:Router){}
