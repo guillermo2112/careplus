@@ -21,6 +21,7 @@
     overflow: hidden;
 }
 
+
 .doctor img {
     width: 400px;
     height: 225px;
@@ -95,5 +96,8 @@
     background-color: #144386; 
   }
 
-
+  .center-text {
+    text-align: center;
+    align-items: center;
+  }
   
