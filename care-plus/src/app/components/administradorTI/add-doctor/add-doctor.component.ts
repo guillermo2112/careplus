@@ -4,7 +4,6 @@ import { DoctorService } from '../../../services/doctor.service';
 import { Doctor } from '../../../entities/doctor';
 import { FormsModule } from '@angular/forms';
 import { Usuario } from '../../../entities/usuario';
-import { Console } from 'console';
 import Swal from 'sweetalert2';
 import { Specialty } from '../../../entities/specialty';
 import { SpecialtyService } from '../../../services/specialty.service';
@@ -48,10 +47,8 @@ export class AddDoctorComponent implements OnInit{
                 text: "El DNI ya existe.",
                 icon: "error"
             });
-            console.log("DNI ya existe");
         } else {
             this.guardarUsuario();
-            console.log("DNI no existe");
         }
     } catch (error) {
         console.error("Error validando el DNI", error);
@@ -80,7 +77,7 @@ export class AddDoctorComponent implements OnInit{
         text: "Doctor creado con exito.",
         icon: "success"
       });
-      this.router.navigate(['/doctor']);
+      this.router.navigate(['/admin-doctor']);
     });
   }
   
