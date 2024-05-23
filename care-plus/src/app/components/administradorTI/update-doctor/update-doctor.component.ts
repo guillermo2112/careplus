@@ -4,6 +4,8 @@ import { DoctorService } from '../../../services/doctor.service';
 import { Doctor } from '../../../entities/doctor';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { Specialty } from '../../../entities/specialty';
+import { SpecialtyService } from '../../../services/specialty.service';
 
 
 @Component({
@@ -17,10 +19,12 @@ export class UpdateDoctorComponent implements OnInit{
 
   id: number;
   doctor: Doctor;
+  specialties: Specialty[];
 
 
   constructor(
     private doctorService: DoctorService,
+    private specialityService: SpecialtyService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -29,6 +33,10 @@ export class UpdateDoctorComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
     this.doctorService.getDoctorId(this.id).subscribe(dato => {
       this.doctor = dato;
+    });
+
+    this.specialityService.listSpecialty().subscribe(dato => {
+      this.specialties = dato;
     });
   }
 

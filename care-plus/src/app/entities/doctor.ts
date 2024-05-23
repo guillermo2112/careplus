@@ -1,12 +1,9 @@
+import { Specialty } from "./specialty";
 import { Usuario } from "./usuario";
 
 export class Doctor {
     id: number;
-    specialty :{
-        id:number;
-        name: String;
-    };
-    userId: number;
+    specialty :Specialty;
     address: String;
     birthdate: String;
     dni: String;
@@ -16,29 +13,27 @@ export class Doctor {
     user:Usuario;
     gender : String;
 
+
     // constructor(
-    //     id: number = 0,
-    //     specialtyId: number = 0,
-    //     userId: number = 0,
     //     address: String = '',
     //     birthdate: String = '',
     //     dni: String = '',
-    //     licenseNum: String = '',
+    //     license_num: String = '',
     //     name: String = '',
     //     phone: String = '',
     //     gender: String = '',
-    //     user: Usuario = new Usuario()
+    //     user: Usuario = new Usuario(),
+    //     specialty: {id: number, name: String} = {id: 0, name: ''}
     // ) {
-    //     this.id = id;
-    //     this.userId = userId;
     //     this.address = address;
     //     this.birthdate = birthdate;
     //     this.dni = dni;
-    //     this.licenseNum = licenseNum;
+    //     this.license_num = license_num;
     //     this.name = name;
     //     this.phone = phone;
     //     this.gender=gender;
     //     this.user = user;
+    //     this.specialty = specialty;
     // }
     
 }
