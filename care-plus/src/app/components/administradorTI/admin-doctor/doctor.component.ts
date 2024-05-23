@@ -32,12 +32,19 @@ export class AdminDoctorComponent implements OnInit {
   }
 
   private listDoctor() {
-    console.log("Tester");
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
-      console.log("Doctores: ",this.doctores);
  
     });
   }
+
+  updateDoctor(id: number) {
+    this.router.navigate(['update-doctor', id]);
+  }
+
+  goToCreate(){
+    this.router.navigate(['add-doctor'])
+  }
+
 
 }

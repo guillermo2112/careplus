@@ -21,6 +21,7 @@
     overflow: hidden;
 }
 
+
 .doctor img {
     width: 400px;
     height: 225px;
@@ -88,12 +89,15 @@
     transition: background-color 0.3s ease;
     display: inline-block;
     text-decoration: none;
-    margin: 6em;
+    margin: 1em;
   }
   
   .btn-primary:hover {
     background-color: #144386; 
   }
 
-
+  .center-text {
+    text-align: center;
+    align-items: center;
+  }
   

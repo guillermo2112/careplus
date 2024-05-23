@@ -2,35 +2,40 @@
 
 <section class="container">
 
-  
+ 
   <div class="card">
-    <div class="card-header">
+    <div class="card-header d-flex justify-content-between align-items-center">
       <h3 class="card-title">Lista de Doctores</h3>
+      <button type="button" class="btn btn-primary" (click)="goToCreate()">
+        Añadir un nuevo doctor
+      </button>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>DNI</th>
-            <th>Cumpleaños</th>
-            <th>Teléfono</th>
-            <th>Acciones</th>
+            <th class="center-text">ID</th>
+            <th class="center-text">Nombre</th>
+            <th class="center-text">DNI</th>
+            <th class="center-text">Cumpleaños</th>
+            <th class="center-text">Teléfono</th>
+            <th class="center-text">Especialidad</th>
+            <th class="center-text">Estado</th>
           </tr>
         </thead>
         <tbody>
           @for(doctor of doctores; track doctor.id){ 
             <tr>
-              <th>{{ doctor.id }}</th>
-              <th>{{ doctor.name }}</th>
-              <th>{{ doctor.dni }}</th>
-              <th>{{ doctor.birthdate }}</th>
-              <th>{{ doctor.phone }}</th>
+              <th class="center-text">{{ doctor.id }}</th>
+              <th class="center-text">{{ doctor.name }}</th>
+              <th class="center-text">{{ doctor.dni }}</th>
+              <th class="center-text">{{ doctor.birthdate }}</th>
+              <th class="center-text">{{ doctor.phone }}</th>
+              <th class="center-text">{{ doctor.specialty.name }}</th>
+              <th class="center-text">{{ doctor.user.onDutty }}</th>
               <th>
-                <button class="btn btn-success">Editar</button>
-                <button class="btn btn-danger">Eliminar</button>
+                <button class="btn btn-primary" (click)="updateDoctor(doctor.id)">Editar</button>
               </th>
             </tr>
             }
