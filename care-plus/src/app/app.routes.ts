@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { NavbarComponent } from './components/paciente/navbar/navbar.component';
 import { QuienesSomosComponent } from './components/paciente/quienes-somos/quienes-somos.component';
 import { LoginComponent } from './components/shared/login/login.component';
-import { EspecialidadesComponent } from './components/administradorTI/especialidades/especialidades.component';
+import { EspecialidadesComponent } from './components/administradorTI/admin-especialidades/especialidades.component';
 import { ContactoComponent } from './components/paciente/contacto/contacto.component';
 import { ClinicasComponent } from './components/paciente/clinicas/clinicas.component';
 import { ClinicaVistaComponent } from './components/paciente/clinica-vista/clinica-vista.component';
