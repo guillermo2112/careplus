@@ -1,0 +1,9 @@
+.table th,
+.table td,
+.btn {
+    font-size: 12px; /* Aquí puedes ajustar el tamaño de fuente según lo necesites */
+}
+.btnact{
+    background-color: purple;
+    color: white;
+    }
