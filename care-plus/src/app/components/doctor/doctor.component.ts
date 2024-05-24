@@ -57,4 +57,6 @@ export class DoctorComponent implements OnInit {
   //   });
   // }
 
+  
+
 }
