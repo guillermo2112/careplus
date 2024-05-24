@@ -6,16 +6,16 @@ import { PacienteService } from '../../../services/paciente.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-lista-pacientes',
+  selector: 'app-doctor-lista-pacientes',
   standalone: true,
   imports: [
     FormsModule,
     CommonModule
   ],
-  templateUrl: './lista-pacientes.component.html',
-  styleUrl: './lista-pacientes.component.css'
+  templateUrl: './doctor-lista-pacientes.component.html',
+  styleUrl: './doctor-lista-pacientes.component.css'
 })
-export class ListaPacientesComponent implements OnInit{
+export class DoctorListaPacientesComponent implements OnInit{
 
   pacientes:any [] = [];
 
