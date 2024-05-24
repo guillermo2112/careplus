@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeAdminComponent } from "../home-admin/home-admin.component";
+import { AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Calendar } from '../../../entities/calendar';
 import { Hospital } from '../../../entities/Hospital';
 import { Shift } from '../../../entities/shift';
@@ -17,7 +17,7 @@ import { Doctor } from '../../../entities/Doctor';
     standalone: true,
     templateUrl: './update-calendar.component.html',
     styleUrl: './update-calendar.component.css',
-    imports: [HomeAdminComponent,FormsModule]
+    imports: [ FormsModule, AdminSidebarComponent]
 })
 export class UpdateCalendarComponent {
 onSubmit() {

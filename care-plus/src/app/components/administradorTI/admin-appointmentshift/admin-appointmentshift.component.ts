@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeAdminComponent } from "../home-admin/home-admin.component";
 import { AppointmentShift } from '../../../entities/AppointmentShift';
 import { AppointmentShiftService } from '../../../services/appointment-shift.service';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalComponent } from './modal/modal.component';
+import { AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 
 @Component({
     selector: 'app-admin-appointmentshift',
     standalone: true,
     templateUrl: './admin-appointmentshift.component.html',
     styleUrl: './admin-appointmentshift.component.css',
-    imports: [HomeAdminComponent, ModalComponent]
+    imports: [ModalComponent, AdminSidebarComponent]
 })
 export class AdminAppointmentshiftComponent implements OnInit {
 
@@ -33,6 +33,10 @@ export class AdminAppointmentshiftComponent implements OnInit {
           //console.log("Doctores: ",this.appointmentshifts);
         });
     }
+
+    navigateToAddAppointmentshift() {
+        this.router.navigate(['/add-appointmentshift']);
+      }
 
     
 

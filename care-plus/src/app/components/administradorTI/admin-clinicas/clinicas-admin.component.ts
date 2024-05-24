@@ -4,7 +4,7 @@ import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { HomeAdminComponent } from "../home-admin/home-admin.component";
+import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 
 @Component({
     selector: 'app-clinicas-admin',
@@ -14,7 +14,8 @@ import { HomeAdminComponent } from "../home-admin/home-admin.component";
     imports: [
         CommonModule,
         FormsModule,
-        HomeAdminComponent
+        AdminSidebarComponent,
+        AdminSidebarComponent
     ]
 })
 export class ClinicasAdminComponent implements OnInit{

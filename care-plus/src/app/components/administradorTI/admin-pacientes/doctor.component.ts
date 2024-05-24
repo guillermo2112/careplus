@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
-import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
+import { HomeAdminComponent } from "../home-admin/home-admin.component";
 
 @Component({
     selector: 'app-admin-doctor',
@@ -15,7 +15,7 @@ import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
         RouterModule,
         CommonModule,
         FormsModule,
-        AdminSidebarComponent,
+        HomeAdminComponent
     ]
 })
 export class AdminDoctorComponent implements OnInit {

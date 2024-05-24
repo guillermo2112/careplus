@@ -9,13 +9,13 @@ interface SideNavToggle{
 }
  
 @Component({
-  selector: 'app-home-admin',
+  selector: 'app-admin-sidebar',
   standalone: true,
   imports: [RouterModule,CommonModule],
-  templateUrl: './home-admin.component.html',
-  styleUrl: './home-admin.component.css'
+  templateUrl: './admin-sidebar.component.html',
+  styleUrl: './admin-sidebar.component.css'
 })
-export class HomeAdminComponent {
+export class AdminSidebarComponent {
  
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed=false;
