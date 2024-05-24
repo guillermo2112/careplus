@@ -4,6 +4,7 @@ import { Doctor } from '../entities/Doctor';
 import { Observable } from 'rxjs';
 import { Usuario } from '../entities/usuario';
 import { HttpClient } from '@angular/common/http';
+import { Specialty } from '../entities/specialty';
 
 @Injectable({
   providedIn: 'root'
@@ -53,6 +54,10 @@ export class DoctorService {
         });
     });
 }
+
+  get_specialidades():Observable<Specialty[]>{
+    return this.httpClient.get<Specialty[]>(`${this.baseURL}/api/specialty/all`);
+  }
 
   
 }

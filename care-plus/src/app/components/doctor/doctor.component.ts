@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { DoctorService } from '../../services/doctor.service';
 import { Doctor } from '../../entities/Doctor';
 import Swal from 'sweetalert2';
+import { Specialty } from '../../entities/specialty';
 
 @Component({
   selector: 'app-doctor',
@@ -22,6 +23,7 @@ export class DoctorComponent implements OnInit {
   name:string = '';
   doctores: Doctor[] = [];
   doctores_clear: Doctor[] = [];
+  speciality :Specialty [] = [];
 
   constructor(
     private doctorService: DoctorService,
@@ -30,6 +32,7 @@ export class DoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.listDoctor();
+    this.list_speciality();
   }
 
   trackById(index: number, doctor: Doctor): number {
@@ -38,6 +41,12 @@ export class DoctorComponent implements OnInit {
 
   detalles_doctor(id:number){
     this.router.navigate(['doctor-vista',id]);
+  }
+
+  private list_speciality() {
+    this.doctorService.get_specialidades().subscribe(dato => {
+      this.speciality = dato;
+    });
   }
 
   private listDoctor() {
@@ -78,6 +87,13 @@ export class DoctorComponent implements OnInit {
     }
   }
   
+  seleccionarSpecialty(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const accion = selectElement.options[selectElement.selectedIndex].value;
+    this.limpiar_filtros();
+    console.log(accion);
+  }
+
   burcador_nombre(): void {
     const nombres = this.name.toLowerCase().split(' ');
     this.doctores = this.doctores_clear.filter(s => {
