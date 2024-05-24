@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { Paciente } from '../../../entities/paciente';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AddPacienteService } from '../../../services/add-paciente.service';
 import { Usuario } from '../../../entities/usuario';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { PacienteService } from '../../../services/paciente.service';
 
 @Component({
   selector: 'app-add-paciente',
@@ -24,11 +24,11 @@ export class AddPacienteComponent {
   usuario : Usuario = new Usuario();
   confirm_password:string='';
 
-  constructor(private servicio:AddPacienteService,private router:Router){}
+  constructor(private servicio:PacienteService,private router:Router){}
 
   onSubmit(){
-    if (!this.paciente.id_user.username || !this.usuario.username ||
-      !this.paciente.id_user.password || !this.usuario.password ||
+    if (!this.paciente.user.username || !this.usuario.username ||
+      !this.paciente.user.password || !this.usuario.password ||
       !this.confirm_password ||
       !this.paciente.name || !this.paciente.dni ||
       !this.paciente.birthdate || !this.paciente.address ||
@@ -41,7 +41,7 @@ export class AddPacienteComponent {
   
       
       }else{
-        if(this.paciente.id_user.password!=this.confirm_password || this.confirm_password=="" || this.paciente.id_user.password==""){
+        if(this.usuario.password!=this.confirm_password || this.confirm_password=="" || this.usuario.password==""){
           Swal.fire({
             title: "Error!",
             text: "Las contraseñas no coinciden.",
@@ -71,7 +71,7 @@ export class AddPacienteComponent {
   }
 
   guardarPaciente(usu:Usuario){
-    this.paciente.id_user=usu;
+    this.paciente.user=usu;
     
     this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
       console.log("PACIENTE "+dato)

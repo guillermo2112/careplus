@@ -31,6 +31,7 @@ import { AdminCalendarComponent } from './components/administradorTI/admin-calen
 import { UpdateCalendarComponent } from './components/administradorTI/update-calendar/update-calendar.component';
 import { AdminHomeComponent } from './components/administradorTI/admin-home/admin-home.component';
 import { AddAppointmentshiftComponent } from './components/administradorTI/add-appointmentshift/add-appointmentshift.component';
+import { AdminPacienteComponent } from './components/administradorTI/admin-paciente/admin-paciente.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -72,5 +73,10 @@ export const routes: Routes = [
     {path: 'update-paciente/:id', component: UpdatePacienteComponent},
     {path: 'lista_pacientes', component: ListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
+
+
+
+
+    {path: 'admin-paciente', component: AdminPacienteComponent},
     
 ];
