@@ -27,8 +27,8 @@ export class AddPacienteComponent {
   constructor(private servicio:PacienteService,private router:Router){}
 
   onSubmit(){
-    if (!this.paciente.user.username || !this.usuario.username ||
-      !this.paciente.user.password || !this.usuario.password ||
+    if (!this.paciente.id_user.username || !this.usuario.username ||
+      !this.paciente.id_user.password || !this.usuario.password ||
       !this.confirm_password ||
       !this.paciente.name || !this.paciente.dni ||
       !this.paciente.birthdate || !this.paciente.address ||
@@ -71,7 +71,7 @@ export class AddPacienteComponent {
   }
 
   guardarPaciente(usu:Usuario){
-    this.paciente.user=usu;
+    this.paciente.id_user=usu;
     
     this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
       console.log("PACIENTE "+dato)
