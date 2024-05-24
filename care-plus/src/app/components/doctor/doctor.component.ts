@@ -91,7 +91,25 @@ export class DoctorComponent implements OnInit {
     const selectElement = event.target as HTMLSelectElement;
     const accion = selectElement.options[selectElement.selectedIndex].value;
     this.limpiar_filtros();
-    console.log(accion);
+    this.buscar_specialty(accion);
+  }
+
+  buscar_specialty(espe:string){
+    const especialidadID = parseInt(espe, 10); 
+
+    this.doctores = this.doctores_clear.filter(doctor => {
+      return doctor.specialty.id === especialidadID;
+    });
+
+    if (this.doctores.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado medicos con la especialidad buscada",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+
   }
 
   burcador_nombre(): void {
