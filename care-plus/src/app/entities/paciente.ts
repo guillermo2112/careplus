@@ -8,7 +8,7 @@ export class Paciente {
   address: string;
   phone: string;
   emergency_phone: string;
-  user: Usuario;
+  id_user: Usuario;
   gender: string;
 
   

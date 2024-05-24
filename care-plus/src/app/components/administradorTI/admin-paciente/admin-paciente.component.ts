@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Paciente } from '../../../entities/paciente';
 import { PacienteService } from '../../../services/paciente.service';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -20,9 +20,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminPacienteComponent implements OnInit {
     pacientes: Paciente[] = [];
-    private router: Router
+ 
 
   constructor(
+    private route: ActivatedRoute,
+    private router: Router,
     private pacienteService: PacienteService,
   ) {}
 
@@ -38,11 +40,11 @@ export class AdminPacienteComponent implements OnInit {
   }
 
   updatePaciente(id: number) {
-    this.router.navigate(['updatePaciente', id]);
+    this.router.navigate(['paciente', id]);
   }
 
   goToCreate(){
-    this.router.navigate([''])
+    this.router.navigate(['add_paciente'])
   }
 
 

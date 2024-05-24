@@ -23,7 +23,6 @@ import { AdminSidebarComponent } from './components/administradorTI/admin-sideba
 import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
 import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/doctor.component';
 import { ClinicasAdminComponent } from './components/administradorTI/admin-clinicas/clinicas-admin.component';
-import { UpdatePacienteComponent } from './components/administradorTI/update-paciente/update-paciente.component';
 import { AdminAppointmentshiftComponent } from './components/administradorTI/admin-appointmentshift/admin-appointmentshift.component';
 import { HomeDoctorComponent } from './components/doctor/home-doctor/home-doctor.component';
 import { AddCalendarComponent } from './components/administradorTI/add-calendar/add-calendar.component';
@@ -74,7 +73,6 @@ export const routes: Routes = [
     {path: 'update-hospital/:id', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
     {path: 'paciente/:id', component: DatosPacienteComponent},
-    {path: 'update-paciente/:id', component: UpdatePacienteComponent},
     {path: 'lista_pacientes', component: ListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
 
