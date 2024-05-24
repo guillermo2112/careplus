@@ -4,7 +4,7 @@ export const navbarData = [
     { routeLink: 'list-calendario',label: 'Calendarios',link:'/add-doctor'},
     { routeLink: 'list-clinica',label: 'Clinicas',link:'/clinicas-admin'},
     { routeLink: 'app-admin-appointmentshift',label: 'Turno Citas',link:'/admin-appointmentshift'},
-
+    { routeLink: 'listar-especialidades', label: 'Especialidades',link:'/admin-especialidades'},
     // turnos, calendarios, 
 
  
