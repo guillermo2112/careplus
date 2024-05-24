@@ -20,8 +20,8 @@ import { Doctor } from '../../../entities/Doctor';
     imports: [FormsModule, AdminSidebarComponent]
 })
 export class AddCalendarComponent implements OnInit{
-onSubmit() {
-this.guardarCalendario(this.calendar);
+  onSubmit() {
+    this.guardarCalendario(this.calendar);
 }
 
   calendar: Calendar = new Calendar();
