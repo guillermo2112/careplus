@@ -6,26 +6,26 @@ export class Hospital {
   address: string;
   pc: number;
   phone: string;
-  onDutty: OnDutty;
+  onDutty: string;
   province: Province;
 
-  // constructor(
-  //   id: number,
-  //   name: string,
-  //   address: string,
-  //   pc: number,
-  //   phone: string,
-  //   onDutty: string,
-  //   province: Province
-  // ) {
-  //   this.id = id;
-  //   this.name = name;
-  //   this.address = address;
-  //   this.pc = pc;
-  //   this.phone = phone;
-  //   this.onDutty = onDutty;
-  //   this.province = province;
-  // }
+  constructor(
+    id: number,
+    name: string,
+    address: string,
+    pc: number,
+    phone: string,
+    onDutty: string,
+    province: Province
+  ) {
+    this.id = id;
+    this.name = name;
+    this.address = address;
+    this.pc = pc;
+    this.phone = phone;
+    this.onDutty = onDutty;
+    this.province = province;
+  }
 }
 
 export class Province {
