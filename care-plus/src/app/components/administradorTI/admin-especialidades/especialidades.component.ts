@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Specialty } from '../../../entities/specialty';
+import { HomeAdminComponent } from "../home-admin/home-admin.component";
 
 @Component({
     selector: 'app-especialidades',
@@ -14,6 +15,7 @@ import { Specialty } from '../../../entities/specialty';
     imports: [
         CommonModule,
         FormsModule,
+        HomeAdminComponent
     ]
 })
 export class EspecialidadesComponent implements OnInit {
