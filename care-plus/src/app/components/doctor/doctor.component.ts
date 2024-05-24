@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { DoctorService } from '../../services/doctor.service';
 import { Doctor } from '../../entities/Doctor';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-doctor',
@@ -18,8 +19,9 @@ import { Doctor } from '../../entities/Doctor';
 })
 export class DoctorComponent implements OnInit {
 
-  name:string;
+  name:string = '';
   doctores: Doctor[] = [];
+  doctores_clear: Doctor[] = [];
 
   constructor(
     private doctorService: DoctorService,
@@ -41,6 +43,7 @@ export class DoctorComponent implements OnInit {
   private listDoctor() {
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
+      this.doctores_clear = dato;
     });
   }
 
@@ -58,8 +61,48 @@ export class DoctorComponent implements OnInit {
   //   });
   // }
 
-  seleccionarAccion(event:Event){}
-  burcador_nombre(){}
-  limpiar_filtros(){}
+  seleccionarAccion(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const accion = selectElement.options[selectElement.selectedIndex].value;
+    this.limpiar_filtros();
+    switch (accion) {
+      case 'ordenar_nombre':
+        console.log('a');
+        this.ordenar_nombre();
+        break;
+      case 'ordenar_nombre_des':
+        this.ordenar_nombre_des();
+        break;
+      default:
+        break;
+    }
+  }
+  
+  burcador_nombre(): void {
+    const nombres = this.name.toLowerCase().split(' ');
+    this.doctores = this.doctores_clear.filter(s => {
+      return nombres.every(name => s.name.toLowerCase().includes(name));
+    });
+    if (this.doctores.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado clinicas con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  limpiar_filtros(): void {
+    this.doctores = [...this.doctores_clear];
+    this.name = '';
+  }
+
+  ordenar_nombre(){
+    this.doctores.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  ordenar_nombre_des(){
+    this.doctores.sort((b, a) => a.name.localeCompare(b.name));
+  }
 
 }

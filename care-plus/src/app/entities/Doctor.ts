@@ -8,7 +8,7 @@ export class Doctor {
     birthdate: String;
     dni: String;
     license_num: String;
-    name: String;
+    name: string;
     phone: String;
     user:Usuario;
     gender : String;
