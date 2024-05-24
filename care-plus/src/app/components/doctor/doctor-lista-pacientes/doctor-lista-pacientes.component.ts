@@ -4,16 +4,18 @@ import { FormsModule } from '@angular/forms';
 import { Paciente } from '../../../entities/paciente';
 import { PacienteService } from '../../../services/paciente.service';
 import { Router } from '@angular/router';
+import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 
 @Component({
-  selector: 'app-doctor-lista-pacientes',
-  standalone: true,
-  imports: [
-    FormsModule,
-    CommonModule
-  ],
-  templateUrl: './doctor-lista-pacientes.component.html',
-  styleUrl: './doctor-lista-pacientes.component.css'
+    selector: 'app-doctor-lista-pacientes',
+    standalone: true,
+    templateUrl: './doctor-lista-pacientes.component.html',
+    styleUrl: './doctor-lista-pacientes.component.css',
+    imports: [
+        FormsModule,
+        CommonModule,
+        DoctorSidebarComponent
+    ]
 })
 export class DoctorListaPacientesComponent implements OnInit{
 
