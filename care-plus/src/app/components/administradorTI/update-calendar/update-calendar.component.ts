@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeAdminComponent } from "../home-admin/home-admin.component";
+import { HomeAdminComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Calendar } from '../../../entities/calendar';
 import { Hospital } from '../../../entities/Hospital';
 import { Shift } from '../../../entities/shift';

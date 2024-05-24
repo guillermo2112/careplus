@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeAdminComponent } from "../home-admin/home-admin.component";
+import { HomeAdminComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Calendar } from '../../../entities/calendar';
 import { CalendarService } from '../../../services/calendar.service';
 import Swal from 'sweetalert2';

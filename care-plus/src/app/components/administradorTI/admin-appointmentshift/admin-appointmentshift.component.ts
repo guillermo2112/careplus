@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeAdminComponent } from "../home-admin/home-admin.component";
+import { HomeAdminComponent } from "../admin-sidebar/admin-sidebar.component";
 import { AppointmentShift } from '../../../entities/AppointmentShift';
 import { AppointmentShiftService } from '../../../services/appointment-shift.service';
 import { Router, RouterModule } from '@angular/router';

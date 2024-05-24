@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Calendar } from '../../../entities/calendar';
 import { NavigationExtras, Router } from '@angular/router';
 import { CalendarService } from '../../../services/calendar.service';
-import { HomeAdminComponent } from '../home-admin/home-admin.component';
+import { HomeAdminComponent } from '../admin-sidebar/admin-sidebar.component';
 import { CommonModule, DatePipe } from '@angular/common'; 
 
 @Component({
