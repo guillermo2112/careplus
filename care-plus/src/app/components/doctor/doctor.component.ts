@@ -18,6 +18,7 @@ import { Doctor } from '../../entities/Doctor';
 })
 export class DoctorComponent implements OnInit {
 
+  name:string;
   doctores: Doctor[] = [];
 
   constructor(
@@ -56,5 +57,9 @@ export class DoctorComponent implements OnInit {
   //     this.doctor = [dato]; 
   //   });
   // }
+
+  seleccionarAccion(event:Event){}
+  burcador_nombre(){}
+  limpiar_filtros(){}
 
 }
