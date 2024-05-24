@@ -1,0 +1,15 @@
+<!-- <app-home-admin></app-home-admin> -->
+<div class="contenedorGrande">
+    <div class="container">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Añadir Turno-Cita</h3>
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="hour">Start Date:</label>
+                    <input type="text" class="form-control" id="hour" name="hour" [(ngModel)]="appointmentShift.hour">
+                </div>
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </form>
+        </div>
+    </div>
+</div>

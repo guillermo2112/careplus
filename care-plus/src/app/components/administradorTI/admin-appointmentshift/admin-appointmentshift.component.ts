@@ -34,6 +34,10 @@ export class AdminAppointmentshiftComponent implements OnInit {
         });
     }
 
+    navigateToAddAppointmentshift() {
+        this.router.navigate(['/add-appointmentshift']);
+      }
+
     
 
 }
