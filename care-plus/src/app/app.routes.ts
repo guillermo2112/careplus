@@ -19,13 +19,17 @@ import { AddHospitalComponent } from './components/administradorTI/add-hospital/
 import { HomeComponent } from './components/paciente/home/home.component';
 
 import { DoctorComponent } from './components/doctor/doctor.component';
-import { HomeAdminComponent } from './components/administradorTI/home-admin/home-admin.component';
+import { AdminSidebarComponent } from './components/administradorTI/admin-sidebar/admin-sidebar.component';
 import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
 import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/doctor.component';
 import { ClinicasAdminComponent } from './components/administradorTI/admin-clinicas/clinicas-admin.component';
 import { UpdatePacienteComponent } from './components/administradorTI/update-paciente/update-paciente.component';
 import { AdminAppointmentshiftComponent } from './components/administradorTI/admin-appointmentshift/admin-appointmentshift.component';
 import { HomeDoctorComponent } from './components/doctor/home-doctor/home-doctor.component';
+import { AddCalendarComponent } from './components/administradorTI/add-calendar/add-calendar.component';
+import { AdminCalendarComponent } from './components/administradorTI/admin-calendar/admin-calendar.component';
+import { UpdateCalendarComponent } from './components/administradorTI/update-calendar/update-calendar.component';
+import { AdminHomeComponent } from './components/administradorTI/admin-home/admin-home.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -48,11 +52,17 @@ export const routes: Routes = [
     {path: 'clinica/:id', component: ClinicaVistaComponent},
     {path: 'add-hospital', component: AddHospitalComponent},
 
-    {path: 'home-admin', component: HomeAdminComponent},
+    {path: 'admin-sidebar', component: AdminSidebarComponent},
     {path: 'home-doctor', component: HomeDoctorComponent},
 
     {path: 'admin-doctor', component: AdminDoctorComponent},
     {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
+
+    {path: 'admin-calendar', component: AdminCalendarComponent},
+    {path: 'admin-home', component: AdminHomeComponent},
+
+    {path: 'add-calendar', component: AddCalendarComponent},
+    {path: 'update-calendar', component: UpdateCalendarComponent},
    
     {path: 'update-hospital/:id', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
@@ -60,4 +70,5 @@ export const routes: Routes = [
     {path: 'update-paciente/:id', component: UpdatePacienteComponent},
     {path: 'lista_pacientes', component: ListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
+    
 ];

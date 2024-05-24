@@ -12,8 +12,4 @@ export class Doctor {
     phone: String;
     user:Usuario;
     gender : String;
-
-
-   
-    
 }

@@ -1,4 +1,40 @@
 <!-- @if (!selectedDoctor) { -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Eighth navbar example">
+    <div class="container container-bots" >
+      
+  
+      <div class=" navbar" id="navbarsExample07">
+        <div class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 3rem; gap: 2rem;">
+          
+          <div class="nav-item">
+            <select name="filtros" (change)="seleccionarAccion($event)">
+              <option value="">Selecionar una opción</option>
+              <option value="ordenar_nombre">Ordenar A-Z</option>
+              <option value="ordenar_nombre_des">Ordenar Z-A</option>
+            </select>
+          </div>
+          <div class="nav-item">
+            <form (ngSubmit)="burcador_nombre()">
+              <div style="display: flex; justify-content: center; align-items: center;">
+                <input type="text" id="texto" name="texto" [(ngModel)]="name" placeholder="Buscar por nombre">
+              <button style="margin-top: 0;" type="submit">Enviar</button>
+              </div>
+              <!-- <label for="texto">Buscar</label> -->
+              
+            </form>
+          
+          </div>
+          <div class="nav-item">
+            <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+          </div>
+          
+          
+        </div>
+        
+      </div>
+    </div>
+  </nav>
+
 
 <section class="doctores">
   @for(doctor of doctores; track doctor.id){ 
