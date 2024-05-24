@@ -4,13 +4,13 @@ import { Calendar } from '../../../entities/calendar';
 import { CalendarService } from '../../../services/calendar.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
-import { Doctor } from '../../../entities/doctor';
 import { Hospital } from '../../../entities/Hospital';
 import { Shift } from '../../../entities/shift';
 import { FormsModule } from '@angular/forms';
 import { DoctorService } from '../../../services/doctor.service';
 import { HospitalService } from '../../../services/hospital.service';
 import { ShiftService } from '../../../services/shift.service';
+import { Doctor } from '../../../entities/Doctor';
 
 @Component({
     selector: 'app-add-calendar',

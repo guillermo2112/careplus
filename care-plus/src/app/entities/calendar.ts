@@ -1,5 +1,5 @@
 import { Timestamp } from "rxjs";
-import { Doctor } from "./doctor";
+import { Doctor } from "./Doctor";
 import { Hospital } from "./Hospital";
 import { Shift } from "./shift";
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeAdminComponent } from "../home-admin/home-admin.component";
 import { Calendar } from '../../../entities/calendar';
-import { Doctor } from '../../../entities/doctor';
 import { Hospital } from '../../../entities/Hospital';
 import { Shift } from '../../../entities/shift';
 import { CalendarService } from '../../../services/calendar.service';
@@ -11,6 +10,7 @@ import { ShiftService } from '../../../services/shift.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
+import { Doctor } from '../../../entities/Doctor';
 
 @Component({
     selector: 'app-update-calendar',
