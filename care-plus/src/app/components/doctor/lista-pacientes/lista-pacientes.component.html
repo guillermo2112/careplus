@@ -1,0 +1,14 @@
+<div class="container">
+    @for(paciente of pacientes; track paciente.id) {
+        <div class="paciente">
+            <h2>{{paciente.name}}</h2>
+            <p><span>DNI:</span> {{paciente.dni}}</p>
+            <p><span>Fecha de Nacimiento:</span> {{paciente.birthdate}}</p>
+            <p><span>Dirección:</span> {{paciente.address}}</p>
+            <p><span>Teléfono:</span> {{paciente.phone}}</p>
+            <p><span>Teléfono de Emergencia:</span> {{paciente.emergency_phone}}</p>
+            <p><span>Username:</span> {{paciente.id_user.username}}</p>
+            <a class="visitar" (click)="detalles_paciente(paciente.id)">Visitar</a>
+        </div>
+    }
+</div>

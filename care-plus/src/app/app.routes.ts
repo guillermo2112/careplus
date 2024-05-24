@@ -22,7 +22,7 @@ import { DoctorComponent } from './components/doctor/doctor.component';
 import { HomeAdminComponent } from './components/administradorTI/home-admin/home-admin.component';
 import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
 import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/doctor.component';
-import { ClinicasAdminComponent } from './components/administradorTI/clinicasAdmin/clinicas-admin.component';
+import { ClinicasAdminComponent } from './components/administradorTI/admin-clinicas/clinicas-admin.component';
 import { UpdatePacienteComponent } from './components/administradorTI/update-paciente/update-paciente.component';
 import { AdminAppointmentshiftComponent } from './components/administradorTI/admin-appointmentshift/admin-appointmentshift.component';
 import { HomeDoctorComponent } from './components/doctor/home-doctor/home-doctor.component';
