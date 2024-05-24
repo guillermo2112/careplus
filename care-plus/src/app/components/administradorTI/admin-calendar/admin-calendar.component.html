@@ -1,0 +1,49 @@
+<app-home-admin></app-home-admin>
+
+<section class="container">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title">Lista de Calendarios </h3>
+
+      </div>
+      <!-- /.card-header -->
+      <div class="card-body">
+        <table id="example1" class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Fecha_inicio</th>
+              <th>Fecha_fin</th>
+              <th>Fecha</th>
+              <th>Doctor</th>
+              <th>Hospital</th>
+              <th>Turno</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for(calendar of calendarios; track calendar.id){ 
+              <tr>
+                <th>{{ calendar.id }}</th>
+                <th>{{ calendar.start_date }}</th>
+                <th>{{ calendar.end_date }}</th>
+                <th>{{ formatDate(calendar.date) }}</th>
+                <th>{{ calendar.doctor.name }}</th>
+                <th>{{ calendar.hospital.name }}</th>
+                <th>{{ calendar.shift.name }}</th>
+
+                <th>
+                  <button class="btn btnact"  (click)="navigateToUpdateCalendar(calendar.id)">Actualizar</button>
+                </th>
+              </tr>
+              }
+          </tbody>
+        </table>
+        <div class="d-flex justify-content-end mt-3 boton">
+          <button class="btn btn-success" (click)="navigateToAddCalendar()">Nuevo</button>
+        </div>
+      </div>
+    </div>
+        
+    
+  
+  </section>

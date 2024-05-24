@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -31,10 +32,16 @@ export class ContactoComponent {
     emailjs.send('service_e7aad5d', 'template_e0z73lq', templateParams, 'CnLoD7mBrVO1uaoMr')
       .then((result: EmailJSResponseStatus) => {
         console.log(result.text);
-        alert('Email sent successfully!');
-      }, (error) => {
+        Swal.fire({
+          title: "Enviado",
+          text: "El correo se ha enviado correctamente",
+          icon: "success"
+        });      }, (error) => {
         console.error(error.text);
-        alert('Failed to send email.');
-      });
+        Swal.fire({
+          title: "Error!",
+          text: "Error al enviar el correo",
+          icon: "error"
+        });      });
   }
 }

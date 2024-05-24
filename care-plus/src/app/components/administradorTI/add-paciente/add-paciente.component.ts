@@ -65,6 +65,7 @@ export class AddPacienteComponent {
     this.usuario.role='ROLE_PATIENT'
     this.servicio.crear_usuario(this.usuario).subscribe((dato: any) => {
       this.guardarPaciente(dato);
+      console.log("USUARIO "+dato);
     });
       
   }
@@ -73,7 +74,7 @@ export class AddPacienteComponent {
     this.paciente.id_user=usu;
     
     this.servicio.crear_paciente(this.paciente).subscribe(dato =>{
-      
+      console.log("PACIENTE "+dato)
       this.router.navigate(['/lista_pacientes']);
     })  
   }
