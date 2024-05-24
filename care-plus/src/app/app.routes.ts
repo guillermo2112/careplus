@@ -25,6 +25,7 @@ import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/
 import { ClinicasAdminComponent } from './components/administradorTI/clinicasAdmin/clinicas-admin.component';
 import { UpdatePacienteComponent } from './components/administradorTI/update-paciente/update-paciente.component';
 import { AdminAppointmentshiftComponent } from './components/administradorTI/admin-appointmentshift/admin-appointmentshift.component';
+import { HomeDoctorComponent } from './components/doctor/home-doctor/home-doctor.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -48,6 +49,8 @@ export const routes: Routes = [
     {path: 'add-hospital', component: AddHospitalComponent},
 
     {path: 'home-admin', component: HomeAdminComponent},
+    {path: 'home-doctor', component: HomeDoctorComponent},
+
     {path: 'admin-doctor', component: AdminDoctorComponent},
     {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
    
