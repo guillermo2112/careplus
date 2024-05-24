@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { DoctorService } from '../../../services/doctor.service';
 import { HospitalService } from '../../../services/hospital.service';
 import { ShiftService } from '../../../services/shift.service';
-import { Doctor } from '../../../entities/DoctorXX';
+import { Doctor } from '../../../entities/Doctor';
 
 @Component({
     selector: 'app-add-calendar',

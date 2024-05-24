@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../../../services/doctor.service';
-import { Doctor } from '../../../entities/DoctorXX';
+import { Doctor } from '../../../entities/Doctor';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Specialty } from '../../../entities/specialty';

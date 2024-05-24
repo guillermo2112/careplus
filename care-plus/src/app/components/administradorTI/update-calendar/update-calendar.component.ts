@@ -10,7 +10,7 @@ import { ShiftService } from '../../../services/shift.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
-import { Doctor } from '../../../entities/DoctorXX';
+import { Doctor } from '../../../entities/Doctor';
 
 @Component({
     selector: 'app-update-calendar',
