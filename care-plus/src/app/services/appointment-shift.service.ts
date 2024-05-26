@@ -17,11 +17,18 @@ export class AppointmentShiftService {
 
   createAppointmentShift (appointmentShift:AppointmentShift) : Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/api/appointmentshift`,appointmentShift);
-
-}
+  }
 
   listAppointmentShift():Observable<AppointmentShift[]>{
     return this.httpClient.get<AppointmentShift[]>(`${this.baseURL}/api/appointmentshift/all`);
+  }
+
+  updateAppointmentShift (id:number,appointmentShift:AppointmentShift) :Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/api/appointmentshift/${id}`,appointmentShift);
+  }
+
+  getAppointmentShiftID (id:number):Observable<Object>{
+    return this.httpClient.get(`${this.baseURL}/api/appointmentshift/${id}`);
   }
 
 

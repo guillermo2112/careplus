@@ -1,42 +1,44 @@
 import { Component, OnInit } from '@angular/core';
 import { AppointmentShift } from '../../../entities/AppointmentShift';
 import { AppointmentShiftService } from '../../../services/appointment-shift.service';
-import { Router, RouterModule } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
+import { NavigationExtras, Router } from '@angular/router';
+import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 
 @Component({
-    selector: 'app-admin-appointmentshift',
-    standalone: true,
-    templateUrl: './admin-appointmentshift.component.html',
-    styleUrl: './admin-appointmentshift.component.css',
-    imports: [AdminSidebarComponent]
+  selector: 'app-admin-appointmentshift',
+  standalone: true,
+  templateUrl: './admin-appointmentshift.component.html',
+  styleUrl: './admin-appointmentshift.component.css',
+  imports: [AdminSidebarComponent],
 })
 export class AdminAppointmentshiftComponent implements OnInit {
+  appointmentshifts: AppointmentShift[] = [];
 
-    appointmentshifts: AppointmentShift[] = [];
+  constructor(
+    private appointmentShiftService: AppointmentShiftService,
+    private router: Router
+  ) {}
 
-    constructor(
-        private appointmentShiftService: AppointmentShiftService,
-        private router: Router
-      ) {}
+  ngOnInit(): void {
+    this.listAdminAppointmentshift();
+  }
 
-    ngOnInit(): void {
-        this.listAdminAppointmentshift();
-    }
+  private listAdminAppointmentshift() {
+    this.appointmentShiftService.listAppointmentShift().subscribe((dato) => {
+      this.appointmentshifts = dato;
+    });
+  }
 
-    private listAdminAppointmentshift() {
-        //console.log("Tester");
-        this.appointmentShiftService.listAppointmentShift().subscribe(dato => {
-          this.appointmentshifts = dato;
-          //console.log("Doctores: ",this.appointmentshifts);
-        });
-    }
+  navigateToAddAppointmentshift() {
+    this.router.navigate(['/add-appointmentshift']);
+  }
 
-    navigateToAddAppointmentshift() {
-        this.router.navigate(['/add-appointmentshift']);
-      }
-
-    
-
+  navigateToUpdateAppointmentshift(id: number) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        appointmentShiftId: id,
+      },
+    };
+    this.router.navigate(['/update-appointmentshift'], navigationExtras);
+  }
 }
