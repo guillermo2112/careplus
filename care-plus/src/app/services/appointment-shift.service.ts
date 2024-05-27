@@ -23,6 +23,8 @@ export class AppointmentShiftService {
     return this.httpClient.get<AppointmentShift[]>(`${this.baseURL}/api/appointmentshift/all`);
   }
 
+  
+
   updateAppointmentShift (id:number,appointmentShift:AppointmentShift) :Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/api/appointmentshift/${id}`,appointmentShift);
   }
