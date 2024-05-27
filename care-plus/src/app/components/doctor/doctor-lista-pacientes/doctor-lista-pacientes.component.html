@@ -9,7 +9,7 @@
             <p><span>Teléfono:</span> {{paciente.phone}}</p>
             <p><span>Teléfono de Emergencia:</span> {{paciente.emergency_phone}}</p>
             <p><span>Username:</span> {{paciente.id_user.username}}</p>
-            <a class="visitar" (click)="detalles_paciente(paciente.id)">Visitar</a>
+            <a class="visitar" (click)="goToClinicalProfile(paciente.id)">Clinical Profile</a>
         </div>
     }
 </div>

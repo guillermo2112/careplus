@@ -33,8 +33,8 @@ export class DoctorListaPacientesComponent implements OnInit{
     })
   }
 
-  detalles_paciente(id:number){
-    this.router.navigate(['paciente',id]);
+  goToClinicalProfile(id:number){
+    this.router.navigate(['doctor-clinical-profile',id]);
   }
 
 }
