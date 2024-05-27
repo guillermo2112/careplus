@@ -76,7 +76,6 @@ export class DoctorComponent implements OnInit {
     this.limpiar_filtros();
     switch (accion) {
       case 'ordenar_nombre':
-        console.log('a');
         this.ordenar_nombre();
         break;
       case 'ordenar_nombre_des':
