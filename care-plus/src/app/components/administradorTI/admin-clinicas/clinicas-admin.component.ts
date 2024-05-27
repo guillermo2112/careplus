@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
+import { Provincias } from '../../../entities/Provincias';
 
 @Component({
     selector: 'app-clinicas-admin',
@@ -27,14 +28,21 @@ export class ClinicasAdminComponent implements OnInit{
   province:any[] = [];
   hospital_clear:any[] = [];
   nombre:string = '';
-  provincia:string='';
+  provincias: Provincias []= [];
   seleccionados:string[]=[];
   currentPage: number = 0;
   itemsPerPage: number = 9;
 
   ngOnInit(): void {
     this.obtener_hospital();
+    this.list_provincias();
         
+  }
+
+  list_provincias(){
+    this.hospital_service.obtener_provincias().subscribe(dato => {
+      this.provincias = dato;
+    });
   }
   
   chunkArray(myArray: any[], chunk_size: number): any[] {
@@ -65,7 +73,7 @@ export class ClinicasAdminComponent implements OnInit{
     return this.chunkArray([...this.hospital], this.itemsPerPage).length;
   }
 
-  provincias(event: Event): void {
+  provinciasAll(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const selectedProvince = selectElement.options[selectElement.selectedIndex].text;
     this.buscar_provincia(selectedProvince);
