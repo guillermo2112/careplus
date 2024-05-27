@@ -57,7 +57,7 @@ export class UpdateDoctorComponent implements OnInit{
   }
 
   goToListDoctor() {
-    this.router.navigate(['/admin-doctor']);
+    this.router.navigate(['/admin-paciente']);
   }
 
   onSubmit() {

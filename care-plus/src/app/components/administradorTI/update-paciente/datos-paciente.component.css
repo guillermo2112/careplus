@@ -1,0 +1,54 @@
+button{
+    background-color: #28CEC5;
+    border: 1px solid #28CEC5;
+}
+button:hover {
+    background-color: #144386;
+    border: 1px solid #144386;
+    color: white; 
+}
+body{
+    
+    background-position: cover;
+    background-repeat: no-repeat; 
+}
+h3{
+    color: #144386;
+}
+
+.contenedorGrande{
+    background-image: url("../../../../assets/fondoformu.png");
+    background-position: cover;
+    background-repeat: no-repeat;
+}
+button {
+    background-color: #28CEC5;
+    margin-top: 20px; 
+}
+
+button:hover {
+    background-color: #144386;
+    color: white; 
+}
+
+.form-group {
+    margin-bottom: 15px; 
+}
+/* Estilos para las opciones de estado del doctor */
+.form-group input[type="radio"] {
+    margin-right: 10px;
+}
+
+.form-group label {
+    margin-right: 20px;
+    font-weight: bold;
+    color: #144386; 
+}
+
+.form-group input[type="radio"]:checked + label {
+    color: #28CEC5; 
+}
+
+.form-group input[type="radio"]:hover + label {
+    color: #144386; 
+}

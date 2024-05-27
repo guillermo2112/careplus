@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Paciente } from '../entities/paciente';
+import { Paciente } from '../entities/Patient';
 import { Observable } from 'rxjs';
 import { Usuario } from '../entities/usuario';
 
@@ -11,26 +11,42 @@ export class PacienteService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/patient";
 
-  constructor(private http:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
-  obtener_pacientes():Observable<Paciente[]>{
-    return this.http.get<Paciente[]>(`${this.baseURL}/all`);
+  getPatient():Observable<Paciente[]>{
+    return this.httpClient.get<Paciente[]>(`${this.baseURL}/all`);
   }
 
-  obtener_pacientes_id(id:number):Observable<Paciente>{
-    return this.http.get<Paciente>(`${this.baseURL}/${id}`);
+  getPatientById(id:number):Observable<Paciente>{
+    return this.httpClient.get<Paciente>(`${this.baseURL}/${id}`);
   }
 
-  actualizar_paciente(paciente:Paciente,id:number): Observable<Object>{
-    return this.http.put(`${this.baseURL}/${id}`,paciente);
+  updatePatient(id:number,paciente:Paciente): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,paciente);
   }
   
-  crear_usuario(user:Usuario): Observable<Object>{
-    return this.http.post(`${this.baseURL}/api/user`,user);
+  createUser(user:Usuario): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/api/user`,user);
   }
 
-  crear_paciente(paciente:Paciente): Observable<Object>{
-    return this.http.post(`${this.baseURL}/api/patient`,paciente);
+  createPatient(paciente:Paciente): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/api/patient`,paciente);
   }
+  validarDni(dni: String): Promise<Boolean> {
+    return new Promise((resolve, reject) => {
+        this.httpClient.get<any>(`${this.baseURL}/api/doctor/dni/${dni}`).subscribe(response => {
+            console.log("Variable " + response);
+            console.log("Tipo " + typeof response);
+            if (response === true) {
+                resolve(true);
+            } else {
+                resolve(false);
+            } 
+        }, error => {
+            reject(error);
+        });
+    });
+}
+
 
 }

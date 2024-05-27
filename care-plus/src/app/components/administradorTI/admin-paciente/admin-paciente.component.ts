@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
-import { Paciente } from '../../../entities/paciente';
+import { Paciente } from '../../../entities/Patient';
 import { PacienteService } from '../../../services/paciente.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -33,7 +33,7 @@ export class AdminPacienteComponent implements OnInit {
   }
 
   private listPaciente() {
-    this.pacienteService.obtener_pacientes().subscribe(dato => {
+    this.pacienteService.getPatient().subscribe(dato => {
       this.pacientes = dato;
  
     });
