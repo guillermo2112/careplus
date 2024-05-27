@@ -34,6 +34,7 @@ import { DoctorSidebarComponent } from './components/doctor/doctor-sidebar/docto
 import { DoctorListaPacientesComponent } from './components/doctor/doctor-lista-pacientes/doctor-lista-pacientes.component';
 import { UpdateAppointmentshiftComponent } from './components/administradorTI/update-appointmentshift/update-appointmentshift.component';
 import { DoctorHomeComponent } from './components/doctor/doctor-home/doctor-home.component';
+import { DoctorProfileComponent } from './components/doctor/doctor-profile/doctor-profile.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -87,6 +88,8 @@ export const routes: Routes = [
     {path: 'doctor-sidebar', component: DoctorSidebarComponent},
     {path: 'doctor-home', component: DoctorHomeComponent},
     {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
+    {path: 'doctor-profile', component: DoctorProfileComponent},
+
 
 
 ];

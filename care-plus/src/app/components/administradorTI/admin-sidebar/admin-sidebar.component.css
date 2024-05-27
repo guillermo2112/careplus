@@ -196,3 +196,9 @@
       margin-right: 1rem; /* Añadir un margen derecho para separar los textos del icono */
     }
   }
+
+  .logo[_ngcontent-ng-c571175876] {
+    background: #144386;
+    color: whitesmoke;
+
+}
