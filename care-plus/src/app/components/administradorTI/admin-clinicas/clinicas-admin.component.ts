@@ -29,10 +29,40 @@ export class ClinicasAdminComponent implements OnInit{
   nombre:string = '';
   provincia:string='';
   seleccionados:string[]=[];
+  currentPage: number = 0;
+  itemsPerPage: number = 9;
 
   ngOnInit(): void {
     this.obtener_hospital();
         
+  }
+  
+  chunkArray(myArray: any[], chunk_size: number): any[] {
+    const results = [];
+    for (let i = 0; i < myArray.length; i += chunk_size) {
+      results.push(myArray.slice(i, i + chunk_size));
+    }
+    return results;
+  }
+
+  nextPage() {
+    if (this.currentPage < this.chunkArray([...this.hospital], this.itemsPerPage).length - 1) {
+      this.currentPage++;
+    }
+  }
+
+  prevPage() {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+    }
+  }
+
+  setPage(page: number) {
+    this.currentPage = page;
+  }
+
+  get totalPages(): number {
+    return this.chunkArray([...this.hospital], this.itemsPerPage).length;
   }
 
   provincias(event: Event): void {
