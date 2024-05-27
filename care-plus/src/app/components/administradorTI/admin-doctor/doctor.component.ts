@@ -5,6 +5,8 @@ import { Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
 import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
+import { Specialty } from '../../../entities/specialty';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-admin-doctor',
@@ -24,6 +26,10 @@ export class AdminDoctorComponent implements OnInit {
   itemsPerPage: number = 9;
   currentPage: number = 0;
   totalPages: number = 0;
+  name:string = '';
+  id:string = '';
+  doctores_clear: Doctor[] = [];
+  speciality :Specialty [] = [];
 
   constructor(
     private doctorService: DoctorService,
@@ -32,12 +38,14 @@ export class AdminDoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.listDoctor();
+    this.list_speciality();
   }
 
   private listDoctor() {
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
       this.totalPages = Math.ceil(this.doctores.length / this.itemsPerPage);
+      this.doctores_clear = dato;
     });
   }
 
@@ -78,5 +86,65 @@ export class AdminDoctorComponent implements OnInit {
     this.router.navigate(['add-doctor'])
   }
 
+  burcador_nombre(): void {
+    const nombres = this.name.toLowerCase().split(' ');
+    this.doctores = this.doctores_clear.filter(s => {
+      return nombres.every(name => s.name.toLowerCase().includes(name));
+    });
+    if (this.doctores.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado doctores con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  burcador_id(): void {
+      Swal.fire({
+        title: "Mantenimiento",
+        text: "No se han encontrado doctores con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+  }
+  
+  
+
+  private list_speciality() {
+    this.doctorService.get_specialidades().subscribe(dato => {
+      this.speciality = dato;
+    });
+  }
+
+  seleccionarSpecialty(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const accion = selectElement.options[selectElement.selectedIndex].value;
+    this.limpiar_filtros();
+    this.buscar_specialty(accion);
+  }
+
+  buscar_specialty(espe:string){
+    const especialidadID = parseInt(espe, 10); 
+
+    this.doctores = this.doctores_clear.filter(doctor => {
+      return doctor.specialty.id === especialidadID;
+    });
+
+    if (this.doctores.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado medicos con la especialidad buscada",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  limpiar_filtros(): void {
+    this.doctores = [...this.doctores_clear];
+    this.name = '';
+  }
 
 }
