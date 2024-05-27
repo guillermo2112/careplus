@@ -32,11 +32,10 @@ export class PacienteService {
   createPatient(paciente:Paciente): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/api/patient`,paciente);
   }
-  validarDni(dni: String): Promise<Boolean> {
+  validarDni(dni: string): Promise<Boolean> {
     return new Promise((resolve, reject) => {
-        this.httpClient.get<any>(`${this.baseURL}/api/doctor/dni/${dni}`).subscribe(response => {
-            console.log("Variable " + response);
-            console.log("Tipo " + typeof response);
+        this.httpClient.get<any>(`${this.baseURL}/api/patient/dni/${dni}`).subscribe(response => {
+          console.log(response);
             if (response === true) {
                 resolve(true);
             } else {
@@ -46,7 +45,7 @@ export class PacienteService {
             reject(error);
         });
     });
-}
+  }
 
 
 }
