@@ -82,14 +82,13 @@
     background-color: #28CEC5; 
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 10px 25px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 15px;
     transition: background-color 0.3s ease;
     display: inline-block;
     text-decoration: none;
-    margin: 1em;
   }
   
   .btn-primary:hover {

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { DataTablesModule } from 'angular-datatables';
 import { AppointmentShift } from '../../../entities/AppointmentShift';
 import { AppointmentShiftService } from '../../../services/appointment-shift.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 import { Subject } from 'rxjs';
 import { Config } from 'datatables.net';
+import { DataTablesModule } from 'angular-datatables';
 
 @Component({
   selector: 'app-admin-appointmentshift',
