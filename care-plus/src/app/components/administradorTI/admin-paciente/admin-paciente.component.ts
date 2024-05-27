@@ -20,6 +20,9 @@ import { FormsModule } from '@angular/forms';
 })
 export class AdminPacienteComponent implements OnInit {
     pacientes: Paciente[] = [];
+    itemsPerPage: number = 9;
+    currentPage: number = 0;
+    totalPages: number = 0;
  
 
   constructor(
@@ -35,7 +38,7 @@ export class AdminPacienteComponent implements OnInit {
   private listPaciente() {
     this.pacienteService.getPatient().subscribe(dato => {
       this.pacientes = dato;
- 
+      this.totalPages = Math.ceil(this.pacientes.length / this.itemsPerPage);
     });
   }
 
@@ -47,5 +50,33 @@ export class AdminPacienteComponent implements OnInit {
     this.router.navigate(['add_paciente'])
   }
 
+  prevPage(event: Event) {
+    event.preventDefault();
+    if (this.currentPage > 0) {
+      this.setPage(event, this.currentPage - 1);
+    }
+  }
+
+  nextPage(event: Event) {
+    event.preventDefault();
+    if (this.currentPage < this.totalPages - 1) {
+      this.setPage(event, this.currentPage + 1);
+    }
+  }
+
+  setPage(event: Event, pageIndex: number) {
+    event.preventDefault();
+    if (pageIndex >= 0 && pageIndex < this.totalPages) {
+      this.currentPage = pageIndex;
+    }
+  }
+
+  chunkArray(myArray: any[], chunk_size: number) {
+    const results = [];
+    for (let i = 0; i < myArray.length; i += chunk_size) {
+      results.push(myArray.slice(i, i + chunk_size));
+    }
+    return results;
+  }
 
 }
