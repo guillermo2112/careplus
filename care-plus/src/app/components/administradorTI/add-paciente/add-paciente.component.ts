@@ -42,6 +42,7 @@ export class AddPacienteComponent {
         });
       } else {
         let existeDni: Boolean = await this.patientService.validarDni(this.paciente.dni);
+        
         if(existeDni){
           Swal.fire({
             title: "Error!",
@@ -58,9 +59,6 @@ export class AddPacienteComponent {
   }
   
       
-
-
-  
 
   guardarUsuario(){
     this.usuario.role='ROLE_PATIENT'

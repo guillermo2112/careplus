@@ -9,20 +9,20 @@ import { Usuario } from '../entities/usuario';
 })
 export class PacienteService {
 
-  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/patient";
+  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
 
   constructor(private httpClient:HttpClient) { }
 
   getPatient():Observable<Paciente[]>{
-    return this.httpClient.get<Paciente[]>(`${this.baseURL}/all`);
+    return this.httpClient.get<Paciente[]>(`${this.baseURL}/api/patient/all`);
   }
 
   getPatientById(id:number):Observable<Paciente>{
-    return this.httpClient.get<Paciente>(`${this.baseURL}/${id}`);
+    return this.httpClient.get<Paciente>(`${this.baseURL}/api/patient/${id}`);
   }
 
   updatePatient(id:number,paciente:Paciente): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`,paciente);
+    return this.httpClient.put(`${this.baseURL}/api/patient/${id}`,paciente);
   }
   
   createUser(user:Usuario): Observable<Object>{
@@ -32,11 +32,10 @@ export class PacienteService {
   createPatient(paciente:Paciente): Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/api/patient`,paciente);
   }
-  validarDni(dni: String): Promise<Boolean> {
+  validarDni(dni: string): Promise<Boolean> {
     return new Promise((resolve, reject) => {
-        this.httpClient.get<any>(`${this.baseURL}/api/doctor/dni/${dni}`).subscribe(response => {
-            console.log("Variable " + response);
-            console.log("Tipo " + typeof response);
+        this.httpClient.get<any>(`${this.baseURL}/api/patient/dni/${dni}`).subscribe(response => {
+          console.log(response);
             if (response === true) {
                 resolve(true);
             } else {
@@ -46,7 +45,7 @@ export class PacienteService {
             reject(error);
         });
     });
-}
+  }
 
 
 }
