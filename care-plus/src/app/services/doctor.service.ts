@@ -42,8 +42,6 @@ export class DoctorService {
   validarDni(dni: String): Promise<Boolean> {
     return new Promise((resolve, reject) => {
         this.httpClient.get<any>(`${this.baseURL}/api/doctor/dni/${dni}`).subscribe(response => {
-            console.log("Variable " + response);
-            console.log("Tipo " + typeof response);
             if (response === true) {
                 resolve(true);
             } else {

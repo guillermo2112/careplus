@@ -13,8 +13,12 @@
             </div>
 
             <div class="form-group">
-                <label for="password">Contraseña:</label>
-                <input type="password" name="password" id="password"  [(ngModel)]="usuario.password"  class="form-control">
+                <label for="password">Contrase&ntilde;a</label>
+                <input type="password" class="form-control" id="password"  [(ngModel)]="usuario.password" name="password" required #password="ngModel">
+                @if (password.invalid && (password.dirty || password.touched)) {
+                    @if (password.errors?.['required']) {}
+                    <div class="alert alert-danger">La contrase&ntilde;a es requerido</div>
+                }
             </div>
 
             <div class="form-group">
@@ -31,14 +35,19 @@
                     <div class="alert alert-danger">El nombre es requerida</div>
                 }
             </div>
+            <div class="form-group">
+                <label>G&eacute;nero</label><br>
+                    <input type="radio" id="gender1" name="gender1" value="MALE" [(ngModel)]="paciente.gender" checked>
+                    <label for="option1">Masculino</label><br>
+                
+                    <input type="radio" id="gender1" name="gender1" value="FEMALE" [(ngModel)]="paciente.gender" >
+                    <label for="option2">Femenino</label><br>
+            </div>
 
             <div class="form-group">
                 <label for="dni">DNI:</label>
                 <input type="text" name="dni" id="dni" [(ngModel)]="paciente.dni" pattern="^([0-9]{8}[A-Z]{1})" required #dni="ngModel" class="form-control">
-                @if (dni.invalid && (dni.dirty || dni.touched)) {
-                    @if (dni.errors?.['required']) {}
-                    <div class="alert alert-danger">El DNI es requerida</div>
-                }
+                
             </div>
 
             <div class="form-group">
@@ -51,18 +60,30 @@
             </div>
 
             <div class="form-group">
-                <label for="address">Dirección:</label>
-                <input type="text" name="address" id="address" [(ngModel)]="paciente.address" class="form-control">
+                <label for="address">Direcci&oacute;n:</label>
+                <input type="text" name="address" id="address" [(ngModel)]="paciente.address" required #address="ngModel" class="form-control">
+                @if (address.invalid && (address.dirty || address.touched)) {
+                    @if (address.errors?.['required']) {}
+                    <div class="alert alert-danger">La Direcci&oacute;n es requerida</div>
+                }
             </div>
 
             <div class="form-group">
-                <label for="phone">Teléfono:</label>
-                <input type="text" name="phone" id="phone" [(ngModel)]="paciente.phone" pattern="^[0-9]{9}" class="form-control">
+                <label for="phone">Tel&eacute;fono:</label>
+                <input type="text" name="phone" id="phone" [(ngModel)]="paciente.phone" required #phone="ngModel" pattern="^[0-9]{9}" class="form-control">
+                @if (phone.invalid && (phone.dirty || phone.touched)) {
+                    @if (phone.errors?.['required']) {}
+                    <div class="alert alert-danger">El tel&eacute;fono es requerida</div>
+                }
             </div>
 
             <div class="form-group">
-                <label for="emergency_phone">Teléfono de Emergencia:</label>
-                <input type="text" name="emergency_phone" id="emergency_phone" [(ngModel)]="paciente.emergency_phone" pattern="^[0-9]{9}" class="form-control">
+                <label for="emergency_phone">Tel&eacute;fono de Emergencia:</label>
+                <input type="text" name="emergency_phone" id="emergency_phone" [(ngModel)]="paciente.emergency_phone" required #emergency_phone="ngModel" pattern="^[0-9]{9}" class="form-control">
+                @if (emergency_phone.invalid && (emergency_phone.dirty || emergency_phone.touched)) {
+                    @if (emergency_phone.errors?.['required']) {}
+                    <div class="alert alert-danger">El tel&eacute;fono de emergencia es requerida</div>
+                }
             </div>
             
             <button type="submit" class="btn">Enviar</button>
