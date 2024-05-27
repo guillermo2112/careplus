@@ -60,9 +60,6 @@ export class AddPacienteComponent {
   
       
 
-
-  
-
   guardarUsuario(){
     this.usuario.role='ROLE_PATIENT'
     this.patientService.createUser(this.usuario).subscribe((dato: any) => {

@@ -9,20 +9,20 @@ import { Usuario } from '../entities/usuario';
 })
 export class PacienteService {
 
-  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/patient";
+  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
 
   constructor(private httpClient:HttpClient) { }
 
   getPatient():Observable<Paciente[]>{
-    return this.httpClient.get<Paciente[]>(`${this.baseURL}/all`);
+    return this.httpClient.get<Paciente[]>(`${this.baseURL}/api/patient/all`);
   }
 
   getPatientById(id:number):Observable<Paciente>{
-    return this.httpClient.get<Paciente>(`${this.baseURL}/${id}`);
+    return this.httpClient.get<Paciente>(`${this.baseURL}/api/patient/${id}`);
   }
 
   updatePatient(id:number,paciente:Paciente): Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/${id}`,paciente);
+    return this.httpClient.put(`${this.baseURL}/api/patient/${id}`,paciente);
   }
   
   createUser(user:Usuario): Observable<Object>{
