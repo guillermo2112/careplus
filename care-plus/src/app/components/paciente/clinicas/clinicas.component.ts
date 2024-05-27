@@ -4,6 +4,7 @@ import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Provincias } from '../../../entities/Provincias';
 
 @Component({
   selector: 'app-clinicaspaciente',
@@ -23,15 +24,22 @@ export class ClinicasComponent implements OnInit{
   hospital:any[] = [];
   hospital_clear:any[] = [];
   nombre:string = '';
-  provincia:string='';
+  provincias: Provincias []= [];
   seleccionados:string[]=[];
 
   ngOnInit(): void {
     this.obtener_hospital();
+    this.list_provincias();
         
   }
 
-  provincias(event: Event): void {
+  list_provincias(){
+    this.hospital_service.obtener_provincias().subscribe(dato => {
+      this.provincias = dato;
+    });
+  }
+
+  provinciasAll(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const selectedProvince = selectElement.options[selectElement.selectedIndex].text;
     this.buscar_provincia(selectedProvince);
