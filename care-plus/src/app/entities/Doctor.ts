@@ -4,12 +4,12 @@ import { Usuario } from "./usuario";
 export class Doctor {
     id: number;
     specialty :Specialty;
-    address: String;
-    birthdate: String;
-    dni: String;
-    license_num: String;
+    address: string;
+    birthdate: string;
+    dni: string;
+    license_num: string;
     name: string;
-    phone: String;
+    phone: string;
     user:Usuario;
-    gender : String;
+    gender : string;
 }

@@ -13,7 +13,7 @@ import { UpdateHospitalComponent } from './components/administradorTI/update-hos
 import { AddPacienteComponent } from './components/administradorTI/add-paciente/add-paciente.component';
 import { AddSpecialtyComponent } from './components/administradorTI/add-specialty/add-specialty.component';
 import { AddDoctorComponent } from './components/administradorTI/add-doctor/add-doctor.component';
-import { DatosPacienteComponent } from './components/administradorTI/datos-paciente/datos-paciente.component';
+import { DatosPacienteComponent } from './components/administradorTI/update-pacientes/datos-paciente.component';
 import { ListaPacientesComponent } from './components/administradorTI/lista-pacientes/lista-pacientes.component';
 import { AddHospitalComponent } from './components/administradorTI/add-hospital/add-hospital.component';
 import { HomeComponent } from './components/paciente/home/home.component';

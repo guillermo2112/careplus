@@ -46,7 +46,7 @@ export class UpdateDoctorComponent implements OnInit{
         console.log(dato);
         Swal.fire({
           title: "Success",
-          text: "Especilidad actualizada con éxito",
+          text: "Doctor actualizado con éxito",
           icon: "success"
         }).then(() => {
             this.goToListDoctor();
