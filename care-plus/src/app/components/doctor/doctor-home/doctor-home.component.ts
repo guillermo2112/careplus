@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 
 @Component({
-    selector: 'app-home-doctor',
+    selector: 'app-doctor-home',
     standalone: true,
-    templateUrl: './home-doctor.component.html',
-    styleUrl: './home-doctor.component.css',
+    templateUrl: './doctor-home.component.html',
+    styleUrl: './doctor-home.component.css',
     imports: [DoctorSidebarComponent]
 })
-export class HomeDoctorComponent {
+export class DoctorHomeComponent {
 
 }
