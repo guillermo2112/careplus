@@ -5,7 +5,6 @@ import { Paciente } from '../../../entities/Patient';
 import { PacienteService } from '../../../services/paciente.service';
 import { Router } from '@angular/router';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
-import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-doctor-lista-pacientes',
@@ -19,11 +18,19 @@ import Swal from 'sweetalert2';
     ]
 })
 export class DoctorListaPacientesComponent implements OnInit{
+burcador_nombre() {
+throw new Error('Method not implemented.');
+}
+limpiar_filtros() {
+throw new Error('Method not implemented.');
+}
+burcador_id() {
+throw new Error('Method not implemented.');
+}
 
   pacientes:any [] = [];
-  pacientes_clear:any[] = [];
-  name:string = '';
-  dni:string = '';
+  name:string;
+  id:string;
 
   constructor(private paciente_service:PacienteService, private router:Router){}
 
@@ -34,48 +41,11 @@ export class DoctorListaPacientesComponent implements OnInit{
   obtener_pacientes(){
     this.paciente_service.getPatient().subscribe(dato =>{
       this.pacientes=dato;
-      this.pacientes_clear=dato;
     })
   }
 
   goToClinicalProfile(id:number){
     this.router.navigate(['doctor-clinical-profile',id]);
-  }
-
-  burcador_nombre(): void {
-    const nombres = this.name.toLowerCase().split(' ');
-    this.pacientes = this.pacientes_clear.filter(s => {
-      return nombres.every(name => s.name.toLowerCase().includes(name));
-    });
-    if (this.pacientes.length === 0) {
-      Swal.fire({
-        title: "Opps...",
-        text: "No se han encontrado pacientes con el nombre buscado",
-        icon: "error"
-      });
-      this.limpiar_filtros();
-    }
-  }
-
-  buscador_dni(): void {
-    const nombres = this.dni.toLowerCase().split(' ');
-    this.pacientes = this.pacientes_clear.filter(s => {
-      return nombres.every(dni => s.dni.toLowerCase().includes(dni));
-    });
-    if (this.pacientes.length === 0) {
-      Swal.fire({
-        title: "Opps...",
-        text: "No se han encontrado pacientes con el DNI buscado",
-        icon: "error"
-      });
-      this.limpiar_filtros();
-    }
-  }
-
-  limpiar_filtros(): void {
-    this.pacientes = [...this.pacientes_clear];
-    this.name = '';
-    this.dni='';
   }
 
 }

@@ -42,7 +42,6 @@ export class DoctorClinicalProfileComponent {
   saveDoctor() {
     this.doctorService.updateDoctor(this.id, this.doctor).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Especilidad actualizada con éxito",

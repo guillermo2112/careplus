@@ -44,7 +44,6 @@ export class UpdateAppointmentshiftComponent implements OnInit {
     this.appointmentShiftService
       .getAppointmentShiftID(this.appointmentShift.id)
       .subscribe((dato: any) => {
-        console.log('GET: ', dato);
         this.appointmentShift = dato;
       });
   }
