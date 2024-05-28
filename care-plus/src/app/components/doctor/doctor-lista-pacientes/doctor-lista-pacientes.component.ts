@@ -18,8 +18,19 @@ import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.compone
     ]
 })
 export class DoctorListaPacientesComponent implements OnInit{
+burcador_nombre() {
+throw new Error('Method not implemented.');
+}
+limpiar_filtros() {
+throw new Error('Method not implemented.');
+}
+burcador_id() {
+throw new Error('Method not implemented.');
+}
 
   pacientes:any [] = [];
+  name:string;
+  id:string;
 
   constructor(private paciente_service:PacienteService, private router:Router){}
 

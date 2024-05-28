@@ -14,7 +14,6 @@ import { AddPacienteComponent } from './components/administradorTI/add-paciente/
 import { AddSpecialtyComponent } from './components/administradorTI/add-specialty/add-specialty.component';
 import { AddDoctorComponent } from './components/administradorTI/add-doctor/add-doctor.component';
 import { DatosPacienteComponent } from './components/administradorTI/update-paciente/datos-paciente.component';
-import { ListaPacientesComponent } from './components/administradorTI/lista-pacientes/lista-pacientes.component';
 import { AddHospitalComponent } from './components/administradorTI/add-hospital/add-hospital.component';
 import { HomeComponent } from './components/paciente/home/home.component';
 
@@ -79,7 +78,7 @@ export const routes: Routes = [
     {path: 'update-hospital/:id', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
     {path: 'paciente/:id', component: DatosPacienteComponent},
-    {path: 'lista_pacientes', component: ListaPacientesComponent},
+    {path: 'lista_pacientes', component: DoctorListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
 
 
