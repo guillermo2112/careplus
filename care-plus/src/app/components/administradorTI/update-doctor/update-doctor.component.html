@@ -1,7 +1,7 @@
 
 <div class="contenedorGrande" >
     <div class="col-md-6 offset-md-3">
-        <h3 class="text-center">Actualizar Doctor</h3>
+        <h3 class="text-center">Actualizar Doctor {{doctorId}} {{doctor.user.onDutty}}</h3>
         <form (ngSubmit)="onSubmit()">
             
             <div class="form-group">
@@ -11,12 +11,23 @@
             
             <div class="form-group">
                 <label for="specialty.id">Especialidad</label>
-                <select name="id" id="id" [(ngModel)]="doctor.specialty.id">
-                    @for (specialty of specialties; track specialty.id) {
-                        <option value="{{specialty.id}}">{{specialty.name}}</option>
-                    }
-
-                </select>
+                <ng-select
+                [items]="specialties"
+                bindLabel="name"
+                bindValue="id"
+                [(ngModel)]="doctor.specialty.id"
+                class="form-control"
+                id="specialty_id"
+                name="especialty_id"
+                [searchable]="true"
+                [dropdownPosition]="'auto'"
+              >
+                @for (specialty of specialties; track specialty.id) {
+                <option value="{{ specialty.id }}">
+                  {{ specialty.name }}
+                </option>
+                }
+              </ng-select>
             </div>
             <div class="form-group">
                 <label>G&eacute;nero</label><br>
@@ -57,30 +68,28 @@
                 <input type="text" class="form-control" id="phone" [(ngModel)]="doctor.phone" name="phone">
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label>Estado del doctor</label><br>
-                @if(doctor.user.onDutty == "ACTIVE"){
-                    <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" checked>
-                    <label for="option1">Activo</label><br>
-                }@else{
-                    <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" >
-                    <label for="option1">Activo</label><br>
-                }
-                @if(doctor.user.onDutty == "INACTIVE"){
-                    <input type="radio" id="option2" name="options" value="INACTIVE" [(ngModel)]="doctor.user.onDutty"  checked>
-                    <label for="option2">Inactivo</label><br>
-                }@else{
-                    <input type="radio" id="option2" name="options" value="INACTIVE" [(ngModel)]="doctor.user.onDutty" >
-                    <label for="option2">Inactivo</label><br>
-                }
-                @if(doctor.user.onDutty == "SUSPENDED"){
-                    <input type="radio" id="option3" name="options" value="SUSPENDED" [(ngModel)]="doctor.user.onDutty"  checked>
-                    <label for="option3">Suspendido</label><br>
-                }@else{
-                    <input type="radio" id="option3" name="options" value="SUSPENDED" [(ngModel)]="doctor.user.onDutty" >
-                    <label for="option3">Suspendido</label><br>
-                }
-              </div>
+                <label>
+                  <input type="radio" name="onDutty" [value]="onDuttyOptions.ACTIVE" [(ngModel)]="doctor.user.onDutty"> Activo
+                </label><br>
+                <label>
+                  <input type="radio" name="onDutty" [value]="onDuttyOptions.INACTIVE" [(ngModel)]="doctor.user.onDutty"> Inactivo
+                </label><br>
+                <label>
+                  <input type="radio" name="onDutty" [value]="onDuttyOptions.SUSPENDED" [(ngModel)]="doctor.user.onDutty"> Suspendido
+                </label><br>
+              </div> -->
+
+             @for(status of onDuttyArray; track status){<div>
+                <input
+                  type="radio" 
+                  name="onDutty" 
+                  [value]="status.label" 
+                  [(ngModel)]="selectedOnDutty" 
+                  [id]="'onDutty-' + status.id">
+                  <label [for]="'onDutty-' + status.id">{{status.label}}</label>
+              </div>}
             <button type="submit" class="btn btn-success">Guardar</button>
         </form>
     </div>

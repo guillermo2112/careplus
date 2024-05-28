@@ -18,7 +18,7 @@ interface SideNavToggle{
 export class AdminSidebarComponent {
  
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
-  collapsed=false;
+  collapsed=true;
   screenWidth=0;
   navData=navbarData;
  
