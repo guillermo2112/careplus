@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
 import { HeaderComponent } from "../../shared/header/header.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
     selector: 'app-doctorPaciente',
@@ -15,7 +16,8 @@ import { HeaderComponent } from "../../shared/header/header.component";
         RouterModule,
         CommonModule,
         FormsModule,
-        HeaderComponent
+        HeaderComponent,
+        NavbarComponent
     ]
 })
 export class DoctorPacienteComponent implements OnInit {
