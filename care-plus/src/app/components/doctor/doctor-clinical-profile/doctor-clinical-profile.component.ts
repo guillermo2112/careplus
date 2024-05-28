@@ -5,13 +5,14 @@ import { SpecialtyService } from '../../../services/specialty.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Specialty } from '../../../entities/specialty';
 import { Doctor } from '../../../entities/Doctor';
+import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 
 @Component({
-  selector: 'app-doctor-clinical-profile',
-  standalone: true,
-  imports: [],
-  templateUrl: './doctor-clinical-profile.component.html',
-  styleUrl: './doctor-clinical-profile.component.css'
+    selector: 'app-doctor-clinical-profile',
+    standalone: true,
+    templateUrl: './doctor-clinical-profile.component.html',
+    styleUrl: './doctor-clinical-profile.component.css',
+    imports: [DoctorSidebarComponent]
 })
 export class DoctorClinicalProfileComponent {
 

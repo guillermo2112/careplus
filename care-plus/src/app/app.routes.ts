@@ -35,6 +35,9 @@ import { DoctorListaPacientesComponent } from './components/doctor/doctor-lista-
 import { UpdateAppointmentshiftComponent } from './components/administradorTI/update-appointmentshift/update-appointmentshift.component';
 import { DoctorHomeComponent } from './components/doctor/doctor-home/doctor-home.component';
 import { DoctorProfileComponent } from './components/doctor/doctor-profile/doctor-profile.component';
+import { DoctorClinicalProfileComponent } from './components/doctor/doctor-clinical-profile/doctor-clinical-profile.component';
+import { DoctorCitasComponent } from './components/doctor/doctor-citas/doctor-citas.component';
+import { DoctorCalendariosComponent } from './components/doctor/doctor-calendarios/doctor-calendarios.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -89,6 +92,9 @@ export const routes: Routes = [
     {path: 'doctor-home', component: DoctorHomeComponent},
     {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
     {path: 'doctor-profile', component: DoctorProfileComponent},
+    {path: 'doctor-clinical-profile', component: DoctorClinicalProfileComponent},
+    {path: 'doctor-citas', component: DoctorCitasComponent},
+    {path: 'doctor-calendarios', component: DoctorCalendariosComponent},
 
 
 
