@@ -14,9 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class UpdateHospitalComponent implements OnInit{
 
-  id: number;
-  hospital: Hospital;
-
+  hospital: Hospital = new Hospital();
 
   constructor(
     private hospitalService: HospitalService,
@@ -25,16 +23,15 @@ export class UpdateHospitalComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.hospitalService.obtener_hospital_id(this.id).subscribe(dato => {
+    this.hospital.id = history.state.hospitalId;
+    this.hospitalService.obtener_hospital_id(this.hospital.id).subscribe(dato => {
       this.hospital = dato;
     });
   }
 
   saveHospital() {
-    this.hospitalService.updateHospital(this.id, this.hospital).subscribe(
+    this.hospitalService.updateHospital(this.hospital.id, this.hospital).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Especilidad actualizada con éxito",

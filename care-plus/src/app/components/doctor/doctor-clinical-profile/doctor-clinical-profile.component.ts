@@ -6,13 +6,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Specialty } from '../../../entities/specialty';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
+import { FormsModule } from '@angular/forms';
 
 @Component({
     selector: 'app-doctor-clinical-profile',
     standalone: true,
     templateUrl: './doctor-clinical-profile.component.html',
     styleUrl: './doctor-clinical-profile.component.css',
-    imports: [DoctorSidebarComponent]
+    imports: [DoctorSidebarComponent,FormsModule]
 })
 export class DoctorClinicalProfileComponent {
 
@@ -42,7 +43,6 @@ export class DoctorClinicalProfileComponent {
   saveDoctor() {
     this.doctorService.updateDoctor(this.id, this.doctor).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Especilidad actualizada con éxito",

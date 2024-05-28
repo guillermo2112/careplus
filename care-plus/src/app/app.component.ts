@@ -12,6 +12,7 @@ import { HomeComponent } from './components/paciente/home/home.component';
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
+   
     styleUrl: './app.component.css',
     imports: [RouterOutlet, NavbarComponent, FooterComponent, CarouselComponent, CardespecialidadesComponent, HomeComponent]
 })
@@ -19,4 +20,7 @@ export class AppComponent{
   constructor (private hospital: HospitalService){}
 
   title = 'care-plus';
+
+  
+  
 }

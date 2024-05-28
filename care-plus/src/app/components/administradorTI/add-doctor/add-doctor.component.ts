@@ -83,7 +83,6 @@ export class AddDoctorComponent implements OnInit{
   guardarDoctor(usu:Usuario){
     this.doctor.user = usu;
     this.doctorService.createDoctor(this.doctor).subscribe(dato =>{
-      console.log(dato);
       Swal.fire({
         title: "Enhorabuena!",
         text: "Doctor creado con exito.",

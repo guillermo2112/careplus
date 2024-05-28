@@ -37,6 +37,10 @@ import { DoctorProfileComponent } from './components/doctor/doctor-profile/docto
 import { DoctorClinicalProfileComponent } from './components/doctor/doctor-clinical-profile/doctor-clinical-profile.component';
 import { DoctorCitasComponent } from './components/doctor/doctor-citas/doctor-citas.component';
 import { DoctorCalendariosComponent } from './components/doctor/doctor-calendarios/doctor-calendarios.component';
+import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { RegistradoSidebarComponent } from './components/paciente-registrado/registrado-sidebar/registrado-sidebar.component';
+import { RegistradoHomeComponent } from './components/paciente-registrado/registrado-home/registrado-home.component';
+import { RegistradoProfileComponent } from './components/paciente-registrado/registrado-profile/registrado-profile.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -51,7 +55,7 @@ export const routes: Routes = [
     {path: 'admin-especialidades', component: EspecialidadesComponent},
     {path: 'especialidadesPaciente', component: EspecialidadesPacienteComponents},
 
-    {path: 'update-specialty/:id', component: UpdateSpecialtyComponent},
+    {path: 'update-specialty', component: UpdateSpecialtyComponent},
     {path: 'add-specialty', component: AddSpecialtyComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
@@ -61,9 +65,6 @@ export const routes: Routes = [
 
     {path: 'admin-sidebar', component: AdminSidebarComponent},
    
-    
-
-
     {path: 'admin-doctor', component: AdminDoctorComponent},
     {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
     {path: 'add-appointmentshift', component: AddAppointmentshiftComponent},
@@ -75,12 +76,11 @@ export const routes: Routes = [
     {path: 'add-calendar', component: AddCalendarComponent},
     {path: 'update-calendar', component: UpdateCalendarComponent},
    
-    {path: 'update-hospital/:id', component: UpdateHospitalComponent},
+    {path: 'update-hospital', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
     {path: 'update-paciente', component: DatosPacienteComponent},
     {path: 'lista_pacientes', component: DoctorListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
-
 
 
 
@@ -91,10 +91,22 @@ export const routes: Routes = [
     {path: 'doctor-home', component: DoctorHomeComponent},
     {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
     {path: 'doctor-profile', component: DoctorProfileComponent},
-    {path: 'doctor-clinical-profile', component: DoctorClinicalProfileComponent},
+    {path: 'doctor-clinical-profile/:id', component: DoctorClinicalProfileComponent},
     {path: 'doctor-citas', component: DoctorCitasComponent},
     {path: 'doctor-calendarios', component: DoctorCalendariosComponent},
 
+
+    // CALENDARIO
+    {path: 'full-calendar', component: FullCalendarModule},
+
+
+    //registrado
+    {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
+    {path: 'home-paciente', component: RegistradoHomeComponent},
+    {path: 'home-profile', component: RegistradoProfileComponent},
+
+    //imagenes
+    //{path: 'ima', component: ImageUploadComponent},
 
 
 ];

@@ -3,17 +3,19 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import Swal from 'sweetalert2';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 
 @Component({
-  selector: 'app-contactopaciente',
-  standalone: true,
-  imports: [
-    RouterModule,
-    FormsModule
-  ],
-  templateUrl: './contacto.component.html',
-  styleUrl: './contacto.component.css'
+    selector: 'app-contactopaciente',
+    standalone: true,
+    templateUrl: './contacto.component.html',
+    styleUrl: './contacto.component.css',
+    imports: [
+        RouterModule,
+        FormsModule,
+        HeaderComponent
+    ]
 })
 export class ContactoComponent {
   userEmail: string = '';

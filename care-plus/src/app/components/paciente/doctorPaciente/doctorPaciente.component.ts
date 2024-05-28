@@ -4,17 +4,21 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
+import { HeaderComponent } from "../../shared/header/header.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
-  selector: 'app-doctorPaciente',
-  standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    FormsModule
-  ],
-  templateUrl: './doctorPaciente.component.html',
-  styleUrls: ['./doctorPaciente.component.css']
+    selector: 'app-doctorPaciente',
+    standalone: true,
+    templateUrl: './doctorPaciente.component.html',
+    styleUrls: ['./doctorPaciente.component.css'],
+    imports: [
+        RouterModule,
+        CommonModule,
+        FormsModule,
+        HeaderComponent,
+        NavbarComponent
+    ]
 })
 export class DoctorPacienteComponent implements OnInit {
 

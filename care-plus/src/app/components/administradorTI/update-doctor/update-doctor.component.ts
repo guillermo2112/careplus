@@ -75,7 +75,6 @@ export class UpdateDoctorComponent implements OnInit{
     
     this.doctorService.updateDoctor(this.doctorId, this.doctor).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Doctor actualizado con éxito",

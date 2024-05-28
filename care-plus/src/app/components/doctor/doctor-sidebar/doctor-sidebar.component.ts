@@ -31,6 +31,5 @@ export class DoctorSidebarComponent {
     this.collapsed=false;
     this.onToggleSideNav.emit({collapsed: this.collapsed,screenWidth:this.screenWidth})
    }
- 
 }
  

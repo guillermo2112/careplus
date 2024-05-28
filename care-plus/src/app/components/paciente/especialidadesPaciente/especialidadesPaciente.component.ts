@@ -3,17 +3,19 @@ import { Router } from '@angular/router';;
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';import { SpecialtyService } from '../../../services/specialty.service';
+import { HeaderComponent } from "../../shared/header/header.component";
 ;
 
 @Component({
-  selector: 'app-especialidadesPaciente',
-  templateUrl: './especialidadesPaciente.component.html',
-  styleUrls: ['./especialidadesPaciente.component.css'],
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule
-  ]
+    selector: 'app-especialidadesPaciente',
+    templateUrl: './especialidadesPaciente.component.html',
+    styleUrls: ['./especialidadesPaciente.component.css'],
+    standalone: true,
+    imports: [
+        CommonModule,
+        FormsModule,
+        HeaderComponent
+    ]
 })
 export class EspecialidadesPacienteComponents implements OnInit {
 
