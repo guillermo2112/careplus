@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationExtras, Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
 import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
@@ -161,6 +161,16 @@ export class AdminDoctorComponent implements OnInit {
     this.doctores = [...this.doctores_clear];
     this.name = '';
     this.id='';
+  }
+
+  
+  navigateToUpdateDoctor(id:number) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        doctorId: id
+      }
+    };
+    this.router.navigate(['/update-doctor'], navigationExtras);
   }
 
 }
