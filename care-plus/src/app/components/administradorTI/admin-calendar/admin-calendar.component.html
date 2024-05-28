@@ -1,49 +1,47 @@
 <app-admin-sidebar></app-admin-sidebar>
 
 <section class="container">
-    <div class="card">
-      <div class="card-header">
-        <h3 class="card-title">Lista de Calendarios </h3>
-
-      </div>
-      <!-- /.card-header -->
-      <div class="card-body">
-        <table id="example1" class="table table-bordered table-striped">
-          <thead>
+  <div class="card">
+    <div class="card-header">
+      <h3 class="card-title">Lista de Calendarios </h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Fecha inicio</th>
+            <th>Fecha fin</th>
+            <th>Fecha creación</th>
+            <th>Fecha modificación</th>
+            <th>Doctor</th>
+            <th>Hospital</th>
+            <th>Turno</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(calendar of calendarios; track calendar.id){ 
             <tr>
-              <th>ID</th>
-              <th>Fecha_inicio</th>
-              <th>Fecha_fin</th>
-              <th>Fecha</th>
-              <th>Doctor</th>
-              <th>Hospital</th>
-              <th>Turno</th>
+              <td>{{ calendar.id }}</td>
+              <td>{{ calendar.start_date }}</td>
+              <td>{{ calendar.end_date }}</td>
+              <td>{{ formatDate(calendar.date) }}</td>
+              <td>{{ formatDate(calendar.date_update) }}</td>
+              <td>{{ calendar.doctor.name }}</td>
+              <td>{{ calendar.hospital.name }}</td>
+              <td>{{ calendar.shift.name }}</td>
+              <td>
+                <button class="btn btn-primary" (click)="navigateToUpdateCalendar(calendar.id)">Editar</button>
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            @for(calendar of calendarios; track calendar.id){ 
-              <tr>
-                <th>{{ calendar.id }}</th>
-                <th>{{ calendar.start_date }}</th>
-                <th>{{ calendar.end_date }}</th>
-                <th>{{ formatDate(calendar.date) }}</th>
-                <th>{{ calendar.doctor.name }}</th>
-                <th>{{ calendar.hospital.name }}</th>
-                <th>{{ calendar.shift.name }}</th>
-
-                <th>
-                  <button class="btn btnact"  (click)="navigateToUpdateCalendar(calendar.id)">Actualizar</button>
-                </th>
-              </tr>
-              }
-          </tbody>
-        </table>
-        <div class="d-flex justify-content-end mt-3 boton">
-          <button class="btn btn-success" (click)="navigateToAddCalendar()">Nuevo</button>
-        </div>
+          }
+        </tbody>
+      </table>
+      <div class="d-flex mt-3 boton">
+        <button class="btn btn-primary" (click)="navigateToAddCalendar()">Nuevo</button>
       </div>
     </div>
-        
-    
-  
-  </section>
+  </div>
+</section>

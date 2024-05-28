@@ -102,12 +102,27 @@ export class AdminDoctorComponent implements OnInit {
   }
 
   burcador_id(): void {
+    const id = Number(this.id);
+
+    if (isNaN(id)) {
+      Swal.fire({
+        title: "Error",
+        text: "El ID ingresado no es válido",
+        icon: "error"
+      });
+      return;
+    }
+
+    this.doctores = this.doctores_clear.filter(doctor => doctor.id === id);
+
+    if (this.doctores.length === 0) {
       Swal.fire({
         title: "Mantenimiento",
-        text: "No se han encontrado doctores con el nombre buscado",
+        text: "No se han encontrado doctores con el id buscado",
         icon: "error"
       });
       this.limpiar_filtros();
+    }
   }
   
   
@@ -145,6 +160,7 @@ export class AdminDoctorComponent implements OnInit {
   limpiar_filtros(): void {
     this.doctores = [...this.doctores_clear];
     this.name = '';
+    this.id='';
   }
 
 }

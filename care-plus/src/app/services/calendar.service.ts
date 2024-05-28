@@ -4,27 +4,28 @@ import { Observable } from 'rxjs';
 import { Calendar } from '../entities/calendar';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CalendarService {
+  private baseURL = 'http://care.francecentral.cloudapp.azure.com:8080';
 
-  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
+  private baseURL2 = 'http://localhost:8080';
 
-  private baseURL2="http://localhost:8080";
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient : HttpClient) { }
-
-   listCalendar():Observable<Calendar[]>{
-     return this.httpClient.get<Calendar[]>(`${this.baseURL}/api/calendar/all`);
-   }
-
-   addCalendar(calendar:Calendar): Observable<Object>{
-    return this.httpClient.post(`${this.baseURL}/api/calendar`,calendar);
+  listCalendar(): Observable<Calendar[]> {
+    return this.httpClient.get<Calendar[]>(`${this.baseURL}/api/calendar/all`);
   }
 
-  updateCalendar(id:number,calendar:Calendar) :Observable<Object>{
-    return this.httpClient.put(`${this.baseURL}/api/calendar/${id}`,calendar);
+  addCalendar(calendar: Calendar): Observable<Object> {
+    return this.httpClient.post(`${this.baseURL}/api/calendar`, calendar);
   }
 
+  updateCalendar(id: number, calendar: Calendar): Observable<Object> {
+    return this.httpClient.put(`${this.baseURL}/api/calendar/${id}`, calendar);
+  }
 
+  getByYd(id: number): Observable<Calendar> {
+    return this.httpClient.get<Calendar>(`${this.baseURL}/api/calendar/${id}`);
+  }
 }

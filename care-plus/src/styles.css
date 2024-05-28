@@ -1,20 +1,330 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* ESTILOS PARA EL BOTONES */
-.btn-care {
-    background-color: #28CEC5; 
-    color: white;
-    border: none;
-    padding: 10px 10px;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 15px;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-    text-decoration: none;
-    margin: 0.2em;
+.ng-select {
+  width: 100%;
+  margin-bottom: 1rem;
+  font-family: "Arial", sans-serif;
+  font-size: 1rem;
+  position: relative;
 }
-.btn-care:hover {
-    background-color: #144386;
-    color: white;
+
+.ng-select .ng-dropdown-panel {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s ease-in-out;
+  background-color: whitesmoke;
+}
+
+.ng-select .ng-option {
+  padding: 0.5rem 1rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.ng-select .ng-option:hover {
+  background-color: #f0f0f0;
+}
+
+.ng-select .ng-option-selected {
+  background-color: rgb(41, 147, 217);
+  color: #fff;
+}
+
+.ng-select .ng-input {
+  border: none;
+  font-size: 1rem;
+}
+
+.ng-select .ng-placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+.ng-select .ng-arrow-wrapper {
+  color: #007bff;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ng-select .ng-arrow-wrapper.open {
+  transform: rotate(180deg);
+}
+
+.ng-select.ng-select-loading .ng-dropdown-panel {
+  background-color: #f9f9f9;
+}
+
+.ng-value-label {
+  border: 2px solid transparent;
+  background-color: rgb(114, 174, 214);
+  border-radius: 4px;
+}
+.card-body {
+  overflow-x: auto;
+  font-weight: 700;
+}
+
+button {
+  background-color: #28cec5;
+  border: 1px solid #28cec5;
+}
+button:hover {
+  background-color: #144386;
+  border: 1px solid #144386;
+  color: white;
+}
+body {
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+
+button {
+  background-color: #28cec5;
+  margin-top: 20px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: box-shadow 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #144386;
+  color: white;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  margin-right: 20px;
+  font-weight: bold;
+  color: #144386;
+}
+h3 {
+  color: #144386;
+}
+.errorSpan {
+  color: rgb(151, 24, 24);
+}
+
+.container-bots {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 2rem;
+  gap: 1rem; 
+}
+
+
+.container-bots div {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  width: 30%;
+  border: 2px solid #28CEC5;
+  height: 200px;
+  background-color: #f0f8ff; 
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
+}
+
+.container-bots div:hover {
+  background-color: #144386;
+  border-color: #144386;
+  color: white;
+}
+
+.container-bots a {
+  text-decoration: none;
+  color: inherit; 
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+
+.container-bots{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 2rem;
+}
+.container-bots div{
+  display: flex;
+  width: 30%;
+  border: 2px solid #28CEC5;
+  height: 200px;
+}
+
+.sidenav{
+  transition: all .5s ease;
+  position: fixed;
+  z-index: 1;
+  width: 5rem;
+  height: 100vh;
+  overflow: hidden;
+  top: 0;
+}
+.sidenav-hidden {
+  display: none;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+}
+.logo-container-collapsed, .sidenav-collapsed {
+  background-color: #144386;
+  top: 0;
+  transition: all .5s ease;
+
+}
+
+/* Estilo de la barra de desplazamiento */
+.sidenav::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sidenav::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.sidenav::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.sidenav::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+  border-radius: 4px;
+}
+.logo{
+  background: #9e9090;
+  text-align: center;
+  width: 3rem;
+  min-width: 3rem;
+  border-radius: 0.313rem;
+  padding: 0.313rem;
+  font-size: 24px;
+  font-weight: 900;
+  cursor: pointer;
+  border: none;
+}
+.logo-text{
+  margin-left: 1.5rem;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+}
+.btn-close{
+  margin-left:auto ;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+}
+.fas{
+  color: #000 ;
+}
+
+
+.sidenav-collapsed {
+  width: 16.5625rem;
+  overflow-y: auto;
+}
+
+.sidenav-nav{
+  list-style: none;
+  padding: 0.938rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100% - 3.65rem);
+  cursor: pointer;
+}
+
+.sidenav-nav-item{
+  width: 100%;
+  height: 8%;
+  margin-bottom: 0.325rem;
+}
+
+.sidenav-nav-link{
+  display: flex;
+  align-items: center;
+  height: 3rem;
+  color: #f3f3f3;
+  text-decoration: none;
+  border-radius: 0.625rem;
+  transition: all .3s ease;
+}
+.sidenav-link-icon{
+  font-size: 22px;
+  width: 2rem;
+  min-width: 2rem;
+  margin: 0 0.5rem;
+  text-align: center;
+}
+.sidenav-link-text{
+  margin-left: 1.5rem;
+}
+.sidenav-nav-item:hover .sidenav-nav-link {
+  background-color: #fff;
+  color: #000;
+}
+
+@media screen and (max-width: 768px) {
+  .sidenav {
+    width: 100%;
+    height: auto;
+   }
+
+  .sidenav-collapsed {
+    width: 100%;
+  }
+
+  .logo-container {
+    padding: 1rem 0;
+  }
+
+  .sidenav-nav {
+    flex-direction: column; /* Cambiar la dirección del flexbox a columna */
+    align-items: flex-start; /* Alinear los elementos al inicio */
+    padding: 0; /* Eliminar el relleno para ajustar correctamente los elementos */
+  }
+
+  .sidenav-nav-item {
+    width: auto; /* Ancho automático para los elementos de la lista */
+    height: auto; /* Altura automática para los elementos de la lista */
+    margin: 0.325rem 0; /* Margen superior e inferior para separar los elementos */
+  }
+
+  .sidenav-link-text {
+    margin-left: 0; /* Eliminar el margen izquierdo para los textos */
+    margin-right: 1rem; /* Añadir un margen derecho para separar los textos del icono */
+  }
+}
+
+@media (max-width: 768px) {
+  .table-responsive table {
+    width: 100%;
+  }
+  .table-responsive table thead th {
+    width: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .table-responsive table td,
+  .table-responsive table th {
+    white-space: nowrap;
+  }
 }
