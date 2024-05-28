@@ -82,7 +82,6 @@ export const routes: Routes = [
 
 
 
-
     {path: 'admin-paciente', component: AdminPacienteComponent},
 
     // DOCTOR
