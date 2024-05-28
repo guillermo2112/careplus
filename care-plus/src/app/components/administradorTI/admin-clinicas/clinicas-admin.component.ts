@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Provincias } from '../../../entities/Provincias';
@@ -22,7 +22,10 @@ import { Provincias } from '../../../entities/Provincias';
 export class ClinicasAdminComponent implements OnInit{
   
 
-  constructor(private hospital_service:HospitalService, private router:Router){}
+  constructor(
+    private hospital_service:HospitalService,
+    private router:Router
+  ){}
 
   hospital:any[] = [];
   province:any[] = [];
@@ -187,9 +190,18 @@ export class ClinicasAdminComponent implements OnInit{
   value:any;
   
 
-
+/*
 updateHospital(id: number): void {
   this.router.navigate(['update-hospital', id]);
+}*/
+
+updateHospital(id: number) {
+  const navigationExtras: NavigationExtras = {
+    state: {
+      hospitalId: id,
+    },
+  };
+  this.router.navigate(['update-hospital'], navigationExtras);
 }
 
 
