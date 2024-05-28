@@ -3,16 +3,17 @@ import { AppointmentShift } from '../../../entities/AppointmentShift';
 import { AppointmentShiftService } from '../../../services/appointment-shift.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
+import Swal from 'sweetalert2';
 
 @Component({
-    selector: 'app-add-appointmentshift',
-    standalone: true,
-    templateUrl: './add-appointmentshift.component.html',
-    styleUrl: './add-appointmentshift.component.css',
-    imports: [FormsModule]
+  selector: 'app-add-appointmentshift',
+  standalone: true,
+  templateUrl: './add-appointmentshift.component.html',
+  styleUrl: './add-appointmentshift.component.css',
+  imports: [FormsModule, AdminSidebarComponent],
 })
-export class AddAppointmentshiftComponent implements OnInit{
-
+export class AddAppointmentshiftComponent implements OnInit {
   appointmentShift: AppointmentShift = new AppointmentShift();
 
   constructor(
@@ -21,20 +22,22 @@ export class AddAppointmentshiftComponent implements OnInit{
     private router: Router
   ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  onSubmit(){
-    console.log("Prueba");
+  onSubmit() {
     this.guardarTurno();
   }
 
-  guardarTurno(){
-    console.log("llamando servicio");
-    this.appointmentShiftService.createAppointmentShift(this.appointmentShift).subscribe((dato:any) => {
-      console.log(dato);      
-    });
+  guardarTurno() {
+    this.appointmentShiftService
+      .createAppointmentShift(this.appointmentShift)
+      .subscribe((dato: any) => {
+        Swal.fire({
+          title: 'Enhorabuena!',
+          text: 'Turno creado con éxito.',
+          icon: 'success',
+        });
+        this.router.navigate(['/admin-appointmentshift']);
+      });
   }
-
-
 }

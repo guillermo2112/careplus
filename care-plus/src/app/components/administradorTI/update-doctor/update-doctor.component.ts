@@ -46,7 +46,7 @@ export class UpdateDoctorComponent implements OnInit{
         console.log(dato);
         Swal.fire({
           title: "Success",
-          text: "Especilidad actualizada con éxito",
+          text: "Doctor actualizado con éxito",
           icon: "success"
         }).then(() => {
             this.goToListDoctor();
@@ -57,7 +57,7 @@ export class UpdateDoctorComponent implements OnInit{
   }
 
   goToListDoctor() {
-    this.router.navigate(['/admin-doctor']);
+    this.router.navigate(['/admin-paciente']);
   }
 
   onSubmit() {

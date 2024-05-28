@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import {  Router } from '@angular/router';
 import { DoctorService } from '../../../services/doctor.service';
 import { Doctor } from '../../../entities/Doctor';
 import { FormsModule } from '@angular/forms';
@@ -20,46 +20,59 @@ export class AddDoctorComponent implements OnInit{
   usuario : Usuario = new Usuario();
   specialties: Specialty[];
   specialty: Specialty = new Specialty();
+  confirm_password:string;
+
 
   constructor(
     private doctorService: DoctorService,
     private specialityService: SpecialtyService,
-    private route: ActivatedRoute,
     private router: Router
   ) {
     this.doctor.specialty =this.specialty;
+    this.confirm_password = "";
   }
 
   ngOnInit(): void {
     this.specialityService.listSpecialty().subscribe(dato => {
       this.specialties = dato;
     });
+    
   }
   async onSubmit() {
     try {
+      if (this.usuario.password == "" || this.confirm_password == "") {
+        Swal.fire({
+          title: "Error!",
+          text: "Las contraseñas no pueden estar vacías.",
+          icon: "error"
+        });
+      } else if (this.usuario.password != this.confirm_password) {
+        Swal.fire({
+          title: "Error!",
+          text: "Las contraseñas no coinciden.",
+          icon: "error"
+        });
+      } else {
         let existeDni: Boolean = await this.doctorService.validarDni(this.doctor.dni);
-        console.log("Existe DNI: " + existeDni);
-        console.log("Typo DNI: " + typeof existeDni);
-
+        
         if(existeDni){
-            Swal.fire({
-                title: "Error!",
-                text: "El DNI ya existe.",
-                icon: "error"
-            });
+          Swal.fire({
+            title: "Error!",
+            text: "El DNI ya existe.",
+            icon: "error"
+          });
         } else {
-            this.guardarUsuario();
+          this.guardarUsuario();
         }
+      }
     } catch (error) {
-        console.error("Error validando el DNI", error);
+      console.error("Error validando el DNI", error);
     }
-}
+  }
 
   guardarUsuario(){
     this.usuario.role='ROLE_DOCTOR'
-    console.log(this.usuario);
     this.doctorService.crear_usuario(this.usuario).subscribe((dato:any) => {
-      console.log(dato);
       this.guardarDoctor(dato);
       
     });
@@ -69,7 +82,6 @@ export class AddDoctorComponent implements OnInit{
 
   guardarDoctor(usu:Usuario){
     this.doctor.user = usu;
-    console.log(this.doctor);
     this.doctorService.createDoctor(this.doctor).subscribe(dato =>{
       console.log(dato);
       Swal.fire({

@@ -24,62 +24,13 @@
               
 
 
-        <div class="nav-item">
-      <select name="provincias" id="provincias" (change)="provincias($event)">
-        <option value="">Buscar por provincia</option>
-        <option value="alava">Álava</option>
-        <option value="albacete">Albacete</option>
-        <option value="alicante">Alicante</option>
-        <option value="almeria">Almería</option>
-        <option value="asturias">Asturias</option>
-        <option value="avila">Ávila</option>
-        <option value="A coruna">A Coruña</option>
-        <option value="badajoz">Badajoz</option>
-        <option value="barcelona">Barcelona</option>
-        <option value="burgos">Burgos</option>
-        <option value="caceres">Cáceres</option>
-        <option value="cadiz">Cádiz</option>
-        <option value="cantabria">Cantabria</option>
-        <option value="castellon">Castellón</option>
-        <option value="ciudad_real">Ciudad Real</option>
-        <option value="cordoba">Córdoba</option>
-        <option value="cuenca">Cuenca</option>
-        <option value="girona">Girona</option>
-        <option value="granada">Granada</option>
-        <option value="guadalajara">Guadalajara</option>
-        <option value="guipuzcoa">Guipúzcoa</option>
-        <option value="huelva">Huelva</option>
-        <option value="huesca">Huesca</option>
-        <option value="illes_balears">Illes Balears</option>
-        <option value="jaen">Jaén</option>
-        <option value="la_rioja">La Rioja</option>
-        <option value="las_palmas">Las Palmas</option>
-        <option value="leon">León</option>
-        <option value="lleida">Lleida</option>
-        <option value="lugo">Lugo</option>
-        <option value="madrid">Madrid</option>
-        <option value="malaga">Málaga</option>
-        <option value="murcia">Murcia</option>
-        <option value="navarra">Navarra</option>
-        <option value="ourense">Ourense</option>
-        <option value="palencia">Palencia</option>
-        <option value="pontevedra">Pontevedra</option>
-        <option value="salamanca">Salamanca</option>
-        <option value="segovia">Segovia</option>
-        <option value="sevilla">Sevilla</option>
-        <option value="soria">Soria</option>
-        <option value="tarragona">Tarragona</option>
-        <option value="tenerife">Tenerife</option>
-        <option value="teruel">Teruel</option>
-        <option value="toledo">Toledo</option>
-        <option value="valencia">Valencia</option>
-        <option value="valladolid">Valladolid</option>
-        <option value="vizcaya">Vizcaya</option>
-        <option value="zamora">Zamora</option>
-        <option value="zaragoza">Zaragoza</option>
-      </select>
-      
-        </div>
+              <div class="nav-item">
+                <select name="filtros" (change)="provinciasAll($event)">
+                  @for(provincia of provincias; track provincia.id){
+                    <option value={{provincia.id}}>{{provincia.name}}</option>
+                  }
+                </select>
+            </div>
         <div class="nav-item">
           <form (ngSubmit)="burcador_nombre()">
             <div style="display: flex; justify-content: center; align-items: center;">
@@ -115,55 +66,64 @@
 
 
 <section class="container">
-
-  
   <div class="card">
     <div class="card-header">
       <h3 class="card-title">Lista de Clínicas</h3>
     </div>
-    <!-- /.card-header -->
     <div class="card-body">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Codigo Postal</th>
-            <th>Telefono</th>
+            <th>Código Postal</th>
+            <th>Teléfono</th>
             <th>Provincia</th>
             <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          @for(hospital of hospital; track hospital.id){ 
-            <tr>
-              <th>{{ hospital.id }}</th>
-              <th>{{ hospital.name }}</th>
-              <th>{{ hospital.pc }}</th>
-              <th>{{ hospital.phone }} </th>
-              <th>{{ hospital.province.name }}</th>
-              <th>{{ hospital.onDutty }}</th>
-              <th>
-                <button class="btn btn-success" (click)="updateHospital(hospital.id)">Editar</button>
-                <button class="btn btn-danger" (click)="suspenderHospital()">Suspender</button>
-
-                <!-- <button class="btn btn-danger">Eliminar</button  > -->
-              </th>
-            </tr>
-            }
+          <ng-container *ngFor="let group of chunkArray(hospital, itemsPerPage); let i = index">
+            <ng-container *ngIf="currentPage === i">
+              <tr *ngFor="let hospital of group">
+                <th>{{ hospital.id }}</th>
+                <th>{{ hospital.name }}</th>
+                <th>{{ hospital.pc }}</th>
+                <th>{{ hospital.phone }}</th>
+                <th>{{ hospital.province.name }}</th>
+                <th>{{ hospital.onDutty }}</th>
+                <th>
+                  <button class="btn btn-success" (click)="updateHospital(hospital.id)">Editar</button>
+                  <button class="btn btn-danger" (click)="suspenderHospital()">Suspender</button>
+                </th>
+              </tr>
+            </ng-container>
+          </ng-container>
         </tbody>
       </table>
+      <nav aria-label="Page navigation example" class="flex-column text-end">
+        <ul class="pagination">
+          <li class="page-item" [class.disabled]="currentPage === 0">
+            <a class="page-link" (click)="prevPage()">Anterior</a>
+          </li>
+          <li class="page-item" *ngFor="let page of [].constructor(totalPages); let pageIndex = index" [class.active]="currentPage === pageIndex">
+            <a class="page-link" (click)="setPage(pageIndex)">{{ pageIndex + 1 }}</a>
+          </li>
+          <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+            <a class="page-link" (click)="nextPage()">Siguiente</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </div>
-      
-  
-
 </section>
 
 
 
-<nav aria-label="Page navigation example" class="flex-column text-end">
+
+
+<!-- <nav aria-label="Page navigation example" class="flex-column text-end">
   <ul class="pagination">
     <li class="page-item"><a class="page-link" href="#">Previous</a></li>
     <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -171,4 +131,4 @@
     <li class="page-item"><a class="page-link" href="#">3</a></li>
     <li class="page-item"><a class="page-link" href="#">Next</a></li>
   </ul>
-</nav>
+</nav> -->

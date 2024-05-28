@@ -1,0 +1,91 @@
+<!-- 
+<body class="contenedorGrande" >
+    <div class="col-md-6 offset-md-3">
+        <h3 class="text-center">Actualizar Doctor</h3>
+        <form (ngSubmit)="onSubmit()">
+            
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" [(ngModel)]= "doctor.name" name="name">
+            </div>
+            
+            <div class="form-group">
+                <label for="specialty.id">Especialidad</label>
+                <select name="id" id="id" [(ngModel)]="doctor.specialty.id">
+                    @for (specialty of specialties; track specialty.id) {
+                        <option value="{{specialty.id}}">{{specialty.name}}</option>
+                    }
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label>G&eacute;nero</label><br>
+                @if(doctor.gender == "MALE"){
+                    <input type="radio" id="opt1" name="optns" value="MALE" [(ngModel)]="doctor.gender" checked>
+                    <label for="opt1">Male</label><br>
+                }@else{
+                    <input type="radio" id="opt1" name="optns" value="MALE" [(ngModel)]="doctor.gender" >
+                    <label for="opt1">Male</label><br>
+                }
+                @if(doctor.gender == "FEMALE"){
+                    <input type="radio" id="opt2" name="optns" value="FEMALE" [(ngModel)]="doctor.gender"  checked>
+                    <label for="opt2">Female</label><br>
+                }@else{
+                    <input type="radio" id="opt2" name="optns" value="FEMALE" [(ngModel)]="doctor.gender" >
+                    <label for="opt2">Female</label><br>
+                }
+                
+              </div>
+            <div class="form-group">
+                <label for="address">Dirección</label>
+                <input type="text" class="form-control" id="address" [(ngModel)]="doctor.address" name="address">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Fecha de Nacimiento</label>
+                <input type="date" class="form-control" id="birthdate" [(ngModel)]="doctor.birthdate" name="birthdate">
+            </div>
+            <div class="form-group">
+                <label for="dni">DNI</label>
+                <input type="text" class="form-control" id="dni" [(ngModel)]="doctor.dni" name="dni">
+            </div>
+            <div class="form-group">
+                <label for="license_num">Número de Licencia</label>
+                <input type="text" class="form-control" id="license_num" [(ngModel)]="doctor.license_num" name="license_num">
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="text" class="form-control" id="phone" [(ngModel)]="doctor.phone" name="phone">
+            </div>
+
+            <div class="form-group">
+                <label>Estado del doctor</label><br>
+                @if(doctor.user.onDutty == "ACTIVE"){
+                    <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" checked>
+                    <label for="option1">Activo</label><br>
+                }@else{
+                    <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" >
+                    <label for="option1">Activo</label><br>
+                }
+                @if(doctor.user.onDutty == "INACTIVE"){
+                    <input type="radio" id="option2" name="options" value="INACTIVE" [(ngModel)]="doctor.user.onDutty"  checked>
+                    <label for="option2">Inactivo</label><br>
+                }@else{
+                    <input type="radio" id="option2" name="options" value="INACTIVE" [(ngModel)]="doctor.user.onDutty" >
+                    <label for="option2">Inactivo</label><br>
+                }
+                @if(doctor.user.onDutty == "SUSPENDED"){
+                    <input type="radio" id="option3" name="options" value="SUSPENDED" [(ngModel)]="doctor.user.onDutty"  checked>
+                    <label for="option3">Suspendido</label><br>
+                }@else{
+                    <input type="radio" id="option3" name="options" value="SUSPENDED" [(ngModel)]="doctor.user.onDutty" >
+                    <label for="option3">Suspendido</label><br>
+                }
+              </div>
+            <button type="submit" class="btn btn-success">Guardar</button>
+        </form>
+    </div>
+</body>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+ -->

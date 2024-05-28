@@ -13,7 +13,7 @@ import { UpdateHospitalComponent } from './components/administradorTI/update-hos
 import { AddPacienteComponent } from './components/administradorTI/add-paciente/add-paciente.component';
 import { AddSpecialtyComponent } from './components/administradorTI/add-specialty/add-specialty.component';
 import { AddDoctorComponent } from './components/administradorTI/add-doctor/add-doctor.component';
-import { DatosPacienteComponent } from './components/administradorTI/datos-paciente/datos-paciente.component';
+import { DatosPacienteComponent } from './components/administradorTI/update-paciente/datos-paciente.component';
 import { ListaPacientesComponent } from './components/administradorTI/lista-pacientes/lista-pacientes.component';
 import { AddHospitalComponent } from './components/administradorTI/add-hospital/add-hospital.component';
 import { HomeComponent } from './components/paciente/home/home.component';
@@ -23,13 +23,18 @@ import { AdminSidebarComponent } from './components/administradorTI/admin-sideba
 import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
 import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/doctor.component';
 import { ClinicasAdminComponent } from './components/administradorTI/admin-clinicas/clinicas-admin.component';
-import { UpdatePacienteComponent } from './components/administradorTI/update-paciente/update-paciente.component';
 import { AdminAppointmentshiftComponent } from './components/administradorTI/admin-appointmentshift/admin-appointmentshift.component';
-import { HomeDoctorComponent } from './components/doctor/home-doctor/home-doctor.component';
 import { AddCalendarComponent } from './components/administradorTI/add-calendar/add-calendar.component';
 import { AdminCalendarComponent } from './components/administradorTI/admin-calendar/admin-calendar.component';
 import { UpdateCalendarComponent } from './components/administradorTI/update-calendar/update-calendar.component';
 import { AdminHomeComponent } from './components/administradorTI/admin-home/admin-home.component';
+import { AddAppointmentshiftComponent } from './components/administradorTI/add-appointmentshift/add-appointmentshift.component';
+import { AdminPacienteComponent } from './components/administradorTI/admin-paciente/admin-paciente.component';
+import { DoctorSidebarComponent } from './components/doctor/doctor-sidebar/doctor-sidebar.component';
+import { DoctorListaPacientesComponent } from './components/doctor/doctor-lista-pacientes/doctor-lista-pacientes.component';
+import { UpdateAppointmentshiftComponent } from './components/administradorTI/update-appointmentshift/update-appointmentshift.component';
+import { DoctorHomeComponent } from './components/doctor/doctor-home/doctor-home.component';
+import { DoctorProfileComponent } from './components/doctor/doctor-profile/doctor-profile.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -53,10 +58,14 @@ export const routes: Routes = [
     {path: 'add-hospital', component: AddHospitalComponent},
 
     {path: 'admin-sidebar', component: AdminSidebarComponent},
-    {path: 'home-doctor', component: HomeDoctorComponent},
+   
+    
+
 
     {path: 'admin-doctor', component: AdminDoctorComponent},
     {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
+    {path: 'add-appointmentshift', component: AddAppointmentshiftComponent},
+    {path: 'update-appointmentshift', component: UpdateAppointmentshiftComponent},
 
     {path: 'admin-calendar', component: AdminCalendarComponent},
     {path: 'admin-home', component: AdminHomeComponent},
@@ -67,8 +76,20 @@ export const routes: Routes = [
     {path: 'update-hospital/:id', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
     {path: 'paciente/:id', component: DatosPacienteComponent},
-    {path: 'update-paciente/:id', component: UpdatePacienteComponent},
     {path: 'lista_pacientes', component: ListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
-    
+
+
+
+
+    {path: 'admin-paciente', component: AdminPacienteComponent},
+
+    // DOCTOR
+    {path: 'doctor-sidebar', component: DoctorSidebarComponent},
+    {path: 'doctor-home', component: DoctorHomeComponent},
+    {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
+    {path: 'doctor-profile', component: DoctorProfileComponent},
+
+
+
 ];

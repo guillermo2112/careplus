@@ -1,27 +1,51 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Paciente } from '../entities/paciente';
+import { Paciente } from '../entities/Patient';
 import { Observable } from 'rxjs';
+import { Usuario } from '../entities/usuario';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PacienteService {
 
-  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080/api/patient";
+  private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
 
-  constructor(private http:HttpClient) { }
+  constructor(private httpClient:HttpClient) { }
 
-  obtener_pacientes():Observable<Paciente[]>{
-    return this.http.get<Paciente[]>(`${this.baseURL}/all`);
+  getPatient():Observable<Paciente[]>{
+    return this.httpClient.get<Paciente[]>(`${this.baseURL}/api/patient/all`);
   }
 
-  obtener_pacientes_id(id:number):Observable<Paciente>{
-    return this.http.get<Paciente>(`${this.baseURL}/${id}`);
+  getPatientById(id:number):Observable<Paciente>{
+    return this.httpClient.get<Paciente>(`${this.baseURL}/api/patient/${id}`);
   }
 
-  actualizar_paciente(paciente:Paciente,id:number): Observable<Object>{
-    return this.http.put(`${this.baseURL}/${id}`,paciente);
+  updatePatient(id:number,paciente:Paciente): Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/api/patient/${id}`,paciente);
   }
+  
+  createUser(user:Usuario): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/api/user`,user);
+  }
+
+  createPatient(paciente:Paciente): Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/api/patient`,paciente);
+  }
+  validarDni(dni: string): Promise<Boolean> {
+    return new Promise((resolve, reject) => {
+        this.httpClient.get<any>(`${this.baseURL}/api/patient/dni/${dni}`).subscribe(response => {
+          console.log(response);
+            if (response === true) {
+                resolve(true);
+            } else {
+                resolve(false);
+            } 
+        }, error => {
+            reject(error);
+        });
+    });
+  }
+
 
 }

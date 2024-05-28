@@ -82,14 +82,13 @@
     background-color: #28CEC5; 
     color: white;
     border: none;
-    padding: 15px 30px;
+    padding: 10px 25px;
     font-size: 16px;
     cursor: pointer;
     border-radius: 15px;
     transition: background-color 0.3s ease;
     display: inline-block;
     text-decoration: none;
-    margin: 1em;
   }
   
   .btn-primary:hover {
@@ -101,3 +100,82 @@
     align-items: center;
   }
   
+
+  .container-bots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container-bots button,
+.container-bots select,
+.container-bots form {
+    margin: 10px;
+}
+
+.container-bots button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.container-bots form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-bots form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.container-bots form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.container-bots form button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots form button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.container-bots .btn-secondary:hover {
+    background-color: #5a6268;
+}
+

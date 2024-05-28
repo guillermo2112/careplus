@@ -5,6 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { DoctorService } from '../../services/doctor.service';
 import { Doctor } from '../../entities/Doctor';
 import Swal from 'sweetalert2';
+import { Specialty } from '../../entities/specialty';
 
 @Component({
   selector: 'app-doctor',
@@ -22,6 +23,7 @@ export class DoctorComponent implements OnInit {
   name:string = '';
   doctores: Doctor[] = [];
   doctores_clear: Doctor[] = [];
+  speciality :Specialty [] = [];
 
   constructor(
     private doctorService: DoctorService,
@@ -30,6 +32,7 @@ export class DoctorComponent implements OnInit {
 
   ngOnInit(): void {
     this.listDoctor();
+    this.list_speciality();
   }
 
   trackById(index: number, doctor: Doctor): number {
@@ -38,6 +41,12 @@ export class DoctorComponent implements OnInit {
 
   detalles_doctor(id:number){
     this.router.navigate(['doctor-vista',id]);
+  }
+
+  private list_speciality() {
+    this.doctorService.get_specialidades().subscribe(dato => {
+      this.speciality = dato;
+    });
   }
 
   private listDoctor() {
@@ -67,7 +76,6 @@ export class DoctorComponent implements OnInit {
     this.limpiar_filtros();
     switch (accion) {
       case 'ordenar_nombre':
-        console.log('a');
         this.ordenar_nombre();
         break;
       case 'ordenar_nombre_des':
@@ -78,6 +86,31 @@ export class DoctorComponent implements OnInit {
     }
   }
   
+  seleccionarSpecialty(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const accion = selectElement.options[selectElement.selectedIndex].value;
+    this.limpiar_filtros();
+    this.buscar_specialty(accion);
+  }
+
+  buscar_specialty(espe:string){
+    const especialidadID = parseInt(espe, 10); 
+
+    this.doctores = this.doctores_clear.filter(doctor => {
+      return doctor.specialty.id === especialidadID;
+    });
+
+    if (this.doctores.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado medicos con la especialidad buscada",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+
+  }
+
   burcador_nombre(): void {
     const nombres = this.name.toLowerCase().split(' ');
     this.doctores = this.doctores_clear.filter(s => {

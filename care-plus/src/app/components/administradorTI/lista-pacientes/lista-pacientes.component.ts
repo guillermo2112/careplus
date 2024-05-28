@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Paciente } from '../../../entities/paciente';
+import { Paciente } from '../../../entities/Patient';
 import { PacienteService } from '../../../services/paciente.service';
 import { Router } from '@angular/router';
 
@@ -26,7 +26,7 @@ export class ListaPacientesComponent implements OnInit{
   }
 
   obtener_pacientes(){
-    this.paciente_service.obtener_pacientes().subscribe(dato =>{
+    this.paciente_service.getPatient().subscribe(dato =>{
       this.pacientes=dato;
     })
   }
