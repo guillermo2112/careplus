@@ -202,3 +202,7 @@
     color: whitesmoke;
 
 }
+
+.bg-light {
+    background-color: transparent !important; 
+}

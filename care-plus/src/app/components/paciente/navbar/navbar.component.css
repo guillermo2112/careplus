@@ -10,6 +10,10 @@ header {
     --bs-bg-opacity: 0;
     background-color: white, white;
 }
+.bg-light {
+  background-color: transparent !important; 
+}
+
 
 .button-log {
   background:  #28CEC5;
