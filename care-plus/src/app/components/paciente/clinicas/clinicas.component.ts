@@ -5,16 +5,20 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Provincias } from '../../../entities/Provincias';
+import { HeaderComponent } from "../../shared/header/header.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
-  selector: 'app-clinicaspaciente',
-  standalone: true,
-  imports: [
-    CommonModule,
-    FormsModule
-  ],
-  templateUrl: './clinicas.component.html',
-  styleUrl: './clinicas.component.css'
+    selector: 'app-clinicaspaciente',
+    standalone: true,
+    templateUrl: './clinicas.component.html',
+    styleUrl: './clinicas.component.css',
+    imports: [
+        CommonModule,
+        FormsModule,
+        HeaderComponent,
+        NavbarComponent
+    ]
 })
 export class ClinicasComponent implements OnInit{
   
