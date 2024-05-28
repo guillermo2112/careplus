@@ -91,7 +91,7 @@ export const routes: Routes = [
     {path: 'doctor-home', component: DoctorHomeComponent},
     {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
     {path: 'doctor-profile', component: DoctorProfileComponent},
-    {path: 'doctor-clinical-profile', component: DoctorClinicalProfileComponent},
+    {path: 'doctor-clinical-profile/:id', component: DoctorClinicalProfileComponent},
     {path: 'doctor-citas', component: DoctorCitasComponent},
     {path: 'doctor-calendarios', component: DoctorCalendariosComponent},
 
