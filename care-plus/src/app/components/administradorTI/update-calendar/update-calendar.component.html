@@ -1,35 +1,124 @@
 <app-admin-sidebar></app-admin-sidebar>
 <div class="contenedorGrande">
-    <div class="container">
-        <div class="col-md-6 offset-md-3">
-            <h3 class="text-center">Actualizar Calendario con id {{calendarId}}</h3>
-            <form (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <label for="start_date">Start Date:</label>
-                    <input type="date" class="form-control" id="start_date" name="start_date" [(ngModel)]="calendar.start_date" required>
-                </div>
-                <div class="form-group">
-                    <label for="end_date">End Date:</label>
-                    <input type="date" class="form-control" id="end_date" name="end_date"  [(ngModel)]="calendar.end_date" required>
-                </div>
-                <div class="form-group">
-                    <label for="date">Date:</label>
-                    <input type="datetime-local" class="form-control" id="date" name="date" [(ngModel)]="calendar.date" required>
-                </div>
-                <div class="form-group">
-                    <label for="doctor_id">Doctor ID:</label>
-                    <input type="number" class="form-control" id="doctor_id" name="doctor_id" [(ngModel)]="calendar.doctor.id" required>
-                </div>
-                <div class="form-group">
-                    <label for="hospital_id">Hospital ID:</label>
-                    <input type="number" class="form-control" id="hospital_id" name="hospital_id" [(ngModel)]="calendar.hospital.id" required>
-                </div>
-                <div class="form-group">
-                    <label for="shift_id">Shift ID:</label>
-                    <input type="number" class="form-control" id="shift_id" name="shift_id" [(ngModel)]="calendar.shift.id" required>
-                </div>
-                <button type="submit" class="btn btn-success">Actualizar</button>
-            </form>
+  <div class="container">
+    <div class="col-md-6 offset-md-3">
+      <h3 class="text-center">
+        Actualizar Calendario
+        <p>
+          <strong>{{ calendarId }}</strong>
+        </p>
+      </h3>
+      <form (ngSubmit)="onSubmit()" id="idFormulario" #formulario>
+        <div class="form-group">
+          <label for="start_date">Start Date:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="start_date"
+            name="start_date"
+            [(ngModel)]="calendarinfo.start_date"
+            required
+          />
+          <span id="id_start_date_error" class="errorSpan"></span>
         </div>
+        <div class="form-group">
+          <label for="end_date">End Date:</label>
+          <input
+            type="date"
+            class="form-control"
+            id="end_date"
+            name="end_date"
+            [(ngModel)]="calendarinfo.end_date"
+            required
+          />
+          <span id="id_end_date_error" class="errorSpan"></span>
+        </div>
+        <div class="form-group">
+          <label for="date">Date:</label>
+          <input
+            type="text"
+            class="form-control"
+            readonly
+            id="date"
+            name="date"
+            [value]="formatDate(calendarinfo.date_update)"
+            required
+          />
+          <span id="id_date_error" class="errorSpan"></span>
+        </div>
+        <div class="form-group">
+          <label for="doctor_id">Doctor:</label>
+          <ng-select
+            [items]="doctores"
+            bindLabel="name"
+            bindValue="id"
+            [(ngModel)]="calendarinfo.doctor.id"
+            class="form-control"
+            id="doctor_id"
+            name="doctor_id"
+            [searchable]="true"
+            [dropdownPosition]="'auto'"
+          >
+            @for (doctorr of doctores; track doctorr.id) {
+            <option value="{{ doctorr.id }}">
+              {{ doctorr.name }}
+            </option>
+            }
+          </ng-select>
+          <span id="id_doctor_error" class="errorSpan"></span>
+        </div>
+        <div class="form-group">
+          <label for="hospital_id">Hospital:</label>
+          <ng-select
+            [items]="hospitales"
+            bindLabel="name"
+            bindValue="id"
+            [(ngModel)]="calendarinfo.hospital.id"
+            class="form-control"
+            id="hospital_id"
+            name="hospital_id"
+            [searchable]="true"
+            [dropdownPosition]="'auto'"
+          >
+            @for (hospital of hospitales; track hospital.id) {
+            <option value="{{ hospital.id }}">
+              {{ hospital.name }}
+            </option>
+            }
+          </ng-select>
+          <span id="id_hospital_error" class="errorSpan"></span>
+        </div>
+        <div class="form-group">
+          <label for="shift_id">Turno:</label>
+          <ng-select
+            [items]="turnos"
+            bindLabel="name"
+            bindValue="id"
+            [(ngModel)]="calendarinfo.shift.id"
+            class="form-control"
+            id="shift_id"
+            name="shift_id"
+            [searchable]="true"
+            [multiple]="true"
+            [dropdownPosition]="'auto'"
+          >
+            @for (turno of turnos; track turno.id) {
+            <option value="{{ turno.id }}">
+              {{ turno.name }}
+            </option>
+            }
+          </ng-select>
+          <span id="id_shift_error" class="errorSpan"></span>
+        </div>
+        <button
+          id="updateButton"
+          type="submit"
+          class="btn btn-success"
+          (click)="validar()"
+        >
+          Actualizar
+        </button>
+      </form>
     </div>
+  </div>
 </div>
