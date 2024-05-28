@@ -1,9 +1,12 @@
 export const navbarData = [
     { routeLink: 'registrado-profile',label: 'Perfil',link:'/registrado-profile'},
 
-    { routeLink: 'doctor-listar-paciente',label: 'Pacientes',link:'/doctor-lista-pacientes'},
-    { routeLink: 'doctor-calendarios',label: 'Calendarios',link:'/doctor-calendarios'},
-    { routeLink: 'doctor-citas',label: 'Citas',link:'/doctor-citas'},
+   
+    { routeLink: 'registrado-cita',label: 'Pedir cita',link:'/registrado-cita'},
+    { routeLink: 'especialidades',label: 'Especialidades',link:'/especialidadesPaciente'},
+    { routeLink: 'doctor',label: 'Doctores',link:'/doctor'},
+    { routeLink: 'clinicas',label: 'Clínicas',link:'/clinicas'},
+
     // turnos, calendarios, 
 
  

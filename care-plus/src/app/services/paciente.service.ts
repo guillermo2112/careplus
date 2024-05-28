@@ -35,7 +35,6 @@ export class PacienteService {
   validarDni(dni: string): Promise<Boolean> {
     return new Promise((resolve, reject) => {
         this.httpClient.get<any>(`${this.baseURL}/api/patient/dni/${dni}`).subscribe(response => {
-          console.log(response);
             if (response === true) {
                 resolve(true);
             } else {

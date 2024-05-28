@@ -30,7 +30,6 @@ export class AddSpecialtyComponent {
 
     this.specialtyServicio.createSpecialty(this.specialty).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Especilidad actualizada con éxito",

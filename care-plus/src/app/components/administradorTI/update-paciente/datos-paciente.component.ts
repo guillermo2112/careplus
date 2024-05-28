@@ -39,7 +39,6 @@ export class DatosPacienteComponent implements OnInit{
   savePaciente() {
     this.pacienteService.updatePatient(this.id, this.paciente).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Doctor actualizado con éxito",

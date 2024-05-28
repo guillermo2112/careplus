@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <!-- Nav -->
-                    <ul class="nav nav-tabs mt-4 overflow-x border-0">
+                    <!-- <ul class="nav nav-tabs mt-4 overflow-x border-0">
                         <li class="nav-item ">
                             <a href="#" class="nav-link active">All files</a>
                         </li>
@@ -46,7 +46,7 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link font-regular">File requests</a>
                         </li>
-                    </ul>
+                    </ul> -->
                 </div>
             </div>
         </header>
@@ -62,7 +62,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <span class="h6 font-semibold text-muted text-sm d-block mb-2">Pacientes</span>
-                                        <span class="h3 font-bold mb-0">215</span>
+                                        <span class="h3 font-bold mb-0"> {{ pacienteCount }}</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-primary text-white text-lg rounded-circle">
@@ -85,7 +85,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <span class="h6 font-semibold text-muted text-sm d-block mb-2">Profesionales</span>
-                                        <span class="h3 font-bold mb-0">1.400</span>
+                                        <span class="h3 font-bold mb-0">{{ doctorCount }}</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-info text-white text-lg rounded-circle">
@@ -109,7 +109,7 @@
                                 <div class="row">
                                     <div class="col">
                                         <span class="h6 font-semibold text-muted text-sm d-block mb-2">Clínicas</span>
-                                        <span class="h3 font-bold mb-0">95%</span>
+                                        <span class="h3 font-bold mb-0">{{ hospitalCount }}</span>
                                     </div>
                                     <div class="col-auto">
                                         <div class="icon icon-shape bg-warning text-white text-lg rounded-circle">
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="card shadow border-0 mb-7">
+                <!-- <div class="card shadow border-0 mb-7">
                     <div class="card-header">
                         <h5 class="mb-0">Applications</h5>
                     </div>
@@ -460,7 +460,7 @@
                     <div class="card-footer border-0 py-5">
                         <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
                     </div>
-                </div>
+                </div> -->
             </div>
         </main>
     </div>

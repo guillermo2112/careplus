@@ -35,7 +35,6 @@ export class UpdateSpecialtyComponent implements OnInit{
   saveSpecialty() {
     this.specialtyService.updateSpecialty(this.specialty.id, this.specialty).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Especilidad actualizada con éxito",

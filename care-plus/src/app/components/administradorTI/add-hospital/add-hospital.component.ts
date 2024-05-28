@@ -39,7 +39,6 @@ export class AddHospitalComponent  implements OnInit{
   saveHospital() {
     this.hospitalServicio.createHospital(this.hospital).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Clinica creada con éxito",

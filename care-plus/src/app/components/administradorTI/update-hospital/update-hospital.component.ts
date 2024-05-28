@@ -32,7 +32,6 @@ export class UpdateHospitalComponent implements OnInit{
   saveHospital() {
     this.hospitalService.updateHospital(this.hospital.id, this.hospital).subscribe(
       dato => {
-        console.log(dato);
         Swal.fire({
           title: "Success",
           text: "Especilidad actualizada con éxito",

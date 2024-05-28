@@ -6,20 +6,18 @@ export class Usuario {
   onDutty: string;
   enabled: boolean;
 
-  constructor(
-    id:number=0,
-    username: string = '',
-    password: string = '',
-    role: string = '',
-    onDutty: string = 'ACTIVE',
-    enabled: boolean = true
-  ) {
-    this.id = id,
-    this.username = username;
-    this.password = password;
-    this.role = role;
-    this.onDutty = onDutty;
-    this.enabled = enabled;
-  }
+  // constructor(
+  //   username: string = '',
+  //   password: string = '',
+  //   role: string = '',
+  //   onDutty: string = 'ACTIVE',
+  //   enabled: boolean = true
+  // ) {
+  //   this.username = username;
+  //   this.password = password;
+  //   this.role = role;
+  //   this.onDutty = onDutty;
+  //   this.enabled = enabled;
+  // }
 }
 
