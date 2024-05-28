@@ -1,4 +1,16 @@
-<form enctype="multipart/form-data" (ngSubmit)="upload()">
-  <input type="file" name="image" (change)="onFileSelected($event)">
-  <button>Save Image</button>
-</form>
+<!-- <div>
+    <input type="file" (change)="onFileSelected($event)" accept="image/*">
+    <img *ngIf="imageSrc" [src]="imageSrc" alt="Image Preview" style="max-width: 300px; max-height: 300px;"/>
+</div>
+hola   -->
+
+<ngx-dropzone (change)="onSelect($event)">
+	<ngx-dropzone-label>Arrastra aquí tu imagen</ngx-dropzone-label>
+	<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+		<ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+	</ngx-dropzone-preview>
+</ngx-dropzone>
+
+<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"></ngx-dropzone-image-preview>
+
+<input type="button" value="Subir Imagen" (click)="subirImagen()">
