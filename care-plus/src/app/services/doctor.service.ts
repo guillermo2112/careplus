@@ -57,6 +57,10 @@ export class DoctorService {
     return this.httpClient.get<Specialty[]>(`${this.baseURL}/api/specialty/all`);
   }
 
+  getUsuario(id:number):Observable<Usuario>{
+    return this.httpClient.get<Usuario>(`${this.baseURL}/api/user/${id}`);
+
+  }
   
 }
 

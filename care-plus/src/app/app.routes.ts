@@ -49,7 +49,7 @@ export const routes: Routes = [
     {path: 'quienes_somos', component: QuienesSomosComponent},
     {path: 'doctor', component: DoctorComponent},
     {path: 'doctor-vista/:id', component: DoctorVistaComponent},
-    {path: 'update-doctor/:id', component: UpdateDoctorComponent},
+    {path: 'update-doctor', component: UpdateDoctorComponent},
     {path: 'inicio_sesion', component: LoginComponent},
     {path: 'especialidades', component: EspecialidadesComponent},
     {path: 'admin-especialidades', component: EspecialidadesComponent},
@@ -78,7 +78,7 @@ export const routes: Routes = [
    
     {path: 'update-hospital', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
-    {path: 'paciente/:id', component: DatosPacienteComponent},
+    {path: 'update-paciente', component: DatosPacienteComponent},
     {path: 'lista_pacientes', component: DoctorListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
 

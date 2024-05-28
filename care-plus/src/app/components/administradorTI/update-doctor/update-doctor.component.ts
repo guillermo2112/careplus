@@ -6,42 +6,74 @@ import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { Specialty } from '../../../entities/specialty';
 import { SpecialtyService } from '../../../services/specialty.service';
+import { NgSelectModule } from '@ng-select/ng-select';
+import { Usuario } from '../../../entities/usuario';
+import { OnDutty } from '../../../entities/OnDutty';
 
 
 @Component({
   selector: 'app-update-doctor',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule,NgSelectModule],
   templateUrl: './update-doctor.component.html',
   styleUrl: './update-doctor.component.css'
 })
 export class UpdateDoctorComponent implements OnInit{
 
   id: number;
-  doctor: Doctor;
-  specialties: Specialty[];
+  doctor: Doctor = new Doctor();
+  specialty: Specialty = new Specialty();
+  specialties: Specialty[]=[];
+  doctorId: number;
+  usuario: Usuario = new Usuario();
+  users: Usuario[]=[];
 
+  onDuttyArray = [
+    { id: 1, value: OnDutty.ACTIVE, label: 'ACTIVE' },
+    { id: 2, value: OnDutty.INACTIVE, label: 'INACTIVE' },
+    { id: 3, value: OnDutty.SUSPENDED, label: 'SUSPENDED' }
+  ];
+    selectedOnDutty = this.onDuttyArray[0].value;
 
   constructor(
     private doctorService: DoctorService,
     private specialityService: SpecialtyService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) {
+    this.doctor = new Doctor();
+  }
 
   ngOnInit(): void {
+    this.doctorId = history.state.doctorId;
+    this.doctor.specialty=this.specialty;
+    this.doctor.user=this.usuario;
     this.id = this.route.snapshot.params['id'];
-    this.doctorService.getDoctorId(this.id).subscribe(dato => {
-      this.doctor = dato;
-    });
+    this.infoDoctor();
+    this.findSpecialties();
+  }
 
-    this.specialityService.listSpecialty().subscribe(dato => {
-      this.specialties = dato;
+  infoDoctor() {
+    this.doctorService.getDoctorId(this.doctorId).subscribe((data) => {
+      this.doctor = data;
+    });
+  }
+  
+
+  findSpecialties() {
+    this.specialityService.listSpecialty().subscribe(data => {
+      this.specialties = data;
     });
   }
 
+
   saveDoctor() {
-    this.doctorService.updateDoctor(this.id, this.doctor).subscribe(
+    this.specialityService.getSpecialtyById(this.doctor.specialty.id).subscribe((specialty)=>{
+      this.doctor.specialty=specialty
+        this.doctor.user.onDutty=this.selectedOnDutty;
+    
+    
+    this.doctorService.updateDoctor(this.doctorId, this.doctor).subscribe(
       dato => {
         Swal.fire({
           title: "Success",
@@ -53,10 +85,11 @@ export class UpdateDoctorComponent implements OnInit{
         });
       }
     );
+  })
   }
 
   goToListDoctor() {
-    this.router.navigate(['/admin-paciente']);
+    this.router.navigate(['/admin-doctor']);
   }
 
   onSubmit() {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Paciente } from '../../../entities/Patient';
 import { PacienteService } from '../../../services/paciente.service';
-import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -145,6 +145,15 @@ export class AdminPacienteComponent implements OnInit {
       });
       this.limpiar_filtros();
     }
+  }
+
+  navigateToUpdatePatient(id:number) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        pacienteid: id
+      }
+    };
+    this.router.navigate(['/update-paciente'], navigationExtras);
   }
 
 }
