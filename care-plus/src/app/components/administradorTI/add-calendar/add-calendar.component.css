@@ -1,0 +1,51 @@
+.contenedorGrande {
+  background-image: url("../../../../assets/fondoformu.png");
+  background-position: cover;
+  background-repeat: no-repeat;
+}
+.container-bots {
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 2rem;
+  gap: 1rem;
+}
+ 
+ 
+.container-bots div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  border: 2px solid #28CEC5;
+  height: 200px;
+  background-color: #f0f8ff;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+ 
+.container-bots div:hover {
+  background-color: #144386;
+  border-color: #144386;
+  color: white;
+}
+ 
+.container-bots a {
+  text-decoration: none;
+  color: inherit;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+ 
+ 
+.container-bots{
+  display: flex;
+  width: 90%;
+  justify-content: space-between;
+  margin: 2rem;
+}
+.container-bots div{
+  display: flex;
+  width: 30%;
+  border: 2px solid #28CEC5;
+  height: 200px;
+}

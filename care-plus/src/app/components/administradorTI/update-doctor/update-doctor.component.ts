@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorService } from '../../../services/doctor.service';
-import { Doctor } from '../../../entities/doctor';
+import { Doctor } from '../../../entities/Doctor';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
+import { Specialty } from '../../../entities/specialty';
+import { SpecialtyService } from '../../../services/specialty.service';
+
 
 @Component({
   selector: 'app-update-doctor',
@@ -15,10 +19,12 @@ export class UpdateDoctorComponent implements OnInit{
 
   id: number;
   doctor: Doctor;
+  specialties: Specialty[];
 
 
   constructor(
     private doctorService: DoctorService,
+    private specialityService: SpecialtyService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -28,28 +34,34 @@ export class UpdateDoctorComponent implements OnInit{
     this.doctorService.getDoctorId(this.id).subscribe(dato => {
       this.doctor = dato;
     });
+
+    this.specialityService.listSpecialty().subscribe(dato => {
+      this.specialties = dato;
+    });
   }
 
   saveDoctor() {
     this.doctorService.updateDoctor(this.id, this.doctor).subscribe(
       dato => {
         console.log(dato);
-        this.goToListDoctor();
+        Swal.fire({
+          title: "Success",
+          text: "Doctor actualizado con éxito",
+          icon: "success"
+        }).then(() => {
+            this.goToListDoctor();
+          
+        });
       }
     );
   }
 
   goToListDoctor() {
-    this.router.navigate(['/doctor']);
+    this.router.navigate(['/admin-paciente']);
   }
 
   onSubmit() {
-    if(this.doctor.user.onDutty)
-      this.doctor.user.onDutty = "ACTIVE"
 
-    if(!this.doctor.user.onDutty)
-      this.doctor.user.onDutty = "INACTIVE"
-    
     this.saveDoctor();
   }
 

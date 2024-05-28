@@ -1,47 +1,84 @@
 
-<div class="container">
+<div class="contenedorGrande" >
     <div class="col-md-6 offset-md-3">
         <h3 class="text-center">Actualizar Doctor</h3>
         <form (ngSubmit)="onSubmit()">
             
             <div class="form-group">
-                <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" id="nombre" [(ngModel)]="doctor.name" name="nombre">
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name" [(ngModel)]="doctor.name" >
             </div>
             
             <div class="form-group">
-                <label for="specialtyId">ID de Especialidad</label>
-                <input type="text" class="form-control" id="specialtyId" [(ngModel)]="doctor.specialtyId" name="specialtyId">
+                <label for="specialty.id">Especialidad</label>
+                <select name="id" id="id" [(ngModel)]="doctor.specialty.id">
+                    @for (specialty of specialties; track specialty.id) {
+                        <option value="{{specialty.id}}">{{specialty.name}}</option>
+                    }
+
+                </select>
             </div>
             <div class="form-group">
-                <label for="address">Dirección</label>
+                <label>G&eacute;nero</label><br>
+                @if(doctor.gender == "MALE"){
+                    <input type="radio" id="opt1" name="optns" value="MALE" [(ngModel)]="doctor.gender" checked>
+                    <label for="opt1">Male</label><br>
+                }@else{
+                    <input type="radio" id="opt1" name="optns" value="MALE" [(ngModel)]="doctor.gender" >
+                    <label for="opt1">Male</label><br>
+                }
+                @if(doctor.gender == "FEMALE"){
+                    <input type="radio" id="opt2" name="optns" value="FEMALE" [(ngModel)]="doctor.gender"  checked>
+                    <label for="opt2">Female</label><br>
+                }@else{
+                    <input type="radio" id="opt2" name="optns" value="FEMALE" [(ngModel)]="doctor.gender" >
+                    <label for="opt2">Female</label><br>
+                }
+                
+              </div>
+            <div class="form-group">
+                <label for="address">Direcci&oacute;n</label>
                 <input type="text" class="form-control" id="address" [(ngModel)]="doctor.address" name="address">
             </div>
             <div class="form-group">
                 <label for="birthdate">Fecha de Nacimiento</label>
-                <input type="date" class="form-control" id="birthdate" [(ngModel)]="doctor.birthdate" name="birthdate">
+                <input type="date" class="form-control" id="birthdate" [(ngModel)]="doctor.birthdate" name="birthdate" readonly>
             </div>
             <div class="form-group">
                 <label for="dni">DNI</label>
-                <input type="text" class="form-control" id="dni" [(ngModel)]="doctor.dni" name="dni">
+                <input type="text" class="form-control" id="dni" [(ngModel)]="doctor.dni" name="dni" readonly>
             </div>
             <div class="form-group">
-                <label for="licenseNum">Número de Licencia</label>
-                <input type="text" class="form-control" id="licenseNum" [(ngModel)]="doctor.licenseNum" name="licenseNum">
+                <label for="license_num">N&uacute;mero de Licencia</label>
+                <input type="text" class="form-control" id="license_num" [(ngModel)]="doctor.license_num" name="license_num">
             </div>
             <div class="form-group">
-                <label for="phone">Teléfono</label>
+                <label for="phone">Tel&eacute;fono</label>
                 <input type="text" class="form-control" id="phone" [(ngModel)]="doctor.phone" name="phone">
             </div>
 
             <div class="form-group">
-                <label>Estado</label><br>
-                @if(doctor.user.onDutty == "ACTIVE" || doctor.user.onDutty){
-                   <input type="checkbox" id="activo" name="status" [(ngModel)]="doctor.user.onDutty" checked>
-                    <label for="activo">Activo</label><br> 
-                }@else if(doctor.user.onDutty == "INACTIVE" || !doctor.user.onDutty){
-                    <input type="checkbox" id="activo" name="status" [(ngModel)]="doctor.user.onDutty">
-                    <label for="activo">Activo</label><br> 
+                <label>Estado del doctor</label><br>
+                @if(doctor.user.onDutty == "ACTIVE"){
+                    <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" checked>
+                    <label for="option1">Activo</label><br>
+                }@else{
+                    <input type="radio" id="option1" name="options" value="ACTIVE" [(ngModel)]="doctor.user.onDutty" >
+                    <label for="option1">Activo</label><br>
+                }
+                @if(doctor.user.onDutty == "INACTIVE"){
+                    <input type="radio" id="option2" name="options" value="INACTIVE" [(ngModel)]="doctor.user.onDutty"  checked>
+                    <label for="option2">Inactivo</label><br>
+                }@else{
+                    <input type="radio" id="option2" name="options" value="INACTIVE" [(ngModel)]="doctor.user.onDutty" >
+                    <label for="option2">Inactivo</label><br>
+                }
+                @if(doctor.user.onDutty == "SUSPENDED"){
+                    <input type="radio" id="option3" name="options" value="SUSPENDED" [(ngModel)]="doctor.user.onDutty"  checked>
+                    <label for="option3">Suspendido</label><br>
+                }@else{
+                    <input type="radio" id="option3" name="options" value="SUSPENDED" [(ngModel)]="doctor.user.onDutty" >
+                    <label for="option3">Suspendido</label><br>
                 }
               </div>
             <button type="submit" class="btn btn-success">Guardar</button>

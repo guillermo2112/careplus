@@ -1,0 +1,89 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light"
+  aria-label="Eighth navbar example"
+>
+  <div class="container container-bots">
+    <div class="navbar" id="navbarsExample07">
+      <div
+        class="navbar-nav me-auto mb-2 mb-lg-0"
+        style="margin-left: 3rem; gap: 2rem"
+      >
+        <div class="nav-item">
+          <select
+            name="filtros"
+            (change)="seleccionarAccion($event)"
+            placeholder="Seleccionar opcion"
+          >
+            <option value="">Ordenar por</option>
+            <option value="ordenar_provincia">Ordenar Provincia</option>
+            <option value="ordenar_nombre">Ordenar Por Nombre</option>
+            <!--<option value="ordenar_disponibles">Ordenar Disponibles</option>
+              <option value="ordenar_id">Ordenar id</option>-->
+            <option value="buscar_disponibles">Buscar Disponibles</option>
+          </select>
+        </div>
+
+        <div class="nav-item">
+            <select name="filtros" (change)="provinciasAll($event)">
+              @for(provincia of provincias; track provincia.id){
+                <option value={{provincia.id}}>{{provincia.name}}</option>
+              }
+            </select>
+        </div>
+        <div class="nav-item">
+          <form (ngSubmit)="burcador_nombre()">
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                align-items: center;
+              "
+            >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="nombre"
+                placeholder="Buscar por nombre"
+              />
+              <button style="margin-top: 0" type="submit">Enviar</button>
+            </div>
+            <!-- <label for="texto">Buscar</label> -->
+          </form>
+        </div>
+        <div class="nav-item">
+          <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<section class="clinicas">
+  @for(hospital of hospital; track hospital.id){
+  <div class="clinica">
+    <img [src]="'../../../assets/hospitals/' + hospital.id + '.jpeg'" />
+    <h3>{{ hospital.name }}</h3>
+    <a class="provincia">{{ hospital.province.name }}</a>
+    <div>{{ hospital.address }} - {{ hospital.pc }}</div>
+    @if(hospital.onDutty == "ACTIVE"){
+    <section class="estado"><p class="active">Disponible</p></section>
+    }@else if (hospital.onDutty == "INACTIVE") {
+    <section class="estado"><p class="inactive">No disponible</p></section>
+    }@else if (hospital.onDutty == "SUSPENDED") {
+    <section class="estado"><p class="suspended">Suspendido</p></section>
+    }
+    <a class="visitar" (click)="detalles_hospital(hospital.id)">Visitar</a>
+  </div>
+  }
+</section>
+
+<nav aria-label="Page navigation example" class="flex-column text-end">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>

@@ -1,0 +1,30 @@
+
+<div class="body">
+<div class="contact-container">
+  <div class="left-col">
+    <img class="logo" src="../../../../assets/fondoForm.jpg"/>
+  </div>
+  <div class="right-col">
+    <h1>contáctanos</h1>
+    <p>Pregúntanos lo que quieras y estaremos encantados de ayudarte</p>
+    
+    <form id="contact-form" method="post" (ngSubmit)="sendEmail()">
+      <label for="name">nombre completo</label>
+      <input type="text" id="name" [(ngModel)]="userName" name="name" placeholder="Tu nombre completo" required>
+      
+      <label for="email">correo electrónico</label>
+      <input type="email" id="email" [(ngModel)]="userEmail" name="email" placeholder="Tu dirección" required>
+      
+      <label for="message">mensaje</label>
+      <textarea rows="6" placeholder="Tu mensaje" id="message" [(ngModel)]="message" name="message" required></textarea>
+      
+      <button type="submit" id="submit" name="submit">Enviar</button>
+    </form>
+    
+    <div id="error"></div>
+    <div id="success-msg"></div>
+  </div>
+</div>
+</div>
+
+

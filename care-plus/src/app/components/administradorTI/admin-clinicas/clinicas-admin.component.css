@@ -1,0 +1,367 @@
+.clinicas{
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    justify-content: center;
+    flex-flow: row wrap;
+} 
+.clinica{
+    border:1px solid rgba(0, 0, 0, 0.5);
+    width:400px;
+    height:600px;
+    background-color:none;
+    border-radius:15px;
+    box-shadow:0 0 10px rgb(255,255,255,0.3);
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin:30px;
+    transition:0.5s;
+    overflow: hidden;
+}
+.clinica img{
+    width: 400px;
+    height: 225px;
+    margin-bottom: 50px;
+}
+.clinica h3{
+    text-align: center;
+    margin-bottom:-10px;
+    height: 65px;
+}
+.clinica .provincia{
+    text-decoration: none;
+    border:2px solid #fff;
+    color:#000;
+    padding: 5px 15px;
+    transition: 0.5s;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 20px 0;
+}
+.clinica .provincia:hover{
+    border-bottom:2px solid #28CEC5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.clinica div{
+    width: 100%;
+    text-align: left;
+    padding:20px 0 0 20px;
+} 
+
+.clinica .visitar{
+    text-decoration: none;
+    color:#000;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.1) ;
+    padding: 5px 30px;
+    transition: 0.5s;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 10px 0;
+}
+.clinica .visitar:hover{
+    background-color: #28CEC5;
+    border: 1px solid #28CEC5;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* ESTILO DE LOS ESTADOS */
+.estado{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    margin:20px 0 0 40px;
+    font-weight: 600;
+}
+.active{
+    background-color:#b3e0a9;
+    color:#33d40e;
+    border-radius: 5px;
+    border:1px solid #33d40e;
+    padding:0 10px;
+}
+.suspended{
+    background-color:#aaa;
+    color:#666;
+    border-radius: 5px;
+    border:1px solid #aaa;
+    padding:0 10px;
+}
+.inactive{
+    background-color:#ea9b9b;
+    color:#d40e0e;
+    border-radius: 5px;
+    border:1px solid #d40e0e;
+    padding:0 10px;
+}
+
+/* FILTROS */
+/* General Styles */
+.filtros {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+}
+.filtros p{
+    font-weight: bold;
+}
+
+.filtros select,
+.filtros input[type="text"],
+.filtros button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Select Elements */
+.filtros select {
+    appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%204%205%27%3E%3Cpath%20fill%3D%27%23333%27%20d%3D%27M2%200L0%202h4L2%200zM2%205L0%203h4L2%205z%27/%3E%3C/svg%3E') no-repeat right 10px center;
+    background-size: 10px 5px;
+}
+
+/* Form */
+.filtros form {
+    margin-bottom: 10px;
+}
+
+.filtros form label {
+    margin-bottom: 5px;
+    display: block;
+    font-weight: bold;
+}
+
+/* Buttons */
+.filtros button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.filtros button:hover {
+    background-color: #0056b3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.col-md-6 {
+    margin-top: 20px;
+}
+
+
+h3.text-center {
+    color: #28CEC5;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+
+label {
+    font-weight: bold;
+    color: #495057;
+}
+
+
+input[type="text"] {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* button.btn.btn-success {
+    background-color: #144386;
+    border-color: #144386;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn.btn-success:hover {
+    background-color: #28CEC5;
+} */
+
+
+input[type="text"]:focus {
+    border-color: #80bdff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+
+.container-bots {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.container-bots button,
+.container-bots select,
+.container-bots form {
+    margin: 10px;
+}
+
+.container-bots button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.container-bots form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-bots form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.container-bots form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.container-bots form button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots form button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.container-bots .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+
+.album {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.card {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container-bots[_ngcontent-ng-c888671101] form[_ngcontent-ng-c888671101] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-bots[_ngcontent-ng-c3088476783] button[_ngcontent-ng-c3088476783], .container-bots[_ngcontent-ng-c3088476783] select[_ngcontent-ng-c3088476783], .container-bots[_ngcontent-ng-c3088476783] form[_ngcontent-ng-c3088476783] {
+    margin: 0px;
+}
+
+
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #144386;
+}
+
+.btn-group .btn-outline-secondary {
+    border-color: #144386;
+    color: #144386;
+}
+
+.btn-group .btn-outline-secondary:hover {
+    background-color: #144386;
+    color: white;
+}

@@ -1,0 +1,175 @@
+.doctores {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    flex-flow: row wrap;
+}
+
+.doctor {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    width: 400px;
+    height: 550px;
+    background-color: none;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgb(255, 255, 255, 0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+
+.doctor img {
+    width: 400px;
+    height: 225px;
+    margin-bottom: 50px;
+}
+
+.doctor h3 {
+    text-align: center;
+    margin-bottom: -10px;
+}
+
+.doctor .especialistas {
+    text-decoration: none;
+    border: 2px solid #fff;
+    color: #000;
+    padding: 5px 15px;
+    transition: 0.5s;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 20px 0;
+}
+
+.doctor .especialistas:hover {
+    border-bottom: 2px solid #28CEC5;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.doctor div {
+    width: 100%;
+    text-align: left;
+    padding: 20px 0 0 20px;
+}
+
+.doctor .visitar {
+    text-decoration: none;
+    color: #000;
+    border: 1px solid #3c3c3c;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 5px 30px;
+    transition: 0.5s;
+    font-weight: 400;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.doctor .visitar:hover {
+    background-color: #28CEC5;
+    border: 1px solid #28CEC5;
+    color: #fff;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+/* ESTILOS PARA EL BOTÓN CREAR DOCTOR */
+.btn-primary {
+    background-color: #28CEC5; 
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #144386; 
+  }
+
+  .center-text {
+    text-align: center;
+    align-items: center;
+  }
+  
+  
+.container-bots button,
+.container-bots select,
+.container-bots form {
+    margin: 10px;
+}
+
+.container-bots button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.container-bots form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-bots form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.container-bots form input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.container-bots form button {
+    background-color: #144386;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.container-bots form button:hover {
+    background-color: #28CEC5;
+}
+
+.container-bots .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.container-bots .btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+

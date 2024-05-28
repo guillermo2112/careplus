@@ -1,0 +1,23 @@
+<div class="volver">
+  <button class="volver-btn" (click)="volver_doctores()">Volver</button>
+</div>
+
+<section class="doctor-details-container">
+  <div class="image-container">
+    <img [src]="'.././../../assets/doctores/'+doctor?.id+'.jpg'" alt="Foto del Doctor">
+  </div>
+  <div class="details-container">
+    <div class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Detalles del Doctor</h5>
+          <p class="card-text">Nombre: {{ doctor?.name }}</p>
+          <p class="card-text">Teléfono: {{ doctor?.phone }}</p>
+          <p class="card-text">Número de licencia: {{ doctor?.license_num }}</p>
+          <div class="d-flex justify-content-between align-items-center">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
