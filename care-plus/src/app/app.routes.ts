@@ -38,6 +38,7 @@ import { DoctorClinicalProfileComponent } from './components/doctor/doctor-clini
 import { DoctorCitasComponent } from './components/doctor/doctor-citas/doctor-citas.component';
 import { DoctorCalendariosComponent } from './components/doctor/doctor-calendarios/doctor-calendarios.component';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { RegistradoSidebarComponent } from './components/paciente-registrado/registrado-sidebar/registrado-sidebar.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -96,6 +97,10 @@ export const routes: Routes = [
 
     // CALENDARIO
     {path: 'full-calendar', component: FullCalendarModule},
+
+
+    //registrado
+    {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
 
 
 ];
