@@ -5,6 +5,7 @@ import { PacienteService } from '../../../services/paciente.service';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-admin-paciente',
@@ -19,10 +20,15 @@ import { FormsModule } from '@angular/forms';
     ]
 })
 export class AdminPacienteComponent implements OnInit {
+
     pacientes: Paciente[] = [];
+    pacientes_clear: Paciente[] = [];
     itemsPerPage: number = 9;
     currentPage: number = 0;
     totalPages: number = 0;
+    id:string = '';
+    name:string = '';
+    dni:string = '';
  
 
   constructor(
@@ -38,6 +44,7 @@ export class AdminPacienteComponent implements OnInit {
   private listPaciente() {
     this.pacienteService.getPatient().subscribe(dato => {
       this.pacientes = dato;
+      this.pacientes_clear = dato;
       this.totalPages = Math.ceil(this.pacientes.length / this.itemsPerPage);
     });
   }
@@ -77,6 +84,67 @@ export class AdminPacienteComponent implements OnInit {
       results.push(myArray.slice(i, i + chunk_size));
     }
     return results;
+  }
+
+  limpiar_filtros(): void {
+    this.pacientes = [...this.pacientes_clear];
+    this.name = '';
+    this.id='';
+    this.dni = '';
+  }
+
+  burcador_id(): void {
+    const id = Number(this.id);
+
+    if (isNaN(id)) {
+      Swal.fire({
+        title: "Error",
+        text: "El ID ingresado no es válido",
+        icon: "error"
+      });
+      return;
+    }
+
+    this.pacientes = this.pacientes_clear.filter(Paciente => Paciente.id === id);
+
+    if (this.pacientes.length === 0) {
+      Swal.fire({
+        title: "Mantenimiento",
+        text: "No se han encontrado doctores con el id buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  burcador_nombre(): void {
+    const nombres = this.name.toLowerCase().split(' ');
+    this.pacientes = this.pacientes_clear.filter(s => {
+      return nombres.every(name => s.name.toLowerCase().includes(name));
+    });
+    if (this.pacientes.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado doctores con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  burcador_dni(): void {
+    const nombres = this.dni.toLowerCase().split(' ');
+    this.pacientes = this.pacientes_clear.filter(s => {
+      return nombres.every(dni => s.dni.toLowerCase().includes(dni));
+    });
+    if (this.pacientes.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado doctores con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
   }
 
 }
