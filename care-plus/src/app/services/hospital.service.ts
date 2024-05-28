@@ -29,7 +29,7 @@ export class HospitalService {
 }
 
   updateHospital(id:number, hospital:Hospital) : Observable<Object>{
-    return this.http.put(`${this.baseURL}/${id}/api/hospital`, hospital);
+    return this.http.put(`${this.baseURL}/api/hospital/${id}`, hospital);
   }
 
   obtener_provincias(): Observable<Provincias[]> {
