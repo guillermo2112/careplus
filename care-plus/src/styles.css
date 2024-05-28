@@ -110,7 +110,7 @@ h3 {
 .errorSpan {
   color: rgb(151, 24, 24);
 }
-
+/*
 .container-bots {
   display: flex;
   width: 90%;
@@ -123,9 +123,7 @@ h3 {
 .container-bots div {
   display: flex;
   justify-content: center; 
-  align-items: center; 
-  width: 30%;
-  border: 2px solid #28CEC5;
+  alrder: 2px solid #28CEC5;
   height: 200px;
   background-color: #f0f8ff; 
   transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
@@ -156,8 +154,10 @@ h3 {
   width: 30%;
   border: 2px solid #28CEC5;
   height: 200px;
-}
-
+}ign-items: center; 
+  width: 30%;
+  bo
+*/
 .sidenav{
   transition: all .5s ease;
   position: fixed;
