@@ -1,5 +1,4 @@
-<div>
-    <input type="file" (change)="onFileSelected($event)" accept="image/*">
-    <img *ngIf="imageSrc" [src]="imageSrc" alt="Image Preview" style="max-width: 300px; max-height: 300px;"/>
-</div>
-hola  
+<form enctype="multipart/form-data" (ngSubmit)="upload()">
+  <input type="file" name="image" (change)="onFileSelected($event)">
+  <button>Save Image</button>
+</form>

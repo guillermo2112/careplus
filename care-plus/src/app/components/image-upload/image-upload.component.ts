@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+/*import { Component } from '@angular/core';
+import { UploadService } from '../../services/upload.service';
 
 @Component({
   selector: 'app-image-upload',
@@ -6,31 +7,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./image-upload.component.css']
 })
 export class ImageUploadComponent {
-  imageSrc: string | ArrayBuffer | null = null;
+  formData = new FormData();
+  uploadImage: File | null = null;
 
-  ngOnInit() {
-    // Cargar la imagen guardada en localStorage al iniciar el componente
-    const savedImage = localStorage.getItem('savedImage');
-    if (savedImage) {
-      this.imageSrc = savedImage;
-    }
-  }
+  constructor(private uploadService: UploadService) {}
 
-  onFileSelected(event: Event) {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
+  onFileSelected(event: any) {
+    this.uploadImage = event.target.files[0];
+  }*/
 
-      reader.onload = () => {
-        this.imageSrc = reader.result;
-        // Guardar la imagen en localStorage
-        if (this.imageSrc) {
-          localStorage.setItem('savedImage', this.imageSrc.toString());
+  /*upload() {
+    if (this.uploadImage) {
+      this.formData.append('image', this.uploadImage, this.uploadImage.name);
+      console.log(this.formData.getAll('image')); // confirms file is being uploaded properly
+
+      this.uploadService.upload('uploadImage/', this.formData).subscribe(
+        (message: any) => {
+          console.log(message);
+        },
+        (error) => {
+          console.error('Upload failed', error);
         }
-      };
-
-      reader.readAsDataURL(file);
+      );
+    } else {
+      console.warn('No file selected');
     }
   }
 }
+*/
