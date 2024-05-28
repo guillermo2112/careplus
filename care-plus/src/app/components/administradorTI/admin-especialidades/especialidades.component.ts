@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import { SpecialtyService } from '../../../services/specialty.service';
 import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
@@ -35,15 +35,31 @@ export class EspecialidadesComponent implements OnInit {
     this.listSpecialty();
   }
 
-  private listSpecialty(): void {
+  /*private listSpecialty(): void {
     this.specialtyService.listSpecialty().subscribe(data => {
       this.specialty = data;
       this.specialty_clear = [...this.specialty]; // Make a copy for filtering
     });
+  }*/
+
+  private listSpecialty() {
+    this.specialtyService.listSpecialty().subscribe((data) => {
+      this.specialty = data;
+    });
   }
 
-  updateSpecialty(id: number): void {
+  /*updateSpecialty(id: number): void {
     this.router.navigate(['update-specialty', id]);
+  }*/
+
+
+  updateSpecialty(id: number) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        specialtyId: id,
+      },
+    };
+    this.router.navigate(['/update-specialty'], navigationExtras);
   }
 
  

@@ -14,8 +14,8 @@ import Swal from 'sweetalert2';
 })
 export class UpdateSpecialtyComponent implements OnInit{
 
-  id: number;
-  specialty: Specialty;
+  //id: number;
+  specialty: Specialty = new Specialty();
 
 
   constructor(
@@ -25,14 +25,15 @@ export class UpdateSpecialtyComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.specialtyService.getSpecialtyById(this.id).subscribe(dato => {
+    this.specialty.id = history.state.specialtyId;
+    //this.id = this.route.snapshot.params['id'];
+    this.specialtyService.getSpecialtyById(this.specialty.id).subscribe(dato => {
       this.specialty = dato;
     });
   }
 
   saveSpecialty() {
-    this.specialtyService.updateSpecialty(this.id, this.specialty).subscribe(
+    this.specialtyService.updateSpecialty(this.specialty.id, this.specialty).subscribe(
       dato => {
         console.log(dato);
         Swal.fire({
