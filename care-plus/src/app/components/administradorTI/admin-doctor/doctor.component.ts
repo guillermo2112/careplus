@@ -160,6 +160,7 @@ export class AdminDoctorComponent implements OnInit {
   limpiar_filtros(): void {
     this.doctores = [...this.doctores_clear];
     this.name = '';
+    this.id='';
   }
 
 }
