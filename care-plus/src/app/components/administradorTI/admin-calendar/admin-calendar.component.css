@@ -3,7 +3,20 @@
 .btn {
     font-size: 12px; /* Aquí puedes ajustar el tamaño de fuente según lo necesites */
 }
-.btnact{
-    background-color: purple;
+
+/* ESTILOS PARA EL BOTÓN CREAR DOCTOR */
+.btn-primary {
+    background-color: #28CEC5; 
     color: white;
-    }
+    border: none;
+    font-size: 10px;
+    cursor: pointer;
+    border-radius: 15px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #144386; 
+  }
+  
