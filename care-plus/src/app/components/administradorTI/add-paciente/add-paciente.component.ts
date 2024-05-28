@@ -5,13 +5,14 @@ import { Usuario } from '../../../entities/usuario';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { PacienteService } from '../../../services/paciente.service';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-add-paciente',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './add-paciente.component.html',
-  styleUrl: './add-paciente.component.css'
+    selector: 'app-add-paciente',
+    standalone: true,
+    templateUrl: './add-paciente.component.html',
+    styleUrl: './add-paciente.component.css',
+    imports: [FormsModule, HeaderComponent]
 })
 
 export class AddPacienteComponent {

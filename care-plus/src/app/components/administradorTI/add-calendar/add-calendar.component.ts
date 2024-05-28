@@ -19,13 +19,14 @@ import { ShiftService } from '../../../services/shift.service';
 import { Doctor } from '../../../entities/Doctor';
 import moment from 'moment-timezone';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-add-calendar',
-  standalone: true,
-  templateUrl: './add-calendar.component.html',
-  styleUrl: './add-calendar.component.css',
-  imports: [FormsModule, AdminSidebarComponent,NgSelectModule],
+    selector: 'app-add-calendar',
+    standalone: true,
+    templateUrl: './add-calendar.component.html',
+    styleUrl: './add-calendar.component.css',
+    imports: [FormsModule, AdminSidebarComponent, NgSelectModule, HeaderComponent]
 })
 export class AddCalendarComponent implements OnInit, AfterViewInit {
   onSubmit() {

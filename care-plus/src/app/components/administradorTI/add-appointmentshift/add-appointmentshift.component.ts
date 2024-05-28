@@ -5,13 +5,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
 import Swal from 'sweetalert2';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-add-appointmentshift',
-  standalone: true,
-  templateUrl: './add-appointmentshift.component.html',
-  styleUrl: './add-appointmentshift.component.css',
-  imports: [FormsModule, AdminSidebarComponent],
+    selector: 'app-add-appointmentshift',
+    standalone: true,
+    templateUrl: './add-appointmentshift.component.html',
+    styleUrl: './add-appointmentshift.component.css',
+    imports: [FormsModule, AdminSidebarComponent, HeaderComponent]
 })
 export class AddAppointmentshiftComponent implements OnInit {
   appointmentShift: AppointmentShift = new AppointmentShift();

@@ -7,13 +7,14 @@ import { Usuario } from '../../../entities/usuario';
 import Swal from 'sweetalert2';
 import { Specialty } from '../../../entities/specialty';
 import { SpecialtyService } from '../../../services/specialty.service';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-update-doctor',
-  standalone: true,
-  imports: [FormsModule],
-  templateUrl: './add-doctor.component.html',
-  styleUrl: './add-doctor.component.css'
+    selector: 'app-update-doctor',
+    standalone: true,
+    templateUrl: './add-doctor.component.html',
+    styleUrl: './add-doctor.component.css',
+    imports: [FormsModule, HeaderComponent]
 })
 export class AddDoctorComponent implements OnInit{
   doctor: Doctor = new Doctor();

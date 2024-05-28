@@ -6,13 +6,14 @@ import { Hospital, Province } from '../../../entities/Hospital';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { OnDutty } from '../../../entities/OnDutty';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-add-hospital',
-  templateUrl: './add-hospital.component.html',
-  styleUrls: ['./add-hospital.component.css'],
-  standalone : true,
-  imports: [FormsModule]
+    selector: 'app-add-hospital',
+    templateUrl: './add-hospital.component.html',
+    styleUrls: ['./add-hospital.component.css'],
+    standalone: true,
+    imports: [FormsModule, HeaderComponent]
 })
 export class AddHospitalComponent  implements OnInit{
 

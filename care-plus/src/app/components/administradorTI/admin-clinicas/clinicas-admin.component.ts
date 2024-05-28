@@ -6,6 +6,7 @@ import { NavigationExtras, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Provincias } from '../../../entities/Provincias';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-clinicas-admin',
@@ -16,7 +17,8 @@ import { Provincias } from '../../../entities/Provincias';
         CommonModule,
         FormsModule,
         AdminSidebarComponent,
-        AdminSidebarComponent
+        AdminSidebarComponent,
+        HeaderComponent
     ]
 })
 export class ClinicasAdminComponent implements OnInit{

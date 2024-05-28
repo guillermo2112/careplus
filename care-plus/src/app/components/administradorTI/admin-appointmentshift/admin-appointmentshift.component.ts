@@ -3,13 +3,14 @@ import { AppointmentShift } from '../../../entities/AppointmentShift';
 import { AppointmentShiftService } from '../../../services/appointment-shift.service';
 import { NavigationExtras, Router } from '@angular/router';
 import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-admin-appointmentshift',
-  standalone: true,
-  templateUrl: './admin-appointmentshift.component.html',
-  styleUrl: './admin-appointmentshift.component.css',
-  imports: [AdminSidebarComponent],
+    selector: 'app-admin-appointmentshift',
+    standalone: true,
+    templateUrl: './admin-appointmentshift.component.html',
+    styleUrl: './admin-appointmentshift.component.css',
+    imports: [AdminSidebarComponent, HeaderComponent]
 })
 export class AdminAppointmentshiftComponent implements OnInit {
   appointmentshifts: AppointmentShift[] = [];

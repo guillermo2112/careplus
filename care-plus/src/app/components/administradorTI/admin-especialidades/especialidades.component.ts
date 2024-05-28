@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Specialty } from '../../../entities/specialty';
 import {  AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-especialidades',
@@ -16,7 +17,8 @@ import {  AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component
         CommonModule,
         FormsModule,
         AdminSidebarComponent,
-        AdminSidebarComponent
+        AdminSidebarComponent,
+        HeaderComponent
     ]
 })
 export class EspecialidadesComponent implements OnInit {
