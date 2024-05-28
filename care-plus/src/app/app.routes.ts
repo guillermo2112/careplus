@@ -40,6 +40,8 @@ import { DoctorCalendariosComponent } from './components/doctor/doctor-calendari
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 import { RegistradoSidebarComponent } from './components/paciente-registrado/registrado-sidebar/registrado-sidebar.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { RegistradoHomeComponent } from './components/paciente-registrado/registrado-home/registrado-home.component';
+import { RegistradoProfileComponent } from './components/paciente-registrado/registrado-profile/registrado-profile.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -101,6 +103,8 @@ export const routes: Routes = [
 
     //registrado
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
+    {path: 'home-paciente', component: RegistradoHomeComponent},
+    {path: 'home-profile', component: RegistradoProfileComponent},
 
     //imagenes
     {path: 'ima', component: ImageUploadComponent},
