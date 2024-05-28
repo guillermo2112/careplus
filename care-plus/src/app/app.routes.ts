@@ -51,7 +51,7 @@ export const routes: Routes = [
     {path: 'admin-especialidades', component: EspecialidadesComponent},
     {path: 'especialidadesPaciente', component: EspecialidadesPacienteComponents},
 
-    {path: 'update-specialty/:id', component: UpdateSpecialtyComponent},
+    {path: 'update-specialty', component: UpdateSpecialtyComponent},
     {path: 'add-specialty', component: AddSpecialtyComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
@@ -61,9 +61,6 @@ export const routes: Routes = [
 
     {path: 'admin-sidebar', component: AdminSidebarComponent},
    
-    
-
-
     {path: 'admin-doctor', component: AdminDoctorComponent},
     {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
     {path: 'add-appointmentshift', component: AddAppointmentshiftComponent},
@@ -75,7 +72,7 @@ export const routes: Routes = [
     {path: 'add-calendar', component: AddCalendarComponent},
     {path: 'update-calendar', component: UpdateCalendarComponent},
    
-    {path: 'update-hospital/:id', component: UpdateHospitalComponent},
+    {path: 'update-hospital', component: UpdateHospitalComponent},
     {path: 'add_paciente', component: AddPacienteComponent},
     {path: 'paciente/:id', component: DatosPacienteComponent},
     {path: 'lista_pacientes', component: DoctorListaPacientesComponent},
