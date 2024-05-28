@@ -39,7 +39,6 @@ import { DoctorCitasComponent } from './components/doctor/doctor-citas/doctor-ci
 import { DoctorCalendariosComponent } from './components/doctor/doctor-calendarios/doctor-calendarios.component';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 import { RegistradoSidebarComponent } from './components/paciente-registrado/registrado-sidebar/registrado-sidebar.component';
-import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { RegistradoHomeComponent } from './components/paciente-registrado/registrado-home/registrado-home.component';
 import { RegistradoProfileComponent } from './components/paciente-registrado/registrado-profile/registrado-profile.component';
 
@@ -107,7 +106,7 @@ export const routes: Routes = [
     {path: 'home-profile', component: RegistradoProfileComponent},
 
     //imagenes
-    {path: 'ima', component: ImageUploadComponent},
+    //{path: 'ima', component: ImageUploadComponent},
 
 
 ];
