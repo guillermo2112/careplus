@@ -1,22 +1,23 @@
-import { Component, Output,EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { navbarData } from './doctor-sidebar-data';
- 
+import { navbarData } from './registrado-sidebar-data';
+
 interface SideNavToggle{
   screenWidth:number;
   collapsed:boolean;
 }
- 
+
+
 @Component({
-  selector: 'app-doctor-sidebar',
+  selector: 'app-registrado-sidebar',
   standalone: true,
   imports: [RouterModule,CommonModule],
-  templateUrl: './doctor-sidebar.component.html',
-  styleUrl: './doctor-sidebar.component.css'
+  templateUrl: './registrado-sidebar.component.html',
+  styleUrl: './registrado-sidebar.component.css'
 })
-export class DoctorSidebarComponent {
- 
+export class RegistradoSidebarComponent {
+
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed=false;
   screenWidth=0;
@@ -31,5 +32,5 @@ export class DoctorSidebarComponent {
     this.collapsed=false;
     this.onToggleSideNav.emit({collapsed: this.collapsed,screenWidth:this.screenWidth})
    }
+
 }
- 
