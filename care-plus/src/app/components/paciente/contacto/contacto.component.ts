@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import emailjs, { EmailJSResponseStatus } from 'emailjs-com';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from "../../shared/header/header.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 
 @Component({
@@ -14,7 +15,8 @@ import { HeaderComponent } from "../../shared/header/header.component";
     imports: [
         RouterModule,
         FormsModule,
-        HeaderComponent
+        HeaderComponent,
+        NavbarComponent
     ]
 })
 export class ContactoComponent {

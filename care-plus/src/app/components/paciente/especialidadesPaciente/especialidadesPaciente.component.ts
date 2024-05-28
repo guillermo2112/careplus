@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';import { SpecialtyService } from '../../../services/specialty.service';
 import { HeaderComponent } from "../../shared/header/header.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 ;
 
 @Component({
@@ -14,7 +15,8 @@ import { HeaderComponent } from "../../shared/header/header.component";
     imports: [
         CommonModule,
         FormsModule,
-        HeaderComponent
+        HeaderComponent,
+        NavbarComponent
     ]
 })
 export class EspecialidadesPacienteComponents implements OnInit {

@@ -41,13 +41,14 @@ import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular
 import { RegistradoSidebarComponent } from './components/paciente-registrado/registrado-sidebar/registrado-sidebar.component';
 import { RegistradoHomeComponent } from './components/paciente-registrado/registrado-home/registrado-home.component';
 import { RegistradoProfileComponent } from './components/paciente-registrado/registrado-profile/registrado-profile.component';
+import { DoctorPacienteComponent } from './components/paciente/doctorPaciente/doctorPaciente.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
     {path: 'navbar', component: NavbarComponent},
     {path: 'home', component: HomeComponent},
     {path: 'quienes_somos', component: QuienesSomosComponent},
-    {path: 'doctor', component: DoctorComponent},
+    {path: 'doctorPaciente', component: DoctorPacienteComponent},
     {path: 'doctor-vista/:id', component: DoctorVistaComponent},
     {path: 'update-doctor/:id', component: UpdateDoctorComponent},
     {path: 'inicio_sesion', component: LoginComponent},
