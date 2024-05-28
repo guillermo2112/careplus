@@ -38,6 +38,7 @@ import { DoctorClinicalProfileComponent } from './components/doctor/doctor-clini
 import { DoctorCitasComponent } from './components/doctor/doctor-citas/doctor-citas.component';
 import { DoctorCalendariosComponent } from './components/doctor/doctor-calendarios/doctor-calendarios.component';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -78,7 +79,6 @@ export const routes: Routes = [
     {path: 'paciente/:id', component: DatosPacienteComponent},
     {path: 'lista_pacientes', component: DoctorListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
-
 
 
 
