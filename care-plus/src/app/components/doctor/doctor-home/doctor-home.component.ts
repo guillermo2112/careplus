@@ -4,13 +4,14 @@ import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
 import { Router } from '@angular/router';
 import { DoctorProfileComponent } from "../doctor-profile/doctor-profile.component";
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-doctor-home',
     standalone: true,
     templateUrl: './doctor-home.component.html',
     styleUrl: './doctor-home.component.css',
-    imports: [DoctorSidebarComponent, DoctorProfileComponent]
+    imports: [DoctorSidebarComponent, DoctorProfileComponent, HeaderComponent]
 })
 export class DoctorHomeComponent implements OnInit{
     doctores: Doctor[] = [];

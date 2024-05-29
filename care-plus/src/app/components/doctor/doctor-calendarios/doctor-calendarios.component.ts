@@ -4,6 +4,7 @@ import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 
 @Component({
@@ -11,7 +12,7 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     standalone: true,
     templateUrl: './doctor-calendarios.component.html',
     styleUrl: './doctor-calendarios.component.css',
-    imports: [DoctorSidebarComponent, FullCalendarModule]
+    imports: [DoctorSidebarComponent, FullCalendarModule, HeaderComponent]
 })
 export class DoctorCalendariosComponent {
     calendarOptions: CalendarOptions = {

@@ -5,6 +5,7 @@ import { Paciente } from '../../../entities/Patient';
 import { PacienteService } from '../../../services/paciente.service';
 import { Router } from '@angular/router';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-doctor-lista-pacientes',
@@ -14,7 +15,8 @@ import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.compone
     imports: [
         FormsModule,
         CommonModule,
-        DoctorSidebarComponent
+        DoctorSidebarComponent,
+        HeaderComponent
     ]
 })
 export class DoctorListaPacientesComponent implements OnInit{
