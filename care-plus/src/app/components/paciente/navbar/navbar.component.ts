@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LogoComponent } from '../../shared/logo/logo.component';
+import { UserService } from '../../../services/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar',
@@ -11,10 +13,27 @@ import { LogoComponent } from '../../shared/logo/logo.component';
 })
 export class NavbarComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public userService: UserService) {}
 
   ir_inicio_sesion() {
     this.router.navigate(["/inicio_sesion"]);
+  }
+
+  ir_cerrar_sesion() {
+    //let username: string = this.userService.user.username;
+    this.userService.logout();
+
+    Swal.fire({
+      title: 'Cerrar sesión',
+      //text: `${username}, has cerrado sesión con éxito`,
+      text: `Has cerrado sesión con éxito`,
+      icon: 'success',
+      timer: 2000,
+      showConfirmButton: false,
+    });
+
+    // Redirección a Componente Libros
+    this.router.navigate(['/']);
   }
 
   closeNavbar() {
