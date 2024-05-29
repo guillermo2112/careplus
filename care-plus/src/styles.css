@@ -229,20 +229,20 @@ h3 {
   }
 
   .sidenav-nav {
-    flex-direction: column; /* Cambiar la dirección del flexbox a columna */
-    align-items: flex-start; /* Alinear los elementos al inicio */
-    padding: 0; /* Eliminar el relleno para ajustar correctamente los elementos */
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding: 0; 
   }
 
   .sidenav-nav-item {
-    width: auto; /* Ancho automático para los elementos de la lista */
-    height: auto; /* Altura automática para los elementos de la lista */
-    margin: 0.325rem 0; /* Margen superior e inferior para separar los elementos */
+    width: auto; 
+    height: auto; 
+    margin: 0.325rem 0; 
   }
 
   .sidenav-link-text {
-    margin-left: 0; /* Eliminar el margen izquierdo para los textos */
-    margin-right: 1rem; /* Añadir un margen derecho para separar los textos del icono */
+    margin-left: 0; 
+    margin-right: 1rem; 
   }
 }
 
@@ -272,27 +272,36 @@ h3 {
 
 /* TABLAS DE ADMIN */
 
-.table th,
-.table td,
+
 .btn {
-    font-size: 12px; /* Aquí puedes ajustar el tamaño de fuente según lo necesites */
+    font-size: 17px; 
 }
 
 /* ESTILOS PARA EL BOTÓN CREAR DOCTOR */
+
+.card-header {
+  background-color: #DEF3F2;
+  color: black;
+  font-weight: bold;
+  padding: 15px;
+}
 .btn-primary {
     background-color: #28CEC5; 
     color: white;
     border: none;
-    font-size: 10px;
+    font-size: 17px;
     cursor: pointer;
     border-radius: 15px;
     transition: background-color 0.3s ease;
     text-decoration: none;
+    margin-bottom: 20px;
   }
   
   .btn-primary:hover {
     background-color: #144386; 
   }
+ 
+
   
 
   /* FILTROS */

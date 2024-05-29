@@ -2,6 +2,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { navbarData } from './registrado-sidebar-data';
+import { LogoutComponent } from "../../shared/logout/logout.component";
 
 interface SideNavToggle{
   screenWidth:number;
@@ -10,11 +11,11 @@ interface SideNavToggle{
 
 
 @Component({
-  selector: 'app-registrado-sidebar',
-  standalone: true,
-  imports: [RouterModule,CommonModule],
-  templateUrl: './registrado-sidebar.component.html',
-  styleUrl: './registrado-sidebar.component.css'
+    selector: 'app-registrado-sidebar',
+    standalone: true,
+    templateUrl: './registrado-sidebar.component.html',
+    styleUrl: './registrado-sidebar.component.css',
+    imports: [RouterModule, CommonModule, LogoutComponent]
 })
 export class RegistradoSidebarComponent {
 
