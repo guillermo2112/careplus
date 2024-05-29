@@ -15,7 +15,7 @@
     <div class="card-header">
       <h3 class="card-title">Lista de turnos para Cita</h3>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
@@ -32,7 +32,7 @@
             <th>{{ appointmentshift.hour }}</th>
             <th>
               <button
-                class="btn btn-care"
+                class="btn btn-primary"
                 (click)="navigateToUpdateAppointmentshift(appointmentshift.id)"
               >
                 Actualizar
