@@ -40,11 +40,11 @@ import { RegistradoHomeComponent } from './components/paciente-registrado/regist
 import { RegistradoProfileComponent } from './components/paciente-registrado/registrado-profile/registrado-profile.component';
 import { DoctorPacienteComponent } from './components/paciente/doctorPaciente/doctorPaciente.component';
 import { AdminClinicasComponent } from './components/administradorTI/admin-clinicas/admin-clinicas.component';
-import { ResgistradoCitaEspecialidadComponent } from './components/paciente-registrado/resgistrado-cita-especialidad/resgistrado-cita-especialidad.component';
-import { ResgistradoCitaProfesionalesComponent } from './components/paciente-registrado/resgistrado-cita-profesionales/resgistrado-cita-profesionales.component';
-import { ResgistradoCitaClinicasComponent } from './components/paciente-registrado/resgistrado-cita-clinicas/resgistrado-cita-clinicas.component';
-import { ResgistradoCitaContodoComponent } from './components/paciente-registrado/resgistrado-cita-contodo/resgistrado-cita-contodo.component';
-import { ResgistradoPedirCitaComponent } from './components/paciente-registrado/resgistrado-pedir-cita/resgistrado-pedir-cita.component';
+import { RegistradoCitaEspecialidadComponent } from './components/paciente-registrado/registrado-cita-especialidad/registrado-cita-especialidad.component';
+import { RegistradoCitaProfesionalesComponent } from './components/paciente-registrado/registrado-cita-profesionales/registrado-cita-profesionales.component';
+import { RegistradoCitaClinicasComponent } from './components/paciente-registrado/registrado-cita-clinicas/registrado-cita-clinicas.component';
+import { RegistradoCitaContodoComponent } from './components/paciente-registrado/registrado-cita-contodo/registrado-cita-contodo.component';
+import { RegistradoPedirCitaComponent } from './components/paciente-registrado/registrado-pedir-cita/registrado-pedir-cita.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -112,11 +112,11 @@ export const routes: Routes = [
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
     {path: 'home-paciente', component: RegistradoHomeComponent},
     {path: 'home-profile', component: RegistradoProfileComponent},
-    {path: 'pedir-cita', component: ResgistradoPedirCitaComponent},
-    {path: 'cita-especialidad', component: ResgistradoCitaEspecialidadComponent},
-    {path: 'cita-profesionales', component: ResgistradoCitaProfesionalesComponent},
-    {path: 'cita-clinicas', component: ResgistradoCitaClinicasComponent},
-    {path: 'cita-contodo', component: ResgistradoCitaContodoComponent},
+    {path: 'pedir-cita', component: RegistradoPedirCitaComponent},
+    {path: 'cita-especialidad', component: RegistradoCitaEspecialidadComponent},
+    {path: 'cita-profesionales', component: RegistradoCitaProfesionalesComponent},
+    {path: 'cita-clinicas', component: RegistradoCitaClinicasComponent},
+    {path: 'cita-contodo', component: RegistradoCitaContodoComponent},
 
 
 
