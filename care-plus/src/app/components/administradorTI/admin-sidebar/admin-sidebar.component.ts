@@ -50,8 +50,7 @@ export class AdminSidebarComponent {
       showConfirmButton: false,
     });
 
-    // Redirección a Componente Libros
-    this.router.navigate(['/']);
+    //this.router.navigate(['/']);
   }
  
 }
