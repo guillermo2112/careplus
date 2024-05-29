@@ -2,6 +2,7 @@ import { Component, Output,EventEmitter } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { navbarData } from './doctor-sidebar-data';
+import { LogoutComponent } from "../../shared/logout/logout.component";
  
 interface SideNavToggle{
   screenWidth:number;
@@ -9,11 +10,11 @@ interface SideNavToggle{
 }
  
 @Component({
-  selector: 'app-doctor-sidebar',
-  standalone: true,
-  imports: [RouterModule,CommonModule],
-  templateUrl: './doctor-sidebar.component.html',
-  styleUrl: './doctor-sidebar.component.css'
+    selector: 'app-doctor-sidebar',
+    standalone: true,
+    templateUrl: './doctor-sidebar.component.html',
+    styleUrl: './doctor-sidebar.component.css',
+    imports: [RouterModule, CommonModule, LogoutComponent]
 })
 export class DoctorSidebarComponent {
  
