@@ -44,15 +44,18 @@ export class DoctorListaPacientesComponent implements OnInit{
   }
 
   goToClinicalProfile(id:number){
-    this.crearPerfilClinico(id);
+    //this.ponerPerfil(id);
     this.router.navigate(['doctor-clinical-profile',id]);
   }
 
-  crearPerfilClinico(id:number){
-    alert('entra');
+  ponerPerfil(id:number){
     this.paciente_service.getPatientById(id).subscribe(dato =>{
       this.perfil.patient = dato;
-    })
+      this.crearPerfilClinico();
+    });
+  }
+
+  crearPerfilClinico(){
     
     this.perfil.date = this.getFormattedDate();
     this.perfil.allergy='';
@@ -60,6 +63,7 @@ export class DoctorListaPacientesComponent implements OnInit{
     console.log(this.perfil);
     this.perfilService.createClinicasProfile(this.perfil).subscribe(dato =>{
       console.log(this.perfil);
+      alert();
     });
 
   }
