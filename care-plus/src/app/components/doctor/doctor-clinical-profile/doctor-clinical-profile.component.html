@@ -1,21 +1,28 @@
 <app-doctor-sidebar></app-doctor-sidebar>
 
-<body class="contenedorGrande" >
-    <div class="col-md-6 offset-md-3">        
-        <div class="container">
-                <div class="paciente">
-                    <h2>{{clinaprofile.patient.name}}</h2>
-                    <p><span>DNI:</span> {{clinaprofile.patient.dni}}</p>
-                    <p><span>Fecha de Nacimiento:</span> {{clinaprofile.patient.birthdate}}</p>
-                    <p><span>Dirección:</span> {{clinaprofile.patient.address}}</p>
-                    <p><span>Teléfono:</span> {{clinaprofile.patient.phone}}</p>
-                    <p><span>Teléfono de Emergencia:</span> {{clinaprofile.patient.emergency_phone}}</p>
-                    <p><span>Username:</span> {{clinaprofile.patient.id_user.username}}</p>
-                </div>
+<div class="mio" >    
+        <div class="paciente">
+            <h2>{{clinaprofile.patient.name}}</h2>
+            <p><span>DNI:</span> {{clinaprofile.patient.dni}}</p>
+            <p><span>Fecha de Nacimiento:</span> {{clinaprofile.patient.birthdate}}</p>
+            <p><span>Dirección:</span> {{clinaprofile.patient.address}}</p>
+            <p><span>Teléfono:</span> {{clinaprofile.patient.phone}}</p>
+            <p><span>Teléfono de Emergencia:</span> {{clinaprofile.patient.emergency_phone}}</p>
+            <p><span>Username:</span> {{clinaprofile.patient.id_user.username}}</p>
         </div>
-    </div>
-</body>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <div class="paciente">
+            <form>
+                <label for="message">Alergias</label>
+                <textarea rows="3" placeholder="Tu mensaje" id="alergia" [(ngModel)]="clinaprofile.allergy" name="alergia" required></textarea>
+
+
+                <label for="message">Reporte</label>
+                <textarea rows="6" placeholder="Tu mensaje" id="reporte" [(ngModel)]="clinaprofile.report" name="reporte" required></textarea>
+      
+                <button (click)="onSubmit()">Añadir</button>
+            </form>
+
+        </div>
+</div>
 
