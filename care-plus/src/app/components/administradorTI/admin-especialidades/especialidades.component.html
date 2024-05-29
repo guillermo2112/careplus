@@ -14,11 +14,12 @@
 
 
 <!-- listado admin -->
+<app-header></app-header>
 
 <app-admin-sidebar></app-admin-sidebar>
 <!-- filtros vista admin -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Eighth navbar example">
-  <div class="container container-bots" >
+  <div class="container container-bots contenedorfiltros" >
     
 
     <div class=" navbar" id="navbarsExample07">
@@ -45,9 +46,7 @@
         <div class="nav-item">
           <button (click)="limpiar_filtros()">Limpiar Filtros</button>
         </div>
-        <div class="nav-item">
-          <button type="button" class="btn btn-primary" (click)="goToCreate()">Crear Especialidad</button>
-        </div>
+        
         
       </div>
       
@@ -62,7 +61,10 @@
   
   <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Lista de especialidades</h3>
+      <h3 class="card-title">Lista de Especialidades</h3>
+      <div class="nav-item">
+        <button class="btn btn-primary" (click)="goToCreate()">Crear Especialidad</button>
+      </div>
     </div>
 
     <div class="card-body">
@@ -81,7 +83,7 @@
               <th>{{ specialty.name }}</th>
 
               <th>
-                <button type="button" class="btn btn-sm btn-outline-secondary" (click)="updateSpecialty(specialty.id)">Editar</button>
+                <button  class="btn btn-primary" (click)="updateSpecialty(specialty.id)">Editar</button>
                 
               </th>
             </tr>

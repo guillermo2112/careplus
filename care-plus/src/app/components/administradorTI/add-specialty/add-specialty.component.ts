@@ -5,13 +5,14 @@ import { SpecialtyService } from '../../../services/specialty.service';
 import { Specialty } from '../../../entities/specialty';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-  selector: 'app-add-specialty',
-  templateUrl: './add-specialty.component.html',
-  styleUrls: ['./add-specialty.component.css'],
-  standalone : true,
-  imports: [FormsModule]
+    selector: 'app-add-specialty',
+    templateUrl: './add-specialty.component.html',
+    styleUrls: ['./add-specialty.component.css'],
+    standalone: true,
+    imports: [FormsModule, HeaderComponent]
 })
 export class AddSpecialtyComponent {
 

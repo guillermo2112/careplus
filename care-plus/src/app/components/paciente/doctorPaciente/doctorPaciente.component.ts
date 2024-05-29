@@ -4,22 +4,31 @@ import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
+import { HeaderComponent } from "../../shared/header/header.component";
+import { NavbarComponent } from "../navbar/navbar.component";
+import Swal from 'sweetalert2';
+import { Specialty } from '../../../entities/specialty';
 
 @Component({
-  selector: 'app-doctorPaciente',
-  standalone: true,
-  imports: [
-    RouterModule,
-    CommonModule,
-    FormsModule
-  ],
-  templateUrl: './doctorPaciente.component.html',
-  styleUrls: ['./doctorPaciente.component.css']
+    selector: 'app-doctorPaciente',
+    standalone: true,
+    templateUrl: './doctorPaciente.component.html',
+    styleUrls: ['./doctorPaciente.component.css'],
+    imports: [
+        RouterModule,
+        CommonModule,
+        FormsModule,
+        HeaderComponent,
+        NavbarComponent
+    ]
 })
 export class DoctorPacienteComponent implements OnInit {
 
+ 
+  name:string = '';
   doctores: Doctor[] = [];
-doctor: any;
+  doctores_clear: Doctor[] = [];
+  speciality :Specialty [] = [];
 
   constructor(
     private doctorService: DoctorService,
@@ -28,6 +37,7 @@ doctor: any;
 
   ngOnInit(): void {
     this.listDoctor();
+    this.list_speciality();
   }
 
   trackById(index: number, doctor: Doctor): number {
@@ -38,10 +48,16 @@ doctor: any;
     this.router.navigate(['doctor-vista',id]);
   }
 
+  private list_speciality() {
+    this.doctorService.get_specialidades().subscribe(dato => {
+      this.speciality = dato;
+    });
+  }
+
   private listDoctor() {
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
- 
+      this.doctores_clear = dato;
     });
   }
 
@@ -58,5 +74,73 @@ doctor: any;
   //     this.doctor = [dato]; 
   //   });
   // }
+
+  seleccionarAccion(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const accion = selectElement.options[selectElement.selectedIndex].value;
+    this.limpiar_filtros();
+    switch (accion) {
+      case 'ordenar_nombre':
+        this.ordenar_nombre();
+        break;
+      case 'ordenar_nombre_des':
+        this.ordenar_nombre_des();
+        break;
+      default:
+        break;
+    }
+  }
+  
+  seleccionarSpecialty(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const accion = selectElement.options[selectElement.selectedIndex].value;
+    this.limpiar_filtros();
+    this.buscar_specialty(accion);
+  }
+
+  buscar_specialty(espe:string){
+    const especialidadID = parseInt(espe, 10); 
+
+    this.doctores = this.doctores_clear.filter(doctor => {
+      return doctor.specialty.id === especialidadID;
+    });
+
+    if (this.doctores.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado medicos con la especialidad buscada",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+
+  }
+
+  burcador_nombre(): void {
+    const nombres = this.name.toLowerCase().split(' ');
+    this.doctores = this.doctores_clear.filter(s => {
+      return nombres.every(name => s.name.toLowerCase().includes(name));
+    });
+    if (this.doctores.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado clinicas con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  limpiar_filtros(): void {
+    this.doctores = [...this.doctores_clear];
+    this.name = '';
+  }
+
+  ordenar_nombre(){
+    this.doctores.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  ordenar_nombre_des(){
+    this.doctores.sort((b, a) => a.name.localeCompare(b.name));
+  }
 
 }

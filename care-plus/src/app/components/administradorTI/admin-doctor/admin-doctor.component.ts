@@ -1,23 +1,27 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { NavigationExtras, Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 import { DoctorService } from '../../../services/doctor.service';
 import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Specialty } from '../../../entities/specialty';
 import Swal from 'sweetalert2';
+import { HeaderComponent } from "../../shared/header/header.component";
+import { LogoutComponent } from "../../shared/logout/logout.component";
 
 @Component({
     selector: 'app-admin-doctor',
     standalone: true,
-    templateUrl: './doctor.component.html',
-    styleUrls: ['./doctor.component.css'],
+    templateUrl: './admin-doctor.component.html',
+    styleUrls: ['./admin-doctor.component.css'],
     imports: [
         RouterModule,
         CommonModule,
         FormsModule,
         AdminSidebarComponent,
+        HeaderComponent,
+        LogoutComponent
     ]
 })
 export class AdminDoctorComponent implements OnInit {
@@ -161,6 +165,16 @@ export class AdminDoctorComponent implements OnInit {
     this.doctores = [...this.doctores_clear];
     this.name = '';
     this.id='';
+  }
+
+  
+  navigateToUpdateDoctor(id:number) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        doctorId: id
+      }
+    };
+    this.router.navigate(['/update-doctor'], navigationExtras);
   }
 
 }

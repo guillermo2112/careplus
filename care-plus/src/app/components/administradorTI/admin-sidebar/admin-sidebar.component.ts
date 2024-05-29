@@ -2,6 +2,7 @@ import { Component, Output,EventEmitter } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { navbarData } from './nav-data';
+import { LogoutComponent } from "../../shared/logout/logout.component";
  
 interface SideNavToggle{
   screenWidth:number;
@@ -9,16 +10,16 @@ interface SideNavToggle{
 }
  
 @Component({
-  selector: 'app-admin-sidebar',
-  standalone: true,
-  imports: [RouterModule,CommonModule],
-  templateUrl: './admin-sidebar.component.html',
-  styleUrl: './admin-sidebar.component.css'
+    selector: 'app-admin-sidebar',
+    standalone: true,
+    templateUrl: './admin-sidebar.component.html',
+    styleUrl: './admin-sidebar.component.css',
+    imports: [RouterModule, CommonModule, LogoutComponent]
 })
 export class AdminSidebarComponent {
  
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
-  collapsed=false;
+  collapsed=true;
   screenWidth=0;
   navData=navbarData;
  

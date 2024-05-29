@@ -4,13 +4,14 @@ import { DoctorService } from '../../../services/doctor.service';
 import { Router } from '@angular/router';
 import { HospitalService } from '../../../services/hospital.service';
 import { PacienteService } from '../../../services/paciente.service';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-admin-home',
     standalone: true,
     templateUrl: './admin-home.component.html',
     styleUrl: './admin-home.component.css',
-    imports: [AdminSidebarComponent]
+    imports: [AdminSidebarComponent, HeaderComponent]
 })
 export class AdminHomeComponent implements OnInit {
 

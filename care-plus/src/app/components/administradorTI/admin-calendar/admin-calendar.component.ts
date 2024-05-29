@@ -3,7 +3,8 @@ import { Calendar } from '../../../entities/calendar';
 import { NavigationExtras, Router } from '@angular/router';
 import { CalendarService } from '../../../services/calendar.service';
 import { AdminSidebarComponent } from '../admin-sidebar/admin-sidebar.component';
-import { CommonModule, DatePipe } from '@angular/common'; 
+import { CommonModule, DatePipe } from '@angular/common';
+import { HeaderComponent } from "../../shared/header/header.component"; 
 
 @Component({
     selector: 'app-admin-calendar',
@@ -11,7 +12,7 @@ import { CommonModule, DatePipe } from '@angular/common';
     templateUrl: './admin-calendar.component.html',
     styleUrls: ['./admin-calendar.component.css'],
     providers: [DatePipe],
-    imports: [ CommonModule, AdminSidebarComponent]
+    imports: [CommonModule, AdminSidebarComponent, HeaderComponent]
 })
 export class AdminCalendarComponent implements OnInit {
 

@@ -2,13 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HospitalService } from '../../../services/hospital.service';
 import { Hospital } from '../../../entities/Hospital';
+import { HeaderComponent } from "../../shared/header/header.component";
+import { NavbarComponent } from "../navbar/navbar.component";
 
 @Component({
-  selector: 'app-clinica-vista',
-  standalone: true,
-  imports: [],
-  templateUrl: './clinica-vista.component.html',
-  styleUrl: './clinica-vista.component.css'
+    selector: 'app-clinica-vista',
+    standalone: true,
+    templateUrl: './clinica-vista.component.html',
+    styleUrl: './clinica-vista.component.css',
+    imports: [HeaderComponent, NavbarComponent]
 })
 export class ClinicaVistaComponent implements OnInit{
 

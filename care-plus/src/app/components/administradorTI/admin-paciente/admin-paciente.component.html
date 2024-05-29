@@ -1,6 +1,7 @@
+<app-header></app-header>
 <app-admin-sidebar></app-admin-sidebar>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Eighth navbar example">
-  <div class="container container-bots" >
+  <div class="container container-bots contenedorfiltros" >
     
 
     <div class=" navbar" id="navbarsExample07" style="width: 100%;">
@@ -36,17 +37,15 @@
             <!-- <label for="texto">Buscar</label> -->
             
           </form>
+          
         </div>
-
-
-        <div class="nav-item">
-          <button (click)="limpiar_filtros()">Limpiar Filtros</button>
-        </div>
-        
-        
+       <div class="nav-item">
+        <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+      </div>
       </div>
       
     </div>
+    
   </div>
 </nav>
 <section class="container">
@@ -79,7 +78,7 @@
                 <th class="center-text">{{ paciente.birthdate }}</th>
                 <th class="center-text">{{ paciente.phone }}</th>
                 <th>
-                  <button class="btn btn-primary" (click)="updatePaciente(paciente.id)">Editar</button>
+                  <button class="btn btn-primary" (click)="navigateToUpdatePatient(paciente.id)">Editar</button>
                 </th>
               </tr>
             </ng-container>
