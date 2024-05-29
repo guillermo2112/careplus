@@ -29,11 +29,12 @@ body {
 
 .doctor-details-container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center; 
   padding: 20px;
   margin: auto; 
-  width: fit-content; 
+  max-width: 1200px; 
 }
 
 
@@ -93,5 +94,14 @@ body {
 
 .align-items-center {
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .image-container,
+  .details-container {
+    flex-basis: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
