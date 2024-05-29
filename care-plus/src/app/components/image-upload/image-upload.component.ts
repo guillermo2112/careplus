@@ -47,7 +47,7 @@ export class ImageUploadComponent {
     const data = new FormData();
   
     data.append('file', fileData);
-    data.append('upload_preset', 'cloudinary-images'); // Agrega el upload preset aquí
+    data.append('upload_preset', 'cloudinary-images');
     data.append('cloud_name', 'dxltzkffz');
     data.append('public_id', counter.toString()); 
   

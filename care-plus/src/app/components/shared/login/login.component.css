@@ -1,15 +1,15 @@
 @import url('https://rsms.me/inter/inter-ui.css');
 
-body {
-  background: white;
-  font-family: 'Inter UI', sans-serif;
+html, body {
   margin: 0;
-  padding: 20px;
+  padding: 0;
+  overflow: hidden;
 }
 .page {
   background-image: url('../../../../assets/background.jpg');
-  background-size: cover;
-  background-position: center;  display: flex;
+  background-size: contain;
+  background-position: center;
+  display: flex;
   flex-direction: column;
   height: calc(100%);
   position: absolute;
@@ -118,4 +118,3 @@ input::-moz-focus-inner {
 #submit:active {
   color: #d0d0d2;
 }
-
