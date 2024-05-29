@@ -78,7 +78,6 @@ export class AddPacienteComponent {
   guardarPaciente(usu:Usuario){
     this.paciente.user = usu;
     this.patientService.createPatient(this.paciente).subscribe((dato: any) =>{
-    this.guardarPerfil(dato);
       Swal.fire({
         title: "Enhorabuena!",
         text: "Paciente creado con exito.",
@@ -87,41 +86,6 @@ export class AddPacienteComponent {
       this.router.navigate(['/admin-paciente']);
     }); 
   }
-
-  guardarPerfil(paciente:Paciente){
-    this.perfil.patient = paciente;
-    this.perfil.date = this.getFormattedDate();
-    this.perfil.allergy='';
-    this.perfil.report='';
-    this.perfilService.createClinicasProfile(this.perfil).subscribe();
-
-  }
-
-  getFormattedDate(): string {
-    const now = new Date();
-    return this.formatDate(now);
-  }
-
-  private formatDate(date: Date): string {
-    const pad = (num: number) => num.toString().padStart(2, '0');
-    const year = date.getFullYear();
-    const month = pad(date.getMonth() + 1);
-    const day = pad(date.getDate());
-    const hours = pad(date.getHours());
-    const minutes = pad(date.getMinutes());
-    const seconds = pad(date.getSeconds());
-    const milliseconds = date.getMilliseconds().toString().padStart(3, '0');
-
-    const timezoneOffsetMinutes = date.getTimezoneOffset();
-    const absTimezoneOffset = Math.abs(timezoneOffsetMinutes);
-    const timezoneHours = pad(Math.floor(absTimezoneOffset / 60));
-    const timezoneMinutes = pad(absTimezoneOffset % 60);
-    const timezoneSign = timezoneOffsetMinutes <= 0 ? '+' : '-';
-
-    const timezoneOffset = `${timezoneSign}${timezoneHours}:${timezoneMinutes}`;
-
-    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}${timezoneOffset}`;
-  }
-  
+ 
 
 }

@@ -49,8 +49,10 @@
             <p><span>Dirección:</span> {{paciente.address}}</p>
             <p><span>Teléfono:</span> {{paciente.phone}}</p>
             <p><span>Teléfono de Emergencia:</span> {{paciente.emergency_phone}}</p>
-            <!--<p><span>Username:</span> {{paciente.id_user.username}}</p>-->
-            <a class="visitar" (click)="goToClinicalProfile(paciente.id)">Clinical Profile</a>
+            
+              <a class="visitar" (click)="goToClinicalProfile(paciente.id)">Clinical Profile</a>
+            
+            
         </div>
     }
 </div>

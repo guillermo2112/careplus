@@ -6,6 +6,9 @@ import { PacienteService } from '../../../services/paciente.service';
 import { Router } from '@angular/router';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 import { HeaderComponent } from "../../shared/header/header.component";
+import { ClinicaProfile } from '../../../entities/ClinicaProfile';
+import { ClinicasProfileService } from '../../../services/clinicas-profile.service';
+import Swal from 'sweetalert2';
 
 @Component({
     selector: 'app-doctor-lista-pacientes',
@@ -20,21 +23,14 @@ import { HeaderComponent } from "../../shared/header/header.component";
     ]
 })
 export class DoctorListaPacientesComponent implements OnInit{
-burcador_nombre() {
-throw new Error('Method not implemented.');
-}
-limpiar_filtros() {
-throw new Error('Method not implemented.');
-}
-burcador_id() {
-throw new Error('Method not implemented.');
-}
 
   pacientes:Paciente [] = [];
+  pacientes_clear:Paciente [] = [];
+  perfil:ClinicaProfile = new ClinicaProfile();
   name:string;
   id:string;
 
-  constructor(private paciente_service:PacienteService, private router:Router){}
+  constructor(private paciente_service:PacienteService, private router:Router,private perfilService:ClinicasProfileService){}
 
   ngOnInit(): void {
     this.obtener_pacientes();
@@ -47,7 +43,95 @@ throw new Error('Method not implemented.');
   }
 
   goToClinicalProfile(id:number){
+    this.crearPerfilClinico(id);
     this.router.navigate(['doctor-clinical-profile',id]);
+  }
+
+  crearPerfilClinico(id:number){
+    alert('entra');
+    this.paciente_service.getPatientById(id).subscribe(dato =>{
+      this.perfil.patient = dato;
+    })
+    
+    this.perfil.date = this.getFormattedDate();
+    this.perfil.allergy='';
+    this.perfil.report='';
+    console.log(this.perfil);
+    this.perfilService.createClinicasProfile(this.perfil).subscribe(dato =>{
+      console.log(this.perfil);
+    });
+
+  }
+
+  getFormattedDate(): string {
+    const now = new Date();
+    return this.formatDate(now);
+  }
+
+  private formatDate(date: Date): string {
+    const pad = (num: number) => num.toString().padStart(2, '0');
+    const year = date.getFullYear();
+    const month = pad(date.getMonth() + 1);
+    const day = pad(date.getDate());
+    const hours = pad(date.getHours());
+    const minutes = pad(date.getMinutes());
+    const seconds = pad(date.getSeconds());
+    const milliseconds = date.getMilliseconds().toString().padStart(3, '0');
+
+    const timezoneOffsetMinutes = date.getTimezoneOffset();
+    const absTimezoneOffset = Math.abs(timezoneOffsetMinutes);
+    const timezoneHours = pad(Math.floor(absTimezoneOffset / 60));
+    const timezoneMinutes = pad(absTimezoneOffset % 60);
+    const timezoneSign = timezoneOffsetMinutes <= 0 ? '+' : '-';
+
+    const timezoneOffset = `${timezoneSign}${timezoneHours}:${timezoneMinutes}`;
+
+    return `${year}-${month}-${day}T${hours}:${minutes}:${seconds}.${milliseconds}${timezoneOffset}`;
+  }
+
+  limpiar_filtros(): void {
+    this.pacientes = [...this.pacientes_clear];
+    this.name = '';
+    this.id='';
+  }
+
+  burcador_id(): void {
+    const id = Number(this.id);
+
+    if (isNaN(id)) {
+      Swal.fire({
+        title: "Error",
+        text: "El ID ingresado no es válido",
+        icon: "error"
+      });
+      return;
+    }
+
+    this.pacientes = this.pacientes_clear.filter(Paciente => Paciente.id === id);
+
+    if (this.pacientes.length === 0) {
+      Swal.fire({
+        title: "Mantenimiento",
+        text: "No se han encontrado doctores con el id buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
+  }
+
+  burcador_nombre(): void {
+    const nombres = this.name.toLowerCase().split(' ');
+    this.pacientes = this.pacientes_clear.filter(s => {
+      return nombres.every(name => s.name.toLowerCase().includes(name));
+    });
+    if (this.pacientes.length === 0) {
+      Swal.fire({
+        title: "Opps...",
+        text: "No se han encontrado doctores con el nombre buscado",
+        icon: "error"
+      });
+      this.limpiar_filtros();
+    }
   }
 
 }
