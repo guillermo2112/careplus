@@ -30,6 +30,21 @@
   white-space: nowrap;
 }
 
+.button-log.custom-click:focus {
+  background-color: #144386 !;
+  border-color: #144386 ;
+  color: white ;
+  box-shadow: none; 
+}
+
+.button-log.custom-click:active {
+  background-color: #144386 ;
+  border-color: #144386 ;
+  color: white ; 
+  box-shadow: none; 
+}
+
+
 
 
 
