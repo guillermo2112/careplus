@@ -43,7 +43,10 @@ export class DoctorListaPacientesComponent implements OnInit{
     })
   }
 
-  
+  existe_clinical_profile(id:number):boolean{
+    this.perfilService.comprobarPelfilClinico(id);
+    return true;
+  }
 
   goToClinicalProfile(){
     this.router.navigate(['doctor-clinical-profile',this.perfil.id]);

@@ -23,4 +23,8 @@ export class ClinicasProfileService {
   createClinicasProfile(profile:ClinicaProfile) : Observable<Object>{
     return this.httpClient.post(`${this.baseURL}/api/clinicalprofile`,profile);
   }
+
+  comprobarPelfilClinico(id:number){
+    return this.httpClient.get(`${this.baseURL}/api/patient/clinicalprofile/${id}`);
+  }
 }
