@@ -51,6 +51,7 @@
                   name="onDutty" 
                   [value]="status.label" 
                   [(ngModel)]="selectedOnDutty" 
+                  [checked]="selectedOnDutty === status.value"
                   [id]="'onDutty-' + status.id">
                   <label [for]="'onDutty-' + status.id">{{status.label}}</label>
               </div>}
