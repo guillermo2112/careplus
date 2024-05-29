@@ -110,8 +110,8 @@ export const routes: Routes = [
 
     //PACIENTE REGISTRADO
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
-    {path: 'home-paciente', component: RegistradoHomeComponent},
-    {path: 'home-profile', component: RegistradoProfileComponent},
+    {path: 'registrado-home', component: RegistradoHomeComponent},
+    {path: 'regitrado-profile', component: RegistradoProfileComponent},
     {path: 'pedir-cita', component: RegistradoPedirCitaComponent},
     {path: 'cita-especialidad', component: RegistradoCitaEspecialidadComponent},
     {path: 'cita-profesionales', component: RegistradoCitaProfesionalesComponent},

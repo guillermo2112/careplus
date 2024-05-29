@@ -134,7 +134,7 @@ export class LoginComponent implements OnInit {
         } else if (authorities.includes('ROLE_DOCTOR')) {
             this.router.navigate(['doctor-home']);
           } else if (authorities.includes('ROLE_PACIENTE')) {
-            this.router.navigate(['paciente-home']);
+            this.router.navigate(['registrado-home']);
         } else {
             this.router.navigate(['/home']);
         }
