@@ -1,7 +1,7 @@
 export const navbarData = [
     { routeLink: 'registrado-profile',label: 'Perfil',link:'/registrado-profile'},
 
-    { routeLink: 'registrado-cita',label: 'Pedir cita',link:'/registrado-cita'},
+    { routeLink: 'registrado-pedir-cita',label: 'Pedir cita',link:'/registrado-pedir-cita'},
     
 
     // turnos, calendarios, 
