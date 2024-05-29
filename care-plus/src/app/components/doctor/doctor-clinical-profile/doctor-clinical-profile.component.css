@@ -185,3 +185,64 @@ body{margin-top:20px;
         background-color: #fff;
         border: 2px solid #038edc
     }
+
+
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        margin: 2rem auto;
+        gap: 2rem; 
+        max-width: 1200px; 
+    }
+    
+    .paciente {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 45%; 
+        border: 2px solid #28CEC5;
+        background-color: #f0f8ff; 
+        padding: 1rem; 
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    }
+    
+    .paciente:hover {
+    
+        border-color: #144386;
+        color: white;
+    }
+    
+    .paciente h2 {
+        color: #144386; 
+    }
+    
+    .paciente p {
+        margin: 0.5rem 0; 
+        color: #144386; 
+    }
+    
+    .paciente p span {
+        font-weight: bold;
+    }
+    
+    .paciente .visitar {
+        display: inline-block;
+        margin-top: 1rem;
+        background-color: #28CEC5;
+        border: 1px solid #28CEC5;
+        padding: 0.5rem 1rem;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
+        border-radius: 4px; 
+    }
+    
+    @media (max-width: 768px) {
+        .paciente {
+            width: 100%; 
+        }
+    }
