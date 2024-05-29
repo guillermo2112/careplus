@@ -16,6 +16,7 @@ export class UserService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
   private baseUrl = 'http://care.francecentral.cloudapp.azure.com:8080';
+  router: any;
 
   constructor(private http: HttpClient) {}
 
@@ -85,6 +86,7 @@ export class UserService {
     sessionStorage.clear();
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
+    this.router.navigate(['/']);
   }
 
   getUserByUsername(username:string):Observable<Usuario>{
