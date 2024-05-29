@@ -5,15 +5,16 @@
 <section class="container">
   <div class="py-2">
     <div class="d-flex justify-content-end mt-3 boton">
-      <button class="btn btn-care" (click)="navigateToAddAppointmentshift()">
-        Nuevo
-      </button>
+    
     </div>
   </div>
 
   <div class="card">
     <div class="card-header">
       <h3 class="card-title">Lista de turnos para Cita</h3>
+      <button class="btn btn-primary" (click)="navigateToAddAppointmentshift()">
+        Nuevo turno
+      </button>
     </div>
     <div class="card-body table-responsive">
       <table id="example1" class="table table-bordered table-striped">
@@ -45,32 +46,3 @@
     </div>
   </div>
 </section>
-
-<!-- <section class="container">
-  <table datatable [dtOptions]="dtoptions" [dtTrigger]="dttrigger" >
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Hour</th>
-            <th>Action</th>
-        </tr>
-    </thead>
-    <tbody>
-      @for(appointmentshift of appointmentshifts; track
-      appointmentshift.id){
-            <tr>
-            <td>{{appointmentshift.id}}</td>
-            <td>{{appointmentshift.hour}}</td>
-            <td>
-              <button
-              class="btn btn-care"
-              (click)="navigateToUpdateAppointmentshift(appointmentshift.id)"
-            >
-              Actualizar
-            </button>
-            </td>
-            </tr>
-        }
-    </tbody>
-</table>
-</section> -->
