@@ -117,7 +117,7 @@ export class LoginComponent implements OnInit {
         patientid:id
       }
     };
-    this.router.navigate(['home-profile'], navigationExtras);
+    this.router.navigate(['regitrado-profile'], navigationExtras);
   }
 
   onSubmit() {
