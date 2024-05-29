@@ -9,12 +9,20 @@
       </button>
     }
     </div>
-   @if (collapsed) {<ul class="sidenav-nav">
-      <li *ngFor="let data of navData" class="sidenav-nav-item">
+   @if (collapsed) {
+    <ul class="sidenav-nav">
+    @for (data of navData; track $index) {
+      <li  class="sidenav-nav-item">
         <a class="sidenav-nav-link" [routerLink]="[data.link]" (click)="closeSidenav()">
         <span class="sidenav-link-text">{{ data.label }}</span>
         </a>
       </li>
+    }
     </ul>
     }
+    
+    <app-logout></app-logout>
+   
+    
   </div>
+  

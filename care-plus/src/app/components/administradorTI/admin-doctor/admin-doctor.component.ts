@@ -8,6 +8,7 @@ import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Specialty } from '../../../entities/specialty';
 import Swal from 'sweetalert2';
 import { HeaderComponent } from "../../shared/header/header.component";
+import { LogoutComponent } from "../../shared/logout/logout.component";
 
 @Component({
     selector: 'app-admin-doctor',
@@ -19,7 +20,8 @@ import { HeaderComponent } from "../../shared/header/header.component";
         CommonModule,
         FormsModule,
         AdminSidebarComponent,
-        HeaderComponent
+        HeaderComponent,
+        LogoutComponent
     ]
 })
 export class AdminDoctorComponent implements OnInit {
