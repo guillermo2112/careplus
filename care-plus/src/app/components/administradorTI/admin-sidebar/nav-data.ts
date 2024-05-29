@@ -7,7 +7,7 @@ export const navbarData = [
     { routeLink: 'listar-paciente',label: 'Pacientes',link:'/admin-paciente'},
     { routeLink: 'list-calendario',label: 'Calendarios',link:'/admin-calendar'},
     { routeLink: 'app-admin-appointmentshift',label: 'Citas',link:'/admin-appointmentshift'},
-    // { routeLink: 'logout',label: 'Logout',link:'/logout'},
+    { routeLink: 'logout',label: 'Cerrar sesion',link:'/logout'},
 
     // turnos, calendarios, 
 
