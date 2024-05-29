@@ -113,11 +113,11 @@ export const routes: Routes = [
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
     {path: 'registrado-home', component: RegistradoHomeComponent},
     {path: 'regitrado-profile', component: RegistradoProfileComponent},
-    {path: 'pedir-cita', component: RegistradoPedirCitaComponent},
-    {path: 'cita-especialidad', component: RegistradoCitaEspecialidadComponent},
-    {path: 'cita-profesionales', component: RegistradoCitaProfesionalesComponent},
-    {path: 'cita-clinicas', component: RegistradoCitaClinicasComponent},
-    {path: 'cita-contodo', component: RegistradoCitaContodoComponent},
+    {path: 'registrado-pedir-cita', component: RegistradoPedirCitaComponent},
+    {path: 'registrado-cita-especialidad', component: RegistradoCitaEspecialidadComponent},
+    {path: 'registrado-cita-profesionales', component: RegistradoCitaProfesionalesComponent},
+    {path: 'registrado-cita-clinicas', component: RegistradoCitaClinicasComponent},
+    {path: 'registrado-cita-contodo', component: RegistradoCitaContodoComponent},
 
 
 
