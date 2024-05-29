@@ -18,7 +18,7 @@ import { AddHospitalComponent } from './components/administradorTI/add-hospital/
 import { HomeComponent } from './components/paciente/home/home.component';
 import { AdminSidebarComponent } from './components/administradorTI/admin-sidebar/admin-sidebar.component';
 import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
-import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/doctor.component';
+import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/admin-doctor.component';
 import { AdminAppointmentshiftComponent } from './components/administradorTI/admin-appointmentshift/admin-appointmentshift.component';
 import { AddCalendarComponent } from './components/administradorTI/add-calendar/add-calendar.component';
 import { AdminCalendarComponent } from './components/administradorTI/admin-calendar/admin-calendar.component';
@@ -103,7 +103,7 @@ export const routes: Routes = [
     {path: 'full-calendar', component: FullCalendarModule},
 
 
-    //registrado
+    //PACIENTE REGISTRADO
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
     {path: 'home-paciente', component: RegistradoHomeComponent},
     {path: 'home-profile', component: RegistradoProfileComponent},

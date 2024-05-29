@@ -12,8 +12,8 @@ import { HeaderComponent } from "../../shared/header/header.component";
 @Component({
     selector: 'app-admin-doctor',
     standalone: true,
-    templateUrl: './doctor.component.html',
-    styleUrls: ['./doctor.component.css'],
+    templateUrl: './admin-doctor.component.html',
+    styleUrls: ['./admin-doctor.component.css'],
     imports: [
         RouterModule,
         CommonModule,
