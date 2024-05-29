@@ -17,6 +17,6 @@ export class ClinicasProfileService {
   }
 
   getClinicasProfileId(id: number):Observable<ClinicaProfile>{
-    return this.httpClient.get<ClinicaProfile>(`${this.baseURL}/api/clinicalprofile${id}`);
+    return this.httpClient.get<ClinicaProfile>(`${this.baseURL}/api/clinicalprofile/${id}`);
   }
 }
