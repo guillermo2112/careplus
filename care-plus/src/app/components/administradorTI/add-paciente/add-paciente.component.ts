@@ -76,7 +76,7 @@ export class AddPacienteComponent {
   }
 
   guardarPaciente(usu:Usuario){
-    this.paciente.id_user = usu;
+    this.paciente.user = usu;
     this.patientService.createPatient(this.paciente).subscribe((dato: any) =>{
     this.guardarPerfil(dato);
       Swal.fire({

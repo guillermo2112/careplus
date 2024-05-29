@@ -54,7 +54,7 @@ export class DatosPacienteComponent implements OnInit{
   
       this.pacienteService.getPatientById(this.pacienteId).subscribe((dato) => {
         this.paciente = dato;
-        this.selectedOnDutty = this.paciente.id_user.onDutty;
+        this.selectedOnDutty = this.paciente.user.onDutty;
 
       });
     
@@ -63,7 +63,7 @@ export class DatosPacienteComponent implements OnInit{
   savePaciente() {
     this.pacienteService.updatePatient(this.pacienteId, this.paciente).subscribe(
       dato => {
-        this.paciente.id_user.onDutty=this.selectedOnDutty;
+        this.paciente.user.onDutty=this.selectedOnDutty;
         console.log(dato);
         Swal.fire({
           title: "Success",
