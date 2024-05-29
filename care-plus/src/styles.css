@@ -278,6 +278,13 @@ h3 {
 }
 
 /* ESTILOS PARA EL BOTÓN CREAR DOCTOR */
+
+.card-header {
+  background-color: #DEF3F2;
+  color: black;
+  font-weight: bold;
+  padding: 15px;
+}
 .btn-primary {
     background-color: #28CEC5; 
     color: white;
@@ -293,6 +300,8 @@ h3 {
   .btn-primary:hover {
     background-color: #144386; 
   }
+ 
+
   
 
   /* FILTROS */
