@@ -13,7 +13,13 @@
 
         <div class="paciente">
             <form>
-                
+                <label for="message">Alergias</label>
+                <textarea rows="3" placeholder="Tu mensaje" id="alergia" [(ngModel)]="clinaprofile.allergy" name="alergia" required></textarea>
+
+
+                <label for="message">Reporte</label>
+                <textarea rows="6" placeholder="Tu mensaje" id="reporte" [(ngModel)]="clinaprofile.report" name="reporte" required></textarea>
+      
                 <button (click)="onSubmit()">Añadir</button>
             </form>
 

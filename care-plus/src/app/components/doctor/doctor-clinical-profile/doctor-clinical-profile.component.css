@@ -9,7 +9,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        border: 2px solid #28CEC5;
         background-color: #f0f8ff; 
         padding: 1rem; 
         transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
@@ -32,21 +31,55 @@
         font-weight: bold;
     }
     
-    .paciente .visitar {
-        display: inline-block;
-        margin-top: 1rem;
-        background-color: #28CEC5;
-        border: 1px solid #28CEC5;
-        padding: 0.5rem 1rem;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        transition: background-color 0.3s, border-color 0.3s, color 0.3s; 
-        border-radius: 4px; 
-    }
-    
     @media (max-width: 800px) {
         .mio {
             flex-direction: column;
         }
     }
+
+    form {
+        display: flex;
+        flex-direction: column;
+      }
+      
+      input, textarea {
+        width: 100%;
+        padding: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid;
+        border-radius: 4px;
+        outline: none;
+      }
+      
+      input::placeholder, textarea::placeholder {
+        color: #BABBBB;
+      }
+      
+      textarea {
+        resize: none;
+      }
+      
+      button {
+        align-self: flex-start;
+        text-transform: uppercase;
+        font-weight: 300;
+        background: #28CEC5;
+        color:white;
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+        cursor: pointer;
+      }
+      button:hover{
+        background-color: #144386;
+      }
+      
+      input:hover, textarea:hover {
+        opacity: 0.7;
+      }
+      
+      button:active {
+        opacity: 0.6;
+      }
