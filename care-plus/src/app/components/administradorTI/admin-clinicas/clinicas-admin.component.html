@@ -64,7 +64,7 @@
     <div class="card-header">
       <h3 class="card-title">Lista de Clínicas</h3>
     </div>
-    <div class="card-body">
+    <div class="card-body table-responsive">
       <table id="example1" class="table table-bordered table-striped">
         <thead>
           <tr>
@@ -78,8 +78,8 @@
           </tr>
         </thead>
         <tbody>
-          <ng-container *ngFor="let group of chunkArray(hospital, itemsPerPage); let i = index">
-            <ng-container *ngIf="currentPage === i">
+          @for (group of chunkArray(hospital, itemsPerPage); track $index) {
+            @if (currentPage === $index) {
               <tr *ngFor="let hospital of group">
                 <th>{{ hospital.id }}</th>
                 <th>{{ hospital.name }}</th>
@@ -92,8 +92,8 @@
                   <button class="btn btn-danger" (click)="suspenderHospital()">Suspender</button>
                 </th>
               </tr>
-            </ng-container>
-          </ng-container>
+            }
+        }
         </tbody>
       </table>
       <nav aria-label="Page navigation example" class="flex-column text-end">
@@ -114,15 +114,3 @@
 </section>
 
 
-
-
-
-<!-- <nav aria-label="Page navigation example" class="flex-column text-end">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav> -->
