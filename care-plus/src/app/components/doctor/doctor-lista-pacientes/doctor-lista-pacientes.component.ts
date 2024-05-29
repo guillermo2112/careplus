@@ -39,6 +39,7 @@ export class DoctorListaPacientesComponent implements OnInit{
   obtener_pacientes(){
     this.paciente_service.getPatient().subscribe(dato =>{
       this.pacientes=dato;
+      this.pacientes_clear=dato;
     })
   }
 
