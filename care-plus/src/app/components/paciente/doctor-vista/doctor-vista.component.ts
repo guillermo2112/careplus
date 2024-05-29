@@ -37,7 +37,7 @@ export class DoctorVistaComponent implements OnInit {
   }
 
   volver_doctores(){
-    this.router.navigate(['doctor']);
+    this.router.navigate(['doctorPaciente']);
   }
 }
 
