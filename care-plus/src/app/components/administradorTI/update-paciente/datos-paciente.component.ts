@@ -38,7 +38,7 @@ export class DatosPacienteComponent implements OnInit{
     { id: 2, value: OnDutty.INACTIVE, label: 'INACTIVE' },
     { id: 3, value: OnDutty.SUSPENDED, label: 'SUSPENDED' }
   ];
-    selectedOnDutty = this.onDuttyArray[0].value;
+    selectedOnDutty:any;
 
 
   ngOnInit(): void {
@@ -54,6 +54,8 @@ export class DatosPacienteComponent implements OnInit{
   
       this.pacienteService.getPatientById(this.pacienteId).subscribe((dato) => {
         this.paciente = dato;
+        this.selectedOnDutty = this.paciente.id_user.onDutty;
+
       });
     
   }
