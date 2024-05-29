@@ -46,6 +46,7 @@ import { RegistradoCitaClinicasComponent } from './components/paciente-registrad
 import { RegistradoCitaContodoComponent } from './components/paciente-registrado/registrado-cita-contodo/registrado-cita-contodo.component';
 import { RegistradoPedirCitaComponent } from './components/paciente-registrado/registrado-pedir-cita/registrado-pedir-cita.component';
 import { LogoutComponent } from './components/shared/logout/logout.component';
+import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
@@ -122,7 +123,7 @@ export const routes: Routes = [
 
 
     //imagenes
-    //{path: 'ima', component: ImageUploadComponent},
+    {path: 'ima', component: ImageUploadComponent},
     
     { path: 'login', component: LoginComponent },
     { path: 'logout', component: LogoutComponent },

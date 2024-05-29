@@ -59,8 +59,12 @@ export class DoctorService {
 
   getUsuario(id:number):Observable<Usuario>{
     return this.httpClient.get<Usuario>(`${this.baseURL}/api/user/${id}`);
-
   }
+
+  getDoctorByUser(id:number):Observable<Doctor>{
+    return this.httpClient.get<Doctor>(`${this.baseURL}/api/doctor/user/${id}`);
+  }
+
   
 }
 
