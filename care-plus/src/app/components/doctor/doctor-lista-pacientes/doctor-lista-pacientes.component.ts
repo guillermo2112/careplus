@@ -28,7 +28,7 @@ burcador_id() {
 throw new Error('Method not implemented.');
 }
 
-  pacientes:any [] = [];
+  pacientes:Paciente [] = [];
   name:string;
   id:string;
 

@@ -19,4 +19,8 @@ export class ClinicasProfileService {
   getClinicasProfileId(id: number):Observable<ClinicaProfile>{
     return this.httpClient.get<ClinicaProfile>(`${this.baseURL}/api/clinicalprofile/${id}`);
   }
+
+  createClinicasProfile(profile:ClinicaProfile) : Observable<Object>{
+    return this.httpClient.post(`${this.baseURL}/api/clinicalprofile`,profile);
+  }
 }
