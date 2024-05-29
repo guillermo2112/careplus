@@ -34,7 +34,12 @@ export class DoctorClinicalProfileComponent {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
     this.profileService.getClinicasProfileId(this.id).subscribe(dato =>{
-      this.clinaprofile = dato;
+      console.log(dato);
+      if(!dato){
+        console.log('esta vacio'+dato);
+      }else{
+        this.clinaprofile = dato;
+      }
     });
   }
 

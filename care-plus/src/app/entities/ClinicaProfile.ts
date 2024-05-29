@@ -2,7 +2,7 @@ import { Paciente } from "./Patient";
 
 export class ClinicaProfile{
     id:number;
-    date:Date;
+    date:string;
     allergy:string;
     report:string;
     patient:Paciente;
