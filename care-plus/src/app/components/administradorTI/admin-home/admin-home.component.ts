@@ -11,7 +11,7 @@ import { HeaderComponent } from "../../shared/header/header.component";
     standalone: true,
     templateUrl: './admin-home.component.html',
     styleUrl: './admin-home.component.css',
-    imports: [AdminSidebarComponent, HeaderComponent]
+    imports: [ HeaderComponent]
 })
 export class AdminHomeComponent implements OnInit {
 

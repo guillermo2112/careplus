@@ -85,6 +85,9 @@ export class LoginComponent implements OnInit {
     //Comprueba si el usuario ya esta autentificado (NO SE SI FUNCIONA COMO DEBERIA) :)
     if (this.userService.isAuthenticated()) {
       const role = JSON.parse(sessionStorage.getItem('role') || '[]');
+
+      console.log("Rol: ",role)
+
       if (role.includes('ROLE_ADMIN')) {
         this.router.navigate(['admin-home']);
       } else if (role.includes('ROLE_DOCTOR')) {
@@ -127,6 +130,8 @@ export class LoginComponent implements OnInit {
         }
 
         sessionStorage.setItem('role', JSON.stringify(authorities));//Guarda el role aislado en el sessionStorage
+
+        console.log("ROL: ",sessionStorage.getItem('role'));
 
         //Si el role coincide con estos parametros se redirecciona 
         if (authorities.includes('ROLE_ADMIN')) {
