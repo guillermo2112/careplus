@@ -20,7 +20,7 @@
           <div class="nav-item">
             <form (ngSubmit)="burcador_id()">
               <div style="display: flex; justify-content: center; align-items: center;">
-                <input type="text" id="texto" name="texto" [(ngModel)]="id" placeholder="Buscar por id">
+                <input type="text" id="texto" name="texto" [(ngModel)]="ide" placeholder="Buscar por id">
               <button style="margin-top: 0;" type="submit">Enviar</button>
               </div>
               
@@ -48,7 +48,9 @@
             <p><span>Teléfono:</span> {{paciente.phone}}</p>
             <p><span>Teléfono de Emergencia:</span> {{paciente.emergency_phone}}</p>
             
-              <a class="visitar" (click)="goToClinicalProfile(paciente.id)">Clinical Profile</a>
+              <a class="visitar" (click)="goToClinicalProfile()">Clinical Profile</a>
+
+              <a class="visitar" (click)="ponerPerfil(paciente.id)">Crear Clinical Profile</a>
             
             
         </div>

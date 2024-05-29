@@ -28,7 +28,7 @@ export class DoctorListaPacientesComponent implements OnInit{
   pacientes_clear:Paciente [] = [];
   perfil:ClinicaProfile = new ClinicaProfile();
   name:string;
-  id:string;
+  ide:string;
 
   constructor(private paciente_service:PacienteService, private router:Router,private perfilService:ClinicasProfileService){}
 
@@ -43,9 +43,10 @@ export class DoctorListaPacientesComponent implements OnInit{
     })
   }
 
-  goToClinicalProfile(id:number){
-    //this.ponerPerfil(id);
-    this.router.navigate(['doctor-clinical-profile',id]);
+  
+
+  goToClinicalProfile(){
+    this.router.navigate(['doctor-clinical-profile',this.perfil.id]);
   }
 
   ponerPerfil(id:number){
@@ -97,11 +98,11 @@ export class DoctorListaPacientesComponent implements OnInit{
   limpiar_filtros(): void {
     this.pacientes = [...this.pacientes_clear];
     this.name = '';
-    this.id='';
+    this.ide='';
   }
 
   burcador_id(): void {
-    const id = Number(this.id);
+    const id = Number(this.ide);
 
     if (isNaN(id)) {
       Swal.fire({

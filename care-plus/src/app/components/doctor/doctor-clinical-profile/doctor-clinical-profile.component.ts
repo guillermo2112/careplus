@@ -38,6 +38,7 @@ export class DoctorClinicalProfileComponent {
       if(!dato){
         console.log('esta vacio'+dato);
       }else{
+        alert('tiene');
         this.clinaprofile = dato;
       }
     });
