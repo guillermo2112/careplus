@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 import { Router, RouterModule } from '@angular/router';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-doctor-profile',
@@ -8,8 +9,7 @@ import { Router, RouterModule } from '@angular/router';
     templateUrl: './doctor-profile.component.html',
     styleUrl: './doctor-profile.component.css',
     imports: [DoctorSidebarComponent,
-        RouterModule
-    ]
+        RouterModule, HeaderComponent]
 })
 export class DoctorProfileComponent {
 
