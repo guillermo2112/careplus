@@ -9,10 +9,10 @@ import { Provincias } from '../../../entities/Provincias';
 import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
-    selector: 'app-clinicas-admin',
+    selector: 'app-admin-clinicas',
     standalone: true,
-    templateUrl: './clinicas-admin.component.html',
-    styleUrl: './clinicas-admin.component.css',
+    templateUrl: './admin-clinicas.component.html',
+    styleUrl: './admin-clinicas.component.css',
     imports: [
         CommonModule,
         FormsModule,
@@ -21,7 +21,7 @@ import { HeaderComponent } from "../../shared/header/header.component";
         HeaderComponent
     ]
 })
-export class ClinicasAdminComponent implements OnInit{
+export class AdminClinicasComponent implements OnInit{
   
 
   constructor(

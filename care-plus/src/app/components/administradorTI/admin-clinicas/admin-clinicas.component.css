@@ -1,0 +1,59 @@
+
+
+
+.album {
+    background-color: #f8f9fa;
+    padding: 40px 0;
+}
+
+.card {
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.container-bots[_ngcontent-ng-c888671101] form[_ngcontent-ng-c888671101] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-bots[_ngcontent-ng-c3088476783] button[_ngcontent-ng-c3088476783], .container-bots[_ngcontent-ng-c3088476783] select[_ngcontent-ng-c3088476783], .container-bots[_ngcontent-ng-c3088476783] form[_ngcontent-ng-c3088476783] {
+    margin: 0px;
+}
+
+
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    border-bottom: 1px solid #ddd;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-text {
+    margin-bottom: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #144386;
+}
+
+.btn-group .btn-outline-secondary {
+    border-color: #144386;
+    color: #144386;
+}
+
+.btn-group .btn-outline-secondary:hover {
+    background-color: #144386;
+    color: white;
+}

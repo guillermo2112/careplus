@@ -6,6 +6,7 @@ import { ActivatedRoute, NavigationExtras, Router, RouterModule } from '@angular
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-admin-paciente',
@@ -17,6 +18,7 @@ import Swal from 'sweetalert2';
         RouterModule,
         CommonModule,
         FormsModule,
+        HeaderComponent
     ]
 })
 export class AdminPacienteComponent implements OnInit {

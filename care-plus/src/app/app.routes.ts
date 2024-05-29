@@ -16,12 +16,9 @@ import { AddDoctorComponent } from './components/administradorTI/add-doctor/add-
 import { DatosPacienteComponent } from './components/administradorTI/update-paciente/datos-paciente.component';
 import { AddHospitalComponent } from './components/administradorTI/add-hospital/add-hospital.component';
 import { HomeComponent } from './components/paciente/home/home.component';
-
-
 import { AdminSidebarComponent } from './components/administradorTI/admin-sidebar/admin-sidebar.component';
 import { EspecialidadesPacienteComponents } from './components/paciente/especialidadesPaciente/especialidadesPaciente.component';
-import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/doctor.component';
-import { ClinicasAdminComponent } from './components/administradorTI/admin-clinicas/clinicas-admin.component';
+import { AdminDoctorComponent } from './components/administradorTI/admin-doctor/admin-doctor.component';
 import { AdminAppointmentshiftComponent } from './components/administradorTI/admin-appointmentshift/admin-appointmentshift.component';
 import { AddCalendarComponent } from './components/administradorTI/add-calendar/add-calendar.component';
 import { AdminCalendarComponent } from './components/administradorTI/admin-calendar/admin-calendar.component';
@@ -42,9 +39,30 @@ import { RegistradoSidebarComponent } from './components/paciente-registrado/reg
 import { RegistradoHomeComponent } from './components/paciente-registrado/registrado-home/registrado-home.component';
 import { RegistradoProfileComponent } from './components/paciente-registrado/registrado-profile/registrado-profile.component';
 import { DoctorPacienteComponent } from './components/paciente/doctorPaciente/doctorPaciente.component';
+import { AdminClinicasComponent } from './components/administradorTI/admin-clinicas/admin-clinicas.component';
+import { ResgistradoCitaEspecialidadComponent } from './components/paciente-registrado/resgistrado-cita-especialidad/resgistrado-cita-especialidad.component';
+import { ResgistradoCitaProfesionalesComponent } from './components/paciente-registrado/resgistrado-cita-profesionales/resgistrado-cita-profesionales.component';
+import { ResgistradoCitaClinicasComponent } from './components/paciente-registrado/resgistrado-cita-clinicas/resgistrado-cita-clinicas.component';
+import { ResgistradoCitaContodoComponent } from './components/paciente-registrado/resgistrado-cita-contodo/resgistrado-cita-contodo.component';
+import { ResgistradoPedirCitaComponent } from './components/paciente-registrado/resgistrado-pedir-cita/resgistrado-pedir-cita.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
+
+    // ADMIN
+    {path: 'admin-clinicas', component: AdminClinicasComponent},
+    {path: 'add-hospital', component: AddHospitalComponent},
+    {path: 'admin-sidebar', component: AdminSidebarComponent},
+    {path: 'admin-doctor', component: AdminDoctorComponent},
+    {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
+    {path: 'add-appointmentshift', component: AddAppointmentshiftComponent},
+    {path: 'update-appointmentshift', component: UpdateAppointmentshiftComponent},
+    {path: 'admin-calendar', component: AdminCalendarComponent},
+    {path: 'admin-home', component: AdminHomeComponent},
+    {path: 'admin-paciente', component: AdminPacienteComponent},
+
+
+
     {path: 'navbar', component: NavbarComponent},
     {path: 'home', component: HomeComponent},
     {path: 'quienes_somos', component: QuienesSomosComponent},
@@ -60,19 +78,8 @@ export const routes: Routes = [
     {path: 'add-specialty', component: AddSpecialtyComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
-    {path: 'clinicas-admin', component: ClinicasAdminComponent},
     {path: 'clinica/:id', component: ClinicaVistaComponent},
-    {path: 'add-hospital', component: AddHospitalComponent},
-
-    {path: 'admin-sidebar', component: AdminSidebarComponent},
-   
-    {path: 'admin-doctor', component: AdminDoctorComponent},
-    {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
-    {path: 'add-appointmentshift', component: AddAppointmentshiftComponent},
-    {path: 'update-appointmentshift', component: UpdateAppointmentshiftComponent},
-
-    {path: 'admin-calendar', component: AdminCalendarComponent},
-    {path: 'admin-home', component: AdminHomeComponent},
+    
 
     {path: 'add-calendar', component: AddCalendarComponent},
     {path: 'update-calendar', component: UpdateCalendarComponent},
@@ -82,10 +89,10 @@ export const routes: Routes = [
     {path: 'update-paciente', component: DatosPacienteComponent},
     {path: 'lista_pacientes', component: DoctorListaPacientesComponent},
     {path: 'add-doctor', component: AddDoctorComponent},
+    
 
 
 
-    {path: 'admin-paciente', component: AdminPacienteComponent},
 
     // DOCTOR
     {path: 'doctor-sidebar', component: DoctorSidebarComponent},
@@ -101,10 +108,17 @@ export const routes: Routes = [
     {path: 'full-calendar', component: FullCalendarModule},
 
 
-    //registrado
+    //PACIENTE REGISTRADO
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
     {path: 'home-paciente', component: RegistradoHomeComponent},
     {path: 'home-profile', component: RegistradoProfileComponent},
+    {path: 'pedir-cita', component: ResgistradoPedirCitaComponent},
+    {path: 'cita-especialidad', component: ResgistradoCitaEspecialidadComponent},
+    {path: 'cita-profesionales', component: ResgistradoCitaProfesionalesComponent},
+    {path: 'cita-clinicas', component: ResgistradoCitaClinicasComponent},
+    {path: 'cita-contodo', component: ResgistradoCitaContodoComponent},
+
+
 
     //imagenes
     //{path: 'ima', component: ImageUploadComponent},
