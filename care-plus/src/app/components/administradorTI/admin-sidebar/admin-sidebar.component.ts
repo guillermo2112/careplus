@@ -50,7 +50,7 @@ export class AdminSidebarComponent {
       showConfirmButton: false,
     });
 
-    //this.router.navigate(['/']);
+    this.router.navigate(['/']);
   }
  
 }
