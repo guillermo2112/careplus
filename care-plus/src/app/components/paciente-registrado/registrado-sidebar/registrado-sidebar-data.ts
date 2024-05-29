@@ -6,6 +6,8 @@ export const navbarData = [
     { routeLink: 'especialidades',label: 'Especialidades',link:'/especialidadesPaciente'},
     { routeLink: 'doctor',label: 'Doctores',link:'/doctor'},
     { routeLink: 'clinicas',label: 'Clínicas',link:'/clinicas'},
+    { routeLink: 'pedircita',label: 'Pedir Cita',link:'/registrado-pedir-cita'},
+
 
     // turnos, calendarios, 
 
