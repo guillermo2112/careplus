@@ -6,13 +6,14 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { PacienteService } from '../../../services/paciente.service';
 import { HeaderComponent } from "../../shared/header/header.component";
+import { AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 
 @Component({
     selector: 'app-add-paciente',
     standalone: true,
     templateUrl: './add-paciente.component.html',
     styleUrl: './add-paciente.component.css',
-    imports: [FormsModule, HeaderComponent]
+    imports: [FormsModule, HeaderComponent, AdminSidebarComponent]
 })
 
 export class AddPacienteComponent {
