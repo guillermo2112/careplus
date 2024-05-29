@@ -57,3 +57,41 @@
     background-color: #144386;
     color: white;
 }
+
+/* PAGINACION */
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+
+.page-item {
+    margin: 0 5px;
+}
+
+.page-link {
+    color: #144386;
+    border: 1px solid #144386;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.page-link:hover {
+    background-color: #144386;
+    color: white;
+    text-decoration: none;
+}
+
+.page-item.active .page-link {
+    background-color: #144386;
+    color: white;
+    border-color: #144386;
+}
+
+.page-item.disabled .page-link {
+    color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
