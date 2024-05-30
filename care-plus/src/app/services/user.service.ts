@@ -86,7 +86,6 @@ export class UserService {
     sessionStorage.clear();
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('user');
-    this.router.navigate(['/']);
   }
 
   getUserByUsername(username:string):Observable<Usuario>{
