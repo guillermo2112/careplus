@@ -24,7 +24,18 @@ export class ClinicasProfileService {
     return this.httpClient.post(`${this.baseURL}/api/clinicalprofile`,profile);
   }
 
-  comprobarPelfilClinico(id:number){
-    return this.httpClient.get(`${this.baseURL}/api/patient/clinicalprofile/${id}`);
+  comprobarPelfilClinico(id:number):Promise<boolean>{
+    return new Promise((resolve, reject) => {
+      return this.httpClient.get<any>(`${this.baseURL}/api/patient/clinicalprofile/${id}`).subscribe(response => {
+        if (response === true) {
+            resolve(true);
+        } else {
+            resolve(false);
+        } 
+      }, error => {
+          reject(error);
+      });
+    });
   }
+
 }
