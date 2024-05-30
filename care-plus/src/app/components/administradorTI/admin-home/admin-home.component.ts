@@ -29,9 +29,11 @@ export class AdminHomeComponent implements OnInit {
     ) {}
   
     ngOnInit(): void {
+      this.validarAdmin();
       this.contadorHospital();
       this.contadorDoctor();
       this.contadorPaciente();
+      
 
       
     }
@@ -52,6 +54,28 @@ export class AdminHomeComponent implements OnInit {
           this.pacienteCount = paciente.length;
         });
       }
+
+  
+
+    validarAdmin(): void{
+
+      let rol:String = sessionStorage.getItem('role');
+      let resultado:Boolean = false;
+      console.log("Rol:", rol);
+
+      if(rol == `["ROLE_ADMIN"]`){
+        console.log("Es Admin");
+      } else if (rol == `["ROLE_DOCTOR"]`){
+        console.log("Es Doctor");
+        this.router.navigate(['/doctor-profile']);
+      } else if (rol == `["ROLE_PATIENT"]`){
+        console.log("Es Paciente");
+        this.router.navigate(['/regitrado-profile']);
+      }
+
+
+     
+    }
 
 
 
