@@ -1,15 +1,23 @@
 <app-header></app-header>
+<app-registrado-sidebar></app-registrado-sidebar>
 <div class="contenedorcitas">
-    <div>
-        <div><i class="bi bi-heart-pulse"></i></div>
+<div class="encabezado">¿Cómo quieres buscar tu cita?</div>
+<div class="contenedorboxes">
+  
+    <div class="box" (click)="goToEspecialidad()">
+        
+        <div class="icono"><i class="bi bi-heart-pulse"></i></div>
         <p>Por Especialidad</p>
+  
     </div>
-    <div>
-        <div><i class="bi bi-hospital"></i></div>
+
+    <div class="box" (click)="goToClinicas()">
+        <div class="icono"><i class="bi bi-hospital"></i></div>
         <p>Por Clínica</p>
     </div>
-    <div>
-        <div><i class="bi bi-person-lines-fill"></i></div>
+    <div class="box" (click)="goToProfesionales()">
+        <div class="icono"><i class="bi bi-person-lines-fill"></i></div>
         <p>Por Profesional</p>
     </div>
+</div>
 </div>
