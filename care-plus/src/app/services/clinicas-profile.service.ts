@@ -38,4 +38,8 @@ export class ClinicasProfileService {
     });
   }
 
+  updateProfile(id:number, profile:ClinicaProfile) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/api/clinicalprofile/${id}`, profile);
+  }
+
 }

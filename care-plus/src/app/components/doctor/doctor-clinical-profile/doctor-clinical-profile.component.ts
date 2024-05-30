@@ -38,7 +38,6 @@ export class DoctorClinicalProfileComponent {
       if(!dato){
         console.log('esta vacio'+dato);
       }else{
-        alert('tiene');
         this.clinaprofile = dato;
       }
     });
@@ -46,9 +45,11 @@ export class DoctorClinicalProfileComponent {
 
   onSubmit() {
 
+    this.profileService.updateProfile(this.id,this.clinaprofile).subscribe(dato => {});
     Swal.fire({
-      icon:'info',
-      title:'FormSubmit'
+      icon:'success',
+      title:'Success',
+      text:'Perfil clinico actualizado correctamente'
     })
   }
 
