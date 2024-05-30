@@ -13,6 +13,8 @@ export class DoctorService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
 
+  private baseURL2 = 'http://localhost:8080';
+
   constructor(private httpClient : HttpClient) { }
 
 

@@ -28,4 +28,9 @@ export class CalendarService {
   getByYd(id: number): Observable<Calendar> {
     return this.httpClient.get<Calendar>(`${this.baseURL}/api/calendar/${id}`);
   }
+
+  getCalendarByDoctor(doctorid:number): Observable<Calendar[]>{
+    return this.httpClient.get<Calendar[]>(`${this.baseURL2}/api/calendar/calendars/${doctorid}`);
+
+  }
 }
