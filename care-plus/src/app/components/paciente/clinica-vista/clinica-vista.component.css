@@ -91,3 +91,40 @@ img{
     transition: 0.5s;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    section {
+        padding: 20px;
+        flex-direction: column;
+    }
+
+    img {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .datos {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .datos h3 {
+        font-size: 1.5rem;
+    }
+
+    .datos .provincia, .datos div {
+        font-size: 0.875rem;
+    }
+
+    .estado {
+        margin-top: 10px;
+    }
+
+    .volver {
+        text-align: center;
+    }
+
+    .volver-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }}
