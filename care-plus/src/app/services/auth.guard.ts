@@ -7,7 +7,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   const requiredRole = route.data?.['role'] as string;
   
   const token = sessionStorage.getItem('token');
-  const roles = JSON.parse(sessionStorage.getItem('role') || '[]');
+  const roles = JSON.parse(sessionStorage.getItem('role'));
 
   if (token && roles.includes(requiredRole)) {
     return true;
