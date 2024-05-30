@@ -68,7 +68,6 @@ export const routes: Routes = [
     {path: 'admin-home', component: AdminHomeComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
     {path: 'admin-paciente', component: AdminPacienteComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
     {path: 'update-doctor', component: UpdateDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
-    {path: 'update-doctor', component: UpdateDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
     {path: 'update-specialty', component: UpdateSpecialtyComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
     {path: 'add-specialty', component: AddSpecialtyComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
     {path: 'add-calendar', component: AddCalendarComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
