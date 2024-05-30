@@ -48,12 +48,12 @@ export class UserService {
   }
   saveToken(accessToken: string): void {
     this._token = accessToken;
-    sessionStorage.setItem('token', accessToken);
+    //sessionStorage.setItem('token', accessToken);
   }
   saveRole(accessToken: string): void {
     let payload = this.getDataToken(accessToken);
     this._role = payload.authorities;
-    sessionStorage.setItem('role', JSON.stringify(this._role));
+    //sessionStorage.setItem('role', JSON.stringify(this._role));
   }
   getDataToken(accessToken: string): any {
     if (accessToken != null) {

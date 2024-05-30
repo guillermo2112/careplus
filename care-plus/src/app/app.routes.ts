@@ -47,63 +47,68 @@ import { RegistradoCitaContodoComponent } from './components/paciente-registrado
 import { RegistradoPedirCitaComponent } from './components/paciente-registrado/registrado-pedir-cita/registrado-pedir-cita.component';
 import { LogoutComponent } from './components/shared/logout/logout.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { authGuard } from './services/auth.guard';
+
 
 export const routes: Routes = [
     {path: '', redirectTo:'home',pathMatch:'full'},
 
+    {path: 'inicio_sesion', component: LoginComponent},
+
+
     // ADMIN
-    {path: 'admin-clinicas', component: AdminClinicasComponent},
-    {path: 'add-hospital', component: AddHospitalComponent},
-    {path: 'admin-sidebar', component: AdminSidebarComponent},
-    {path: 'admin-doctor', component: AdminDoctorComponent},
-    {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent},
-    {path: 'add-appointmentshift', component: AddAppointmentshiftComponent},
-    {path: 'update-appointmentshift', component: UpdateAppointmentshiftComponent},
-    {path: 'admin-calendar', component: AdminCalendarComponent},
-    {path: 'admin-home', component: AdminHomeComponent},
-    {path: 'admin-paciente', component: AdminPacienteComponent},
+    {path: 'admin-clinicas', component: AdminClinicasComponent ,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'add-hospital', component: AddHospitalComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-sidebar', component: AdminSidebarComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-doctor', component: AdminDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-appointmentshift', component: AdminAppointmentshiftComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'add-appointmentshift', component: AddAppointmentshiftComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'update-appointmentshift', component: UpdateAppointmentshiftComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-calendar', component: AdminCalendarComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-home', component: AdminHomeComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-paciente', component: AdminPacienteComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'update-doctor', component: UpdateDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'update-doctor', component: UpdateDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'update-specialty', component: UpdateSpecialtyComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'add-specialty', component: AddSpecialtyComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'add-calendar', component: AddCalendarComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'update-calendar', component: UpdateCalendarComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'update-hospital', component: UpdateHospitalComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'add_paciente', component: AddPacienteComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'update-paciente', component: DatosPacienteComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'lista_pacientes', component: DoctorListaPacientesComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' } },
+    {path: 'add-doctor', component: AddDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
 
 
 
+
+
+    //VISTA
     {path: 'navbar', component: NavbarComponent},
     {path: 'home', component: HomeComponent},
     {path: 'quienes_somos', component: QuienesSomosComponent},
     {path: 'doctorPaciente', component: DoctorPacienteComponent},
     {path: 'doctor-vista/:id', component: DoctorVistaComponent},
-    {path: 'update-doctor', component: UpdateDoctorComponent},
-    {path: 'inicio_sesion', component: LoginComponent},
     {path: 'especialidades', component: EspecialidadesComponent},
     {path: 'admin-especialidades', component: EspecialidadesComponent},
     {path: 'especialidadesPaciente', component: EspecialidadesPacienteComponents},
-
-    {path: 'update-specialty', component: UpdateSpecialtyComponent},
-    {path: 'add-specialty', component: AddSpecialtyComponent},
     {path: 'contacto', component: ContactoComponent},
     {path: 'clinicas', component: ClinicasComponent},
     {path: 'clinica/:id', component: ClinicaVistaComponent},
     
 
-    {path: 'add-calendar', component: AddCalendarComponent},
-    {path: 'update-calendar', component: UpdateCalendarComponent},
+  
    
-    {path: 'update-hospital', component: UpdateHospitalComponent},
-    {path: 'add_paciente', component: AddPacienteComponent},
-    {path: 'update-paciente', component: DatosPacienteComponent},
-    {path: 'lista_pacientes', component: DoctorListaPacientesComponent},
-    {path: 'add-doctor', component: AddDoctorComponent},
-    
-
-
-
+   
 
     // DOCTOR
-    {path: 'doctor-sidebar', component: DoctorSidebarComponent},
-    {path: 'doctor-home', component: DoctorHomeComponent},
+    {path: 'doctor-sidebar', component: DoctorSidebarComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
+    {path: 'doctor-home', component: DoctorHomeComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
     {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
-    {path: 'doctor-profile', component: DoctorProfileComponent},
-    {path: 'doctor-clinical-profile/:id', component: DoctorClinicalProfileComponent},
-    {path: 'doctor-citas', component: DoctorCitasComponent},
-    {path: 'doctor-calendarios', component: DoctorCalendariosComponent},
+    {path: 'doctor-profile', component: DoctorProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
+    {path: 'doctor-clinical-profile/:id', component: DoctorClinicalProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
+    {path: 'doctor-citas', component: DoctorCitasComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
+    {path: 'doctor-calendarios', component: DoctorCalendariosComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
 
 
     // CALENDARIO
@@ -111,14 +116,14 @@ export const routes: Routes = [
 
 
     //PACIENTE REGISTRADO
-    {path: 'registrado-sidebar', component: RegistradoSidebarComponent},
-    {path: 'registrado-home', component: RegistradoHomeComponent},
-    {path: 'regitrado-profile', component: RegistradoProfileComponent},
-    {path: 'registrado-pedir-cita', component: RegistradoPedirCitaComponent},
-    {path: 'registrado-cita-especialidad', component: RegistradoCitaEspecialidadComponent},
-    {path: 'registrado-cita-profesionales', component: RegistradoCitaProfesionalesComponent},
-    {path: 'registrado-cita-clinicas', component: RegistradoCitaClinicasComponent},
-    {path: 'registrado-cita-contodo', component: RegistradoCitaContodoComponent},
+    {path: 'registrado-sidebar', component: RegistradoSidebarComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-home', component: RegistradoHomeComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'regitrado-profile', component: RegistradoProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-pedir-cita', component: RegistradoPedirCitaComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-cita-especialidad', component: RegistradoCitaEspecialidadComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-cita-profesionales', component: RegistradoCitaProfesionalesComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-cita-clinicas', component: RegistradoCitaClinicasComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-cita-contodo', component: RegistradoCitaContodoComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
 
 
 
