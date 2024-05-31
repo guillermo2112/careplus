@@ -6,7 +6,6 @@
     gap: 1rem; 
 }
 
-
 .container-bots div {
     display: flex;
     justify-content: center; 
@@ -64,6 +63,7 @@
     cursor: pointer;
     z-index: 2;
     position: relative;
+    padding: 0;
 }
 .logo-container-collapsed, .sidenav-collapsed {
     background-color: #144386;
@@ -71,25 +71,7 @@
     transition: all .5s ease;
  
 }
- 
-/* Estilo de la barra de desplazamiento */
-.sidenav::-webkit-scrollbar {
-    width: 8px;
-}
- 
-.sidenav::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-}
- 
-.sidenav::-webkit-scrollbar-thumb:hover {
-    background-color: #555;
-}
- 
-.sidenav::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-    border-radius: 4px;
-}
+
 .logo{
     background: #9e9090;
     text-align: center;
@@ -121,12 +103,12 @@
 .logo[_ngcontent-ng-c1385984364] {
     background: #144386;
     color: whitesmoke;
+    padding: 0;
 }
  
  
 .sidenav-collapsed {
     width: 16.5625rem;
-    overflow-y: auto;
 }
  
 .sidenav-nav{
@@ -179,25 +161,38 @@
     .sidenav-collapsed {
       width: 100%;
     }
- 
-    .logo-container {
-      padding: 1rem 0;
-    }
+
  
     .sidenav-nav {
-      flex-direction: column; /* Cambiar la dirección del flexbox a columna */
-      align-items: flex-start; /* Alinear los elementos al inicio */
-      padding: 0; /* Eliminar el relleno para ajustar correctamente los elementos */
+      flex-direction: column;
+      align-items: flex-start; 
+      padding: 0; 
     }
  
     .sidenav-nav-item {
-      width: auto; /* Ancho automático para los elementos de la lista */
-      height: auto; /* Altura automática para los elementos de la lista */
-      margin: 0.325rem 0; /* Margen superior e inferior para separar los elementos */
+      width: auto;
+      height: auto; 
+      margin: 0.325rem 0; 
     }
  
     .sidenav-link-text {
-      margin-left: 0; /* Eliminar el margen izquierdo para los textos */
-      margin-right: 1rem; /* Añadir un margen derecho para separar los textos del icono */
+      margin-left: 0;
     }
   }
+
+  .logo{
+    background-color: #144386;
+    color: rgb(255, 255, 255);
+    padding: 0;
+}
+.fas {
+    color: white;
+}
+.btn-close {
+    --bs-btn-close-color: #ffffff !important;
+    color: white;
+}
+ 
+.sidenav-nav {
+    margin-left: 2rem;
+}
