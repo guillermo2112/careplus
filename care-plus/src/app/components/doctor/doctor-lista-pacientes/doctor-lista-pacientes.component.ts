@@ -49,6 +49,17 @@ export class DoctorListaPacientesComponent implements OnInit {
     });
   }
 
+  // async existe_clinical_profile(id:number){
+
+  //   let existProfile: boolean = await this.perfilService.comprobarPelfilClinico(id);
+  //   console.log(existProfile);
+  //   if(existProfile){
+  //     return true
+  //   }else{
+  //     return false;
+  //   }
+  // }
+
   async existe_clinical_profile(id:number){
 
     let existProfile: Boolean = await this.perfilService.comprobarPelfilClinico(id);
@@ -127,7 +138,7 @@ export class DoctorListaPacientesComponent implements OnInit {
 
     if (this.pacientes.length === 0) {
       Swal.fire({
-        title: "Mantenimiento",
+        title: "Error",
         text: "No se han encontrado doctores con el id buscado",
         icon: "error"
       });

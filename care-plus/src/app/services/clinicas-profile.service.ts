@@ -28,6 +28,7 @@ export class ClinicasProfileService {
     return new Promise((resolve, reject) => {
       return this.httpClient.get<any>(`${this.baseURL}/api/patient/clinicalprofile/${id}`).subscribe(response => {
         if (response === true) {
+          console.log(response);
             resolve(true);
         } else {
             resolve(false);
