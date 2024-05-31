@@ -42,4 +42,8 @@ export class ClinicasProfileService {
     return this.httpClient.put(`${this.baseURL}/api/clinicalprofile/${id}`, profile);
   }
 
+  devolverPerfilId(id:number) : Observable<Object>{
+    return this.httpClient.get(`${this.baseURL}/api/patient/clinicalprofileid/${id}`);
+  }
+
 }

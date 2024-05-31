@@ -45,12 +45,16 @@ export class DoctorListaPacientesComponent implements OnInit{
 
   async existe_clinical_profile(id:number){
 
-    let existProfile: Boolean = await this.perfilService.comprobarPelfilClinico(id);
-    return existProfile;
+    let existProfile: boolean = await this.perfilService.comprobarPelfilClinico(id);
+    if(existProfile){
+      return true
+    }else{
+      return false;
+    }
   }
 
-  goToClinicalProfile(){
-    this.router.navigate(['doctor-clinical-profile',this.perfil.id]);
+  goToClinicalProfile(id:number){
+    this.router.navigate(['doctor-clinical-profile',id]);
   }
 
   ponerPerfil(id:number){
