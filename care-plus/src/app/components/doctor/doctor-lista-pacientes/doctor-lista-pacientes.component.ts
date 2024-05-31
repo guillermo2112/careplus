@@ -38,23 +38,40 @@ export class DoctorListaPacientesComponent implements OnInit{
 
   obtener_pacientes(){
     this.paciente_service.getPatient().subscribe(dato =>{
+      console.log(dato);
       this.pacientes=dato;
       this.pacientes_clear=dato;
+      // this.existe_clinical_profile(dato);
     })
   }
 
-  async existe_clinical_profile(id:number){
+  // async existe_clinical_profile(id:number){
 
-    let existProfile: boolean = await this.perfilService.comprobarPelfilClinico(id);
-    if(existProfile){
-      return true
-    }else{
-      return false;
+  //   let existProfile: boolean = await this.perfilService.comprobarPelfilClinico(id);
+  //   console.log(existProfile);
+  //   if(existProfile){
+  //     return true
+  //   }else{
+  //     return false;
+  //   }
+  // }
+
+  async existe_clinical_profile(id:number){
+    try {
+      
+        let existeDni: Boolean = await this.perfilService.comprobarPelfilClinico(id);
+        
+       console.log(existeDni);
+      
+    } catch (error) {
+      console.error("Error validando el DNI", error);
     }
   }
 
   goToClinicalProfile(id:number){
-    this.router.navigate(['doctor-clinical-profile',id]);
+    this.perfilService.devolverPerfilId(id).subscribe(dato =>{
+      this.router.navigate(['doctor-clinical-profile',dato]);
+    })
   }
 
   ponerPerfil(id:number){
