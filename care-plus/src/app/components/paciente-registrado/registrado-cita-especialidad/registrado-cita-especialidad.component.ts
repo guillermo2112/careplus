@@ -8,6 +8,7 @@ import { Specialty } from '../../../entities/specialty';
 import { FormsModule } from '@angular/forms';
 import { HospitalService } from '../../../services/hospital.service';
 import { Provincias } from '../../../entities/Provincias';
+import { Hospital } from '../../../entities/Hospital';
 
 @Component({
   selector: 'app-registrado-cita-especialidad',
@@ -23,26 +24,28 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     province:any[] = [];
     provincias: Provincias []= [];
     hospital:any[] = [];
+    hospitales: Hospital[] = []; 
+    selectedProvince: Provincias; 
+    selectedHospital: Hospital;
   
     constructor(
       private specialtyService: SpecialtyService,
-    private hospital_service:HospitalService,
-
+      private hospital_service:HospitalService,
       private router: Router
     ) {}
   
     ngOnInit(): void {
         this.list_provincias();
-    this.obtener_hospital();
+        this.obtener_hospital();
 
-      this.specialtyService.listSpecialty().subscribe(
-        (data: Specialty[]) => {
-          this.specialties = data;
-        },
-        error => {
-          console.error('Error al hacer el fetch', error);
-        }
-      );
+        this.specialtyService.listSpecialty().subscribe(
+          (data: Specialty[]) => {
+            this.specialties = data;
+          },
+          error => {
+            console.error('Error al hacer el fetch', error);
+          }
+        );
     }
   
     onSpecialtyChange(event: any): void {
@@ -54,33 +57,26 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     private obtener_hospital(){
         this.hospital_service.obtener_hospitales().subscribe(dato => {
           this.hospital = dato;
-        //   this.hospital_clear = dato;
-          
         });
-      }
+    }
       
-
     list_provincias(){
         this.hospital_service.obtener_provincias().subscribe(dato => {
           this.provincias = dato;
         });
-      }
+    }
 
-      provinciasAll(event: Event): void {
+    provinciasAll(event: Event): void {
         const selectElement = event.target as HTMLSelectElement;
-        const selectedProvince = selectElement.options[selectElement.selectedIndex].text;
-        this.buscar_provincia(selectedProvince);
-      }
-      buscar_provincia(provincia:string){
-        // this.limpiar_filtros();
-        this.hospital = this.hospital.filter(hospital => hospital.province.name.toLowerCase().startsWith(provincia.toLowerCase()));
-        if (this.hospital.length === 0) {
-          Swal.fire({
-            title: "Opps...",
-            text:"No se han encontrado clinicas con la provincia buscada",
-            icon: "error"
-          });
-        //   this.limpiar_filtros();
-        }
-      }
+        const selectedProvinceId = selectElement.value;
+        this.selectedProvince = this.provincias.find(provincia => provincia.id === +selectedProvinceId);
+        // this.hospitalesAll(this.selectedProvince);
+    }
+
+    hospitalesAll(event: Event): void {
+        const selectElement = event.target as HTMLSelectElement;
+        const selectedHospitalId = selectElement.value;
+        this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
+        // this.hospitalesPorProvincia(this.selectedProvince.id);
+    }
 }
