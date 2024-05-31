@@ -25,7 +25,7 @@
                                 </div>
 
                                 @if(selectedProvince){
-<div>
+                                <div>
                                 <label for="specialty-select">Elige una clinicas: </label>
                                
                                     <select id="hospital-select" class="custom-select" name="hospitales" (change)="hospitalesAll($event)">
@@ -34,10 +34,11 @@
                                         }                                </select>
                                 </div>
 
-
+                            
                        
                             
                         }
+                    </div>
                         @if(selectedProvince){
                             <select id="specialty-select" class="custom-select" (change)="onSpecialtyChange($event)">
                                 @for (specialty of specialties; track $index) {
@@ -48,9 +49,10 @@
                             </select>
                         }
                         </fieldset>
+                    
                     </form>
                 </div>
             </div>
-        </div>
+        
     </div>
 </div>
