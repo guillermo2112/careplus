@@ -1,3 +1,41 @@
 <app-header></app-header>
 <app-registrado-sidebar></app-registrado-sidebar>
-<p>resgistrado-cita-especialidad works!</p>
+<div class="container contenedorform">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Cita</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Especialidad</li>
+            </ol>
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <form>
+                        <fieldset>
+                            <legend>Especialidad</legend>
+                            <div>
+                                <label for="specialty-select">Elige una especialidad: </label>
+                                <select id="specialty-select" (change)="onSpecialtyChange($event)">
+                                    @for (specialty of specialties; track $index) {
+                                  <option [value]="specialty.id">
+                                    {{ specialty.name }}
+                                  </option>
+                                }
+                                </select>
+                              </div>
+
+                              <div>
+                                <label for="specialty-select">Elige una especialidad: </label>
+                                <select name="filtros" (change)="provinciasAll($event)">
+                  @for(provincia of provincias; track provincia.id){
+                    <option value={{provincia.id}}>{{provincia.name}}</option>
+                  }
+                </select>
+                              </div>
+                            <!-- <button type="submit" class="btn btn-primary" [disabled]="specialtyNgModel.invalid">Submit</button> -->
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

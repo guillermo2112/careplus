@@ -1,0 +1,28 @@
+
+.contenedorform {
+    margin-top: 5rem;
+}
+.breadcrumb {
+    /* font-size: smaller; */
+}
+.form-control:disabled,
+.form-select:disabled {
+    background-color: white;
+    opacity: 1;
+    font-size: 1rem; /* Ajusta el tamaño de la fuente según tus necesidades */
+    color: #495057; /* Ajusta el color de la fuente según tus necesidades */
+}
+.form-control,
+.form-select {
+    width: 100%; /* Asegura que ambos tengan el mismo ancho */
+    height: 38px; /* Ajusta la altura según tus necesidades */
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}

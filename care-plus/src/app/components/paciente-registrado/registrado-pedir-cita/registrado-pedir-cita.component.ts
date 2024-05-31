@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
 import { Router } from '@angular/router';
+import { LogoComponent } from "../../shared/logo/logo.component";
 
 @Component({
     selector: 'app-registrado-pedir-cita',
     standalone: true,
     templateUrl: './registrado-pedir-cita.component.html',
     styleUrl: './registrado-pedir-cita.component.css',
-    imports: [HeaderComponent, RegistradoSidebarComponent]
+    imports: [HeaderComponent, RegistradoSidebarComponent, LogoComponent]
 })
 export class RegistradoPedirCitaComponent {
 

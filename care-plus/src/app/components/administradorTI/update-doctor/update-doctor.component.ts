@@ -9,11 +9,15 @@ import { SpecialtyService } from '../../../services/specialty.service';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { Usuario } from '../../../entities/usuario';
 import { OnDutty } from '../../../entities/OnDutty';
+import { UploadService } from '../../../services/upload.service';
+import { NgxDropzoneModule } from 'ngx-dropzone';
+import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-update-doctor',
   standalone: true,
-  imports: [FormsModule, NgSelectModule],
+  imports: [FormsModule, NgSelectModule, NgxDropzoneModule, CommonModule],
   templateUrl: './update-doctor.component.html',
   styleUrl: './update-doctor.component.css',
 })
@@ -37,10 +41,14 @@ export class UpdateDoctorComponent implements OnInit {
     private doctorService: DoctorService,
     private specialityService: SpecialtyService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private uploadService: UploadService
   ) {
     this.doctor = new Doctor();
   }
+
+  files: File[] = [];
+
 
   ngOnInit(): void {
     this.doctorId = history.state.doctorId;
@@ -56,8 +64,10 @@ export class UpdateDoctorComponent implements OnInit {
     this.doctorService.getDoctorId(this.doctorId).subscribe((data) => {
       this.doctor = data;
       this.selectedOnDutty = this.doctor.user.onDutty;
+      this.doctorId = data.id;
     });
   }
+  
 
   findSpecialties() {
     this.specialityService.listSpecialty().subscribe((data) => {
@@ -88,6 +98,46 @@ export class UpdateDoctorComponent implements OnInit {
 
   goToListDoctor() {
     this.router.navigate(['/admin-doctor']);
+  }
+
+  onSelect(event: any) {
+    console.log(event);
+    const validFiles = event.addedFiles.filter((file: File) => file.type === 'image/jpeg');
+    if (validFiles.length !== event.addedFiles.length) {
+      alert('Solo se pueden subir archivos .jpg');
+    } else {
+      this.files = validFiles;
+    }
+  }
+
+  onRemove(event: any) {
+    console.log(event);
+    this.files.splice(this.files.indexOf(event), 1);
+  }
+
+  uploadImage(doctorId: number) {
+    if (this.files.length === 0) return false;
+
+    const fileData = this.files[0];
+
+    const data = new FormData();
+    data.append('file', fileData);
+    data.append('upload_preset', 'cloudinary-images');
+    data.append('cloud_name', 'dxltzkffz');
+    data.append('public_id', doctorId.toString()); // Usar doctorId como public_id
+
+    this.uploadService.uploadImg(data).subscribe({
+      next: (response: any) => {
+        console.log(response);
+        alert('Imagen subida exitosamente');
+      },
+      error: (error: any) => {
+        console.log('Error status:', error.status);
+        console.log('Error message:', error.message);
+        console.log('Error body:', error.error);
+      }
+    });
+    return true;
   }
 
   onSubmit() {

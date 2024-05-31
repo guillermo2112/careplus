@@ -28,6 +28,7 @@ export class ClinicasProfileService {
     return new Promise((resolve, reject) => {
       return this.httpClient.get<any>(`${this.baseURL}/api/patient/clinicalprofile/${id}`).subscribe(response => {
         if (response === true) {
+          console.log(response);
             resolve(true);
         } else {
             resolve(false);
@@ -40,6 +41,10 @@ export class ClinicasProfileService {
 
   updateProfile(id:number, profile:ClinicaProfile) : Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/api/clinicalprofile/${id}`, profile);
+  }
+
+  devolverPerfilId(id:number) : Observable<Object>{
+    return this.httpClient.get(`${this.baseURL}/api/patient/clinicalprofileid/${id}`);
   }
 
 }
