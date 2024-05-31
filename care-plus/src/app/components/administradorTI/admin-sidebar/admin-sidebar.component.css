@@ -1,4 +1,12 @@
 .logo{
     background-color: #144386;
+    color: rgb(255, 255, 255);
+    padding: 0;
+}
+.fas {
+    color: white;
+}
+.btn-close {
+    --bs-btn-close-color: #ffffff !important;
     color: white;
 }
