@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 import { Doctor } from '../entities/Doctor';
 import { Observable } from 'rxjs';
-import { Usuario } from '../entities/usuario';
+import { OnDutty, Usuario } from '../entities/usuario';
 import { HttpClient } from '@angular/common/http';
 import { Specialty } from '../entities/specialty';
 
@@ -64,6 +64,10 @@ export class DoctorService {
   getDoctorByUser(id:number):Observable<Doctor>{
     return this.httpClient.get<Doctor>(`${this.baseURL}/api/doctor/user/${id}`);
   }
+
+  // getDoctorOnDutty(ondutty:number):Observable<OnDutty>{
+  //   return this.httpClient.get<Doctor>(`${this.baseURL}/api/doctor/user/${id}`);
+  // }
 
   
 }
