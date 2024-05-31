@@ -83,7 +83,12 @@ export class AdminDoctorComponent implements OnInit {
   }
 
   updateDoctor(id: number) {
-    this.router.navigate(['update-doctor', id]);
+    const navigationExtras: NavigationExtras = {
+      state: {
+        doctorId: id,
+      },
+    };
+    this.router.navigate(['update-doctor'], navigationExtras);
   }
 
   goToCreate(){

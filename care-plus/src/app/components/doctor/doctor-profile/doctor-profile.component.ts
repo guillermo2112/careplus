@@ -51,9 +51,11 @@ export class DoctorProfileComponent implements OnInit{
     }
 
     getDoctor(id:number){
-    this.doctorService.getDoctorByUser(id).subscribe(
-        data=>{
-            this.doctor=data;
-        })
-    }
+    this.doctorService
+    .getDoctorByUser(id)
+    .subscribe((data)=>{
+    this.doctor=data;
+   
+    })
+}
 }

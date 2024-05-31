@@ -46,5 +46,9 @@ export class PacienteService {
     });
   }
 
+  getPatientByUser(id:number):Observable<Paciente>{
+    return this.httpClient.get<Paciente>(`${this.baseURL}/api/patient/user/${id}`);
+  }
+
 
 }

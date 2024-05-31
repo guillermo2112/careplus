@@ -84,6 +84,7 @@ export class LoginComponent implements OnInit {
         });
       });
     }
+    //Comprueba si el usuario ya esta autentificado (NO SE SI FUNCIONA COMO DEBERIA) :)
     if (this.userService.isAuthenticated()) {
       const role = JSON.parse(sessionStorage.getItem('role') || '[]');
       if (role.includes('ROLE_ADMIN')) {
@@ -122,7 +123,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     this.userService.login(this.user).subscribe(
       data => {
-        sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('token', data.token);//Guarda token en el sessionStorage
         this.saveRoleAndRedirect(data.token); 
       },
       error => {
@@ -133,11 +134,12 @@ export class LoginComponent implements OnInit {
 
   saveRoleAndRedirect(accessToken: string): void {
     try {
-        const payload: any = jwtDecode(accessToken);
+        const payload: any = jwtDecode(accessToken);//Desencripta el token y saca las authenties
         let authorities = [];
-        const authoritiesString = JSON.stringify(payload.authorities);
+        const authoritiesString = JSON.stringify(payload.authorities);//lo pasa a string
 
 
+        //Busca en la cadena String para ver si coincide con estos roles
         if (authoritiesString.includes('ROLE_ADMIN')) {
             authorities.push('ROLE_ADMIN');
         }
@@ -148,8 +150,9 @@ export class LoginComponent implements OnInit {
             authorities.push('ROLE_PATIENT');
         }
 
-        sessionStorage.setItem('role', JSON.stringify(authorities));
+        sessionStorage.setItem('role', JSON.stringify(authorities));//Guarda el role aislado en el sessionStorage
 
+        //Si el role coincide con estos parametros se redirecciona 
         if (authorities.includes('ROLE_ADMIN')) {
             this.router.navigate(['admin-home']);
         } else if (authorities.includes('ROLE_DOCTOR')) {
