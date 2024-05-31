@@ -10,15 +10,15 @@ import { log } from 'console';
 import { DoctorService } from '../../../services/doctor.service';
 import { Doctor } from '../../../entities/Doctor';
 import { S } from '@fullcalendar/core/internal-common';
+import { HeaderComponent } from "../header/header.component";
  
 @Component({
-  selector: 'app-login',
-  standalone: true,
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
-  imports: [LogoComponent,FormsModule,
-      RouterModule
-  ]
+    selector: 'app-login',
+    standalone: true,
+    templateUrl: './login.component.html',
+    styleUrl: './login.component.css',
+    imports: [LogoComponent, FormsModule,
+        RouterModule, HeaderComponent]
 })
 export class LoginComponent implements OnInit {
  
