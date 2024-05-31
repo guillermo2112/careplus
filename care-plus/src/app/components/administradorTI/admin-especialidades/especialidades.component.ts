@@ -47,6 +47,7 @@ export class EspecialidadesComponent implements OnInit {
   private listSpecialty() {
     this.specialtyService.listSpecialty().subscribe((data) => {
       this.specialty = data;
+      this.specialty_clear = data;
     });
   }
 
