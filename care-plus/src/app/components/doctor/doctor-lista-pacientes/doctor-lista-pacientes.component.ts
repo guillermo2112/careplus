@@ -40,13 +40,15 @@ export class DoctorListaPacientesComponent implements OnInit {
     this.obtener_pacientes();
   }
 
-  obtener_pacientes() {
-    this.paciente_service.getPatient().subscribe(dato => {
-      this.pacientes = dato;
-      this.pacientes_clear = dato;
+  obtener_pacientes(){
+    this.paciente_service.getPatient().subscribe(dato =>{
+      console.log(dato);
+      this.pacientes=dato;
+      this.pacientes_clear=dato;
+      // this.existe_clinical_profile(dato);
+    })
       this.totalPag = Math.ceil(this.pacientes.length / this.tamañoPag);
       this.paginatePacientes();
-    });
   }
 
   // async existe_clinical_profile(id:number){
@@ -61,13 +63,21 @@ export class DoctorListaPacientesComponent implements OnInit {
   // }
 
   async existe_clinical_profile(id:number){
-
-    let existProfile: Boolean = await this.perfilService.comprobarPelfilClinico(id);
-    return existProfile;
+    try {
+      
+        let existeDni: Boolean = await this.perfilService.comprobarPelfilClinico(id);
+        
+       console.log(existeDni);
+      
+    } catch (error) {
+      console.error("Error validando el DNI", error);
+    }
   }
 
-  goToClinicalProfile(){
-    this.router.navigate(['doctor-clinical-profile',this.perfil.id]);
+  goToClinicalProfile(id:number){
+    this.perfilService.devolverPerfilId(id).subscribe(dato =>{
+      this.router.navigate(['doctor-clinical-profile',dato]);
+    })
   }
 
   ponerPerfil(id: number) {
@@ -81,10 +91,14 @@ export class DoctorListaPacientesComponent implements OnInit {
     this.perfil.date = this.getFormattedDate();
     this.perfil.allergy = '';
     this.perfil.report = '';
-    this.perfilService.createClinicasProfile(this.perfil).subscribe(dato => {
-      console.log(this.perfil);
-      alert();
+    this.perfilService.createClinicasProfile(this.perfil).subscribe(dato =>{
+      Swal.fire({
+        title: "Enorabuena!",
+        text: "Perfil clinico creado con exito",
+        icon: "success"
+      });
     });
+
   }
 
   getFormattedDate(): string {
