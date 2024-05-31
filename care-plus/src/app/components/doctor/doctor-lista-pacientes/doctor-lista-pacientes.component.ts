@@ -88,8 +88,11 @@ export class DoctorListaPacientesComponent implements OnInit{
     this.perfil.report='';
     console.log(this.perfil);
     this.perfilService.createClinicasProfile(this.perfil).subscribe(dato =>{
-      console.log(this.perfil);
-      alert();
+      Swal.fire({
+        title: "Enorabuena!",
+        text: "Perfil clinico creado con exito",
+        icon: "success"
+      });
     });
 
   }
@@ -142,7 +145,7 @@ export class DoctorListaPacientesComponent implements OnInit{
 
     if (this.pacientes.length === 0) {
       Swal.fire({
-        title: "Mantenimiento",
+        title: "Error",
         text: "No se han encontrado doctores con el id buscado",
         icon: "error"
       });
