@@ -10,3 +10,7 @@
     --bs-btn-close-color: #ffffff !important;
     color: white;
 }
+
+.sidenav-nav {
+    margin-left: 2rem;
+}
