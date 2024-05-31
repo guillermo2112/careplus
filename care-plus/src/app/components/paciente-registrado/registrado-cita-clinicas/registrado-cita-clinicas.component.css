@@ -1,58 +1,50 @@
-button{
-    background-color: #28CEC5;
-    border: 1px solid #28CEC5;
-}
-button:hover {
-    background-color: #144386;
-    border: 1px solid #144386;
-    color: white; 
-}
-body{
-    
-    background-position: cover;
-    background-repeat: no-repeat; 
-}
-
-.contenedorGrande{
-    background-image: url("../../../../assets/fondoformu.png");
-    background-position: cover;
-    background-repeat: no-repeat;
-}
-button {
-    background-color: #28CEC5;
-    margin-top: 20px; 
-}
-
-button:hover {
-    background-color: #144386;
-    color: white; 
-}
-
-.form-group {
-    margin-bottom: 15px; 
-}
-
-h3{
-    color: #144386;
-}
-.form-group input[type="radio"] {
-    margin-right: 10px;
-}
-
-.form-group label {
-    margin-right: 20px;
-    font-weight: bold;
-    color: #144386; 
-}
-
-.form-group input[type="radio"]:checked + label {
-    color: #28CEC5; 
-}
-
-.form-group input[type="radio"]:hover + label {
-    color: #144386; 
-}
-
-.back{
-    cursor: pointer;
-}
+.contenedorform {
+    padding: 20px;
+  }
+   
+  .breadcrumb {
+    background: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+   
+  .card {
+    margin-top: 2rem;
+    border-radius: 8px;
+  }
+   
+  .card-body {
+    padding: 2rem;
+  }
+   
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+   
+  .custom-select {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    background: #fff;
+    color: #495057;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+   
+  .btn {
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 50px;
+  }
+   
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+  }
+   
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
