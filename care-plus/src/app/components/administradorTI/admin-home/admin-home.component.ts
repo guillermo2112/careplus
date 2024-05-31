@@ -5,13 +5,14 @@ import { Router } from '@angular/router';
 import { HospitalService } from '../../../services/hospital.service';
 import { PacienteService } from '../../../services/paciente.service';
 import { HeaderComponent } from "../../shared/header/header.component";
+import { LogoComponent } from "../../shared/logo/logo.component";
 
 @Component({
     selector: 'app-admin-home',
     standalone: true,
     templateUrl: './admin-home.component.html',
     styleUrl: './admin-home.component.css',
-    imports: [HeaderComponent, AdminSidebarComponent]
+    imports: [HeaderComponent, AdminSidebarComponent, LogoComponent]
 })
 export class AdminHomeComponent implements OnInit {
 
