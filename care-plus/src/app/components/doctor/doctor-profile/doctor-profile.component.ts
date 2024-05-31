@@ -5,6 +5,7 @@ import { UserService } from '../../../services/user.service';
 import { DoctorService } from '../../../services/doctor.service';
 import { Usuario } from '../../../entities/usuario';
 import { Doctor } from '../../../entities/Doctor';
+import { HeaderComponent } from "../../shared/header/header.component";
 
 @Component({
     selector: 'app-doctor-profile',
@@ -12,8 +13,7 @@ import { Doctor } from '../../../entities/Doctor';
     templateUrl: './doctor-profile.component.html',
     styleUrl: './doctor-profile.component.css',
     imports: [DoctorSidebarComponent,
-        RouterModule
-    ]
+        RouterModule, HeaderComponent]
 })
 export class DoctorProfileComponent implements OnInit{
 
@@ -51,9 +51,11 @@ export class DoctorProfileComponent implements OnInit{
     }
 
     getDoctor(id:number){
-    this.doctorService.getDoctorByUser(id).subscribe(
-        data=>{
-            this.doctor=data;
-        })
-    }
+    this.doctorService
+    .getDoctorByUser(id)
+    .subscribe((data)=>{
+    this.doctor=data;
+   
+    })
+}
 }

@@ -5,6 +5,7 @@ import { navbarData } from './nav-data';
 import { LogoutComponent } from "../../shared/logout/logout.component";
 import { UserService } from '../../../services/user.service';
 import Swal from 'sweetalert2';
+import { HeaderComponent } from "../../shared/header/header.component";
  
 interface SideNavToggle{
   screenWidth:number;
@@ -16,7 +17,7 @@ interface SideNavToggle{
     standalone: true,
     templateUrl: './admin-sidebar.component.html',
     styleUrl: './admin-sidebar.component.css',
-    imports: [RouterModule, CommonModule, LogoutComponent]
+    imports: [RouterModule, CommonModule, LogoutComponent, HeaderComponent]
 })
 export class AdminSidebarComponent {
 

@@ -9,8 +9,6 @@ import { Calendar } from '../entities/calendar';
 export class CalendarService {
   private baseURL = 'http://care.francecentral.cloudapp.azure.com:8080';
 
-  private baseURL2 = 'http://localhost:8080';
-
   constructor(private httpClient: HttpClient) {}
 
   listCalendar(): Observable<Calendar[]> {
@@ -27,5 +25,10 @@ export class CalendarService {
 
   getByYd(id: number): Observable<Calendar> {
     return this.httpClient.get<Calendar>(`${this.baseURL}/api/calendar/${id}`);
+  }
+
+  getCalendarByDoctor(doctorid:number): Observable<Calendar[]>{
+    return this.httpClient.get<Calendar[]>(`${this.baseURL}/api/calendar/calendars/${doctorid}`);
+
   }
 }

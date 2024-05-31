@@ -117,7 +117,6 @@ h3 {
   z-index: 110;
   width: 5rem;
   height: 100vh;
-  overflow: hidden;
   top: 0;
 }
 .sidenav-hidden {
@@ -508,4 +507,129 @@ input[type="text"]:focus {
 .text-end {
   text-align: end;
 }
+
+/*CONTENEDOR PRINCIPAL*/
+.fc {
+  font-family: 'Arial, sans-serif'; 
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/*CABECERA PRINCIPAL*/
+
+.fc-toolbar {
+  background-color: #f1f1f1; 
+  border-bottom: 1px solid #dddddd;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+.fc-toolbar .fc-button {
+  background-color: #5e0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+}
+
+.fc .fc-col-header-cell-cushion{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+ 
+}
+
+.fc .fc-button-primary:disabled{
+  background-color:#5e0000 ;  
+}
+
+.fc .fc-button:disabled{
+  opacity: 1;
+}
+
+.fc-toolbar .fc-button:hover {
+  background-color: #b30000;
+}
+
+/*DIAS CALENDARIO*/
+
+.fc-daygrid-day {
+  background-color: #fafafa; 
+  border-radius: 10px;
+
+}
+
+.fc-daygrid-day:hover {
+  background-color: #f0f0f0;
+}
+
+.fc-daygrid-day-number {
+  color: whitesmoke;
+  font-size: 1.5vw; 
+  text-decoration: none;
+  border-radius: 20px;
+  background-color:#b30000 ;
+  width: 25%;
+  text-align: center;
+
+}
+
+/*EVENTOS*/
+.fc-event {
+  background-color: #dea350; 
+  color: #ffffff;
+  font-size: 1.5vw;
+  border: 1px solid #d2904a;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.fc-event:hover {
+  background-color: #ec8e0a;
+}
+
+/*VISTA CALENDARIO*/
+.fc-view-harness {
+  border: 1px solid #dddddd;
+  padding: 10px;
+}
+
+/*dia actual*/
+.fc-day-today {
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+}
+
+
+
+.fc-daygrid-day-frame {
+  border: none !important;
+}
+
+.fc-daygrid-day-top {
+  border: none !important;
+}
+
+.fc-daygrid-day {
+  border: none !important;
+  background-clip: padding-box;
+}
+
+.fc-daygrid-day-number {
+  text-decoration: none;
+}
+
+.fc-daygrid-day-frame {
+  border-radius: 10px; 
+}
+
+.fc .fc-view-harness{
+  border-radius: 10px;
+}
+
+.fc-day-today {
+  background-color: gainsboro !important;
+}
+
 
