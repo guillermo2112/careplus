@@ -1,19 +1,27 @@
+body{
+  background-image: url(../../../../assets/fondoformu.png);
+}
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
-.lead{
+.lead {
   font-weight: 300px;
   font-size: 30px;
+}
+h3{
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 .about-section {
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(20, 67, 134, 0.5), 0 0 10px rgba(40, 206, 197, 0.5);
   margin-bottom: 20px;
+  text-align: center; 
 }
 .about-avatar img {
   width: 100%;
@@ -27,18 +35,20 @@
 }
 .about-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; 
+  align-items: center;
 }
 .about-list .media {
+  width: 100%;
+  max-width: 400px; 
   margin-bottom: 10px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
   padding: 10px; 
   transition: transform 0.3s ease;
 }
-
 .media:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 .about-list label {
   font-weight: bold;
@@ -67,10 +77,15 @@
   color: #777;
 }
 @media (min-width: 768px) {
-  .about-list > div {
-      width: 50%;
+  .about-section {
+    text-align: left;
   }
-  .count-data {
-      width: 22%;
+  .about-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between; 
+  }
+  .about-list .media {
+    width: 48%; 
   }
 }
