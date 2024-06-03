@@ -19,72 +19,68 @@ import { PacienteService } from '../../../services/paciente.service';
   imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule]
 })
 export class RegistradoCitaEspecialidadComponent implements OnInit {
-    specialty: Specialty = new Specialty();
-    specialties: Specialty[] = [];
-    selectedSpecialty: Specialty;
-    province:any[] = [];
-    provincias: Provincias []= [];
-    hospital:any[] = [];
-    hospitales: Hospital[] = []; 
-    selectedProvince: Provincias; 
-    selectedHospital: Hospital;
+  specialty: Specialty = new Specialty();
+  specialties: Specialty[] = [];
+  selectedSpecialty: Specialty;
+  provincias: Provincias[] = [];
+  selectedProvince: Provincias;
+  hospitales: Hospital[] = [];
+  selectedHospital: Hospital;
   
-    constructor(
-      private specialtyService: SpecialtyService,
-      private patientService: PacienteService,
-      private hospital_service:HospitalService,
-      private router: Router
-    ) {}
-  
-    ngOnInit(): void {
-        this.list_provincias();
-        this.obtener_hospital();
+  constructor(
+    private patientService: PacienteService,
+    private router: Router
+  ) {}
 
-        //getSpecialties
+  ngOnInit(): void {
+    this.getSpecialties();
+  }
 
-        this.patientService.getSpecialties().subscribe(
-          (data: Specialty[]) => {
-            this.specialties = data;
-          },
-          error => {
-            console.error('Error al hacer el fetch', error);
-          }
-        );
-    }
-  
-    onSpecialtyChange(event: any): void {
-      const specialtyId = event.target.value;
-      this.selectedSpecialty = this.specialties.find(specialty => specialty.id === +specialtyId);
-      console.log('Especialidad seleccionada:', this.selectedSpecialty);
-    }
+  getSpecialties(): void {
+    this.patientService.getSpecialties().subscribe(
+      (data: Specialty[]) => {
+        this.specialties = data;
+      },
+      error => {
+        console.error('Error al hacer el fetch', error);
+      }
+    );
+  }
 
-    private obtener_hospital(){
-        this.hospital_service.obtener_hospitales().subscribe(dato => {
-          this.hospital = dato;
-        });
-    }
-      
-    list_provincias(){
-        this.patientService.obtener_provincias(14).subscribe(dato => {
-          this.provincias = dato;
-        });
-        /*
-        this.hospital_service.obtener_provincias().subscribe(dato => {
-          this.provincias = dato;
-        });*/
-    }
+  onSpecialtyChange(event: any): void {
+    const specialtyId = event.target.value;
+    this.selectedSpecialty = this.specialties.find(specialty => specialty.id === +specialtyId);
+    this.patientService.getProvincesBySpecialty(specialtyId).subscribe(
+      (data: Provincias[]) => {
+        this.provincias = data;
+      },
+      error => {
+        console.error('Error al obtener provincias', error);
+      }
+    );
+  }
 
-    provinciasAll(event: Event): void {
-        const selectElement = event.target as HTMLSelectElement;
-        const selectedProvinceId = selectElement.value;
-        this.selectedProvince = this.provincias.find(provincia => provincia.id === +selectedProvinceId);
-        // this.hospitalesAll(this.selectedProvince);
-    }
+  onProvinceChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedProvinceId = selectElement.value;
+    this.selectedProvince = this.provincias.find(provincia => provincia.id === +selectedProvinceId);
 
-    hospitalesAll(event: Event): void {
-        const selectElement = event.target as HTMLSelectElement;
-        const selectedHospitalId = selectElement.value;
-        this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
-        // this.hospitalesPorProvincia(this.selectedProvince.id);
+    if (this.selectedProvince && this.selectedSpecialty) {
+      this.patientService.getHospitalsByProvinceAndSpecialty(this.selectedProvince.id, this.selectedSpecialty.id).subscribe(
+        (data: Hospital[]) => {
+          this.hospitales = data;
+        },
+        error => {
+          console.error('Error al obtener hospitales', error);
+        }
+      );
     }
+  }
+
+  onHospitalChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const selectedHospitalId = selectElement.value;
+    this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
+  }
 }
+

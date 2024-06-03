@@ -25,7 +25,7 @@
                             @if(selectedSpecialty){
                             <div class="form-group" >
                                 <label for="province-select">Elige una provincia: </label>
-                                <select id="province-select" class="custom-select" name="filtros" (change)="provinciasAll($event)">
+                                <select id="province-select" class="custom-select" name="filtros" (change)="onProvinceChange($event)">
                                     @for(provincia of provincias; track provincia.id){
                                         <option value={{provincia.id}}>{{provincia.name}}</option>
                                     }
@@ -35,8 +35,8 @@
                         @if(selectedProvince){
                             <div class="form-group" >
                                 <label for="hospital-select">Elige un hospital: </label>
-                                <select id="hospital-select" class="custom-select" name="hospitales" (change)="hospitalesAll($event)">
-                                    @for(hospital of hospital; track hospital.id){
+                                <select id="hospital-select" class="custom-select" name="hospitales" (change)="onHospitalChange($event)">
+                                    @for(hospital of hospitales; track hospital.id){
                                         <option value={{hospital.id}}>{{hospital.name}}</option>
                                     }                                </select>
                             </div>

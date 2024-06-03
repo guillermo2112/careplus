@@ -14,10 +14,9 @@
                             <legend>Clinicas</legend>
                             <div class="form-group">
 
-
                                 <div class="form-group" >
                                     <label for="province-select">Elige una provincia: </label>
-                                    <select id="province-select" class="custom-select" name="filtros" (change)="provinciasAll($event)">
+                                    <select id="province-select" class="custom-select" name="filtros" (change)="onProvinceChange($event)">
                                         @for(provincia of provincias; track provincia.id){
                                             <option value={{provincia.id}}>{{provincia.name}}</option>
                                         }
@@ -25,29 +24,28 @@
                                 </div>
 
                                 @if(selectedProvince){
-                                <div>
-                                <label for="specialty-select">Elige una clinicas: </label>
-                               
-                                    <select id="hospital-select" class="custom-select" name="hospitales" (change)="hospitalesAll($event)">
-                                        @for(hospital of hospital; track hospital.id){
-                                            <option value={{hospital.id}}>{{hospital.name}}</option>
-                                        }                                </select>
-                                </div>
-
-                            
-                       
-                            
-                        }
-                    </div>
-                        @if(selectedProvince){
-                            <select id="specialty-select" class="custom-select" (change)="onSpecialtyChange($event)">
-                                @for (specialty of specialties; track $index) {
-                                    <option [value]="specialty.id">
-                                        {{ specialty.name }}
-                                    </option>
+                                    <div class="form-group">
+                                        <label for="hospital-select">Elige una clinicas: </label>
+                                        <select id="hospital-select" class="custom-select" name="hospitales" (change)="onHospitalChange($event)">
+                                            @for(hospital of hospitales; track hospital.id){
+                                                <option value={{hospital.id}}>{{hospital.name}}</option>
+                                            }
+                                        </select>
+                                    </div>
                                 }
-                            </select>
-                        }
+
+                                @if(selectedHospital){
+                                    <div class="form-group">
+                                        <label for="specialty-select">Elige una especialidad: </label>
+                                        <select id="specialty-select" class="custom-select" name="especialidades" (change)="onSpecialtyChange($event)">
+                                            @for (specialty of specialties; track $index) {
+                                                <option value={{specialty.id}}>{{ specialty.name }}</option>
+                                            }
+                                        </select>
+                                    </div>
+                                }
+                            </div>
+                        
                         </fieldset>
                     
                     </form>
