@@ -29,6 +29,7 @@ export class DoctorListaPacientesComponent implements OnInit {
   perfil: ClinicaProfile = new ClinicaProfile();
   name: string;
   ide: string;
+  perfilesExistentes: { [key: number]: Boolean } = {};
 
   tamañoPag: number = 8;
   paginaActual: number = 1;
@@ -36,19 +37,32 @@ export class DoctorListaPacientesComponent implements OnInit {
 
   constructor(private paciente_service: PacienteService, private router: Router, private perfilService: ClinicasProfileService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.obtener_pacientes();
+    for (let paciente of this.pacientes) {
+      try {
+        this.perfilesExistentes[paciente.id] = await this.existeClinicalProfile(paciente.id);
+      } catch (error) {
+        console.error('Error al comprobar perfil clínico:', error);
+        this.perfilesExistentes[paciente.id] = false;
+      }
+    }
   }
 
-  obtener_pacientes(){
-    this.paciente_service.getPatient().subscribe(dato =>{
+  async existeClinicalProfile(id: number): Promise<Boolean> {
+    return await this.perfilService.comprobarPelfilClinico(id);
+  }
+
+  obtener_pacientes() {
+    this.paciente_service.getPatient().subscribe(dato => {
       console.log(dato);
-      this.pacientes=dato;
-      this.pacientes_clear=dato;
+      this.pacientes = dato;
+      this.pacientes_clear = dato;
+      this.router.navigate(['doctor-lista-pacientes']);
       // this.existe_clinical_profile(dato);
     })
-      this.totalPag = Math.ceil(this.pacientes.length / this.tamañoPag);
-      this.paginatePacientes();
+    this.totalPag = Math.ceil(this.pacientes.length / this.tamañoPag);
+    this.paginatePacientes();
   }
 
   // async existe_clinical_profile(id:number){
@@ -62,21 +76,16 @@ export class DoctorListaPacientesComponent implements OnInit {
   //   }
   // }
 
-  async existe_clinical_profile(id:number){
-    try {
-      
-        let existeDni: Boolean = await this.perfilService.comprobarPelfilClinico(id);
-        
-       console.log(existeDni);
-      
-    } catch (error) {
-      console.error("Error validando el DNI", error);
-    }
+  async existe_clinical_profile(id: number):Promise<Boolean> {
+
+      let existeDni: Boolean = await this.perfilService.comprobarPelfilClinico(id);
+
+      return existeDni;
   }
 
-  goToClinicalProfile(id:number){
-    this.perfilService.devolverPerfilId(id).subscribe(dato =>{
-      this.router.navigate(['doctor-clinical-profile',dato]);
+  goToClinicalProfile(id: number) {
+    this.perfilService.devolverPerfilId(id).subscribe(dato => {
+      this.router.navigate(['doctor-clinical-profile', dato]);
     })
   }
 
@@ -91,14 +100,14 @@ export class DoctorListaPacientesComponent implements OnInit {
     this.perfil.date = this.getFormattedDate();
     this.perfil.allergy = '';
     this.perfil.report = '';
-    this.perfilService.createClinicasProfile(this.perfil).subscribe(dato =>{
+    this.perfilService.createClinicasProfile(this.perfil).subscribe(dato => {
       Swal.fire({
         title: "Enorabuena!",
         text: "Perfil clinico creado con exito",
         icon: "success"
       });
+      window.location.reload();
     });
-
   }
 
   getFormattedDate(): string {
