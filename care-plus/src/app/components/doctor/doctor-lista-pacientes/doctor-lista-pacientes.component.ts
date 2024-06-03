@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Paciente } from '../../../entities/Patient';
 import { PacienteService } from '../../../services/paciente.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 import { HeaderComponent } from "../../shared/header/header.component";
 import { ClinicaProfile } from '../../../entities/ClinicaProfile';
@@ -35,9 +35,27 @@ export class DoctorListaPacientesComponent implements OnInit {
   paginaActual: number = 1;
   totalPag: number = 1;
 
-  constructor(private paciente_service: PacienteService, private router: Router, private perfilService: ClinicasProfileService) { }
+  constructor(private paciente_service: PacienteService, private router: Router, private perfilService: ClinicasProfileService, private route: ActivatedRoute,) { }
 
   async ngOnInit(): Promise<void> {
+    const reloadParam = this.route.snapshot.queryParamMap.get('reload');
+
+    if (!reloadParam) {
+      // Adding reload parameter and reloading the page
+      this.router.navigate([], {
+        queryParams: { reload: 'true' },
+        queryParamsHandling: 'merge'
+      }).then(() => {
+        window.location.reload();
+      });
+    } else {
+      // Remove the reload parameter after reloading to avoid infinite reload loop
+      this.router.navigate([], {
+        queryParams: { reload: null },
+        queryParamsHandling: 'merge'
+      });
+    }
+    
     this.obtener_pacientes();
     for (let paciente of this.pacientes) {
       try {
@@ -55,10 +73,8 @@ export class DoctorListaPacientesComponent implements OnInit {
 
   obtener_pacientes() {
     this.paciente_service.getPatient().subscribe(dato => {
-      console.log(dato);
       this.pacientes = dato;
       this.pacientes_clear = dato;
-      this.router.navigate(['doctor-lista-pacientes']);
       // this.existe_clinical_profile(dato);
     })
     this.totalPag = Math.ceil(this.pacientes.length / this.tamañoPag);
