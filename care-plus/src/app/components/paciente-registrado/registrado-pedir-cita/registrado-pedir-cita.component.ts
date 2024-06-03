@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { LogoComponent } from "../../shared/logo/logo.component";
 
 @Component({
@@ -9,7 +9,7 @@ import { LogoComponent } from "../../shared/logo/logo.component";
     standalone: true,
     templateUrl: './registrado-pedir-cita.component.html',
     styleUrl: './registrado-pedir-cita.component.css',
-    imports: [HeaderComponent, RegistradoSidebarComponent, LogoComponent]
+    imports: [HeaderComponent, RegistradoSidebarComponent, LogoComponent, RouterModule]
 })
 export class RegistradoPedirCitaComponent {
 
