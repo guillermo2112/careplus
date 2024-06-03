@@ -9,6 +9,7 @@ import { FormsModule } from '@angular/forms';
 import { HospitalService } from '../../../services/hospital.service';
 import { Provincias } from '../../../entities/Provincias';
 import { Hospital } from '../../../entities/Hospital';
+import { PacienteService } from '../../../services/paciente.service';
 
 @Component({
   selector: 'app-registrado-cita-especialidad',
@@ -30,6 +31,7 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
   
     constructor(
       private specialtyService: SpecialtyService,
+      private patientService: PacienteService,
       private hospital_service:HospitalService,
       private router: Router
     ) {}
@@ -38,7 +40,9 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
         this.list_provincias();
         this.obtener_hospital();
 
-        this.specialtyService.listSpecialty().subscribe(
+        //getSpecialties
+
+        this.patientService.getSpecialties().subscribe(
           (data: Specialty[]) => {
             this.specialties = data;
           },

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Paciente } from '../entities/Patient';
 import { Observable } from 'rxjs';
 import { Usuario } from '../entities/usuario';
+import { Specialty } from '../entities/specialty';
 
 @Injectable({
   providedIn: 'root'
@@ -48,6 +49,11 @@ export class PacienteService {
 
   getPatientByUser(id:number):Observable<Paciente>{
     return this.httpClient.get<Paciente>(`${this.baseURL}/api/patient/user/${id}`);
+  }
+
+
+  getSpecialties():Observable<Specialty[]>{
+    return this.httpClient.get<Specialty[]>(`${this.baseURL}/api/patient/AppointmentSpecialties`);
   }
 
 
