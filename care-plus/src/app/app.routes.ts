@@ -117,7 +117,7 @@ export const routes: Routes = [
     //PACIENTE REGISTRADO
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-home', component: RegistradoHomeComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
-    {path: 'regitrado-profile', component: RegistradoProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-profile', component: RegistradoProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-pedir-cita', component: RegistradoPedirCitaComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-especialidad', component: RegistradoCitaEspecialidadComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-profesionales', component: RegistradoCitaProfesionalesComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
