@@ -4,6 +4,7 @@ import { Paciente } from '../entities/Patient';
 import { Observable } from 'rxjs';
 import { Usuario } from '../entities/usuario';
 import { Specialty } from '../entities/specialty';
+import { Province } from '../entities/Hospital';
 
 @Injectable({
   providedIn: 'root'
@@ -54,6 +55,10 @@ export class PacienteService {
 
   getSpecialties():Observable<Specialty[]>{
     return this.httpClient.get<Specialty[]>(`${this.baseURL}/api/patient/AppointmentSpecialties`);
+  }
+
+  obtener_provincias(id:number):Observable<Province[]>{
+    return this.httpClient.get<Province[]>(`${this.baseURL}/api/patient/AppointmentProvinces/${id}`);
   }
 
 

@@ -65,9 +65,13 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     }
       
     list_provincias(){
-        this.hospital_service.obtener_provincias().subscribe(dato => {
+        this.patientService.obtener_provincias(14).subscribe(dato => {
           this.provincias = dato;
         });
+        /*
+        this.hospital_service.obtener_provincias().subscribe(dato => {
+          this.provincias = dato;
+        });*/
     }
 
     provinciasAll(event: Event): void {
