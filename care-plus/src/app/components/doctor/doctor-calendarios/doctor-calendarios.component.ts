@@ -16,6 +16,7 @@ import { Appointment } from '../../../entities/Appointment';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import esLocale from '@fullcalendar/core/locales/es';
+import timeGridPlugin from '@fullcalendar/timegrid'; // Import the timeGrid plugin
 
 
 
@@ -82,7 +83,7 @@ showEventDetails: boolean = false;
       this.appointment = dato;
       // Mapear las citas a los eventos del calendario
       this.calendarOptions.events = this.appointment.map(app => ({
-        title: `${app.patient.name}`,
+        title: `${app.appointment_shift.hour}`,
         start: this.datePipe.transform(app.date, 'yyyy-MM-dd'),
         extendedProps: {
           Fecha:  this.datePipe.transform(app.date, 'yyyy-MM-dd'),
@@ -100,10 +101,20 @@ showEventDetails: boolean = false;
   }
 
 calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    locale: esLocale,
-    plugins: [dayGridPlugin, interactionPlugin],
+  initialView: 'dayGridMonth',
+  locale: esLocale,
+    plugins: [dayGridPlugin,timeGridPlugin,interactionPlugin],
     events: [],
+    slotLabelFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    },
+    slotLabelInterval: '00:30',
+    slotDuration: '00:30', 
+    editable: true,
+    dayMaxEvents: 1, // Limit to 1 event per day
+    selectable: true,
     eventClick: (info) => this.handleEventClick(info)
 
 };
