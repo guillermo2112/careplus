@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Specialty } from '../../../entities/specialty';
 import { Provincias } from '../../../entities/Provincias';
 import { Hospital } from '../../../entities/Hospital';
@@ -16,7 +16,7 @@ import { PacienteService } from '../../../services/paciente.service';
     standalone: true,
     templateUrl: './registrado-cita-clinicas.component.html',
     styleUrl: './registrado-cita-clinicas.component.css',
-    imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule]
+    imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule, RouterModule]
 })
 export class RegistradoCitaClinicasComponent implements OnInit {
   provincias: Provincias[] = [];

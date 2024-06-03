@@ -5,7 +5,7 @@ import { Specialty } from '../../../entities/specialty';
 import { Provincias } from '../../../entities/Provincias';
 import { Hospital } from '../../../entities/Hospital';
 import { PacienteService } from '../../../services/paciente.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Doctor } from '../../../entities/Doctor';
 
 @Component({
@@ -13,7 +13,7 @@ import { Doctor } from '../../../entities/Doctor';
     standalone: true,
     templateUrl: './registrado-cita-profesionales.component.html',
     styleUrl: './registrado-cita-profesionales.component.css',
-    imports: [HeaderComponent, RegistradoSidebarComponent]
+    imports: [HeaderComponent, RegistradoSidebarComponent,RouterModule]
 })
 export class RegistradoCitaProfesionalesComponent implements OnInit {
     doctores: Doctor[] = [];

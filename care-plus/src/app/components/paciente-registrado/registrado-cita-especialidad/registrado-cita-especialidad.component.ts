@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
 import { SpecialtyService } from '../../../services/specialty.service';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { Specialty } from '../../../entities/specialty';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +16,7 @@ import { PacienteService } from '../../../services/paciente.service';
   standalone: true,
   templateUrl: './registrado-cita-especialidad.component.html',
   styleUrls: ['./registrado-cita-especialidad.component.css'],
-  imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule]
+  imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule, RouterModule]
 })
 export class RegistradoCitaEspecialidadComponent implements OnInit {
   specialty: Specialty = new Specialty();
