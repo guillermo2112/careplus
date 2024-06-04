@@ -1,75 +1,77 @@
 <app-header></app-header>
 <app-doctor-sidebar></app-doctor-sidebar>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" aria-label="Eighth navbar example">
-    <div class="container container-bots contenedorfiltros" >
-      <div class=" navbar" id="navbarsExample07">
-        <div class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 3rem; gap: 2rem;">
- 
- 
-          <div class="nav-item">
-            <form (ngSubmit)="burcador_nombre()">
-              <div style="display: flex; justify-content: center; align-items: center;">
-                <input type="text" id="texto" name="texto" [(ngModel)]="name" placeholder="Buscar por nombre">
+  <div class="container container-bots contenedorfiltros">
+    <div class=" navbar" id="navbarsExample07">
+      <div class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 3rem; gap: 2rem;">
+
+
+        <div class="nav-item">
+          <form (ngSubmit)="burcador_nombre()">
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <input type="text" id="texto" name="texto" [(ngModel)]="name" placeholder="Buscar por nombre">
               <button style="margin-top: 0;" type="submit">Enviar</button>
-              </div>
-              <!-- <label for="texto">Buscar</label> -->
-             
-            </form>
-          </div>
- 
-          <div class="nav-item">
-            <form (ngSubmit)="burcador_id()">
-              <div style="display: flex; justify-content: center; align-items: center;">
-                <input type="text" id="texto" name="texto" [(ngModel)]="ide" placeholder="Buscar por id">
-              <button style="margin-top: 0;" type="submit">Enviar</button>
-              </div>
-             
-            </form>
-          </div>
- 
- 
-          <div class="nav-item">
-            <button (click)="limpiar_filtros()">Limpiar Filtros</button>
-          </div>
-         
-         
+            </div>
+            <!-- <label for="texto">Buscar</label> -->
+
+          </form>
         </div>
-       
+
+        <div class="nav-item">
+          <form (ngSubmit)="burcador_id()">
+            <div style="display: flex; justify-content: center; align-items: center;">
+              <input type="text" id="texto" name="texto" [(ngModel)]="ide" placeholder="Buscar por id">
+              <button style="margin-top: 0;" type="submit">Enviar</button>
+            </div>
+
+          </form>
+        </div>
+
+
+        <div class="nav-item">
+          <button (click)="limpiar_filtros()">Limpiar Filtros</button>
+        </div>
+
+
       </div>
+
     </div>
-  </nav>
+  </div>
+</nav>
 <div class="container">
-    @for(paciente of pacientes; track paciente.id) {
-        <div class="paciente">
-            <h2>{{paciente.name}}</h2>
-            <p><span>DNI:</span> {{paciente.dni}}</p>
-            <p><span>Fecha de Nacimiento:</span> {{paciente.birthdate}}</p>
-            <p><span>Dirección:</span> {{paciente.address}}</p>
-            <p><span>Teléfono:</span> {{paciente.phone}}</p>
-            <p><span>Teléfono de Emergencia:</span> {{paciente.emergency_phone}}</p>
-            <!-- @if(existe_clinical_profile(paciente.id)){ -->
-              <a class="visitar" (click)="goToClinicalProfile(paciente.id)">Clinical Profile</a>
-            <!-- }@else{ -->
-              <a class="visitar" (click)="ponerPerfil(paciente.id)">Crear Clinical Profile</a>
-            <!-- } -->
-        </div>
-    }
+  @for(paciente of pacientes; track paciente.id) {
+  <div class="paciente">
+    <h2>{{paciente.name}}</h2>
+    <p><span>DNI:</span> {{paciente.dni}}</p>
+    <p><span>Fecha de Nacimiento:</span> {{paciente.birthdate}}</p>
+    <p><span>Dirección:</span> {{paciente.address}}</p>
+    <p><span>Teléfono:</span> {{paciente.phone}}</p>
+    <p><span>Teléfono de Emergencia:</span> {{paciente.emergency_phone}}</p>
+    <div *ngIf="perfilesExistentes[paciente.id]; else noProfile">
+      <a class="visitar" (click)="goToClinicalProfile(paciente.id)">Clinical Profile</a>
+    </div>
+    <ng-template #noProfile>
+      <a class="visitar" (click)="ponerPerfil(paciente.id)">Crear Clinical Profile</a>
+    </ng-template>
+  </div>
+  }
 </div>
- 
+
 <!-- Paginación -->
 <!-- <div class="pagination-container" style="text-align: center; margin-top: 2rem;">
   <button (click)="previousPage()" [disabled]="paginaActual === 1">Anterior</button>
   <span style="padding-left: 1px; padding-right: 1px;">Página {{paginaActual}} de {{totalPag}}</span>
   <button (click)="nextPage()" [disabled]="paginaActual === totalPag">Siguiente</button>
 </div> -->
- 
+
 <!-- Paginación -->
 <nav aria-label="Page navigation example" class="flex-column text-end">
   <ul class="pagination">
     <li class="page-item" [class.disabled]="paginaActual === 1">
       <a class="page-link" (click)="previousPage()">Anterior</a>
     </li>
-    <li class="page-item" *ngFor="let page of getPages()" [class.active]="paginaActual === page" [class.disabled]="page === '...'">
+    <li class="page-item" *ngFor="let page of getPages()" [class.active]="paginaActual === page"
+      [class.disabled]="page === '...'">
       <a class="page-link" (click)="setPage(page)" *ngIf="page !== '...'">{{ page }}</a>
       <span class="page-link" *ngIf="page === '...'">...</span>
     </li>

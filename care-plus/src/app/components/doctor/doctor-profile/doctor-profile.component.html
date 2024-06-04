@@ -3,52 +3,35 @@
 <body>
   <div class="container">
     <section class="about-section">
-      <div
-        class="row align-items-center flex-row-reverse text-center text-lg-start"
-      >
-        <div class="col-lg-6">
-          <div class="about-avatar">
-            <img
-              [src]="'assets/iconos/iconopersona.png'"
-              alt="Doctor Avatar"
-            />
+      <div class="about-avatar">
+        <img [src]="'assets/iconos/doctorAvatar.png'" alt="Doctor Avatar" />
+      </div>
+      <div class="about-text go-to">
+        <h3 class="theme-color lead">{{ doctor.name }}</h3>
+        <div class="about-list">
+          <div class="media">
+            <label>Fecha Nacimiento:</label>
+            <p>{{ doctor.birthdate }}</p>
           </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="about-text go-to">
-            <h3 class="theme-color lead">{{ doctor.name }}</h3>
-            <div class="row about-list">
-              <div class="col-md-6">
-                <div class="media">
-                  <label>Fecha Nacimiento:</label>
-                  <p>{{ doctor.birthdate }}</p>
-                </div>
-                <div class="media">
-                  <label>Dirección:</label>
-                  <p>{{ doctor.address }}</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="media">
-                  <label>Teléfono:</label>
-                  <p>{{ doctor.phone }}</p>
-                </div>
-                <div class="media">
-                  <label>Num licencia:</label>
-                  <p>{{ doctor.license_num }}</p>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="media">
-                  <label>DNI:</label>
-                  <p>{{ doctor.dni }}</p>
-                </div>
-                <div class="media">
-                  <label>Especialidad:</label>
-                  <p>{{ doctor.specialty.name }}</p>
-                </div>
-              </div>
-            </div>
+          <div class="media">
+            <label>Dirección:</label>
+            <p>{{ doctor.address }}</p>
+          </div>
+          <div class="media">
+            <label>DNI:</label>
+            <p>{{ doctor.dni }}</p>
+          </div>
+          <div class="media">
+            <label>Teléfono:</label>
+            <p>{{ doctor.phone }}</p>
+          </div>
+          <div class="media">
+            <label>Num licencia:</label>
+            <p>{{ doctor.license_num }}</p>
+          </div>
+          <div class="media">
+            <label>Especialidad:</label>
+            <p>{{ doctor.specialty.name }}</p>
           </div>
         </div>
       </div>

@@ -32,7 +32,6 @@ import { UpdateAppointmentshiftComponent } from './components/administradorTI/up
 import { DoctorHomeComponent } from './components/doctor/doctor-home/doctor-home.component';
 import { DoctorProfileComponent } from './components/doctor/doctor-profile/doctor-profile.component';
 import { DoctorClinicalProfileComponent } from './components/doctor/doctor-clinical-profile/doctor-clinical-profile.component';
-import { DoctorCitasComponent } from './components/doctor/doctor-citas/doctor-citas.component';
 import { DoctorCalendariosComponent } from './components/doctor/doctor-calendarios/doctor-calendarios.component';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 import { RegistradoSidebarComponent } from './components/paciente-registrado/registrado-sidebar/registrado-sidebar.component';
@@ -43,11 +42,12 @@ import { AdminClinicasComponent } from './components/administradorTI/admin-clini
 import { RegistradoCitaEspecialidadComponent } from './components/paciente-registrado/registrado-cita-especialidad/registrado-cita-especialidad.component';
 import { RegistradoCitaProfesionalesComponent } from './components/paciente-registrado/registrado-cita-profesionales/registrado-cita-profesionales.component';
 import { RegistradoCitaClinicasComponent } from './components/paciente-registrado/registrado-cita-clinicas/registrado-cita-clinicas.component';
-import { RegistradoCitaContodoComponent } from './components/paciente-registrado/registrado-cita-contodo/registrado-cita-contodo.component';
 import { RegistradoPedirCitaComponent } from './components/paciente-registrado/registrado-pedir-cita/registrado-pedir-cita.component';
 import { LogoutComponent } from './components/shared/logout/logout.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { authGuard } from './services/auth.guard';
+import { AdminIndicatorsComponent } from './components/administradorTI/admin-indicators/admin-indicators.component';
+import { RegistradoCalendarComponent } from './components/paciente-registrado/registrado-calendar/registrado-calendar.component';
 
 
 export const routes: Routes = [
@@ -77,6 +77,7 @@ export const routes: Routes = [
     {path: 'update-paciente', component: DatosPacienteComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
     {path: 'lista_pacientes', component: DoctorListaPacientesComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' } },
     {path: 'add-doctor', component: AddDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-indicators', component: AdminIndicatorsComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
 
 
 
@@ -106,7 +107,6 @@ export const routes: Routes = [
     {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
     {path: 'doctor-profile', component: DoctorProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
     {path: 'doctor-clinical-profile/:id', component: DoctorClinicalProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
-    {path: 'doctor-citas', component: DoctorCitasComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
     {path: 'doctor-calendarios', component: DoctorCalendariosComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
 
 
@@ -117,13 +117,12 @@ export const routes: Routes = [
     //PACIENTE REGISTRADO
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-home', component: RegistradoHomeComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
-    {path: 'regitrado-profile', component: RegistradoProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-citas', component: RegistradoCalendarComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-profile', component: RegistradoProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-pedir-cita', component: RegistradoPedirCitaComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-especialidad', component: RegistradoCitaEspecialidadComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-profesionales', component: RegistradoCitaProfesionalesComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-clinicas', component: RegistradoCitaClinicasComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
-    {path: 'registrado-cita-contodo', component: RegistradoCitaContodoComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
-
 
 
     //imagenes

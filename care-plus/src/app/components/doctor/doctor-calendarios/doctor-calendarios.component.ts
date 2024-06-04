@@ -16,6 +16,7 @@ import { Appointment } from '../../../entities/Appointment';
 import { DatePipe } from '@angular/common';
 import Swal from 'sweetalert2';
 import esLocale from '@fullcalendar/core/locales/es';
+import timeGridPlugin from '@fullcalendar/timegrid'; // Import the timeGrid plugin
 
 
 
@@ -49,6 +50,8 @@ export class DoctorCalendariosComponent implements OnInit{
     gender: ''
 };
 
+  doctorid:any;
+
 
   calendar: Calendar[]=[];
 
@@ -61,7 +64,6 @@ showEventDetails: boolean = false;
     this.usuario=sessionStorage.getItem("usernameid");
     this.getDoctor();
     // this.getCalendarByDoctor();
-    this. getAppointmentByDoctorYCalendar();
   }
 
   constructor(private datePipe: DatePipe, private doctorService: DoctorService, private calendarService: CalendarService,  private router: Router, private appointmentService: AppointmentService) { }
@@ -69,6 +71,10 @@ showEventDetails: boolean = false;
   getDoctor(){
     this.doctorService.getDoctorByUser(this.usuario).subscribe(dato=>{
       this.doctor=dato;
+      this.doctorid=dato.id;
+      console.log(this.doctorid)
+      this.getAppointmentByDoctorYCalendar();
+
     })
   }
   // getCalendarByDoctor(){
@@ -82,7 +88,7 @@ showEventDetails: boolean = false;
       this.appointment = dato;
       // Mapear las citas a los eventos del calendario
       this.calendarOptions.events = this.appointment.map(app => ({
-        title: `${app.patient.name}`,
+        title: `${app.appointment_shift.hour}`,
         start: this.datePipe.transform(app.date, 'yyyy-MM-dd'),
         extendedProps: {
           Fecha:  this.datePipe.transform(app.date, 'yyyy-MM-dd'),
@@ -100,10 +106,20 @@ showEventDetails: boolean = false;
   }
 
 calendarOptions: CalendarOptions = {
-    initialView: 'dayGridMonth',
-    locale: esLocale,
-    plugins: [dayGridPlugin, interactionPlugin],
+  initialView: 'dayGridMonth',
+  locale: esLocale,
+    plugins: [dayGridPlugin,timeGridPlugin,interactionPlugin],
     events: [],
+    slotLabelFormat: {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    },
+    slotLabelInterval: '00:30',
+    slotDuration: '00:30', 
+    editable: true,
+    dayMaxEvents: 1, // Limit to 1 event per day
+    selectable: true,
     eventClick: (info) => this.handleEventClick(info)
 
 };

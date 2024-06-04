@@ -39,7 +39,8 @@
     font-weight: bold;
 }
 
-.paciente .visitar {
+.visitar {
+    width: 100%;
     display: inline-block;
     margin-top: 1rem;
     background-color: #28CEC5;
@@ -52,7 +53,7 @@
     border-radius: 4px; 
 }
 
-.paciente .visitar:hover {
+ .visitar:hover {
     background-color: #144386;
     border-color: #144386;
 }
