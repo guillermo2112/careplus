@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Paciente } from '../../../entities/Patient';
 import { PacienteService } from '../../../services/paciente.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 import { HeaderComponent } from "../../shared/header/header.component";
 import { ClinicaProfile } from '../../../entities/ClinicaProfile';
@@ -29,26 +29,56 @@ export class DoctorListaPacientesComponent implements OnInit {
   perfil: ClinicaProfile = new ClinicaProfile();
   name: string;
   ide: string;
+  perfilesExistentes: { [key: number]: Boolean } = {};
 
   tamañoPag: number = 8;
   paginaActual: number = 1;
   totalPag: number = 1;
 
-  constructor(private paciente_service: PacienteService, private router: Router, private perfilService: ClinicasProfileService) { }
+  constructor(private paciente_service: PacienteService, private router: Router, private perfilService: ClinicasProfileService, private route: ActivatedRoute,) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    const reloadParam = this.route.snapshot.queryParamMap.get('reload');
+
+    if (!reloadParam) {
+      // Adding reload parameter and reloading the page
+      this.router.navigate([], {
+        queryParams: { reload: 'true' },
+        queryParamsHandling: 'merge'
+      }).then(() => {
+        window.location.reload();
+      });
+    } else {
+      // Remove the reload parameter after reloading to avoid infinite reload loop
+      this.router.navigate([], {
+        queryParams: { reload: null },
+        queryParamsHandling: 'merge'
+      });
+    }
+    
     this.obtener_pacientes();
+    for (let paciente of this.pacientes) {
+      try {
+        this.perfilesExistentes[paciente.id] = await this.existeClinicalProfile(paciente.id);
+      } catch (error) {
+        console.error('Error al comprobar perfil clínico:', error);
+        this.perfilesExistentes[paciente.id] = false;
+      }
+    }
   }
 
-  obtener_pacientes(){
-    this.paciente_service.getPatient().subscribe(dato =>{
-      console.log(dato);
-      this.pacientes=dato;
-      this.pacientes_clear=dato;
+  async existeClinicalProfile(id: number): Promise<Boolean> {
+    return await this.perfilService.comprobarPelfilClinico(id);
+  }
+
+  obtener_pacientes() {
+    this.paciente_service.getPatient().subscribe(dato => {
+      this.pacientes = dato;
+      this.pacientes_clear = dato;
       // this.existe_clinical_profile(dato);
     })
-      this.totalPag = Math.ceil(this.pacientes.length / this.tamañoPag);
-      this.paginatePacientes();
+    this.totalPag = Math.ceil(this.pacientes.length / this.tamañoPag);
+    this.paginatePacientes();
   }
 
   // async existe_clinical_profile(id:number){
@@ -62,21 +92,16 @@ export class DoctorListaPacientesComponent implements OnInit {
   //   }
   // }
 
-  async existe_clinical_profile(id:number){
-    try {
-      
-        let existeDni: Boolean = await this.perfilService.comprobarPelfilClinico(id);
-        
-       console.log(existeDni);
-      
-    } catch (error) {
-      console.error("Error validando el DNI", error);
-    }
+  async existe_clinical_profile(id: number):Promise<Boolean> {
+
+      let existeDni: Boolean = await this.perfilService.comprobarPelfilClinico(id);
+
+      return existeDni;
   }
 
-  goToClinicalProfile(id:number){
-    this.perfilService.devolverPerfilId(id).subscribe(dato =>{
-      this.router.navigate(['doctor-clinical-profile',dato]);
+  goToClinicalProfile(id: number) {
+    this.perfilService.devolverPerfilId(id).subscribe(dato => {
+      this.router.navigate(['doctor-clinical-profile', dato]);
     })
   }
 
@@ -91,14 +116,14 @@ export class DoctorListaPacientesComponent implements OnInit {
     this.perfil.date = this.getFormattedDate();
     this.perfil.allergy = '';
     this.perfil.report = '';
-    this.perfilService.createClinicasProfile(this.perfil).subscribe(dato =>{
+    this.perfilService.createClinicasProfile(this.perfil).subscribe(dato => {
       Swal.fire({
         title: "Enorabuena!",
         text: "Perfil clinico creado con exito",
         icon: "success"
       });
+      window.location.reload();
     });
-
   }
 
   getFormattedDate(): string {

@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { Specialty } from '../../../entities/specialty';
 import { Provincias } from '../../../entities/Provincias';
 import { Hospital } from '../../../entities/Hospital';
 import { SpecialtyService } from '../../../services/specialty.service';
 import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
+import { PacienteService } from '../../../services/paciente.service';
 
 
 @Component({
@@ -15,68 +16,69 @@ import { FormsModule } from '@angular/forms';
     standalone: true,
     templateUrl: './registrado-cita-clinicas.component.html',
     styleUrl: './registrado-cita-clinicas.component.css',
-    imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule]
+    imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule, RouterModule]
 })
 export class RegistradoCitaClinicasComponent implements OnInit {
-    specialty: Specialty = new Specialty();
-    specialties: Specialty[] = [];
-    selectedSpecialty: Specialty;
-    province:any[] = [];
-    provincias: Provincias []= [];
-    hospital:any[] = [];
-    hospitales: Hospital[] = []; 
-    selectedProvince: Provincias; 
-    selectedHospital: Hospital;
-  
-    constructor(
-      private specialtyService: SpecialtyService,
-      private hospital_service:HospitalService,
-      private router: Router
-    ) {}
-  
-    ngOnInit(): void {
-        this.list_provincias();
-        this.obtener_hospital();
+  provincias: Provincias[] = [];
+  selectedProvince: Provincias;
+  hospitales: Hospital[] = [];
+  selectedHospital: Hospital;
+  specialties: Specialty[] = [];
+  selectedSpecialty: Specialty;
 
-        this.specialtyService.listSpecialty().subscribe(
-          (data: Specialty[]) => {
-            this.specialties = data;
-          },
-          error => {
-            console.error('Error al hacer el fetch', error);
-          }
-        );
-    }
-  
-    onSpecialtyChange(event: any): void {
-      const specialtyId = event.target.value;
-      this.selectedSpecialty = this.specialties.find(specialty => specialty.id === +specialtyId);
-      console.log('Especialidad seleccionada:', this.selectedSpecialty);
-    }
+  constructor(
+    private patientService: PacienteService,
+    private router: Router
+  ) {}
 
-    private obtener_hospital(){
-        this.hospital_service.obtener_hospitales().subscribe(dato => {
-          this.hospital = dato;
-        });
-    }
-      
-    list_provincias(){
-        this.hospital_service.obtener_provincias().subscribe(dato => {
-          this.provincias = dato;
-        });
-    }
+  ngOnInit(): void {
+    this.getProvinces();
+  }
 
-    provinciasAll(event: Event): void {
-        const selectElement = event.target as HTMLSelectElement;
-        const selectedProvinceId = selectElement.value;
-        this.selectedProvince = this.provincias.find(provincia => provincia.id === +selectedProvinceId);
-        // this.hospitalesAll(this.selectedProvince);
-    }
+  getProvinces(): void {
+    this.patientService.getProvinces().subscribe(
+      (data: Provincias[]) => {
+        this.provincias = data;
+      },
+      error => {
+        console.error('Error al obtener provincias', error);
+      }
+    );
+  }
 
-    hospitalesAll(event: Event): void {
-        const selectElement = event.target as HTMLSelectElement;
-        const selectedHospitalId = selectElement.value;
-        this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
-        // this.hospitalesPorProvincia(this.selectedProvince.id);
+  onProvinceChange(event: any): void {
+    const provinceId = event.target.value;
+    this.selectedProvince = this.provincias.find(provincia => provincia.id === +provinceId);
+
+    this.patientService.getHospitalByProvince(provinceId).subscribe(
+      (data: Hospital[]) => {
+        this.hospitales = data;
+      },
+      error => {
+        console.error('Error al obtener hospitales', error);
+      }
+    );
+  }
+
+  onHospitalChange(event: Event): void {
+    const selectElement = event.target as HTMLSelectElement;
+    const hospitalId = selectElement.value;
+    this.selectedHospital = this.hospitales.find(hospitales => hospitales.id === +hospitalId);
+
+    if (this.selectedHospital) {
+      this.patientService.getSpecialtiesByHospital(this.selectedHospital.id).subscribe(
+        (data: Specialty[]) => {
+          this.specialties = data;
+        },
+        error => {
+          console.error('Error al obtener las especialidades', error);
+        }
+      );
     }
+  }
+
+  onSpecialtyChange(event: Event): void {
+    const specialtyId = (event.target as HTMLSelectElement).value;
+    this.selectedSpecialty = this.specialties.find(specialty => specialty.id === +specialtyId);
+  }
 }

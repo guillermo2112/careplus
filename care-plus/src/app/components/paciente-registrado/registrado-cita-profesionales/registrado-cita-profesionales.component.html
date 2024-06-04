@@ -1,3 +1,49 @@
 <app-header></app-header>
 <app-registrado-sidebar></app-registrado-sidebar>
-<p>resgistrado-cita-profesionales works!</p>
+<div class="container contenedorform">
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12">
+            <button [routerLink]="['/registrado-pedir-cita']" routerLinkActive="router-link-active" >volver</button>
+            <div class="card shadow border-0">
+                <div class="card-body">
+                    <form>
+                        <fieldset>
+                            <legend>Profesionales</legend>
+                            <div class="form-group">
+
+                                <div class="form-group" >
+                                    <div class="form-group">
+                                        <label for="doctor-select">Elige a un profesional: </label>
+                                        <select id="doctor-select" class="custom-select" name="filtros" (change)="onDoctorChange($event)">
+                                            @for(doctor of doctores; track doctor.id){
+                                                <option value={{doctor.id}}>{{doctor.name}}</option>
+                                                <label for="doctor-especialidad">La especialidad de este doctor:</label>
+                                                <input type="text" class="form-control" id="specialty" value="{{doctor.specialty}}">
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="doctor-especialidad">La especialidad de este doctor:</label>
+                                        <input type="text" class="form-control" id="specialty" [value]="selectedDoctor?.specialty.name" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="doctor-provincia">Provincia donde se encuentra este doctor:</label>
+                                        <input type="text" class="form-control" id="province" [value]="selectedHospital?.province.name" readonly>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="doctor-hospital">Hospital del doctor:</label>
+                                        <input type="text" class="form-control" id="hospital" [value]="selectedHospital?.name" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    
+                    </form>
+                </div>
+            </div>
+        
+    </div>
+</div>

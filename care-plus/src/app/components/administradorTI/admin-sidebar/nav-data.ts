@@ -8,6 +8,7 @@ export const navbarData = [
     { routeLink: 'listar-paciente',label: 'Pacientes',link:'/admin-paciente'},
     { routeLink: 'list-calendario',label: 'Calendarios',link:'/admin-calendar'},
     { routeLink: 'app-admin-appointmentshift',label: 'Citas',link:'/admin-appointmentshift'},
+    { routeLink: 'app-admin-indicators',label: 'Indicadores',link:'/admin-indicators'},
     { routeLink: 'logout',label: 'Cerrar sesion',link:'/logout'},
     
 

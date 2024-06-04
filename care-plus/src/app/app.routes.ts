@@ -47,6 +47,7 @@ import { RegistradoPedirCitaComponent } from './components/paciente-registrado/r
 import { LogoutComponent } from './components/shared/logout/logout.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { authGuard } from './services/auth.guard';
+import { AdminIndicatorsComponent } from './components/administradorTI/admin-indicators/admin-indicators.component';
 
 
 export const routes: Routes = [
@@ -76,6 +77,7 @@ export const routes: Routes = [
     {path: 'update-paciente', component: DatosPacienteComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
     {path: 'lista_pacientes', component: DoctorListaPacientesComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' } },
     {path: 'add-doctor', component: AddDoctorComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
+    {path: 'admin-indicators', component: AdminIndicatorsComponent,canActivate: [authGuard],data: { role: 'ROLE_ADMIN' }},
 
 
 
