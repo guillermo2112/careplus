@@ -106,7 +106,7 @@
             <a class="page-link" (click)="setPage(page)" *ngIf="page !== '...'">{{ page }}</a>
             <span class="page-link" *ngIf="page === '...'">...</span>
           </li>
-          <li class="page-item" [class.disabled]="currentPage === totalPages - 1">
+          <li class="page-item" [class.disabled]="currentPage === totalPages">
             <a class="page-link" (click)="nextPage()">Siguiente</a>
           </li>
         </ul>
