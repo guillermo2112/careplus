@@ -91,5 +91,7 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     const selectedHospitalId = event.target.value;
     this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
   }
+
+  
 }
 
