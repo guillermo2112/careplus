@@ -32,7 +32,6 @@ import { UpdateAppointmentshiftComponent } from './components/administradorTI/up
 import { DoctorHomeComponent } from './components/doctor/doctor-home/doctor-home.component';
 import { DoctorProfileComponent } from './components/doctor/doctor-profile/doctor-profile.component';
 import { DoctorClinicalProfileComponent } from './components/doctor/doctor-clinical-profile/doctor-clinical-profile.component';
-import { DoctorCitasComponent } from './components/doctor/doctor-citas/doctor-citas.component';
 import { DoctorCalendariosComponent } from './components/doctor/doctor-calendarios/doctor-calendarios.component';
 import { FullCalendarComponent, FullCalendarModule } from '@fullcalendar/angular';
 import { RegistradoSidebarComponent } from './components/paciente-registrado/registrado-sidebar/registrado-sidebar.component';
@@ -106,7 +105,6 @@ export const routes: Routes = [
     {path: 'doctor-lista-pacientes', component: DoctorListaPacientesComponent},
     {path: 'doctor-profile', component: DoctorProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
     {path: 'doctor-clinical-profile/:id', component: DoctorClinicalProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
-    {path: 'doctor-citas', component: DoctorCitasComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
     {path: 'doctor-calendarios', component: DoctorCalendariosComponent,canActivate: [authGuard],data: { role: 'ROLE_DOCTOR' }},
 
 
