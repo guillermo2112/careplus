@@ -13,107 +13,119 @@ import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { DoctorSidebarComponent } from "../../doctor/doctor-sidebar/doctor-sidebar.component";
-import { HeaderComponent } from "../../shared/header/header.component";
-import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
-
+import { DoctorSidebarComponent } from '../../doctor/doctor-sidebar/doctor-sidebar.component';
+import { HeaderComponent } from '../../shared/header/header.component';
+import { RegistradoSidebarComponent } from '../registrado-sidebar/registrado-sidebar.component';
 
 @Component({
-    selector: 'app-registrado-calendar',
-    standalone: true,
-    templateUrl: './registrado-calendar.component.html',
-    styleUrl: './registrado-calendar.component.css',
-    providers: [DatePipe],
-    imports: [DoctorSidebarComponent, FullCalendarModule, HeaderComponent, RegistradoSidebarComponent]
+  selector: 'app-registrado-calendar',
+  standalone: true,
+  templateUrl: './registrado-calendar.component.html',
+  styleUrl: './registrado-calendar.component.css',
+  providers: [DatePipe],
+  imports: [
+    DoctorSidebarComponent,
+    FullCalendarModule,
+    HeaderComponent,
+    RegistradoSidebarComponent,
+  ],
 })
 export class RegistradoCalendarComponent implements OnInit {
+  usuario: any;
 
-  usuario:any;
-
-  pacienteid:any;
+  pacienteid: any;
 
   user: Usuario = new Usuario();
 
+  paciente: Paciente = new Paciente();
 
- paciente: Paciente=new Paciente();
+  appointment: Appointment[] = [];
 
- appointment: Appointment[]=[];
+  eventDetails: any = {};
+  showEventDetails: boolean = false;
 
- eventDetails: any = {};
- showEventDetails: boolean = false; 
-
-  constructor(private datePipe: DatePipe, private patientService:PacienteService,private router: Router, private appointmentService: AppointmentService) { }
+  constructor(
+    private datePipe: DatePipe,
+    private patientService: PacienteService,
+    private router: Router,
+    private appointmentService: AppointmentService
+  ) {}
 
   ngOnInit(): void {
-    this.usuario=sessionStorage.getItem("usernameid");
+    this.usuario = sessionStorage.getItem('usernameid');
     this.getPatient();
   }
 
-  getPatient(){
-    this.patientService.getPatientByUser(this.usuario).subscribe(dato=>{
-      this.paciente=dato;
-      this.pacienteid=dato.id;
+  getPatient() {
+    this.patientService.getPatientByUser(this.usuario).subscribe((dato) => {
+      this.paciente = dato;
+      this.pacienteid = dato.id;
       this.getAppointmentByPatient();
-
-    })
-  }
-
-  getAppointmentByPatient() {
-    this.appointmentService.getAppointmentByPatient(this.pacienteid).subscribe(dato => {
-      this.appointment = dato;
-      // Mapear las citas a los eventos del calendario
-      this.calendarOptions.events = this.appointment.map(app => ({
-        title: `${app.appointment_shift.hour}`,
-        start: this.datePipe.transform(app.date, 'yyyy-MM-dd'),
-        extendedProps: {
-          Fecha:  this.datePipe.transform(app.date, 'yyyy-MM-dd'),
-          Nombre: app.patient.name,
-          Estado: app.state,
-          Hora: app.appointment_shift.hour
-      }
-      }));
     });
   }
 
-  
-  formatearFecha(fecha:Date){
+  getAppointmentByPatient() {
+    this.appointmentService
+      .getAppointmentByPatient(this.pacienteid)
+      .subscribe((dato) => {
+        this.appointment = dato;
+        // Mapear las citas a los eventos del calendario
+        this.calendarOptions.events = this.appointment.map((app) => ({
+          title: `${app.appointment_shift.hour}`,
+          start: this.datePipe.transform(app.date, 'yyyy-MM-dd'),
+          extendedProps: {
+            Fecha: this.datePipe.transform(app.date, 'yyyy-MM-dd'),
+            Nombre: app.calendar.doctor.name,
+            Estado: app.state,
+            Hora: app.appointment_shift.hour,
+          },
+        }));
+      });
+  }
+
+  formatoState(state:string){
+
+      if(state==="IN_PROGRESS"){
+        state="En Progreso";
+      }
+
+  }
+
+  formatearFecha(fecha: Date) {
     return this.datePipe.transform(fecha, 'yyyy-MM-dd') || '';
   }
 
-calendarOptions: CalendarOptions = {
-  initialView: 'dayGridMonth',
-  locale: esLocale,
-    plugins: [dayGridPlugin,timeGridPlugin,interactionPlugin],
+  calendarOptions: CalendarOptions = {
+    initialView: 'dayGridMonth',
+    locale: esLocale,
+    plugins: [dayGridPlugin, timeGridPlugin, interactionPlugin],
     events: [],
     slotLabelFormat: {
       hour: '2-digit',
       minute: '2-digit',
-      hour12: false
+      hour12: false,
     },
     slotLabelInterval: '00:30',
-    slotDuration: '00:30', 
+    slotDuration: '00:30',
     editable: true,
     dayMaxEvents: 1,
     selectable: true,
-    eventClick: (info) => this.handleEventClick(info)
+    eventClick: (info) => this.handleEventClick(info),
+  };
 
-};
-
-handleEventClick(info) { 
-  const event = info.event;
+  handleEventClick(info) {
+    const event = info.event;
     Swal.fire({
       title: 'Detalles de tu cita',
-      html: `<p><strong>Paciente:</strong> ${info.event.extendedProps.Nombre}</p>` +
-            `<p><strong>Fecha:</strong> ${info.event.extendedProps.Fecha}</p>` +
-            `<p><strong>Hora:</strong> ${info.event.extendedProps.Hora}</p>` +
-            `<p><strong>Estado:</strong> ${info.event.extendedProps.Estado}</p>`,
-      confirmButtonText: 'Cerrar'
+      html: `<p><strong>Doctor:</strong> ${info.event.extendedProps.Nombre}</p>` +
+        `<p><strong>Fecha:</strong> ${info.event.extendedProps.Fecha}</p>` +
+        `<p><strong>Hora:</strong> ${info.event.extendedProps.Hora}</p>` +
+        `<p><strong>Estado:</strong> ${info.event.extendedProps.Estado}</p>`,
+      confirmButtonText: 'Cerrar',
     });
-}
+  }
 
-closeEventDetails() {
-  this.showEventDetails = false;
-}
-
-
+  closeEventDetails() {
+    this.showEventDetails = false;
+  }
 }

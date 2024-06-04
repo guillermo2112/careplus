@@ -47,12 +47,9 @@ export class RegistradoClinicalProfileComponent implements OnInit {
         data=>{
           this.pacienteid=data.id;
             this.paciente=data;
-            console.log("info data"+data.name)
-            console.log('Patient user:', this.paciente.user);
           this.perfilClinicoService.clinicalProfileByPatientId(data.id).subscribe(
             data=>{
               this.perfil=data;
-              console.log("info"+data);
             }
           )
 

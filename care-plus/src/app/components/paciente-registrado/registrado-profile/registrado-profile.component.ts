@@ -46,7 +46,6 @@ export class RegistradoProfileComponent implements OnInit {
         this.pacienteService.getPatientByUser(id).subscribe(
             data=>{
                 this.paciente=data;
-                console.log('Patient user:', this.paciente.user); // Check if user is populated
 
             })
         }
