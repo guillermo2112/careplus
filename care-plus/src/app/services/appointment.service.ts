@@ -9,7 +9,6 @@ import { Appointment } from '../entities/Appointment';
 export class AppointmentService {
   private baseURL = 'http://care.francecentral.cloudapp.azure.com:8080';
 
-  private baseURL2 = 'http://localhost:8080/api/appointment';
 
   constructor(private httpClient: HttpClient) {}
 
@@ -28,7 +27,7 @@ export class AppointmentService {
   }
   getAppointmentByPatient(patiendid: number): Observable<Appointment[]> {
     return this.httpClient.get<Appointment[]>(
-      `${this.baseURL2}/patient/${patiendid}`
+      `${this.baseURL}/api/appointment/patient/${patiendid}`
     );
   }
 }

@@ -10,8 +10,6 @@ export class ClinicasProfileService {
 
   private baseURL = "http://care.francecentral.cloudapp.azure.com:8080";
 
-  private baseURL2="http://localhost:8080";
-
   constructor(private httpClient : HttpClient) { }
 
   listClinicasProfile():Observable<ClinicaProfile[]>{
@@ -50,7 +48,7 @@ export class ClinicasProfileService {
   }
 
   clinicalProfileByPatientId(id:number):Observable<ClinicaProfile>{
-    return this.httpClient.get<ClinicaProfile>(`${this.baseURL2}/api/clinicalprofile/patientprofile/${id}`);
+    return this.httpClient.get<ClinicaProfile>(`${this.baseURL}/api/clinicalprofile/patientprofile/${id}`);
 
   }
 

@@ -84,7 +84,7 @@ showEventDetails: boolean = false;
   // }
 
   getAppointmentByDoctorYCalendar() {
-    this.appointmentService.getAppointmentByDoctor(2).subscribe(dato => {
+    this.appointmentService.getAppointmentByDoctor(this.doctorid).subscribe(dato => {
       this.appointment = dato;
       // Mapear las citas a los eventos del calendario
       this.calendarOptions.events = this.appointment.map(app => ({

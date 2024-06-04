@@ -46,7 +46,6 @@ export class RegistradoCalendarComponent implements OnInit {
 
   ngOnInit(): void {
     this.usuario=sessionStorage.getItem("usernameid");
-    console.log(this.usuario);
     this.getPatient();
   }
 
@@ -54,7 +53,6 @@ export class RegistradoCalendarComponent implements OnInit {
     this.patientService.getPatientByUser(this.usuario).subscribe(dato=>{
       this.paciente=dato;
       this.pacienteid=dato.id;
-      console.log(this.pacienteid)
       this.getAppointmentByPatient();
 
     })
@@ -63,8 +61,6 @@ export class RegistradoCalendarComponent implements OnInit {
   getAppointmentByPatient() {
     this.appointmentService.getAppointmentByPatient(this.pacienteid).subscribe(dato => {
       this.appointment = dato;
-      console.log(this.appointment);
-      console.log(this.pacienteid)
       // Mapear las citas a los eventos del calendario
       this.calendarOptions.events = this.appointment.map(app => ({
         title: `${app.appointment_shift.hour}`,
