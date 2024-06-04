@@ -90,4 +90,7 @@ export class PacienteService {
     return this.httpClient.get<Province[]>(`${this.baseURL}/api/patient/AppointmentDoctorHospital/${idDoctor}`);
   }
 
+  getDoctorByHospitalAndSpecialty(idHospital:number, idSpecialty:number):Observable<Doctor[]>{
+    return this.httpClient.get<Doctor[]>(`${this.baseURL}/api/patient/AppointmentDoctor/${idHospital}/${idSpecialty}`);
+  }
 }

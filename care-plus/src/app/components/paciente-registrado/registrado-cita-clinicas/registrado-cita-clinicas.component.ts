@@ -5,10 +5,9 @@ import { Router, RouterModule } from '@angular/router';
 import { Specialty } from '../../../entities/specialty';
 import { Provincias } from '../../../entities/Provincias';
 import { Hospital } from '../../../entities/Hospital';
-import { SpecialtyService } from '../../../services/specialty.service';
-import { HospitalService } from '../../../services/hospital.service';
 import { FormsModule } from '@angular/forms';
 import { PacienteService } from '../../../services/paciente.service';
+import { Doctor } from '../../../entities/Doctor';
 
 
 @Component({
@@ -20,11 +19,13 @@ import { PacienteService } from '../../../services/paciente.service';
 })
 export class RegistradoCitaClinicasComponent implements OnInit {
   provincias: Provincias[] = [];
-  selectedProvince: Provincias | undefined;
+  selectedProvince: Provincias;
   hospitales: Hospital[] = [];
-  selectedHospital: Hospital | undefined;
+  selectedHospital: Hospital;
   specialties: Specialty[] = [];
-  selectedSpecialty: Specialty | undefined;
+  selectedSpecialty: Specialty;
+  doctores: Doctor[] = [];
+  selectedDoctor: Doctor;
 
   constructor(
     private patientService: PacienteService,
@@ -41,7 +42,7 @@ export class RegistradoCitaClinicasComponent implements OnInit {
         this.provincias = data;
         if (this.provincias.length === 1) {
           this.selectedProvince = this.provincias[0];
-          this.onProvinceChange(this.selectedProvince.id);
+          this.onProvinceChange({ target: { value: this.selectedProvince.id } });
         }
       },
       error => {
@@ -60,7 +61,7 @@ export class RegistradoCitaClinicasComponent implements OnInit {
           this.hospitales = data;
           if (this.hospitales.length === 1) {
             this.selectedHospital = this.hospitales[0];
-            this.onHospitalChange(this.selectedHospital.id);
+            this.onHospitalChange({ target: { value: this.selectedHospital.id } });
           }
         },
         error => {
@@ -80,6 +81,7 @@ export class RegistradoCitaClinicasComponent implements OnInit {
           this.specialties = data;
           if (this.specialties.length === 1) {
             this.selectedSpecialty = this.specialties[0];
+            this.onSpecialtyChange({ target: { value: this.selectedSpecialty.id } });
           }
         },
         error => {
@@ -92,5 +94,24 @@ export class RegistradoCitaClinicasComponent implements OnInit {
   onSpecialtyChange(event: any): void {
     const specialtyId = +event.target.value;
     this.selectedSpecialty = this.specialties.find(specialty => specialty.id === specialtyId);
+
+    if (this.selectedHospital && this.selectedSpecialty) {
+      this.patientService.getDoctorByHospitalAndSpecialty(this.selectedHospital.id, this.selectedSpecialty.id).subscribe(
+        (data: Doctor[]) => {
+          this.doctores = data;
+          if (this.doctores.length === 1) {
+            this.selectedDoctor = this.doctores[0];
+          }
+        },
+        error => {
+          console.error('Error al obtener doctores', error);
+        }
+      );
+    }
+  }
+
+  onDoctorChange(event: any): void {
+    const selectedDoctorId = +event.target.value;
+    this.selectedDoctor = this.doctores.find(doctor => doctor.id === selectedDoctorId);
   }
 }

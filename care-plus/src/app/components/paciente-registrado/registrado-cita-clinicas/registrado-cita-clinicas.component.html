@@ -41,6 +41,17 @@
                                         </select>
                                     </div>
                                 }
+
+                                @if(selectedSpecialty){
+                                    <div class="form-group">
+                                        <label for="doctor-select">Elige un doctor: </label>
+                                        <select id="doctor-select" class="custom-select" name="doctores" (change)="onDoctorChange($event)">
+                                            @for(doctor of doctores; track doctor.id){
+                                                <option value={{doctor.id}}>{{doctor.name}}</option>
+                                            }  
+                                        </select>
+                                    </div>
+                                }
                             </div>
                         
                         </fieldset>

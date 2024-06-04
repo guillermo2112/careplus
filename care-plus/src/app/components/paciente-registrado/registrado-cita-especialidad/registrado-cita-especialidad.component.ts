@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../shared/header/header.component";
 import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
-import { SpecialtyService } from '../../../services/specialty.service';
 import { Router, RouterModule } from '@angular/router';
-import Swal from 'sweetalert2';
 import { Specialty } from '../../../entities/specialty';
 import { FormsModule } from '@angular/forms';
-import { HospitalService } from '../../../services/hospital.service';
 import { Provincias } from '../../../entities/Provincias';
 import { Hospital } from '../../../entities/Hospital';
 import { PacienteService } from '../../../services/paciente.service';
+import { Doctor } from '../../../entities/Doctor';
 
 @Component({
   selector: 'app-registrado-cita-especialidad',
@@ -26,7 +24,9 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
   selectedProvince: Provincias;
   hospitales: Hospital[] = [];
   selectedHospital: Hospital;
-  
+  doctores: Doctor[] = [];
+  selectedDoctor: Doctor;
+
   constructor(
     private patientService: PacienteService,
     private router: Router
@@ -78,6 +78,7 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
           this.hospitales = data;
           if (this.hospitales.length === 1) {
             this.selectedHospital = this.hospitales[0];
+            this.onHospitalChange({ target: { value: this.selectedHospital.id } });
           }
         },
         error => {
@@ -90,8 +91,24 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
   onHospitalChange(event: any): void {
     const selectedHospitalId = event.target.value;
     this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
+
+    if (this.selectedHospital && this.selectedSpecialty) {
+      this.patientService.getDoctorByHospitalAndSpecialty(this.selectedHospital.id, this.selectedSpecialty.id).subscribe(
+        (data: Doctor[]) => {
+          this.doctores = data;
+          if (this.doctores.length === 1) {
+            this.selectedDoctor = this.doctores[0];
+          }
+        },
+        error => {
+          console.error('Error al obtener doctores', error);
+        }
+      );
+    }
   }
 
-  
+  onDoctorChange(event: any): void {
+    const selectedDoctorId = event.target.value;
+    this.selectedDoctor = this.doctores.find(doctor => doctor.id === +selectedDoctorId);
+  }
 }
-

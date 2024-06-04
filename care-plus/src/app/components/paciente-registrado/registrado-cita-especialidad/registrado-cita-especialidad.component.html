@@ -35,7 +35,19 @@
                                 <select id="hospital-select" class="custom-select" name="hospitales" (change)="onHospitalChange($event)">
                                     @for(hospital of hospitales; track hospital.id){
                                         <option value={{hospital.id}}>{{hospital.name}}</option>
-                                    }                                </select>
+                                    }                                
+                                </select>
+                            </div>
+                        }
+
+                        @if(selectedHospital){
+                            <div class="form-group">
+                                <label for="doctor-select">Elige un doctor: </label>
+                                <select id="doctor-select" class="custom-select" name="doctores" (change)="onDoctorChange($event)">
+                                    @for(doctor of doctores; track doctor.id){
+                                        <option value={{doctor.id}}>{{doctor.name}}</option>
+                                    }  
+                                </select>
                             </div>
                         }
                         </fieldset>
