@@ -47,6 +47,7 @@ import { LogoutComponent } from './components/shared/logout/logout.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { authGuard } from './services/auth.guard';
 import { AdminIndicatorsComponent } from './components/administradorTI/admin-indicators/admin-indicators.component';
+import { RegistradoCalendarComponent } from './components/paciente-registrado/registrado-calendar/registrado-calendar.component';
 
 
 export const routes: Routes = [
@@ -116,11 +117,13 @@ export const routes: Routes = [
     //PACIENTE REGISTRADO
     {path: 'registrado-sidebar', component: RegistradoSidebarComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-home', component: RegistradoHomeComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-citas', component: RegistradoCalendarComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-profile', component: RegistradoProfileComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-pedir-cita', component: RegistradoPedirCitaComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-especialidad', component: RegistradoCitaEspecialidadComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-profesionales', component: RegistradoCitaProfesionalesComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
     {path: 'registrado-cita-clinicas', component: RegistradoCitaClinicasComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
+    {path: 'registrado-cita-contodo', component: RegistradoCitaContodoComponent,canActivate: [authGuard],data: { role: 'ROLE_PATIENT' }},
 
 
 

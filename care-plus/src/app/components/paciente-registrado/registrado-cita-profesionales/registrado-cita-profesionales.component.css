@@ -48,3 +48,6 @@
     display: block;
     width: 100%;
   }
+  legend{
+    color: #28CEC5;
+  }

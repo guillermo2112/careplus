@@ -50,6 +50,8 @@ export class DoctorCalendariosComponent implements OnInit{
     gender: ''
 };
 
+  doctorid:any;
+
 
   calendar: Calendar[]=[];
 
@@ -62,7 +64,6 @@ showEventDetails: boolean = false;
     this.usuario=sessionStorage.getItem("usernameid");
     this.getDoctor();
     // this.getCalendarByDoctor();
-    this. getAppointmentByDoctorYCalendar();
   }
 
   constructor(private datePipe: DatePipe, private doctorService: DoctorService, private calendarService: CalendarService,  private router: Router, private appointmentService: AppointmentService) { }
@@ -70,6 +71,10 @@ showEventDetails: boolean = false;
   getDoctor(){
     this.doctorService.getDoctorByUser(this.usuario).subscribe(dato=>{
       this.doctor=dato;
+      this.doctorid=dato.id;
+      console.log(this.doctorid)
+      this.getAppointmentByDoctorYCalendar();
+
     })
   }
   // getCalendarByDoctor(){
