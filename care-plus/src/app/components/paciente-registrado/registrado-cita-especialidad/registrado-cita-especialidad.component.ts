@@ -40,6 +40,10 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     this.patientService.getSpecialties().subscribe(
       (data: Specialty[]) => {
         this.specialties = data;
+        if (this.specialties.length === 1) {
+          this.selectedSpecialty = this.specialties[0];
+          this.onSpecialtyChange({ target: { value: this.selectedSpecialty.id } });
+        }
       },
       error => {
         console.error('Error al hacer el fetch', error);
@@ -53,6 +57,10 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     this.patientService.getProvincesBySpecialty(specialtyId).subscribe(
       (data: Provincias[]) => {
         this.provincias = data;
+        if (this.provincias.length === 1) {
+          this.selectedProvince = this.provincias[0];
+          this.onProvinceChange({ target: { value: this.selectedProvince.id } });
+        }
       },
       error => {
         console.error('Error al obtener provincias', error);
@@ -60,15 +68,17 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     );
   }
 
-  onProvinceChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    const selectedProvinceId = selectElement.value;
+  onProvinceChange(event: any): void {
+    const selectedProvinceId = event.target.value;
     this.selectedProvince = this.provincias.find(provincia => provincia.id === +selectedProvinceId);
 
     if (this.selectedProvince && this.selectedSpecialty) {
       this.patientService.getHospitalsByProvinceAndSpecialty(this.selectedProvince.id, this.selectedSpecialty.id).subscribe(
         (data: Hospital[]) => {
           this.hospitales = data;
+          if (this.hospitales.length === 1) {
+            this.selectedHospital = this.hospitales[0];
+          }
         },
         error => {
           console.error('Error al obtener hospitales', error);
@@ -77,9 +87,8 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     }
   }
 
-  onHospitalChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    const selectedHospitalId = selectElement.value;
+  onHospitalChange(event: any): void {
+    const selectedHospitalId = event.target.value;
     this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
   }
 }

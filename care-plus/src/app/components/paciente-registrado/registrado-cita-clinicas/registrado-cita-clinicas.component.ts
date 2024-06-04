@@ -20,11 +20,11 @@ import { PacienteService } from '../../../services/paciente.service';
 })
 export class RegistradoCitaClinicasComponent implements OnInit {
   provincias: Provincias[] = [];
-  selectedProvince: Provincias;
+  selectedProvince: Provincias | undefined;
   hospitales: Hospital[] = [];
-  selectedHospital: Hospital;
+  selectedHospital: Hospital | undefined;
   specialties: Specialty[] = [];
-  selectedSpecialty: Specialty;
+  selectedSpecialty: Specialty | undefined;
 
   constructor(
     private patientService: PacienteService,
@@ -39,6 +39,10 @@ export class RegistradoCitaClinicasComponent implements OnInit {
     this.patientService.getProvinces().subscribe(
       (data: Provincias[]) => {
         this.provincias = data;
+        if (this.provincias.length === 1) {
+          this.selectedProvince = this.provincias[0];
+          this.onProvinceChange(this.selectedProvince.id);
+        }
       },
       error => {
         console.error('Error al obtener provincias', error);
@@ -47,28 +51,36 @@ export class RegistradoCitaClinicasComponent implements OnInit {
   }
 
   onProvinceChange(event: any): void {
-    const provinceId = event.target.value;
-    this.selectedProvince = this.provincias.find(provincia => provincia.id === +provinceId);
+    const provinceId = +event.target.value;
+    this.selectedProvince = this.provincias.find(provincia => provincia.id === provinceId);
 
-    this.patientService.getHospitalByProvince(provinceId).subscribe(
-      (data: Hospital[]) => {
-        this.hospitales = data;
-      },
-      error => {
-        console.error('Error al obtener hospitales', error);
-      }
-    );
+    if (this.selectedProvince) {
+      this.patientService.getHospitalByProvince(provinceId).subscribe(
+        (data: Hospital[]) => {
+          this.hospitales = data;
+          if (this.hospitales.length === 1) {
+            this.selectedHospital = this.hospitales[0];
+            this.onHospitalChange(this.selectedHospital.id);
+          }
+        },
+        error => {
+          console.error('Error al obtener hospitales', error);
+        }
+      );
+    }
   }
 
-  onHospitalChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    const hospitalId = selectElement.value;
-    this.selectedHospital = this.hospitales.find(hospitales => hospitales.id === +hospitalId);
+  onHospitalChange(event: any): void {
+    const hospitalId = +event.target.value;
+    this.selectedHospital = this.hospitales.find(hospital => hospital.id === hospitalId);
 
     if (this.selectedHospital) {
       this.patientService.getSpecialtiesByHospital(this.selectedHospital.id).subscribe(
         (data: Specialty[]) => {
           this.specialties = data;
+          if (this.specialties.length === 1) {
+            this.selectedSpecialty = this.specialties[0];
+          }
         },
         error => {
           console.error('Error al obtener las especialidades', error);
@@ -77,8 +89,8 @@ export class RegistradoCitaClinicasComponent implements OnInit {
     }
   }
 
-  onSpecialtyChange(event: Event): void {
-    const specialtyId = (event.target as HTMLSelectElement).value;
-    this.selectedSpecialty = this.specialties.find(specialty => specialty.id === +specialtyId);
+  onSpecialtyChange(event: any): void {
+    const specialtyId = +event.target.value;
+    this.selectedSpecialty = this.specialties.find(specialty => specialty.id === specialtyId);
   }
 }
