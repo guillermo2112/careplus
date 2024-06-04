@@ -6,13 +6,14 @@ import { Router } from '@angular/router';
 import { PacienteService } from '../../../services/paciente.service';
 import { Paciente } from '../../../entities/Patient';
 import { HeaderComponent } from "../../shared/header/header.component";
+import { RegistradoClinicalProfileComponent } from '../registrado-clinical-profile/registrado-clinical-profile.component';
 
 @Component({
     selector: 'app-registrado-profile',
     standalone: true,
     templateUrl: './registrado-profile.component.html',
     styleUrl: './registrado-profile.component.css',
-    imports: [RegistradoSidebarComponent, HeaderComponent]
+    imports: [RegistradoSidebarComponent, HeaderComponent, RegistradoClinicalProfileComponent]
 })
 export class RegistradoProfileComponent implements OnInit {
 

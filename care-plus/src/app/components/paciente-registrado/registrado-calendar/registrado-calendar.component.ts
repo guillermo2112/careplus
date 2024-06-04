@@ -15,6 +15,7 @@ import interactionPlugin, { DateClickArg } from '@fullcalendar/interaction';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { DoctorSidebarComponent } from "../../doctor/doctor-sidebar/doctor-sidebar.component";
 import { HeaderComponent } from "../../shared/header/header.component";
+import { RegistradoSidebarComponent } from "../registrado-sidebar/registrado-sidebar.component";
 
 
 @Component({
@@ -23,7 +24,7 @@ import { HeaderComponent } from "../../shared/header/header.component";
     templateUrl: './registrado-calendar.component.html',
     styleUrl: './registrado-calendar.component.css',
     providers: [DatePipe],
-    imports: [DoctorSidebarComponent, FullCalendarModule, HeaderComponent]
+    imports: [DoctorSidebarComponent, FullCalendarModule, HeaderComponent, RegistradoSidebarComponent]
 })
 export class RegistradoCalendarComponent implements OnInit {
 

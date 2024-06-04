@@ -8,5 +8,5 @@ width: 100%;
   }
   app-doctor-sidebar {
     position: fixed;
-    z-index: 1000; /* Asegúrate de que el sidebar esté por encima del calendario */
+    z-index: 1000;
 }
