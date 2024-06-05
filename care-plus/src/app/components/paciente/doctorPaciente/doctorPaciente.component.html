@@ -55,8 +55,9 @@
   @for(doctor of doctores; track doctor.id){
   <div class="doctor">
     <!-- <img [src]="'../../../assets/doctores/'+doctor.id+'.jpg'"> -->
-    <img [src]="'https://res.cloudinary.com/dxltzkffz/image/upload/v1717156469/images/' + doctor?.id + '.jpg'"
-      alt="Foto del Doctor">
+    <img [src]="'https://res.cloudinary.com/dxltzkffz/image/upload/v1717591502/images/' + doctor?.id + '.jpg'"
+      alt="Foto del Doctor"
+      onError="this.src='assets/doctores/doctor_default.jpg'">
     <h3>{{ doctor.name }}</h3>
     <p class="especialistas">{{ doctor.specialty.name }}</p>
     <p>Lic: {{ doctor.license_num }}</p>
@@ -64,6 +65,7 @@
 
   </div>
   }
+
 
 
 
