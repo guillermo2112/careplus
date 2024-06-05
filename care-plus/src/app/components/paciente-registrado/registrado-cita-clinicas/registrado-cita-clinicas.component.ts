@@ -8,6 +8,9 @@ import { Hospital } from '../../../entities/Hospital';
 import { FormsModule } from '@angular/forms';
 import { PacienteService } from '../../../services/paciente.service';
 import { Doctor } from '../../../entities/Doctor';
+import { Calendar } from '@fullcalendar/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Fecha } from '../../../entities/Fecha';
 
 
 @Component({
@@ -27,10 +30,18 @@ export class RegistradoCitaClinicasComponent implements OnInit {
   doctores: Doctor[] = [];
   selectedDoctor: Doctor;
 
+
+appointmentForm: FormGroup;
+
+selectedDate: string;
+date: Date;
+ 
   constructor(
     private patientService: PacienteService,
-    private router: Router
-  ) {}
+    private router: Router,
+private fb: FormBuilder,
+  ) {
+  }
 
   ngOnInit(): void {
     this.getProvinces();
@@ -114,4 +125,32 @@ export class RegistradoCitaClinicasComponent implements OnInit {
     const selectedDoctorId = +event.target.value;
     this.selectedDoctor = this.doctores.find(doctor => doctor.id === selectedDoctorId);
   }
+
+ 
+
+
+  onDateChange(newDate: string) {
+    console.log('Selected date:', newDate);
+
+  }
+
+
+
+  // selectedDate: string;
+  // availableTimes: string[];
+
+
+  // onDateChange(newDate: string) {
+  //   this.selectedDate = newDate;
+  //   const fecha: Fecha = {
+  //     date: new Date(newDate),
+  //     idDoctor: 1,  // Replace with actual doctor ID
+  //     idHospital: 1 // Replace with actual hospital ID
+  //   };
+
+  //   this.appointmentService.getHoraCita(fecha).subscribe({
+  //     next: (times) => this.availableTimes = times,
+  //     error: (err) => console.error('Error fetching available times:', err)
+  //   });
+  // }
 }

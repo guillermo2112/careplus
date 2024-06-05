@@ -31,6 +31,9 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
   selectedDoctor: Doctor;
   usuario:any;
   user: Usuario = new Usuario();
+  
+selectedDate: string;
+date: Date;
 
     paciente: Paciente = {
         id: 0,
@@ -127,6 +130,10 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
 
     })
   }
+  onDateChange(newDate: string) {
+    console.log('Selected date:', newDate);
 
+  }
+  
 
 }
