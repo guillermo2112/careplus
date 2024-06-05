@@ -17,6 +17,12 @@ import { HeaderComponent } from "../../shared/header/header.component";
 export class AdminCalendarComponent implements OnInit {
 
   calendarios: Calendar[] = [];
+  paginatedCalendarios: Calendar[] = [];
+
+  currentPage: number = 0;
+  itemsPerPage: number = 9;
+  totalPages: number = 0;
+
   constructor(
     private calendarService: CalendarService,
     private router: Router,
@@ -26,6 +32,8 @@ export class AdminCalendarComponent implements OnInit {
   listCalendar() {
     this.calendarService.listCalendar().subscribe(dato => {
       this.calendarios = dato;
+      this.totalPages = Math.ceil(this.calendarios.length / this.itemsPerPage - 1);
+      this.updatePaginatedCalendarios();
     });
   }
 
@@ -46,7 +54,66 @@ export class AdminCalendarComponent implements OnInit {
     return this.datePipe.transform(date, 'yyyy-MM-dd HH:mm');
   }
 
+  updatePaginatedCalendarios() {
+    const startIndex = this.currentPage * this.itemsPerPage;
+    const endIndex = startIndex + this.itemsPerPage;
+    this.paginatedCalendarios = this.calendarios.slice(startIndex, endIndex);
+  }
+
+  prevPage() {
+    if (this.currentPage > 0) {
+      this.currentPage--;
+      this.updatePaginatedCalendarios();
+    }
+  }
+
+  nextPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+      this.updatePaginatedCalendarios();
+    }
+  }
+
+  setPage(page: number | string): void {
+    if (page !== '...' && +page > -1 && +page <= this.totalPages) {
+      this.currentPage = +page;
+      this.updatePaginatedCalendarios();
+    }
+  }
+  getPages(): (number | string)[] {
+    const totalVisiblePages = 5;
+    const pages: (number | string)[] = [];
+    if (this.totalPages <= totalVisiblePages + 1) {
+      for (let i = 0; i <= this.totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (this.currentPage <= 3) {
+        for (let i = 0; i <= totalVisiblePages; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPages);
+      } else if (this.currentPage >= this.totalPages - 2) {
+        pages.push(0);
+        pages.push('...');
+        for (let i = this.totalPages - totalVisiblePages + 1; i <= this.totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        pages.push(0);
+        pages.push('...');
+        for (let i = this.currentPage - 1; i <= this.currentPage + 1; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPages);
+      }
+    }
+    return pages;
+  }
+
   ngOnInit(): void {
     this.listCalendar();
-  }
+  } 
 }

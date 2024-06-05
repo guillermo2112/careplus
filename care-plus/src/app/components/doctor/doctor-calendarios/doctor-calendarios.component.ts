@@ -117,7 +117,6 @@ calendarOptions: CalendarOptions = {
     },
     slotLabelInterval: '00:30',
     slotDuration: '00:30', 
-    editable: true,
     dayMaxEvents: 1, // Limit to 1 event per day
     selectable: true,
     eventClick: (info) => this.handleEventClick(info)

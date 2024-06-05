@@ -107,7 +107,6 @@ export class RegistradoCalendarComponent implements OnInit {
     },
     slotLabelInterval: '00:30',
     slotDuration: '00:30',
-    editable: true,
     dayMaxEvents: 1,
     selectable: true,
     eventClick: (info) => this.handleEventClick(info),

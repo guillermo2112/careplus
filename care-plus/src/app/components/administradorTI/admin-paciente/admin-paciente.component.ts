@@ -47,7 +47,7 @@ export class AdminPacienteComponent implements OnInit {
     this.pacienteService.getPatient().subscribe(dato => {
       this.pacientes = dato;
       this.pacientes_clear = dato;
-      this.totalPages = Math.ceil(this.pacientes.length / this.itemsPerPage);
+      this.totalPages = (Math.ceil(this.pacientes.length / this.itemsPerPage-1));
     });
   }
 
@@ -59,25 +59,61 @@ export class AdminPacienteComponent implements OnInit {
     this.router.navigate(['add_paciente'])
   }
 
-  prevPage(event: Event) {
-    event.preventDefault();
+  prevPage(): void {
     if (this.currentPage > 0) {
-      this.setPage(event, this.currentPage - 1);
+      this.currentPage--;
     }
   }
 
-  nextPage(event: Event) {
-    event.preventDefault();
-    if (this.currentPage < this.totalPages - 1) {
-      this.setPage(event, this.currentPage + 1);
+  nextPage(): void {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
     }
   }
 
-  setPage(event: Event, pageIndex: number) {
-    event.preventDefault();
-    if (pageIndex >= 0 && pageIndex < this.totalPages) {
-      this.currentPage = pageIndex;
+  setPage(page: number | string): void {
+    if (page !== '...' && +page > -1 && +page <= this.totalPages) {
+      this.currentPage = +page;
     }
+  }
+
+  getPages(): (number | string)[] {
+    const totalVisiblePages = 5;
+    const pages: (number | string)[] = [];
+    if (this.totalPages <= totalVisiblePages + 1) {
+      for (let i = 0; i <= this.totalPages; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (this.currentPage <= 3) {
+        for (let i = 0; i <= totalVisiblePages; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPages);
+      } else if (this.currentPage >= this.totalPages - 2) {
+        pages.push(0);
+        pages.push('...');
+        for (let i = this.totalPages - totalVisiblePages + 1; i <= this.totalPages; i++) {
+          pages.push(i);
+        }
+      } else {
+        pages.push(0);
+        pages.push('...');
+        for (let i = this.currentPage - 1; i <= this.currentPage + 1; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPages);
+      }
+    }
+    return pages;
+  }
+
+  get paginatedHospitals(): any[] {
+    const start = (this.currentPage - 1) * this.itemsPerPage;
+    const end = start + this.itemsPerPage;
+    return this.pacientes.slice(start, end);
   }
 
   chunkArray(myArray: any[], chunk_size: number) {

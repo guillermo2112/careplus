@@ -227,14 +227,14 @@ export class DoctorListaPacientesComponent implements OnInit {
   }
 
   previousPage(): void {
-    if (this.paginaActual > 1) {
+    if (this.paginaActual > 0) {
       this.paginaActual--;
       this.paginatePacientes();
     }
   }
 
   setPage(page: number | string): void {
-    if (page !== '...' && +page > 0 && +page <= this.totalPag) {
+    if (page !== '...' && +page > -1 && +page <= this.totalPag) {
       this.paginaActual = +page;
       this.paginatePacientes();
     }
@@ -255,13 +255,13 @@ export class DoctorListaPacientesComponent implements OnInit {
         pages.push('...');
         pages.push(this.totalPag);
       } else if (this.paginaActual >= this.totalPag - 2) {
-        pages.push(1);
+        pages.push(0);
         pages.push('...');
         for (let i = this.totalPag - totalVisiblePages + 1; i <= this.totalPag; i++) {
           pages.push(i);
         }
       } else {
-        pages.push(1);
+        pages.push(0);
         pages.push('...');
         for (let i = this.paginaActual - 1; i <= this.paginaActual + 1; i++) {
           pages.push(i);

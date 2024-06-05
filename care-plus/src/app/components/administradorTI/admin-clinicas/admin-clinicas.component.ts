@@ -7,7 +7,6 @@ import Swal from 'sweetalert2';
 import {AdminSidebarComponent } from "../admin-sidebar/admin-sidebar.component";
 import { Provincias } from '../../../entities/Provincias';
 import { HeaderComponent } from "../../shared/header/header.component";
-import { Hospital } from '../../../entities/Hospital';
 
 @Component({
     selector: 'app-admin-clinicas',
@@ -35,7 +34,6 @@ export class AdminClinicasComponent implements OnInit{
   hospital_clear:any[] = [];
   nombre:string = '';
   provincias: Provincias []= [];
-  seleccionados:string[]=[];
   currentPage: number = 0;
   itemsPerPage: number = 9;
 
