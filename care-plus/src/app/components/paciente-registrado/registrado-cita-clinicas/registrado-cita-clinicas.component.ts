@@ -8,9 +8,12 @@ import { Hospital } from '../../../entities/Hospital';
 import { FormsModule } from '@angular/forms';
 import { PacienteService } from '../../../services/paciente.service';
 import { Doctor } from '../../../entities/Doctor';
+import { AppointmentDTO } from '../../../entities/AppointmentDTO';
+
 import { Calendar } from '@fullcalendar/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Fecha } from '../../../entities/Fecha';
+import { DatePipe } from '@angular/common';
 
 
 @Component({
@@ -35,11 +38,20 @@ appointmentForm: FormGroup;
 
 selectedDate: string;
 date: Date;
+
+
+ hospitalSelected: number=0;
+ fechaSelected: String ="";
+ doctorSelected: number=0;
+
+newDate : String = "";
+fecha: Fecha = new Fecha();
+listFechas: AppointmentDTO[] = [];
  
   constructor(
     private patientService: PacienteService,
     private router: Router,
-private fb: FormBuilder,
+    private fb: FormBuilder,
   ) {
   }
 
@@ -66,6 +78,8 @@ private fb: FormBuilder,
     const provinceId = +event.target.value;
     this.selectedProvince = this.provincias.find(provincia => provincia.id === provinceId);
 
+    // this.provinceSelected =  this.selectedProvince.id;
+
     if (this.selectedProvince) {
       this.patientService.getHospitalByProvince(provinceId).subscribe(
         (data: Hospital[]) => {
@@ -77,7 +91,7 @@ private fb: FormBuilder,
         },
         error => {
           console.error('Error al obtener hospitales', error);
-        }
+        } 
       );
     }
   }
@@ -85,6 +99,8 @@ private fb: FormBuilder,
   onHospitalChange(event: any): void {
     const hospitalId = +event.target.value;
     this.selectedHospital = this.hospitales.find(hospital => hospital.id === hospitalId);
+
+    this.hospitalSelected = this.selectedHospital.id;
 
     if (this.selectedHospital) {
       this.patientService.getSpecialtiesByHospital(this.selectedHospital.id).subscribe(
@@ -124,33 +140,31 @@ private fb: FormBuilder,
   onDoctorChange(event: any): void {
     const selectedDoctorId = +event.target.value;
     this.selectedDoctor = this.doctores.find(doctor => doctor.id === selectedDoctorId);
+  
+    this.doctorSelected = this.selectedDoctor.id;
   }
 
  
 
 
-  onDateChange(newDate: string) {
+  onDateChange(newDate) {
+    this.newDate = newDate;
     console.log('Selected date:', newDate);
 
   }
 
+  
+  obtenerHorasDisponibles() {
+    this.patientService.getHoraCita(this.fecha).subscribe(
+      (horasDisponibles: AppointmentDTO[]) => {
+        this.listFechas = horasDisponibles
+      },
+      (error) => {
+        console.error('Error al obtener las horas disponibles:', error);
+      }
+    );
+
+  }
 
 
-  // selectedDate: string;
-  // availableTimes: string[];
-
-
-  // onDateChange(newDate: string) {
-  //   this.selectedDate = newDate;
-  //   const fecha: Fecha = {
-  //     date: new Date(newDate),
-  //     idDoctor: 1,  // Replace with actual doctor ID
-  //     idHospital: 1 // Replace with actual hospital ID
-  //   };
-
-  //   this.appointmentService.getHoraCita(fecha).subscribe({
-  //     next: (times) => this.availableTimes = times,
-  //     error: (err) => console.error('Error fetching available times:', err)
-  //   });
-  // }
 }

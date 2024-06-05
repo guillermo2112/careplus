@@ -1,5 +1,5 @@
 export class Fecha {
-    date: Date;
-    idDoctor: number;
-    idHospital: number;
+    fecha: String;
+    doctor_id: number;
+    hospital_id: number;
 }

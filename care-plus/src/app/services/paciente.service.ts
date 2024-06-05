@@ -95,15 +95,17 @@ export class PacienteService {
     return this.httpClient.get<Doctor[]>(`${this.baseURL}/api/patient/AppointmentDoctor/${idHospital}/${idSpecialty}`);
   }
 
-  getHoraCita(fecha: Fecha):Observable<string[]>{ 
-    let params = new HttpParams()
-      .set('date', fecha.date.toISOString())  
-      .set('idDoctor', fecha.idDoctor.toString())
-      .set('idHospital', fecha.idHospital.toString());
+  getHoraCita(fecha: Fecha): Observable<Object>{ 
+    fecha.fecha ="2024-06-04";
+    fecha.doctor_id =20;
+    fecha.hospital_id =50;
 
-    return this.httpClient.get<string[]>(`${this.baseURL}/api/patient/AppointmentAvaliable`, { params: params });
+   
+
+    return this.httpClient.post(`${this.baseURL}/api/patient/AppointmentAvailable`, fecha);
   }
 
+  
 getCalendarioDoctor(idDoctor:number):Observable<Fecha[]>{
     return this.httpClient.get<Fecha[]>(`${this.baseURL}/api/patient/AppointmentCalendar/${idDoctor}`);
   }
