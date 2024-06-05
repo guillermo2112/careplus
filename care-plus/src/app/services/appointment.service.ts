@@ -12,6 +12,10 @@ export class AppointmentService {
 
   constructor(private httpClient: HttpClient) {}
 
+  createAppointment(appointment: Appointment): Observable<Appointment> {
+    return this.httpClient.post<Appointment>(`${this.baseURL}/api/appointment`,appointment);
+  }
+
   getAppointmentByDoctorYCalendar(
     doctorid: number,
     calendarid: number

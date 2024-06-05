@@ -47,8 +47,8 @@ export class RegistradoProfileComponent implements OnInit {
             data=>{
                 this.paciente=data;
 
-            })
-        }
+        })
+    }
 
 
 

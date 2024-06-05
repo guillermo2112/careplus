@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Paciente } from '../entities/Patient';
 import { Observable } from 'rxjs';
@@ -6,6 +6,7 @@ import { Usuario } from '../entities/usuario';
 import { Specialty } from '../entities/specialty';
 import { Province } from '../entities/Hospital';
 import { Doctor } from '../entities/Doctor';
+import { Fecha } from '../entities/Fecha';
 
 @Injectable({
   providedIn: 'root'
@@ -92,5 +93,14 @@ export class PacienteService {
 
   getDoctorByHospitalAndSpecialty(idHospital:number, idSpecialty:number):Observable<Doctor[]>{
     return this.httpClient.get<Doctor[]>(`${this.baseURL}/api/patient/AppointmentDoctor/${idHospital}/${idSpecialty}`);
+  }
+
+  getHoraCita(fecha: Fecha):Observable<string[]>{ 
+    let params = new HttpParams()
+      .set('date', fecha.date.toISOString())  
+      .set('idDoctor', fecha.idDoctor.toString())
+      .set('idHospital', fecha.idHospital.toString());
+
+    return this.httpClient.get<string[]>(`${this.baseURL}/api/patient/AppointmentAvaliable`, { params: params });
   }
 }

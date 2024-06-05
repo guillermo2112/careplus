@@ -8,6 +8,10 @@ import { Provincias } from '../../../entities/Provincias';
 import { Hospital } from '../../../entities/Hospital';
 import { PacienteService } from '../../../services/paciente.service';
 import { Doctor } from '../../../entities/Doctor';
+import { AppointmentService } from '../../../services/appointment.service';
+import { Usuario } from '../../../entities/usuario';
+import { Paciente } from '../../../entities/Patient';
+
 
 @Component({
   selector: 'app-registrado-cita-especialidad',
@@ -17,7 +21,6 @@ import { Doctor } from '../../../entities/Doctor';
   imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule, RouterModule]
 })
 export class RegistradoCitaEspecialidadComponent implements OnInit {
-  specialty: Specialty = new Specialty();
   specialties: Specialty[] = [];
   selectedSpecialty: Specialty;
   provincias: Provincias[] = [];
@@ -26,24 +29,38 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
   selectedHospital: Hospital;
   doctores: Doctor[] = [];
   selectedDoctor: Doctor;
+  usuario:any;
+  user: Usuario = new Usuario();
+
+    paciente: Paciente = {
+        id: 0,
+        name: '',
+        dni: '',
+        birthdate: '',
+        address: '',
+        phone: '',
+        emergency_phone: '',
+        user: this.user, 
+        gender: ''
+    };
+  
 
   constructor(
     private patientService: PacienteService,
+    private appointmentService: AppointmentService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
     this.getSpecialties();
+    this.usuario=sessionStorage.getItem("usernameid");
+    // this.getPatient(this.usuario);
   }
 
   getSpecialties(): void {
     this.patientService.getSpecialties().subscribe(
       (data: Specialty[]) => {
         this.specialties = data;
-        if (this.specialties.length === 1) {
-          this.selectedSpecialty = this.specialties[0];
-          this.onSpecialtyChange({ target: { value: this.selectedSpecialty.id } });
-        }
       },
       error => {
         console.error('Error al hacer el fetch', error);
@@ -57,10 +74,6 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     this.patientService.getProvincesBySpecialty(specialtyId).subscribe(
       (data: Provincias[]) => {
         this.provincias = data;
-        if (this.provincias.length === 1) {
-          this.selectedProvince = this.provincias[0];
-          this.onProvinceChange({ target: { value: this.selectedProvince.id } });
-        }
       },
       error => {
         console.error('Error al obtener provincias', error);
@@ -72,14 +85,10 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
     const selectedProvinceId = event.target.value;
     this.selectedProvince = this.provincias.find(provincia => provincia.id === +selectedProvinceId);
 
-    if (this.selectedProvince && this.selectedSpecialty) {
-      this.patientService.getHospitalsByProvinceAndSpecialty(this.selectedProvince.id, this.selectedSpecialty.id).subscribe(
+    if (this.selectedProvince) {
+      this.patientService.getHospitalByProvince(this.selectedProvince.id).subscribe(
         (data: Hospital[]) => {
           this.hospitales = data;
-          if (this.hospitales.length === 1) {
-            this.selectedHospital = this.hospitales[0];
-            this.onHospitalChange({ target: { value: this.selectedHospital.id } });
-          }
         },
         error => {
           console.error('Error al obtener hospitales', error);
@@ -91,14 +100,11 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
   onHospitalChange(event: any): void {
     const selectedHospitalId = event.target.value;
     this.selectedHospital = this.hospitales.find(hospital => hospital.id === +selectedHospitalId);
-
+    
     if (this.selectedHospital && this.selectedSpecialty) {
       this.patientService.getDoctorByHospitalAndSpecialty(this.selectedHospital.id, this.selectedSpecialty.id).subscribe(
         (data: Doctor[]) => {
           this.doctores = data;
-          if (this.doctores.length === 1) {
-            this.selectedDoctor = this.doctores[0];
-          }
         },
         error => {
           console.error('Error al obtener doctores', error);
@@ -106,9 +112,21 @@ export class RegistradoCitaEspecialidadComponent implements OnInit {
       );
     }
   }
+  
+  
 
   onDoctorChange(event: any): void {
     const selectedDoctorId = event.target.value;
     this.selectedDoctor = this.doctores.find(doctor => doctor.id === +selectedDoctorId);
   }
+
+  getPatient(id:number){
+    this.patientService.getPatientByUser(id).subscribe(
+        data=>{
+            this.paciente=data;
+
+    })
+  }
+
+
 }
