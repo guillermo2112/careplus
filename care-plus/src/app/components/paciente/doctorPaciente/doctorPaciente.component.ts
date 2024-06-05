@@ -30,6 +30,10 @@ export class DoctorPacienteComponent implements OnInit {
   doctores_clear: Doctor[] = [];
   speciality :Specialty [] = [];
 
+  tamañoPag: number = 9;
+  paginaActual: number = 1;
+  totalPag: number = 1;
+
   constructor(
     private doctorService: DoctorService,
     private router: Router
@@ -58,7 +62,10 @@ export class DoctorPacienteComponent implements OnInit {
     this.doctorService.listDoctor().subscribe(dato => {
       this.doctores = dato;
       this.doctores_clear = dato;
-    });
+      
+    })
+    this.totalPag = Math.ceil(this.doctores.length / this.tamañoPag);
+    this.paginateDoctores();
   }
 
   updateDoctor(id: number) {
@@ -134,6 +141,9 @@ export class DoctorPacienteComponent implements OnInit {
   limpiar_filtros(): void {
     this.doctores = [...this.doctores_clear];
     this.name = '';
+    this.paginaActual = 1;
+    this.totalPag = Math.ceil(this.doctores.length / this.tamañoPag);
+    this.paginateDoctores();
   }
 
   ordenar_nombre(){
@@ -141,6 +151,73 @@ export class DoctorPacienteComponent implements OnInit {
   }
   ordenar_nombre_des(){
     this.doctores.sort((b, a) => a.name.localeCompare(b.name));
+  }
+
+  paginateDoctores(): void {
+    const startIndex = (this.paginaActual - 1) * this.tamañoPag;
+    const endIndex = startIndex + this.tamañoPag;
+    this.doctores = this.doctores_clear.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number): void {
+    if (page > 0 && page <= this.totalPag) {
+      this.paginaActual = page;
+      this.paginateDoctores();
+    }
+  }
+
+  nextPage(): void {
+    if (this.paginaActual < this.totalPag) {
+      this.paginaActual++;
+      this.paginateDoctores();
+    }
+  }
+
+  previousPage(): void {
+    if (this.paginaActual > 1) {
+      this.paginaActual--;
+      this.paginateDoctores();
+    }
+  }
+
+  setPage(page: number | string): void {
+    if (page !== '...' && +page > 0 && +page <= this.totalPag) {
+      this.paginaActual = +page;
+      this.paginateDoctores();
+    }
+  }
+
+  getPages(): (number | string)[] {
+    const totalVisiblePages = 5;
+    const pages: (number | string)[] = [];
+    if (this.totalPag <= totalVisiblePages + 1) {
+      for (let i = 1; i <= this.totalPag; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (this.paginaActual <= 3) {
+        for (let i = 1; i <= totalVisiblePages; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPag);
+      } else if (this.paginaActual >= this.totalPag - 2) {
+        pages.push(1);
+        pages.push('...');
+        for (let i = this.totalPag - totalVisiblePages + 1; i <= this.totalPag; i++) {
+          pages.push(i);
+        }
+      } else {
+        pages.push(1);
+        pages.push('...');
+        for (let i = this.paginaActual - 1; i <= this.paginaActual + 1; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPag);
+      }
+    }
+    return pages;
   }
 
 }

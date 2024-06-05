@@ -18,6 +18,8 @@ export class RegistradoCitaProfesionalesComponent implements OnInit {
     selectedDoctor: Doctor;
     hospitales: Hospital[] = [];
     selectedHospital: Hospital;
+    selectedDate: string;
+date: Date;
  
     constructor(
         private patientService: PacienteService,
@@ -53,4 +55,8 @@ export class RegistradoCitaProfesionalesComponent implements OnInit {
             }
         );
     }
+    // onDateChange(newDate: string) {
+    //     console.log('Selected date:', newDate);
+    
+    //   }
 }

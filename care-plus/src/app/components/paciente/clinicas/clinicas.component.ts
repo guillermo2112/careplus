@@ -12,7 +12,7 @@ import { NavbarComponent } from "../navbar/navbar.component";
     selector: 'app-clinicaspaciente',
     standalone: true,
     templateUrl: './clinicas.component.html',
-    styleUrl: './clinicas.component.css',
+    styleUrls: ['./clinicas.component.css'],
     imports: [
         CommonModule,
         FormsModule,
@@ -21,20 +21,22 @@ import { NavbarComponent } from "../navbar/navbar.component";
     ]
 })
 export class ClinicasComponent implements OnInit{
-  
+  hospital: any[] = [];
+  hospital_clear: any[] = [];
+  nombre: string = '';
+  provincias: Provincias[] = [];
+  seleccionados: string[] = [];
 
-  constructor(private hospital_service:HospitalService, private router:Router){}
+  // Variables para paginación
+  tamañoPag: number = 9;
+  paginaActual: number = 1;
+  totalPag: number = 1;
 
-  hospital:any[] = [];
-  hospital_clear:any[] = [];
-  nombre:string = '';
-  provincias: Provincias []= [];
-  seleccionados:string[]=[];
+  constructor(private hospital_service: HospitalService, private router: Router) {}
 
   ngOnInit(): void {
     this.obtener_hospital();
     this.list_provincias();
-        
   }
 
   list_provincias(){
@@ -65,29 +67,34 @@ export class ClinicasComponent implements OnInit{
 
   ordenar_provincia(){ 
     this.hospital.sort((a, b) => a.province.id - b.province.id);
+    this.updatePaginatedData();
   }
 
   ordenar_id(){
     this.hospital.sort((a, b) => a.id - b.id);
+    this.updatePaginatedData();
   }
 
   ordenar_disponibles(){
     this.hospital.sort((a, b) => a.onDutty.localeCompare(b.onDutty));
+    this.updatePaginatedData();
   }
 
   ordenar_nombre(){
     this.hospital.sort((a, b) => a.name.localeCompare(b.name));
+    this.updatePaginatedData();
   }
 
   buscar_disponibles(){
     this.hospital = this.hospital.filter(hospital => hospital.onDutty === 'ACTIVE');
+    this.updatePaginatedData();
   }
 
-  buscar_nombre(nombre:string){
-    //this.hospital = this.hospital.filter(hospital => hospital.name.toLowerCase().startsWith(nombre.toLowerCase()));
+  buscar_nombre(nombre: string){
     const nombres = this.nombre.toLowerCase().split(' ');
     this.hospital = this.hospital.filter(hospital => {
-      return nombres.every(nombre => hospital.name.toLowerCase().includes(nombre))});
+      return nombres.every(nombre => hospital.name.toLowerCase().includes(nombre))
+    });
     if (this.hospital.length === 0) {
       Swal.fire({
         title: "Opps...",
@@ -96,9 +103,10 @@ export class ClinicasComponent implements OnInit{
       });
       this.limpiar_filtros();
     }
+    this.updatePaginatedData();
   }
 
-  buscar_provincia(provincia:string){
+  buscar_provincia(provincia: string){
     this.limpiar_filtros();
     this.hospital = this.hospital.filter(hospital => hospital.province.name.toLowerCase().startsWith(provincia.toLowerCase()));
     if (this.hospital.length === 0) {
@@ -109,15 +117,19 @@ export class ClinicasComponent implements OnInit{
       });
       this.limpiar_filtros();
     }
+    this.updatePaginatedData();
   }
 
   limpiar_filtros(){
     this.hospital = this.hospital_clear.slice();
-    this.nombre='';
+    this.nombre = '';
+    this.paginaActual = 1;
+    this.totalPag = Math.ceil(this.hospital.length / this.tamañoPag);
+    this.updatePaginatedData();
   }
 
-  detalles_hospital(id:number){
-    this.router.navigate(['clinica',id]);
+  detalles_hospital(id: number){
+    this.router.navigate(['clinica', id]);
   }
 
   private obtener_hospital(){
@@ -126,9 +138,11 @@ export class ClinicasComponent implements OnInit{
       this.hospital_clear = dato;
       
     });
+    this.totalPag = Math.ceil(this.hospital.length / this.tamañoPag);
+    this.updatePaginatedData();
   }
 
-  seleccionarAccion(event: Event):void {
+  seleccionarAccion(event: Event): void {
     const selectElement = event.target as HTMLSelectElement;
     const accion = selectElement.options[selectElement.selectedIndex].value;
     this.limpiar_filtros();
@@ -149,28 +163,94 @@ export class ClinicasComponent implements OnInit{
         this.buscar_disponibles();
         break;
       default:
-
         break;
     }
+    this.updatePaginatedData();
   }
-  value:any;
-  
 
+  changePage(page: number): void {
+    if (page > 0 && page <= this.totalPag) {
+      this.paginaActual = page;
+      this.updatePaginatedData();
+    }
+  }
 
-updateHospital(id: number): void {
-  this.router.navigate(['update-hospital', id]);
-}
+  nextPage(): void {
+    if (this.paginaActual < this.totalPag) {
+      this.paginaActual++;
+      this.updatePaginatedData();
+    }
+  }
 
+  previousPage(): void {
+    if (this.paginaActual > 1) {
+      this.paginaActual--;
+      this.updatePaginatedData();
+    }
+  }
 
+  setPage(page: number | string): void {
+    if (page !== '...' && +page > 0 && +page <= this.totalPag) {
+      this.paginaActual = +page;
+      this.updatePaginatedData();
+    }
+  }
 
-getHospitalById(id: number): void {
-  this.hospital_service.obtener_hospital_id(id).subscribe(data => {
-    this.hospital = [data];
-  });
-}
+  getPages(): (number | string)[] {
+    const totalVisiblePages = 5;
+    const pages: (number | string)[] = [];
+    if (this.totalPag <= totalVisiblePages + 1) {
+      for (let i = 1; i <= this.totalPag; i++) {
+        pages.push(i);
+      }
+    } else {
+      if (this.paginaActual <= 3) {
+        for (let i = 1; i <= totalVisiblePages; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPag);
+      } else if (this.paginaActual >= this.totalPag - 2) {
+        pages.push(1);
+        pages.push('...');
+        for (let i = this.totalPag - totalVisiblePages + 1; i <= this.totalPag; i++) {
+          pages.push(i);
+        }
+      } else {
+        pages.push(1);
+        pages.push('...');
+        for (let i = this.paginaActual - 1; i <= this.paginaActual + 1; i++) {
+          pages.push(i);
+        }
+        pages.push('...');
+        pages.push(this.totalPag);
+      }
+    }
+    return pages;
+  }
 
+  private updatePaginatedData(): void {
+    const startIndex = (this.paginaActual - 1) * this.tamañoPag;
+    const endIndex = startIndex + this.tamañoPag;
+    this.hospital = this.hospital_clear.slice(startIndex, endIndex);
 
-goToCreate() {
-  window.location.href = '/add-hospital';
-}
+  }
+
+  updateHospital(id: number): void {
+    this.router.navigate(['update-hospital', id]);
+  }
+
+  getHospitalById(id: number): void {
+    this.hospital_service.obtener_hospital_id(id).subscribe(data => {
+      this.hospital = [data];
+    });
+  }
+
+  goToCreate() {
+    window.location.href = '/add-hospital';
+  }
+
+  trackById(index: number, item: any): any {
+    return item.id;
+  }
 }

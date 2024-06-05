@@ -103,4 +103,8 @@ export class PacienteService {
 
     return this.httpClient.get<string[]>(`${this.baseURL}/api/patient/AppointmentAvaliable`, { params: params });
   }
+
+getCalendarioDoctor(idDoctor:number):Observable<Fecha[]>{
+    return this.httpClient.get<Fecha[]>(`${this.baseURL}/api/patient/AppointmentCalendar/${idDoctor}`);
+  }
 }

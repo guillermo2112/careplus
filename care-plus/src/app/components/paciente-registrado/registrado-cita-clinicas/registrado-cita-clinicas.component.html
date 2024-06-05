@@ -6,7 +6,7 @@
             <button [routerLink]="['/registrado-pedir-cita']" routerLinkActive="router-link-active" >volver</button>
             <div class="card shadow border-0">
                 <div class="card-body">
-                    <form >
+                    <form formGroup="appointmentForm">
                         <fieldset>
                             <legend>Clinicas</legend>
                             <div class="form-group">
@@ -53,9 +53,12 @@
                                     </div>
                                 }
                             </div>
-
-                           
-                        
+                            <div class="form-group">
+                            <input type="date" [(ngModel)]="selectedDate" (ngModelChange)="onDateChange($event)">
+                            <p>Selected Date: {{ selectedDate}}</p>
+                            
+                            </div>
+                          
                         </fieldset>
                         <button type="submit" class="btn btn-success">Guardar</button>
                     </form>
