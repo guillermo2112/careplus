@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DoctorSidebarComponent } from "../doctor-sidebar/doctor-sidebar.component";
 import { Router, RouterModule } from '@angular/router';
 import { UserService } from '../../../services/user.service';
@@ -16,6 +16,8 @@ import { HeaderComponent } from "../../shared/header/header.component";
         RouterModule, HeaderComponent]
 })
 export class DoctorProfileComponent implements OnInit{
+
+    @Input() doc: Doctor;
 
     user: Usuario = new Usuario();
 

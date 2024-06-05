@@ -68,3 +68,19 @@
 
 
 </section>
+
+<nav aria-label="Page navigation example" class="flex-column text-end">
+  <ul class="pagination">
+    <li class="page-item" [class.disabled]="paginaActual === 1">
+      <a class="page-link" (click)="previousPage()">Anterior</a>
+    </li>
+    <li class="page-item" *ngFor="let page of getPages()" [class.active]="paginaActual === page"
+      [class.disabled]="page === '...'">
+      <a class="page-link" (click)="setPage(page)" *ngIf="page !== '...'">{{ page }}</a>
+      <span class="page-link" *ngIf="page === '...'">...</span>
+    </li>
+    <li class="page-item" [class.disabled]="paginaActual === totalPag">
+      <a class="page-link" (click)="nextPage()">Siguiente</a>
+    </li>
+  </ul>
+</nav>
