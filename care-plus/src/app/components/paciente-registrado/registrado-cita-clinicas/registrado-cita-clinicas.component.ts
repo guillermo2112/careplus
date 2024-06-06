@@ -14,6 +14,7 @@ import { Calendar } from '@fullcalendar/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Fecha } from '../../../entities/Fecha';
 import { DatePipe } from '@angular/common';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -24,6 +25,7 @@ import { DatePipe } from '@angular/common';
     imports: [HeaderComponent, RegistradoSidebarComponent, FormsModule, RouterModule]
 })
 export class RegistradoCitaClinicasComponent implements OnInit {
+
   provincias: Provincias[] = [];
   selectedProvince: Provincias;
   hospitales: Hospital[] = [];
@@ -165,6 +167,12 @@ listFechas: AppointmentDTO[] = [];
     );
 
   }
-
-
+onSubmit() {
+  Swal.fire({
+    title: "Enhorabuena!",
+        text: "Cita creada con exito.",
+        icon: "success"
+  });
+  this.router.navigate(['/registrado-home']);
 }
+  }
